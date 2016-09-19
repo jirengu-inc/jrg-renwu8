@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-7-2</title>
+	<style>
+		body{
+			font-size: 20px;
+		}
+		input{
+			margin-bottom: 5px;
+		}
+		.name{
+			width: 230px;
+			height: 20px;
+			font-size: 20px;
+		}
+		.maneywords{
+			width: 650px;
+			height: 350px;
+			font-size: 50px;
+		}
+		.submit{
+			width: 70px;
+			height: 30px;
+			font-size: 20px;
+		}
+		.mycar{
+			font-size: 20px;
+		}
+		.middle{
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		姓名：<input class="name" type="text" name="name" placeholder="用户名"><br>
+
+		密码：<input class="name" type="password" name="password" placeholder="密码"><br>
+
+		性别：<input type="radio" name="a" id="cender-a" class="middle" checked>
+			 <label for="cender-a">男</label>
+
+			 <input type="radio" id="cender-b" class="middle" name="a">
+			 <label for="cender-b">女</label><br>
+
+		取向：<input type="radio" id="dir-a" class="middle" name="b">
+			 <label for="dir-a">男</label>
+
+			 <input type="radio" id="dir-b" class="middle" name="b" checked>
+			 <label for="dir-b">女</label><br>
+
+		爱好：<input id="dota" class="middle" type="checkbox" name="game">	
+			 <label for="dota">游戏</label>
+		     <input id="tourism" class="middle" type="checkbox" name="tourism" checked>
+		     <label for="tourism">旅游</label>
+		     <input id="pet" class="middle" type="checkbox" name="pet" checked>
+		     <label for="pet">宠物</label><br>
+
+		评论：<textarea class="maneywords" maxlength=100 placeholder="请输入内容"></textarea><br>
+		我的car：<select class="mycar">
+	      			<option selected>饥人谷</option>
+	      			<option>李三</option>
+	      			<option>马云</option>
+	      			<option>萧峰</option>
+    			</select>
+    		<input type="submit" class="submit" value="提交">
+	</form>
+</body>
+</html>
