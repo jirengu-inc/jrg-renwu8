@@ -4,3 +4,4 @@
 3. git commit -am "update My HomeWork" // 提交文件
 4. git status //查看文件状态
 5. git push origin master //push到github
+6. 大晚上还要做作业，啦啦啦。
