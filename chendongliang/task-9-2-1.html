@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-9-2-1</title>
+	<style>
+		span{
+			 margin: 0 10px;
+			 padding-left: 25px;
+			 font-size: 20px;
+			 cursor: progress;
+		}
+		span.forward{
+			background: url(images/sprite.png) 0px -53px no-repeat;
+		}
+		span.forward:hover{
+			color: #BF20EC;
+			background: url(images/sprite.png) 0px -105px no-repeat;
+		}
+
+		span.start{
+			background: url(images/sprite.png) 0px -27px no-repeat;
+		}
+		span.start:hover{
+			color: #BF20EC;
+			background: url(images/sprite.png) 0px -79px no-repeat;
+		}
+
+		span.stop{
+			background: url(images/sprite.png) 0px -1px no-repeat;
+		}
+		span.stop:hover{
+			color: #BF20EC;
+			background: url(images/sprite.png) 0px -131px no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<span class="forward">前进</span>
+		<span class="start">开始</span>
+		<span class="stop">停止</span>
+	</div>
+</body>
+</html>
