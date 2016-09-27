@@ -23,7 +23,11 @@ body{font:12px/150% Arial,Verdana,"\5b8b\4f53";color:#666;background:#fff}
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.warp{
+    height: 100%;
+    min-height: 600px;
+    position: relative;
+}
 /* 头部开始 */
 header ul{float:right;margin:19px 0 5px 0;padding:0 96px 0 0}
 header ul li{float:left;height:24px;line-height:24px;margin-left:20px;font-size:13px;text-decoration:underline}
@@ -167,7 +171,8 @@ footer .foot-ct{
 </head>
 
 <body>
-<header class="clear">
+<div class="warp">
+    <header class="clear">
     <ul>
         <li><a href="#">糯米</a></li>
         <li><a href="#">新闻</a></li>
@@ -231,6 +236,8 @@ footer .foot-ct{
         </div>
     </div>
 </footer>
+</div>
+
 
 
 
