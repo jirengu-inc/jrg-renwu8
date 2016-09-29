@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-12-3</title>
+	<style>
+		#header,#footer{
+			background: #ccc;
+			height: 50px;
+		}
+		#content{
+			padding-left: 200px;
+		}
+		#content:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.main{
+			background: green;
+			width: 100%;
+			float: left;
+		}
+		.left{
+			background: red;
+			width: 200px;
+			height: 100px;
+			float: left;
+			margin-left: -100%;
+			position: relative;
+			left: -200px;
+		}
+	/*	.right{
+			background: yellow;
+			width: 200px;
+			height: 100px;
+			float: left;
+			margin-left: -200px;
+			position: relative;
+			left: 200px;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="header">头部</div>
+	<div id="content">
+		<div class="main">圣杯布局指两边顶宽，中间自适应的三栏布局，中间栏要放在前面以优先渲染。参考:圣杯布局原理。圣杯布局指两边顶宽，中间自适应的三栏布局，中间栏要放在前面以优先渲染。参考:圣杯布局原理。圣杯布局指两边顶宽，中间自适应的三栏布局，中间栏要放在前面以优先渲染。参考:圣杯布局原理。圣杯布局指两边顶宽，中间自适应的三栏布局，中间栏要放在前面以优先渲染。参考:圣杯布局原理。
+		</div>
+		<div class="left">左侧边栏</div>
+		<!-- <div class="right">右侧边栏</div> -->
+	</div>
+	<div id="footer">尾部</div>
+</body>
+</html>
