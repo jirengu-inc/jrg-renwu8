@@ -5,7 +5,14 @@
 3. `cd jrg-renwu8`
 4. `git config --global user.name 你的名字`
 5. `git config --global user.email 你的邮箱`
-6. 开始写代码！
+6. 在homework文件夹下**新建自己名字的文件夹**
+7. **在自己名字的文件夹下写代码**, 注意不要修改其他人的代码
+8. `git add .`
+9. `git commit -am "modify something"`
+10. `git push origin master`，  如果报错， 先执行 `git pull origin master`再执行`git push origin master`， 如果进入一个奇怪的页面，输入`:wq`。
+
+**一定不要使用 git push -f **
+
 
 # 在线预览
 
