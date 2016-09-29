@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-10-1</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font: 16px "Microsoft Yahei";
+
+        }
+        #header{
+            border:1px solid;
+            height:50px;
+            background-color: #333333;
+        }
+        #header .nav{
+            width:900px;
+            height:50px;
+            margin:0 auto;
+
+        }
+        #header .nav ul{
+            margin:0;
+            padding:0;
+            float:right;
+        }
+        #header .nav ul:after{
+            display:block;
+            content: "";
+            clear: both;
+        }
+        #header .nav .nav-item{
+            float: left;
+            margin-right:15px;
+            list-style-type: none;
+        }
+        #header  .nav .nav-item:after{
+            display:block;
+            content: "";
+            clear:both;
+        }
+
+        #header .nav a{
+            display: block;
+            text-decoration: none;
+            color: white;
+            height:50px;
+            line-height:50px;
+            padding:0 10px;
+        }
+        #header .nav a:hover{
+            color:black;
+            background-color: white;
+        }
+        #comment{
+            width:900px;
+            height: 500px;
+            font-size: 14px;
+            color:#656565;
+            margin:0 auto;
+            margin-top: 10px;
+        }
+        #comment .comment-left{
+            width:200px;
+            height:500px;
+            background-color: #eee;
+            float:left;
+        }
+        #comment .comment-left:after{
+            display:block;
+            content:"";
+            clear:both;
+        }
+
+        #comment .comment-right{
+
+            margin-left: 10px;
+            width:670px;
+            height:140px;
+            background-color: #eee;
+            float:left;
+            padding: 20px 10px;
+
+        }
+        #comment .comment-right:after{
+            display:block;
+            content:"";
+            clear:both;
+        }
+        #comment h1{
+            margin:20px 0;
+        }
+        #comment p{
+            margin:0;
+            padding:0;
+        }
+        #footer{
+            padding:10px 0;
+            background-color:#333;
+        }
+        #footer .bottom-nav{
+            margin:0 auto;
+            width:900px;
+            height:21px;
+            line-height: 21px;
+        }
+        #footer a{
+            text-decoration: none;
+            color:white;
+        }
+        #footer li{
+            list-style-type: none;
+            float: left;
+            margin-left: 10px;
+        }
+        #footer li:after{
+            display:block;
+            content:"";
+            clear:both;
+        }
+        #footer ul{
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="nav">
+            <img src="http://cdn.jirengu.com/public/logo-tiny.png" width="162px" height="40px" alt="jirengu">
+             <ul>
+                 <li class="nav-item">
+                     <a href="#">技能</a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="#">经历</a>
+                 </li>
+                 <li class="nav-item">
+                 <a href="#">作品</a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="#">关于</a>
+                 </li>
+             </ul>
+        </div>
+    </div>
+    <div id="comment">
+        <div class="comment-left"></div>
+        <div class="comment-right">
+            <h1>我的作品</h1>
+            <p>生活很美好</p>
+            <p>心情不错</p>
+            <p>代码写的很漂亮</p>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="bottom-nav">
+           <ul>
+            <li><a href="#">饥人谷</a> </li>
+            <li><a href="#">JSCODE</a></li>
+            <li><a href="#">JISBIN</a></li>
+           </ul>
+        </div>
+    </div>
+</body>
+</html>

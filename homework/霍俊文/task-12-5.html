@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-12-5</title>
+    <style type="text/css">
+        html,body{
+            margin:0;
+            padding:0;
+        }
+        #header{
+            height:50px;
+            background-color: #cccccc;
+        }
+        #content:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #content .main{
+            width:100%;
+            float:left;
+        }
+        #content .main .wrap{
+            background-color: green;
+            margin-right:200px;
+        }
+        #content .aside{
+            float: left;
+            background-color: yellow;
+            width:200px;
+            height:200px;
+            margin-left: -200px;
+        }
+        #footer{
+            height: 50px;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div id="header">头部</div>
+<div id="content">
+    <div class="main">
+        <div class="wrap">双飞翼布局</div>
+    </div>
+    <div class="aside">右侧边栏</div>
+    </div>
+<div id="footer">底部</div>
+
+</body>
+</html>
