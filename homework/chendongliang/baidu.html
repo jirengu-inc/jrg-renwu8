@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>百度一下，你就知道</title>
+<link rel="shortcut icon" href="images/bd_icon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_1474882828_8743393.css">
+<style>
+*{margin:0;padding:0}
+img{border:0;}
+a{text-decoration: none;}
+li{list-style:none}
+button{border:0;outline:none;}
+input{border:none;outline:none;}
+body{font:12px/150% Arial,Verdana,"\5b8b\4f53";color:#666;background:#fff}
+.clear:after{display:block;content:"";clear:both}
+.icon {
+  font-family:"icon" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.warp{
+    height: 100%;
+    min-height: 600px;
+    position: relative;
+}
+/* 头部开始 */
+header ul{float:right;margin:19px 0 5px 0;padding:0 96px 0 0}
+header ul li{float:left;height:24px;line-height:24px;margin-left:20px;font-size:13px;text-decoration:underline}
+header ul li a{color:#333;font-weight:bold;font-size:13px;text-decoration:underline}
+header ul li a:hover{color:#00c}
+.bri{font-size:13px;text-align:center;border-bottom:1px solid #38f;margin-right:12px;position:absolute;width:60px;color:white;height:23px;background:#38f;text-decoration:none}
+/* 头部结束 */
+
+
+/* 主体内容开始 */
+content{
+    width: 100%;
+    margin-top: 35px;
+    display: block;
+    text-align: center;
+}
+
+content .logo img{
+    width: 270px;
+    height: 129px;
+}
+content .search span{
+    width: 539px;
+    position: relative
+}
+content .search span input{
+    width: 539px;
+    height: 34px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    position: relative;
+    right: -2px;
+}
+content .search span .icon-yuyin{
+    position: absolute;
+    font-size: 25px;
+    right: 53px;
+    top: 0;
+
+}
+content .search span .icon-xiangji{
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 0;
+}
+content .search span .vertical{
+    position: absolute;
+    font-size: 20px;
+    right: 46px;
+    background: #ccc;
+    width: 1px;
+    height: 15px;
+    top: 0;
+}
+content .search span input:focus {
+    border: 1px solid #3385ff;
+}
+
+content .search button{
+    letter-spacing: 1px;    /* 设置字母间距 */
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    color: white;
+    font-size: 15px;
+    background: #3385ff;
+    left: -2px;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+content .search button:hover{
+    background: #317ef3;
+}
+/* 主体内容结束 */
+
+
+/* 底部开始 */
+footer{
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 23px;
+}
+footer .foot-ct{
+    display: inline-block;
+
+}
+.foot-ct .qrcode{
+    display: inline-block;
+}
+.foot-ct .qrcode2{
+    margin-left: 33px;
+}
+.foot-ct .qrcode .qrcode-img{
+    float: left;
+    width: 60px;
+    height: 60px;
+    background: url(https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/qrcode/zbios_a4b2d86f.png) 0 0 no-repeat;
+}
+.foot-ct .qrcode .qrcode-text{
+    float: left;
+    color: #999;
+    line-height: 23px;
+    margin: 8px 0 0 10px;
+}
+.foot-ct .qrcode .qrcode-text p{
+    text-align: left;
+}
+.foot-ct .qrcode .qrcode-text p b{
+    color: #666;
+    font-weight: bold;
+}
+.foot-ct .qrcode .qrcode-text p span{
+    letter-spacing: 1px;
+}
+.foot-ct2{
+    display: inline-block;
+    text-align: left;
+    margin-left: 33px;
+    line-height: 22px;
+    position: relative;
+    top: -2px;
+}
+.foot-ct2 p a{
+    text-decoration: underline;
+    color: #999;
+}
+.foot-ct2 .lh .lh-a{
+    margin-left: 0;
+}
+.foot-ct2 .lh a{
+    margin-left: 25px;
+}
+
+
+/* 底部结束 */
+</style>
+</head>
+
+<body>
+<div class="warp">
+    <header class="clear">
+    <ul>
+        <li><a href="#">糯米</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">好123</a></li>
+        <li><a href="#">地图</a></li>
+        <li><a href="#">视频</a></li>
+        <li><a href="#">贴吧</a></li>
+        <li><a href="#">登陆</a></li>
+        <li><a href="#">设置</a></li>
+        <li><a href="#" class="bri">更多产品</a></li>
+    </ul>
+</header>
+<content>
+    <div class="logo">
+        <img src="images/bd_logo.png" alt="logo ">
+    </div>
+    <div class="search">
+        <span>
+            <input type="text">
+            <i class="icon icon-yuyin"></i>
+            <i class="icon icon-xiangji"></i>
+            <i class="vertical"></i>
+        </span>
+        
+        <button>百度一下</button>
+        
+    </div>
+</content>
+<footer>
+    <div class="footer-warp">
+        <div class="foot-ct">
+            <div class="qrcode">
+                <div class="qrcode-img"></div>
+                <div class="qrcode-text">
+                    <p><b>手机百度</b></p>
+                    <p><span>快人一步</span></p>
+                </div>
+            </div>
+            <div class="qrcode qrcode2">
+                <div class="qrcode-img"></div>
+                <div class="qrcode-text">
+                    <p><b>百度糯米</b></p>
+                    <p><span>一元大餐</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="foot-ct2">
+            <p class="lh">
+                <a class="lh-a" href="#">把百度设为主页</a>
+                <a href="#">关于百度</a>
+                <a href="#">About  Baidu</a>
+                <a href="#">百度推广</a>
+            </p>
+            <p class="cp">
+                <span>©2016 Baidu</span>
+                <a href="#">使用百度前必读</a>
+                <a href="#">意见反馈</a>
+                <span>京ICP证030173号</span>
+            </p>
+            <p class="jgwab"><a href="#">京公网安备11000002000001号</a></p>
+        </div>
+    </div>
+</footer>
+</div>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两栏布局</title>
+	<style type="text/css">
+		#header,#footer{
+			height: 40px;
+			background-color: red;
+		}
+		#content .aside{
+			background-color: blue;
+			width: 200px;
+			opacity: 0.3;
+			float: left;
+		}
+		#content .main{
+			background-color: pink;
+			/*float: left;*/
+			overflow: auto;
+		}
+		/*#content:after{
+			content: '';
+			display: block;
+			clear: both;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="header">header</div>
+	<div id="content">
+		<div class="aside">aside</div>
+		<div class="main">我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是main我是mainv我是main</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

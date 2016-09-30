@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-9-1</title>
+	<style>
+		.btn{
+			display: inline-block;
+			padding: 5px 6px;
+			font-size: 15px;
+			text-decoration: none;		/*去掉a标签的下划线*/
+			color: #fff;
+			line-height: 100%;			/*设置button默认的行高，否则会比其他的按钮稍大*/
+			outline: none;         		/*清除button在点击后出现蓝色边框*/
+			border-radius: 3px;			/*设置边框圆角*/
+			border: none;				/*去掉边框*/
+			background-color: #F36E41;
+			cursor: pointer;			/*让元素在鼠标放置时出现小手点击的形状*/
+		}
+
+		.btn:hover{
+			background-color: #c14d21;	/*设置鼠标滑过背景颜色*/
+		}
+
+		.btn:active{
+			background-color: #e25f31;	/*设置鼠标点击时背景颜色*/
+		}
+	</style>
+</head>
+<body>
+	<a class="btn" href="#">确定</a>
+	<span class="btn">取消</span>
+	<div class="btn">提交</div>
+	<button class="btn">确定</button>
+</body>
+</html>
