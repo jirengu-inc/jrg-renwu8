@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+add task 9-2
+=======
 # 使用步骤
 
 1. 获取本 repo 读写权限
@@ -18,4 +21,5 @@
 
 这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu8/
 预览。
+>>>>>>> a4fb35b647f17db459fc9a069664cb014d563e3e
 
