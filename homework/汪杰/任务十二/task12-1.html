@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务12</title>
+    <style type="text/css">
+    html,
+    body,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    .stencil {
+        width: 640px;
+        margin: 0 auto;
+    }
+    
+    #task {
+        margin-top: 20px;
+    }
+    
+    .main {
+        background-color: #b0b8b2;
+        padding-top: 20px;
+    }
+    
+    .box {
+        margin-left: -20px;
+    }
+    
+    .main .box>li {
+        width: 200px;
+        height: 50px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        background-color: #004120;
+        float: left;
+    }
+    
+    .box:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="task" class="stencil">
+        <div class="main">
+            <ul class="box">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

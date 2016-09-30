@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-12-1</title>
+    <style type="text/css">
+        html,body,ul,li{
+            margin:0;
+            padding:0;
+        }
+        #header{
+            padding:20px;
+        }
+        .ct{
+            margin:0px auto;
+            width:900px;
+            background-color: #aaaaaa;
+        }
+        .box{
+
+            margin-left: -21px;
+            padding-bottom: 10px;
+        }
+        .ct .box:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .box>li{
+            width:286px;
+            height:100px;
+
+            background-color: green;
+            float:left;
+            list-style-type: none;
+            margin-left: 21px;
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="ct">
+        <ul class="box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

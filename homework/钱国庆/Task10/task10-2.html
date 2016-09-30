@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task10-2</title>
+    <style>
+        .content1 {
+            position: relative;
+        }
+        .top {
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-bottom-color: #cccccc;
+        }
+        .top2 {
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: #ff0000;
+            border-right-color: #ff0000;
+            position: relative;
+            left: 132px;
+            top: 25px;
+            z-index: 1;
+        }
+        .top3 {
+            width: 15px;
+            height: 15px;
+            border: 1px solid transparent;
+            border-left-color: #c3cfd9;
+            border-top-color: #c3cfd9;
+            transform: rotate(45deg);
+            position: absolute;
+            left: 15px;
+            top: 17px;
+            z-index: 1;
+            background: #ffffff;
+        }
+        .box1 {
+            width: 150px;
+            height: 80px;
+            border: 1px solid #c3cfd9;
+            position: absolute;
+            top: 25px;
+            background: #ffffff;
+        }
+        .position2 {
+            top: 100px;
+        }
+        .position3 {
+            top: 220px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content1">
+        <div class="top"></div>
+        <div class="box1"></div>
+    </div>
+    <div class="content1 position2">
+        <div class="top2"></div>
+        <div class="box1"></div>
+    </div>
+    <div class="content1 position3">
+        <div class="top3"></div>
+        <div class="box1"></div>
+    </div>
+</body>
+</html>

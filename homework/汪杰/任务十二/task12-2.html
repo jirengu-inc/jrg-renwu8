@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务12-2</title>
+    <style type="text/css">
+      html,body{
+        margin: 0;
+        padding: 0;
+      }
+      #header,#footer{
+        height: 50px;
+        background-color: #ccc;
+      }
+      #container{
+        padding: 0 200px;
+      }
+      .main{
+        width: 100%;
+        height: 400px;
+        background-color: #008100;
+        float: left;
+      }
+      .left{
+        width: 200px;
+        height: 500px;
+        background-color: red;
+        float: left;
+        margin-left: -100%;
+        position: relative;
+        left: -200px;
+      }
+      .right{
+        width: 200px;
+        height: 500px;
+        background-color: yellow;
+        float: left;
+        margin-left: -200px;
+        position: relative;
+        left: 200px;
+      }
+      #container:after{
+        content: '';
+        display: block;
+        clear: both;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="header">header</div>
+    <div id="container">
+      <div class="main">饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油饥人谷学习加油</div>
+      <div class="left aside">
+        左侧边栏，固定宽度
+      </div>
+      <div class="right aside">
+        右侧边栏，固定宽度
+      </div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+
+</html>
