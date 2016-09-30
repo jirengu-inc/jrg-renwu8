@@ -1,0 +1,327 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 0.5rem;
+  font-family: '微软雅黑';
+  overflow: auto;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+a {
+  /*取消A标签手指按下时的遮罩层*/
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: #818788;
+}
+img {
+  border: 0px;
+  vertical-align: top;
+}
+li {
+  list-style: none;
+}
+input {
+  /*解决ios下input表单圆角的问题*/
+  -webkit-appearance: none;
+  border: none;
+}
+.head_box {
+  width: 100%;
+  height: 1.85rem;
+  background-color: #fabc09;
+  position: fixed;
+}
+.head_box .left_btn {
+  float: left;
+  width: 1.95rem;
+  height: 1.85rem;
+  background: url("../img/ico-type.jpg") no-repeat 0.55rem 0.25rem;
+  background-size: 0.825rem 1.375rem;
+}
+.head_box .search {
+  float: left;
+  width: 12rem;
+  height: 1.85rem;
+}
+.head_box .search .search_form {
+  position: relative;
+  height: 1.85rem;
+}
+.head_box .search .search_form .search_input {
+  border-radius: 0.15rem;
+  margin-top: 0.35rem;
+  width: 10.725rem;
+  height: 1.25rem;
+  padding-left: 1.275rem;
+  font-size: 0.5rem;
+  float: left;
+  background-color: #d5dba9;
+}
+.head_box .search .search_form .ico_search {
+  position: absolute;
+  width: 0.55rem;
+  height: 0.575rem;
+  left: 0.4rem;
+  top: 0.625rem;
+  background: url("../img/ico-search.jpg") no-repeat;
+  background-size: 0.55rem 0.575rem;
+}
+.head_box .shopcar {
+  float: left;
+  width: 2.05rem;
+  height: 1.85rem;
+  background: url("../img/ico-shopCar.jpg") no-repeat 0.425rem 0.2rem;
+  background-size: 1.25rem 1.4rem;
+}
+.wrap {
+  width: 100%;
+  padding-top: 1.85rem;
+}
+.banner {
+  width: 100%;
+  height: 6.8rem;
+}
+.banner img {
+  width: 100%;
+}
+.nav {
+  width: 100%;
+  padding: 0.45rem 0rem 0.05rem 0rem;
+  box-sizing: border-box;
+}
+.nav .navitem {
+  float: left;
+  width: 20%;
+  height: 2.85rem;
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+.nav .navitem img {
+  width: 1.7rem;
+  height: 1.75rem;
+}
+.nav .navitem .title {
+  display: block;
+  font-weight: normal;
+  font-size: 0.5rem;
+  line-height: 1.1rem;
+}
+.suning_tt {
+  width: 100%;
+  height: 2.175rem;
+  margin-top: 2px;
+  background-color: #cce3d1;
+}
+.suning_tt .tt_title {
+  float: left;
+  width: 3.475rem;
+  height: 2.175rem;
+  background: url("../img/ico-tt.jpg") no-repeat 0 0.55rem;
+  background-size: 3.1rem 1.025rem;
+}
+.suning_tt .tt_line {
+  float: left;
+  margin-top: 0.65rem;
+  width: 1px;
+  height: 0.825rem;
+  background: red;
+}
+.suning_tt .tt_list {
+  float: left;
+  width: 10.75rem;
+  padding-top: 0.35rem;
+  box-sizing: border-box;
+  margin-left: 0.8rem;
+}
+.suning_tt .tt_list .item {
+  display: block;
+  line-height: 0.7rem;
+  background: url("../img/ico-list.jpg") no-repeat 0 0.35rem;
+  background-size: 0.15rem 0.15rem;
+  text-indent: 0.425rem;
+}
+.shop_type {
+  margin-top: 0.475rem;
+}
+.shop_type .type_top {
+  height: 6.2rem;
+  overflow: hidden;
+}
+.shop_type .type_top a {
+  float: left;
+}
+.shop_type .type_top .big_img {
+  margin-right: 1px;
+  width: 7.975rem;
+  height: 6.2rem;
+}
+.shop_type .type_top .big_img img {
+  width: 7.975rem;
+  height: 6.2rem;
+}
+.shop_type .type_top .sub_img {
+  margin-bottom: 1px;
+  width: 7.975rem;
+  height: 3.075rem;
+}
+.shop_type .type_top .sub_img img {
+  width: 7.975rem;
+  height: 3.075rem;
+}
+.shop_type .bottom_item {
+  float: left;
+  width: 3.95rem;
+  height: 6.425rem;
+  margin: 0 1px 1px 0;
+}
+.shop_type .bottom_item img {
+  width: 3.975rem;
+  height: 6.425rem;
+}
+.suning_zq {
+  width: 100%;
+  height: 6.425rem;
+  background: #cce3d1;
+  margin-top: 0.775rem;
+  padding-left: 0.4rem;
+  box-sizing: border-box;
+}
+.suning_zq .head {
+  width: 100%;
+  height: 1.35rem;
+}
+.suning_zq .head .head_left {
+  float: left;
+}
+.suning_zq .head .head_left .title {
+  float: left;
+  width: 2.9rem;
+  height: 1rem;
+  margin-right: 0.4rem;
+  background: url("../img/title-qg.jpg") no-repeat;
+  background-size: 2.9rem 1rem;
+}
+.suning_zq .head .head_left .time_box {
+  float: left;
+  padding-top: 0.35rem;
+}
+.suning_zq .head .head_left .time_box .time_name {
+  float: left;
+  font-size: 0.45rem;
+  color: red;
+}
+.suning_zq .head .head_left .time_box .update_time {
+  margin-left: 0.225rem;
+  float: left;
+}
+.suning_zq .head .head_left .time_box .update_time .time_item {
+  float: left;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid #809474;
+  border-radius: 0.1rem;
+  text-align: center;
+  line-height: 0.5rem;
+  font-size: 0.3rem;
+}
+.suning_zq .head .head_left .time_box .update_time .time_item_other {
+  border: 2px solid red;
+}
+.suning_zq .head .head_left .time_box .update_time .time_ico {
+  float: left;
+  width: 0.5rem;
+  height: 0.5rem;
+  text-align: center;
+  line-height: 0.5rem;
+  font-size: 0.3rem;
+}
+.suning_zq .head .head_right {
+  margin-right: 0.25rem;
+  margin-top: 0.275rem;
+  float: right;
+}
+.suning_zq .head .head_right .more {
+  text-align: center;
+  line-height: 0.725rem;
+  float: left;
+  color: #72811b;
+  width: 2.575rem;
+  height: 0.725rem;
+  border-radius: 0.25rem;
+  background-color: #fabc09;
+  font-size: 0.45rem;
+  margin-right: 0.05rem;
+}
+.suning_zq .head .head_right .ico {
+  float: left;
+  width: 0.375rem;
+  height: 0.625rem;
+  background: url("../img/ico-sj.jpg") no-repeat;
+  background-size: 100% 100%;
+}
+.suning_zq .shopping_list {
+  width: 200%;
+}
+.suning_zq .shopping_list .list_item {
+  width: 4.75rem;
+  float: left;
+  margin-right: 0.2rem;
+}
+.suning_zq .shopping_list .list_item .item_img {
+  width: 4.7rem;
+  display: block;
+  border: 1px solid #b2cdb1;
+}
+.suning_zq .shopping_list .list_item .item_bottom {
+  box-sizing: border-box;
+  width: 100%;
+  height: 1.425rem;
+  padding-left: 0.4rem;
+  background-color: #ddd;
+  position: relative;
+}
+.suning_zq .shopping_list .list_item .item_bottom .jiage {
+  display: block;
+  color: #dc0000;
+  line-height: 0.7rem;
+}
+.suning_zq .shopping_list .list_item .item_bottom .yuanjia {
+  display: block;
+  font-size: 0.4rem;
+  line-height: 0.6rem;
+  color: #999;
+}
+.suning_zq .shopping_list .list_item .item_bottom .zhekou {
+  box-sizing: border-box;
+  position: absolute;
+  right: 0.15rem;
+  top: -0.15rem;
+  width: 1.525rem;
+  height: 1.525rem;
+  padding-top: 0.25rem;
+  background: url(../img/ico-zhekou.jpg) no-repeat;
+  background-size: 100%;
+  color: #fff;
+  text-align: center;
+}
+.suning_zq .shopping_list .list_item .item_bottom .zhekou .big_font {
+  font-size: 0.55rem;
+}
+.suning_zq .shopping_list .list_item .item_bottom .zhekou .big_font span {
+  font-size: 0.45rem;
+}
+.suning_zq .shopping_list img {
+  width: 100%;
+}
