@@ -1,9 +1,11 @@
 # jrg-renwu08 student
 
-### Name:Huang Enqiang
+- Name:Huang Enqiang
 
-### Sex:Man
+- Sex:Man
 
-### Age:22
+- Age:22
 
-### Hobby:Woman
+- Hobby:Woman
+
+[代码预览地址](http://book.jirengu.com/jirengu-inc/jrg-renwu8/)
