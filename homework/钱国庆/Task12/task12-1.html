@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task12-1</title>
+    <style>
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        .content-layout {
+            width: 900px;
+            margin: 0 auto;
+        }
+        #content {
+            margin-top: 30px;
+        }
+        #content .clear:after {
+            width: 0;
+            height: 0;
+            display: block;
+            content: '';
+            clear: both;
+        }
+        #content .main {
+            background: #cccccc;
+            margin-top: 20px;
+            padding: 10px 0;
+        }
+        #content .main .items {
+            margin-left: -20px;
+        }
+        .items li {
+            list-style: none;
+            width: 286px;
+            height: 80px;
+            background: green;
+            float: left;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" class="content-layout">
+        <div class="main clear">
+            <ul class="items">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
