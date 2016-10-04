@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task14</title>
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <!--[if IE]>
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <![endif]-->
+    <style>
+        html,body,ul,li{
+            margin:0;
+            padding:0;
+            font-family: "Microsoft Yahei";
+            height:100%;
+        }
+        #header{
+            width:100%;
+            height:100%;
+            background: url("images/bg.jpg") no-repeat;
+            background-size:cover;
+
+
+        }
+        #header .header-main{
+            display: table;
+            height: 100%;
+            vertical-align: middle;
+            margin: 0 auto;
+
+
+        }
+        #header .header-main .header-center{
+            width:960px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #header .header-main a{
+            text-decoration:none;
+            display:block;
+            width:130px;
+            height:50px;
+            line-height:50px;
+            background-color: #656565;
+            color: white;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        #header .header-main a:hover{
+            background-color: black;
+        }
+
+
+        #main .main-headline{
+            padding:50px 0;
+            text-align: center;
+        }
+        #main .main-headline a{
+            text-decoration: none;
+        }
+        #main .main-skill{
+            padding:50px 0;
+            background-color: #333333;
+        }
+        #main .main-skill-about{
+            text-align: center;
+            color: white;
+            width:960px;
+            margin: 0 auto;
+
+        }
+        #main .fa{
+            font-size: 70px;
+        }
+        #main .main-skill-about>hr{
+            width:90px;
+          }
+        #main .main-skill-about>ul{
+            padding-top:20px;
+        }
+        #main .main-skill-about>ul:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+       #main  .main-skill-about>ul>li{
+            float:left;
+            width:25%;
+            list-style-type: none;
+            padding:10px;
+            box-sizing: border-box;
+
+        }
+       #main  .main-skill-about li>a{
+            display: inline-block;
+            color:white;
+            text-decoration: none;
+            width:100px;
+            height:30px;
+            line-height: 30px;
+            background-color: #656565;
+            text-align: center;
+        }
+        #main  .main-skill-about li>a:hover{
+            background-color: black;
+        }
+        #main .main-wrap{
+            background-color: midnightblue;
+            color: #ffffff;
+            padding:200px 0;
+            text-align: center;
+        }
+        #main .main-works{
+            padding:50px 0;
+        }
+        #main .works-wrap{
+            width:960px;
+            margin:0 auto;
+            text-align: center;
+        }
+        #main .works-wrap>hr{
+            width:100px;
+        }
+
+        #main .works-wrap>ul{
+            margin-right: -30px;
+        }
+        #main .works-wrap>ul:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #main .works-wrap>ul>li{
+
+            list-style-type: none;
+            float:left;
+            margin-right: 30px;
+            margin-top:20px;
+        }
+        #main .works-wrap>a{
+            margin:20px 0;
+            display: inline-block;
+            width:100px;
+            height:50px;
+            line-height:50px;
+            background:#656565;
+            color:white;
+        }
+        #main .works-wrap>a:hover{
+            background-color: #000000;
+         }
+        #main .call-to-action{
+            background-color: #1e90ff;
+            color:white;
+            text-align:center;
+            padding:50px 0;
+            margin-top:10px;
+        }
+        #main .call-to-action .call-white{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height:40px;
+            background-color: white;
+            color:black;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        #main .call-to-action .call-white:hover{
+            background-color: #eeeeee;
+        }
+        #main .call-to-action .call-blue{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height:40px;
+            background-color: mediumblue;
+            color:white;
+            text-decoration: none;
+        }
+        #main .call-to-action .call-blue:hover{
+            background-color: black;
+        }
+        #footer{
+            font-size:12px;
+        }
+        #footer .container{
+            padding:30px 0;
+            text-align: center;
+        }
+        #footer .container>ul>li{
+            display: inline-block;
+            font-size: 30px;
+            padding:10px;
+        }
+        #footer a{
+            text-decoration: none;
+            color: #656565;
+        }
+        #footer hr{
+            width:100px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="header-main">
+        <div class="header-center">
+         <h1>JunVincetHuo</h1>
+         <p>
+             这是我的第一次实战
+         </p>
+    <a href="#">Fine Out More</a>
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div class="main-headline">
+            <h2>Let me introduce myself</h2>
+            <p>
+            关于我的简介
+           <a href="#">作品</a>
+            </p>
+
+    </div>
+    <div class="main-skill">
+        <div class="main-skill-about">
+            <h3>技能</h3>
+            <hr>
+            <ul>
+                <li>
+                    <span class="fa fa-html5" ></span>
+                    <br>
+                    html
+                    <p>熟练运用HTML</p>
+                <a href="#">相关作品</a>
+                </li>
+                <li>
+                    <span class="fa fa-css3" ></span>
+                    <br>
+                    css
+                    <p>熟练运用CSS</p>
+                    <a href="#">相关作品</a>
+                </li>
+                <li>
+                    <span class="fa fa-jsfiddle" ></span>
+                    <br>js
+                    <p>熟练运用js</p>
+                    <a href="#">相关作品</a>
+                </li>
+                <li>
+                    <span class="fa fa-git" ></span>
+                    <br>git
+                    <p>熟练运用git</p>
+                    <a href="#">相关作品</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-wrap">
+        <h2>人如果没有梦想，同闲鱼有咩分别？</h2>
+    </div>
+    <div class="main-works">
+        <div class="works-wrap">
+            <h2>我的作品</h2>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="images/portfolio-1.jpg" width="465px" height="305px">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/portfolio-1.jpg" width="465px" height="305px">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/portfolio-1.jpg" width="465px" height="305px">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/portfolio-1.jpg" width="465px" height="305px">
+                    </a>
+                </li>
+            </ul>
+            <a href="#">更多作品</a>
+        </div>
+        <div class="call-to-action">
+            <h3>我是一个很懒的人</h3>
+            <a href="#" class="call-white">Click Me</a>
+            <a href="#" class="call-blue">Loot at me</a>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="container">
+        <h3>我的信息</h3>
+        <p>Guangzhou Guangdong China</p>
+        <p>Panyu</p>
+        <p><span class="fa fa-volume-control-phone"></span>:156-9200-1111</p>
+        <p><span class="fa fa-envelope"></span><a href="#">:530359392@qq.com</a></p>
+        <ul>
+            <li><a href="#" class="fa fa-git"></a></li>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-wechat"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright © hunger 2016</p>
+    </div>
+</div>
+</body>
+</html>
