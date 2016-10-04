@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task10-1</title>
+    <style>
+        .navigator, .footer {
+            width: 900px;
+            height: 50px;
+            background: #333333;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .clear:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+        .navigator img {
+            height: 50px;
+            width: 150px;
+            float: left;
+            padding-left: 100px;
+        }
+        .navigator .nav-list {
+            float: right;
+            margin-right: 50px;
+        }
+        .navigator .nav-list li {
+            float: left;
+            list-style: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-weight: bold;
+        }
+        a {
+            color: #fdfdfd;
+            text-decoration: none;
+        }
+        .content .aside {
+            width: 200px;
+            height: 500px;
+            background: #eeeeee;
+            float: left;
+            margin-left: 100px;
+            margin-top: 10px;
+        }
+        .content .main {
+            width: 620px;
+            background: #eeeeee;
+            float: left;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        .content .main .my-master {
+            color: #656565;
+            font-size: 28px;
+            font-weight: bold;
+            padding-left: 10px;
+            padding-top: 50px;
+            padding-bottom: 30px;
+        }
+        .content .main .my-content {
+            color: #656565;
+            padding-left: 10px;
+            font-size: 14px;
+            padding-top: 8px;
+        }
+        .space {
+            padding-bottom: 50px;
+        }
+        .footer-list {
+            float: left;
+        }
+        .footer-list li {
+            float: left;
+            list-style: none;
+            color: #fdfdfd;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigator clear">
+        <a href="#"><img src="jirengulogo.png" alt="logo"></a>
+        <ul class="nav-list">
+            <li><a href="#">技能</a></li>
+            <li><a href="#">经历</a></li>
+            <li><a href="#">作品</a></li>
+            <li><a href="#">关于</a></li>
+        </ul>
+    </div>
+    <div class="content clear">
+        <div class="aside"></div>
+        <div class="main">
+            <div class="my-master">
+                我的作品
+            </div>
+            <div class="my-content">生活很美好</div>
+            <div class="my-content">心情不错</div>
+            <div class="my-content">代码写的很漂亮</div>
+            <div class="space"></div>
+        </div>
+    </div>
+    <div class="footer clear">
+        <ul class="footer-list">
+            <li><a href="#">饥人谷</a></li>
+            <li><a href="#">JSCODE</a></li>
+            <li><a href="#">JSBIN</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>task7</title>
+	<style>
+		.wrap {
+			width: 900px;
+			margin: 0 auto;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="wrap">
+			<a id="logo" href="#"><img src="" alt=""></a>
+			<ul class="nav">
+				<li><a href="#">导航1</a></li>
+				<li><a href="#">导航2</a></li>
+				<li><a href="#">导航2</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div class="wrap">
+			<div class="aside">侧边栏</div>
+			<div class="main">中心区块</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="wrap">这里是footer</div>
+	</div>
+	
+	<form action="###" method="post">
+		<fieldset>
+			<legend>用户信息登记</legend>
+			<label for="user">姓名:</label>
+			<input type="text" name="user" id="user" placeholder="用户名"><br>
+
+			<label for="password">密码:</label>
+			<input type="password" name="password" id="password" placeholder="请输入密码"><br>
+
+			性别：<label><input type="radio" name="sex" checked>男</label>
+				  <label><input type="radio" name="sex">女</label><br>
+
+			取向：<label><input type="radio" name="sexuality">男</label>
+				  <label><input type="radio" name="sexuality" checked>女</label><br>
+
+			爱好：<label><input type="checkbox" name="love">dota</label>
+				  <label><input type="checkbox" name="love" checked>旅游</label>
+				  <label><input type="checkbox" name="love" checked>宠物<br></label>
+
+			评论：<textarea name="comment" id="comment" cols="30" rows="10" placeholder="ddd"></textarea><br>
+
+			我的car：<select name="car" id="car">
+						<option value="11">马车</option>
+						<option value="22">牛车</option>
+						<option value="22" selected="selected">大黄蜂</option>		
+					</select>
+			<input type="submit" value="提交">
+		</fieldset>
+	</form>
+</body>
+</html>

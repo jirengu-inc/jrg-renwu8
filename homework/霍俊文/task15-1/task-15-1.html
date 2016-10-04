@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-15-1</title>
+        <link href="css/font-awesome.css" rel="stylesheet" />
+        <!--[if IE]>
+        <link href="css/font-awesome.min.css" rel="stylesheet" />
+        <![endif]-->
+    <style>
+        html,body,ul,li{
+            margin:0;
+            padding: 0;
+            font-family: "Microsoft Yahei";
+        }
+        #header .nav{
+            border: 1px solid #cccccc;
+        }
+        #header .nav-item{
+            width:1000px;
+            margin:0 auto;
+            height:45px;
+        }
+        #header .nav-item .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #header .nav-item>ul>li{
+            float:left;
+            list-style-type: none;
+        }
+        #header .nav-item li>a{
+            width:40px;
+            height:45px;
+            line-height: 45px;
+            text-decoration: none;
+            color:#656565;
+            font-size: 14px;
+            padding:0 10px;
+        }
+        #header .drop-down  {
+            display: none;
+            background-color: white;
+            position: absolute;
+        }
+        #header .drop-down>li{
+            border-bottom:1px  dashed #eeeeee;
+            list-style-type: none;
+        }
+        #header .drop-down>li:first-child{
+            border-top: 1px solid #cccccc;
+        }
+        #header .drop-down>li:last-child{
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        #header .nav-item li>a:hover{
+            color:black;
+        }
+        #header .nav-item li:hover .drop-down{
+            display: block;
+        }
+        #header .nav-item .fa-caret-down{
+            font-size:18px;
+        }
+        #header  .nav-item .fa-rocket{
+            font-size: 25px;
+        }
+
+        #main .main-intro{
+            background-color: #b84d45;
+            padding:5px 0;
+        }
+        #main .main-intro-center{
+            width:1000px;
+            margin: 0 auto;
+            color:white;
+        }
+        #main .main-product{
+            width:1000px;
+            margin: 40px auto;
+            font-size:13px;
+
+        }
+        #main .product-nav{
+            background-color: #eeeeee;
+            height:40px;
+            line-height: 40px;
+            border-radius: 5px;
+            padding-left:10px;
+        }
+        #main .product-nav>ul>li {
+            display: inline-block;
+            color: #656565;
+        }
+        #main .product-nav a{
+            color:#b84d45;
+            text-decoration: none;
+        }
+        #main .product-wrap{
+            margin-top:20px;
+          }
+        #main .product-wrap>ul{
+             margin-right: -45px;
+         }
+        #main .product-wrap>ul:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #main .product-wrap>ul>li{
+            float:left;
+            list-style-type: none;
+            border:1px solid #cccccc;
+            margin-right: 45px;
+            margin-bottom:20px;
+            padding-bottom: 10px;
+
+        }
+        #main .product-wrap>ul>li>h3, #main .product-wrap>ul>li>p{
+            padding-left:10px;
+        }
+        #main .product-wrap .search-bottom{
+            display: block;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            text-decoration: none;
+            color: #656565;
+            font-size: 15px;
+            width: 40px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        #main .product-wrap .search-bottom:hover{
+            color:black;
+          }
+        #main .about{
+            padding: 20px 0;
+            background:#b84d45;
+            text-align: center;
+            color:white;
+        }
+        #main .about>a{
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #cccccc;
+            width:50px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 2px;
+        }
+        #foot{
+            margin-top: 40px;
+
+        }
+        #foot .hr{
+            margin:0 auto;
+            border-top:1px solid #ccc;
+            width:1000px;
+            text-align: center;
+            font-size: 13px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="nav">
+        <div class="nav-item">
+            <ul class="clearfix">
+                <li>
+                    <a href="#" class="fa fa-rocket"></a>
+                </li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">项目</a></li>
+                <li><a href="#">简历</a></li>
+                <li>
+                    <a href="#">更多 <span class="fa fa-caret-down"></span></a>
+                      <ul class="drop-down">
+                          <li><a href="#">Github</a> </li>
+                          <li><a href="#">知乎</a> </li>
+                          <li><a href="#">微博</a> </li>
+                      </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div class="main-intro">
+     <div class="main-intro-center">
+         <h2>我的简介</h2>
+         <p>我是一个好人
+            <br>
+         我是一个好人</p>
+      </div>
+    </div>
+    <div class="main-product">
+        <div class="product-nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li>/</li>
+                <li>我的作品</li>
+            </ul>
+        </div>
+        <div class="product-wrap">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="http://book.jirengu.com/jirengu-inc/task/%E4%BB%BB%E5%8A%A117-%E5%AE%9E%E6%88%981/img/1.jpg" alt="图片"
+                        width="300px" height="200px">
+                    </a>
+                    <h3>作品标题</h3>
+                    <p>作品介绍</p>
+                    <a href="#"  class="search-bottom" >查看</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://book.jirengu.com/jirengu-inc/task/%E4%BB%BB%E5%8A%A117-%E5%AE%9E%E6%88%981/img/1.jpg" alt="图片"
+                             width="300px" height="200px">
+                    </a>
+                    <h3>作品标题</h3>
+                    <p>作品介绍</p>
+                    <a href="#" class="search-bottom" >查看</a>
+                </li>
+                <li>
+                    <a href="#"  >
+                        <img src="http://book.jirengu.com/jirengu-inc/task/%E4%BB%BB%E5%8A%A117-%E5%AE%9E%E6%88%981/img/1.jpg" alt="图片"
+                             width="300px" height="200px">
+                    </a>
+                    <h3>作品标题</h3>
+                    <p>作品介绍</p>
+                    <a href="#"  class="search-bottom" >查看</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://book.jirengu.com/jirengu-inc/task/%E4%BB%BB%E5%8A%A117-%E5%AE%9E%E6%88%981/img/1.jpg" alt="图片"
+                             width="300px" height="200px">
+                    </a>
+                    <h3>作品标题</h3>
+                    <p>作品介绍</p>
+                    <a href="#"  class="search-bottom">查看</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="http://book.jirengu.com/jirengu-inc/task/%E4%BB%BB%E5%8A%A117-%E5%AE%9E%E6%88%981/img/1.jpg" alt="图片"
+                             width="300px" height="200px">
+                    </a>
+                    <h3>作品标题</h3>
+                    <p>作品介绍</p>
+                    <a href="#"  class="search-bottom">查看</a>
+                </li>
+                <li>
+                    <a href="#" >
+                        <img src="http://book.jirengu.com/jirengu-inc/task/%E4%BB%BB%E5%8A%A117-%E5%AE%9E%E6%88%981/img/1.jpg" alt="图片"
+                             width="300px" height="200px">
+                    </a>
+                    <h3>作品标题</h3>
+                    <p>作品介绍</p>
+                    <a href="#"  class="search-bottom">查看</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="about">
+        <h2>想更详细了解我？</h2>
+        <p>下载我的简历吧！</p>
+        <a href="#">下载</a>
+    </div>
+</div>
+<div id="foot">
+    <div class="hr">
+        <p>来自@JunVincetHuo</p>
+    </div>
+</div>
+</body>
+</html>
