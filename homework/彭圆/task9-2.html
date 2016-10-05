@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CssSprite</title>
+    <style>
+        .img {
+            display: inline-block;
+            width: 77px;
+            height: 35px;
+            background: url("img/task9-2.png") no-repeat;
+            text-indent: 30px;
+            line-height: 2;
+            font-size: 18px;
+        }
+        .l {
+            background-position: -1px -67px;
+        }
+        .c {
+            background-position: -1px -32px;
+        }
+        .r {
+            background-position: -4px -143px;
+        }
+        .l:hover {
+            background-position: -2px -103px;
+            color: #b45fb5;
+            cursor: pointer;
+        }
+        .c:hover {
+            background-position: -6px -178px;
+            color: #b45fb5;
+            cursor: pointer;
+        }
+        .r:hover {
+            background-position: 0px 0px;
+            color: #b45fb5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+    <div class="img l">前进</div>
+    <div class="img c">开始</div>
+    <div class="img r">停止</div>
+</div>
+</body>
+</html>
