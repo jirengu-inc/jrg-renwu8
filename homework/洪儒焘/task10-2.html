@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	div{
+		margin: 40px auto;
+		position: relative;
+		width: 200px;
+		height: 120px;
+		border: 1px solid #ccc;
+	}
+	.eg4{
+		position: absolute;
+		top:-10px;
+		left: 10px;
+		border-bottom: 10px solid #ccc;
+		border-left: 10px solid #fff;
+		border-right: 10px solid #fff;
+	}
+	.eg5{
+		position: absolute;
+		right: 0px;
+		border-top: 20px solid red;
+		border-left: 20px solid #fff;
+		border-bottom: 20px solid #fff;
+	}
+	.eg6{
+		position: absolute;
+		top:-10px;
+		left: 10px;
+		border-bottom: 10px solid #ccc;
+		border-left: 10px solid #fff;
+		border-right: 10px solid #fff;
+	}
+	.eg7{
+		position: absolute;
+		top:-9px;
+		left: 10px;
+		z-index: 1;
+		border-bottom: 10px solid #fff;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	}
+</style>
+<body>
+	<div class="eg1">
+		<span class="eg4"></span>
+	</div>
+	<div class="eg2">
+		<span class="eg5"></span>
+	</div>
+	<div class="eg3">
+		<span class="eg6"></span>
+		<span class="eg7"></span>
+	</div>
+</body>
+</html>
