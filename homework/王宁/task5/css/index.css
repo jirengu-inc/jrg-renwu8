@@ -1,0 +1,27 @@
+body{
+  background-color: rgba(255,0,0,0.5);
+  font-family: "微软雅黑";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+p{
+  border: 2px solid white;
+  border-radius: 4px;
+  color: #000;
+  line-height: 1.5;
+  text-indent: 2em;
+}
+.mydiv{
+  color: yellow;
+  border: 2px dotted black;
+  border-radius: 4px;
+}
+#p1{
+  color: green;
+  text-align: center;
+}
+.p2{
+  text-align: right;
+  border: 2px solid blue;
+}
