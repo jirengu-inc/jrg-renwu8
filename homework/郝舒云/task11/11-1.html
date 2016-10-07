@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*
+	{
+		padding:0;
+		margin:0;
+		list-style: none;
+		text-decoration:none;
+		color: #333;
+		font-family: "微软雅黑";
+	}
+		.navbar
+		{
+			
+			background: #ccc;
+			padding-left:1px;
+		}
+		.navbar>ul>li:hover
+		{
+			background: #aaa;
+		}
+		.navbar>ul>li
+		{position: relative;
+			display: inline-block;
+			padding:0 10px;
+			height: 30px;
+			line-height: 30px;}
+			.navbar>ul>li>ul
+			{
+				position: absolute;
+				top:100%;
+				left: 0;
+				
+				background: #fff;
+				border:1px solid #cbcbcb;
+				display: none;
+			}
+			.navbar>ul>li>ul>li
+			{
+				padding:0 10px;
+			height: 30px;
+			line-height: 30px;
+			}
+			.navbar>ul>li:hover ul
+			{display: block;}
+			.navbar>ul>li>ul>li:hover
+			{
+				background: #ccc;
+			}
+	</style>
+</head>
+<body>
+	<div class="navbar">
+		<ul><li>
+			<a href="#" >前端</a>
+			<ul><li><a href="#">JavaScript</a></li>
+			<li><a href="#">HTML</a></li>
+			<li><a href="#">CSS</a></li></ul>
+		</li>
+		<li>	<a href="#" >服务端</a><ul><li><a href="#">Node</a></li>
+			<li><a href="#">PHP</a></li>
+			<li><a href="#">Java</a></li></ul></li>
+		<li>	<a href="#" >前端工具</a><ul><li><a href="#">Git</a></li>
+			<li><a href="#">Sublime</a></li>
+			<li><a href="#">WebStorm</a></li></ul></li>
+		<li>	<a href="#" >HTML</a></li>
+		<li>	<a href="#" >NODE</a></li></ul>
+	</div>
+</body>
+</html>

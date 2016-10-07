@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*
+	{
+		padding: 0
+		margin:0;
+	}
+		.header,.footer
+		{
+			height: 50px;
+			background: #ccc;
+		}
+	
+		.container:after
+		{
+			content: "";
+			display: block;
+			clear: both;
+		}
+.right
+{
+	width: 200px;
+}
+
+.right
+{
+	float: left;
+	height: 500px;
+	background: yellow;
+	margin-left: -200px;
+
+}
+.main
+{
+	width: 100%;
+	float: left;
+	height: 300px;
+	background: green;
+}
+.wrap
+{
+	background:green;
+	margin-right:200px;
+}
+		</style>
+</head>
+<body>
+	<div class="header">头部</div>
+	<div class="container"><div class="main"><div class="wrap">大家好，我是双飞翼布局的中间栏哦,大家好，我是双飞翼布局的中间栏哦,大家好，我是双飞翼布局的中间栏哦,大家好，我是双飞翼布局的中间栏哦,大家好，我是双飞翼布局的中间栏哦,大家好，我是双飞翼布局的中间栏哦</div></div><div class="right">我是右边栏</div></div>
+	<div class="footer">尾部</div>
+</body>
+</html>
