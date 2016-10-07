@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>双飞翼布局之两栏</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        #header,#footer {
+            height: 30px;
+            background: #ccc;
+        }
+        #content .main {
+            float: left;
+            width: 100%;
+            height: 400px;
+            background: green;
+        }
+        #content .left {
+            float: left;
+            width: 200px;
+            height: 500px;
+            background: red;
+            margin-left: -100%;
+        }
+        #content::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #wrap {
+            padding-left: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="main">
+            <div id="wrap">
+                1.创建一个包裹三个子元素的父容器，左右栏固定宽高，中间栏宽度自适应
+                2.给所有子元素设置浮动（父容器清除浮动），并给左右边栏设置负边距使其都跑到上面
+                3.在中间栏里添加额外标签，将其设置左右padding，将左右边栏的位置给让出来
+            </div>
+        </div>
+        <div class="left">左边栏</div>
+    </div>
+    <div id="footer">尾部</div>
+</div>
+</body>
+</html>
