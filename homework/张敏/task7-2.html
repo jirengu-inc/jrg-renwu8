@@ -1,45 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <style>
-        .wrap{
-            width: 900px;
-            margin: 0 auto;
-        }
-
-    </style>
+<meta charset="utf-8">
+<style>
+    .item1:first-child{
+        color: red;
+    }
+    .item1:first-of-type{
+        background: blue;
+    }
+</style>
 </head>
 <body>
-<form>
-    姓名:<input type="text" placeholder="用户名">
-    <br/>
-    密码:<input type="password" placeholder="密码">
-    <br/>
-    性别:
-    <input type="radio" name="sex" value="man" checked>男</input>
-    <input type="radio" name="sex" value="girl">女</input>
-    <br/>
-    取向:
-    <input type="radio" name="sex2" value="man" checked>男</input>
-    <input type="radio" name="sex2" value="girl">女</input>
-    <br/>
-    爱好:
-    <input type="checkbox" value="js">js
-    <input type="checkbox" value="nodejs">nodeJS
-    <input type="checkbox" value="css">css
-    <br/>
-    我的评论:
-    <textarea placeholder="ddd" name="pl"></textarea>
-    <br/>
-    我的car:
-    <select name="benchi">
-        <option value="">奔驰</option>
-        <option value="">奥迪</option>
-        <option value="" selected>萨博</option>
-        <option value="">玛莎拉蒂</option>
-    </select>
-    <input type="submit" value="提交">
-</form>
+<div class="ct">
+    <p class="item1">aa</p>
+    <h3 class="item1">bb</h3>
+    <h3 class="item1">ccc</h3>
+</div>
 </body>
 </html>
