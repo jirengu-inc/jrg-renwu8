@@ -1,0 +1,217 @@
+
+/*通用样式*/
+html,body,ul,li,img {
+	padding: 0;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+ul,li {
+	list-style-type: none;
+}
+body,html {
+	height: 100%;
+	font: 14px "Microsoft Yahei";
+}
+hr {
+	width: 100px;
+	border: 1px solid #eee;
+	position: relative;
+}
+hr:after {
+	content: "";
+	display: block;
+	height: 0;
+	width: 0;
+	border: 1px solid;
+	border-color: transparent transparent transparent #666;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+}
+h1,h2,h3,h4,p,ul,li{
+	text-align: center;
+}
+.layout {
+	width: 960px;
+	margin: 0 auto;
+}
+.clearfixed:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+/*头部*/
+#header {
+	background:url(../img/bg-header.jpg) no-repeat;
+	background-size:cover;
+	height: 100%;
+}
+.table {
+	display: table;
+	height: 100%;
+	text-align: center;
+}
+#header .vertical-center {
+	display: table-cell;
+	vertical-align: middle;
+	color: #eee;
+}
+.vertical-center p {
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+.btn-more {
+	display: inline-block;
+	padding: 13px 40px;
+	color: #fff;
+	background-color: #6a7e84;
+}
+.btn-more:hover {
+	background-color: #353e41;
+}
+
+/*中间内容区域*/
+.introduction {
+	text-align: center;
+	padding: 60px 0;
+	background-color: #fff;
+}
+.introduction p {
+	font-size: 18px;
+}
+.introduction p a {
+	color: #337ab7;
+}
+.introduction>p a:hover {
+	color: #23527c;
+	text-decoration: underline;
+}
+.service {
+	background-color: #337ab7;
+	padding: 50px 0;
+}
+.service h2 {
+	color: #fff;
+	font-size: 30px;
+}
+.service hr {
+	border: 1px solid #fff;
+}
+
+/*技能*/
+.service .service-item {
+	width: 240px;
+	float: left;
+	margin: 10px 0;
+}
+.service .service-item {
+	color: #fff;
+}
+.service .service-item .iconfont {
+	font-size: 110px;
+	color: #fff;
+	-webkit-text-stroke-width: 3px;
+} 
+.service .service-item .btn-related {
+	padding: 5px 20px;
+	background-color: #fff;
+	color: #333;
+}
+
+/*一段描述*/
+.about {
+	background-image: url(../img/callout.jpg);
+	padding: 220px 0;
+}
+.about p {
+	color: #fff;
+	font-size: 50px;
+	font-weight: bold; 
+	letter-spacing: 4px;
+}
+
+/*作品展示*/
+.case {
+	background-color: #fff;
+	text-align: center;
+}
+.case .showcase li {
+	display: inline-block;
+	padding: 15px;
+}
+.case .showcase img {
+	width: 400px;
+	opacity: 0.8;
+}
+.case .showcase img:hover {
+	opacity: 1;
+}
+.case .btn-more-case {
+	padding: 8px 38px;
+	display: inline-block;
+	margin-top: 10px;
+	background-color: #999;
+	color: #fff;
+	}
+.case .btn-more-case:hover {
+	background-color: #4c4c4c;
+}
+
+/*点击我吧 */
+.about-me {
+	text-align: center;
+	background-color: #337ab7;
+	padding: 50px 0;
+	margin-top: 35px;
+	color: #fff;
+}
+.about-me .btn-click {
+	display: inline-block;
+	width: 110px;
+	height: 45px;
+	line-height: 45px;
+	margin:0 4px; 
+	background-color: #fff;
+	color: #333;
+}
+.about-me .btn-click.blue {
+	background-color: #1f496e;
+	color: #fff;
+}
+.about-me .btn-click:hover {
+	background-color: #eee;
+}
+.about-me .btn-click.blue:hover {
+	background-color: #0f2436;
+}
+/*底部*/
+#footer {
+	padding: 90px 0;
+	background-color: #fff;
+}
+.icon-youjian,.icon-tel {
+	color: black;
+	font-size: 14px !important;
+}
+#footer .email {
+	color: #337ab7;
+	font-size: 12px;
+}
+#footer .email:hover {
+	text-decoration: underline;
+	color: #23527c;
+}
+#footer .contact-inco>li {
+	display: inline-block;
+	margin: 30px 10px;
+}
+#footer .contact-inco>li .iconfont {
+	color: #337ab7;
+	font-size: 40px;
+}
+#footer .contact-inco>li .iconfont:hover {
+	color: #23527c;
+}
