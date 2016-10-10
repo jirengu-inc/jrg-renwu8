@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "microsoft yahei";
+	}
+	.head{
+		width: 100%;
+		height: 50px;
+		background: #333;
+	}
+	.head-container{
+		width: 900px;
+		height: 50px;
+		margin: 0 auto;
+		clear: both;
+	}
+	.head a{
+		display: block;
+		float: left;
+	}
+	.head img{
+		height: 40px;
+	}
+	.head .nav{
+		float: right;
+	}
+	.head .nav li{
+		float: left;
+		list-style: none;
+		line-height: 50px;
+		margin-left: 40px;
+	}
+	.head .nav li a{
+		height: 50px;
+		width: 50px;
+		text-align: center;
+		text-decoration: none;
+		color: #fff;	
+	}
+	.head .nav li a:hover{
+		color: #333;
+		background: #fff;
+	}
+
+	.main-container
+	{
+		width: 900px;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.main-container:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.main-container .left{
+		width: 200px;
+		height: 500px;
+		float: left;
+		background: #eee;
+	}
+	.main-container .right{
+		width: 670px;
+		float: left;
+		background: #eee;
+		margin-left: 10px;
+		color: #656565;
+		line-height: 1.5;
+		padding: 10px;
+	}
+	.main-container .right h1{
+		margin:20px 0;
+	}
+	.footer{
+		background: #333;
+	}
+	.footer-container{
+		width: 900px;
+		height: 50px;
+	}
+	.footer-container{
+		width: 900px;
+		margin: 0 auto;
+	}
+	.footer-container ul{
+		float: left;
+	}
+	.footer-container ul li{
+		float: left;
+		list-style: none;
+		margin-right: 20px;
+	}
+
+	.footer-container ul li a{
+		text-decoration: none;
+		color: #fff;
+		line-height: 50px;
+	}
+	.footer-container:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+</style>
+<body>
+	<div class="head">
+		<div class="head-container">
+			<a href="#">
+				<img src="http://cdn.jirengu.com/public/logo-tiny.png">
+			</a>
+			<ul class="nav">
+				<li>
+ 					<a href="#">技能</a>
+				</li>
+				<li>
+					<a href="#">经历</a>
+				</li>
+				<li>
+					<a href="#">作品</a>
+				</li>
+				<li>
+					<a href="#">关于</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="main">
+		<div class="main-container">
+			<div class="left">	
+			</div>
+			<div class="right">
+				<h1>我的作品</h1>
+				<p>生活很美好</p>
+				<p>心情不错</p>
+				<p>代码写的很好</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="footer-container">
+			<ul>
+				<li><a href="http://jirengu.com/">饥人谷</a></li>
+				<li><a href="http://jscode.me/">JSCODE</a></li>
+				<li><a href="http://js.jirengu.com/">JSBIN</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

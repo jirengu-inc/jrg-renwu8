@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./ux_1476006056_4603176/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="./ux_1476017147_832011/iconfont.css">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;	
+		font-family: "microsoft yahei";
+		color: rgb(51,50,50); 
+	}
+	body,html{
+		height: 100%;
+	}
+	.layout{
+		width: 960px;
+		margin: 0 auto;
+	}
+
+	/*header*/
+	#header{	
+		position: relative;	
+		height: 100%;
+		background: url("bg.jpg");
+		background-size: cover;
+	}
+	/*#header .layout:after{
+		content: "";
+		display: block;
+		clear: both;
+	}*/
+	#header .layout{
+		display: table;
+		height: 100%;
+	}
+	.header-wrap{
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;	
+	}
+	.header-wrap h1{
+		font-size: 50px;
+		line-height: 1.5;
+	}
+	.header-wrap p{
+		line-height: 1.5;
+	}
+	.header-wrap a{
+		margin: 0 auto;
+		display: block;
+		width: 150px;
+		height: 40px;
+		background: rgb(109,125,132);
+		text-decoration: none;
+		line-height: 40px;
+		color: #fff;
+		margin-top: 20px;
+	}
+	/*#header .layout{
+		position: relative;
+		height: 100%;
+	}
+	.header-wrap{
+		position: absolute;
+		top: 40%;
+		left: 40%;
+		font-size: 
+	}*/
+
+
+	/*main*/
+	#main .title{
+		text-align: center;
+		padding: 60px 0;
+		line-height: 2;
+	}
+
+	/*#main .services{
+		padding: 60px 0;
+		text-align: center;
+		color: #fff;
+	}*/
+	#main .services{
+		background: rgb(51,122,183);
+		color: #fff;
+	}
+	#main .services .layout{
+		padding: 60px 0;
+		text-align: center;
+	}
+	#main .services .layout h2{
+		font-weight: 500;
+		color: #fff;
+	}
+	#main .services .layout .hr{
+		width: 100px;
+		margin: 20px auto;
+		border-bottom: 1px solid #fff;
+	}
+	.services-contents{
+		margin: 50px auto;
+		width: 800px;
+	}
+	.services-contents:after{
+		content: "";
+		display: block;
+		clear: both;
+		
+	}
+	#main .services .layout .icon{
+		width: 200px;
+		margin: 0 auto;
+		float: left;
+		list-style: none;
+		text-align: center;
+	}
+	#main .services .layout .icon span{
+		margin: 0 auto;
+		width: 100px;
+		height: 100px;
+		background: #fff;
+		display: block;
+		line-height: 100px;
+		text-align: center;
+		border-radius: 50px;
+	}
+	#main .services .layout .icon .iconfont{
+		font-size: 50px;
+		color: rgb(51,122,183);
+	}
+	#main .services .layout .icon .iconfont.less{
+		font-size: 40px;
+	}
+
+	.icon h3,p{
+		color: #fff;
+		margin-top: 20px;
+	}
+	.icon a{
+		display: block;
+		width: 100px;
+		height: 40px;
+		background: #fff;
+		text-decoration: none;
+		line-height: 40px;
+		margin: 20px auto;
+		border-radius: 2px;
+	}
+
+	.advertisement{
+		background: url("callout.jpg");
+		padding: 200px 0; 
+	}
+	.advertisement h1{
+		color: #fff;
+		font-size: 50px;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.work h2{
+		margin-top:100px; 	
+		font-weight: 500;
+		color: #000;
+		text-align: center;
+	}
+	.work ul>li{
+		list-style: none;
+	}
+	.work ul>li img{
+		width: 400px;
+	}
+	.work ul{
+		padding-left: 5px;
+	}
+	.work ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.work ul>li{
+		margin-left: 50px;
+		margin-top: 50px;
+		float: left;
+	}
+	.work .hr{
+		width: 100px;
+		margin: 20px auto;
+		border-bottom: 1px solid rgb(239,239,240);
+	}
+	.work .button{
+		display: block;
+		height: 40px;
+		width: 150px;
+		margin: 50px auto;
+		background: rgb(154,148,150);
+		text-align: center;
+		line-height: 40px;
+		text-decoration: none;
+		border-radius: 2px;
+		color: #fff;
+	}
+
+	.footer-above{
+		background: rgb(51,122,183);
+		padding-top: 50px;
+		padding-bottom: 30px;
+		text-align: center;
+	}
+	.footer-above h2{
+		color: #fff;
+		font-weight: 500;
+	}
+	.footer-above a{
+		display: inline-block;
+		width: 100px;
+		height: 30px;
+		text-decoration: none;
+		padding: 5px;
+		line-height: 30px;	
+		margin: 40px 8px;
+		border-radius: 2px;		
+	}
+	.footer-above .a1{
+		background: #fff;
+	}
+	.footer-above .a2{
+		background: rgb(29,73,107);
+		color: #fff;
+	}
+
+	#footer{
+		text-align: center;
+	}
+	#footer li{
+		list-style: none;
+	}
+	#footer p{
+		color: rgb(155,155,157);
+	}
+	#footer .layout>ul{
+		padding: 100px;
+	}
+	#footer .layout>ul>li:nth-child(2){
+		line-height: 10px;
+	}
+	#footer .layout>ul>li:nth-child(4) a{
+		text-decoration: none;
+		color: rgb(17,164,217);
+	}
+	#footer .layout>ul>li:nth-child(5) ul li a{
+		text-decoration: none;
+	}
+	#footer .layout>ul>li:nth-child(5) ul li i{
+		text-decoration: none;
+		color: rgb(17,164,217);
+		font-size: 50px;
+	}
+	#footer .layout>ul>li:nth-child(5) ul li i:hover{
+		color: rgb(34,51,85);
+		
+	}
+	#footer .layout>ul>li:nth-child(5) ul li{
+		display: inline-block;
+		margin-top: 20px;
+		margin-right: 20px;
+	}
+	#footer .layout>ul>li:nth-child(6){
+		width: 80px;
+		margin: 40px auto;
+		border-bottom: 2px solid rgb(204,204,204);
+	}
+</style>
+<body>
+	<div id="header">
+		<div class="layout">
+			<div class="header-wrap">
+				<h1>Start Bootstrap</h1>
+				<p>Free Bootstrap Themes & Templates</p>
+				<a href="#">Find Out More</a>
+			</div>
+		</div>
+	</div>
+	<div id="main">
+		<div class="title">
+			<div class="layout">
+				<h2>Stylis Portfolio is the perfect theme for your next project!</h2>
+				<p>This theme features some wonderful photography courtesy of Death to the Stock Photo.</p>
+			</div>
+		</div>
+		<div class="services">
+			<div class="layout">
+				<h2>Our Services</h2>
+				<div class="hr"></div>
+				<ul class="services-contents">
+					<li class="icon">
+						<span><i class="iconfont less">&#xe63e;</i></span>
+						<h3>Services Name</h3>
+						<p>Lorenm ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<a href="#">Learn More</a>
+					</li>
+					<li class="icon">
+						<span><i class="iconfont">&#xe601;</i></span>
+						<h3>Services Name</h3>
+						<p>Lorenm ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<a href="#">Learn More</a>
+					</li>
+					<li class="icon">
+						<span><i class="iconfont">&#xe600;</i></span>
+						<h3>Services Name</h3>
+						<p>Lorenm ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<a href="#">Learn More</a>
+					</li>
+					<li class="icon">
+						<span><i class="iconfont">&#xe7ab;</i></span>
+						<h3>Services Name</h3>
+						<p>Lorenm ipsum dolor sit amet consectetur adipisicing elit.</p>
+						<a href="#">Learn More</a>
+					</li>
+				</ul>	
+			</div>
+		</div>
+
+		<div class="advertisement">
+			<div class="layout">
+				<h1>Vertically Centered Text</h1>
+			</div>
+		</div>
+
+		<div class="work">
+			<div class="layout">
+				<h2>Our Work</h2>
+				<div class="hr"></div>
+				<ul>
+					<li><a href="#"><img src="portfolio-1.jpg"></a></li>
+					<li><a href="#"><img src="portfolio-2.jpg"></a></li>
+					<li><a href="#"><img src="portfolio-3.jpg"></a></li>
+					<li><a href="#"><img src="portfolio-4.jpg"></a></li>
+				</ul>
+				<a class="button" href="#">View More Items</a>
+			</div>
+		</div>	
+
+		<div class="footer-above">
+			<div class="layout">
+				<h2>The buttoms below are impossible to resist.</h2>
+				<a class="a1" href="#">Click Me</a>
+				<a class="a2" href="#">Look at ME!</a>
+			</div>
+		</div>	
+	</div>
+	
+	<div id="footer">
+		<div class="layout">
+			<ul>
+				<li><h4>Start Bootstrap</h4></li>
+				<li>
+					<p>2481 Melrose Place</p>
+					<p>Beverly Hills CA 90200</p>
+				</li>
+				<li><p><i class="iconfont">&#xe603;</i>(123)456-7890 </p></li>
+				<li><i class="iconfont">&#xe6bc;</i><a href="#">name@example.com</a></li>
+				<li>
+					<ul>
+						<li><a href="#"><i class="iconfont">&#xe616;</i></a></li>
+						<li><a href="#"><i class="iconfont">&#xe634;</i></a></li>
+						<li><a href="#"><i class="iconfont">&#xe608;</i></a></li>
+					</ul>
+				</li>
+				<li>
+					
+				</li>
+				<li>
+					Copyright © Your Website 2016
+				</li>
+			</ul>				
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task10-1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #navi {
+            background: #cccccc;
+        }
+        .clear:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+        #navi li {
+            list-style: none;
+            float: left;
+            width: 90px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+        }
+        #navi li a {
+            text-decoration: none;
+            color: black;
+        }
+        #navi li:hover {
+            background: #666666;
+            width: 90px;
+        }
+        #navi li:hover > ul {
+            display: block;
+        }
+        .front-end-list {
+            display: none;
+            border: 1px solid #cccccc;
+            position: absolute;
+            left: 0;
+            top: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="navi" class="clear">
+        <ul class="navi-list">
+            <li>
+                <a href="#">前端</a>
+                <ul class="front-end-list clear">
+                    <li>
+                        <a href="#">JavaScript</a>
+                    </li>
+                    <li>
+                        <a href="#">CSS</a>
+                    </li>
+                    <li>
+                        <a href="#">HTML</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">服务端</a>
+                <ul class="front-end-list clear">
+                    <li>
+                        <a href="#">Node</a>
+                    </li>
+                    <li>
+                        <a href="#">PHP</a>
+                    </li>
+                    <li>
+                        <a href="#">Java</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">前端工具</a>
+                <ul class="front-end-list clear">
+                    <li>
+                        <a href="#">Sublime</a>
+                    </li>
+                    <li>
+                        <a href="#">WebStorm</a>
+                    </li>
+                    <li>
+                        <a href="#">Git</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">HTML</a>
+            </li>
+            <li>
+                <a href="#">NODE</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

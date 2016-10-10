@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		li{
+			list-style: none;
+			margin-bottom: 20px;
+			font-family: "microsoft yahei";
+		}
+		select{
+			font-family: "microsoft yahei";
+		}
+	</style>
+</head>
+<body>
+	<form method="post">
+		<ul>
+			<li>
+				姓名:
+				<input type="text" name="username" placeholder="用户名">
+			</li>
+			<li>
+				密码:
+				<input type="password" name="password">
+			</li>
+			<li>
+				性别:
+				<input type="radio" name="sex[]" checked><span>男</span>
+				<input type="radio" name="sex[]"><span>女</span>
+			</li>
+			<li>
+				取向:
+				<input type="radio" name="love[]"><span>男</span>
+				<input type="radio" name="love[]" checked><span>女</span>
+			</li>
+			<li>
+				爱好:
+				<input type="checkbox" name="hobby[]"><span>dota</span>
+				<input type="checkbox" name="hobby[]"><span>旅游</span>
+				<input type="checkbox" name="hobby[]"><span>宠物</span>
+			</li>
+			<li>
+				评论:
+				<textarea cols="60" rows="5" placeholder="请输入评论..."></textarea>
+			</li>
+			<li>
+				我的车:
+				<select id="input_select">
+                <option value="1" selected="selected">坦克</option>
+                <option value="2">宝马</option>
+                <option value="3">奔驰</option>
+                <option value="4">路虎</option>
+            </select>
+			</li>
+			<li>
+				<input type="submit" value="提交">
+			</li>
+		</ul>
+	</form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!--
+写一个 btn 的class， 任何 a，span,div,button 添加此class后后变成如下按钮的样式(鼠标hover背景色#c14d21, 鼠标按下背景色#e25f31)
+<a class="btn" href="#">确定</a>
+<span class="btn" >取消</span>
+<div class="btn">提交</div>
+<button class="btn"> 发送</button>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 9</title>
+	<style type="text/css">
+		*{
+			font-size: 16px;
+		}
+		a{
+			text-decoration: none;
+		}
+		.btn{
+			background-color: rgb(237,87,51);
+			border-radius: 5px;
+			padding: 7px;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+		div{
+			display: inline;
+		}
+		button.btn{
+			padding: 6px;
+		}
+		.btn:hover{
+			background-color: #c14d21;
+		}
+		.btn:active{
+			background-color: #e25f31;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" class="btn">确定</a>
+	<span class="btn">取消</span>
+	<div class="btn">提交</div>
+	<button class="btn">发送</button>
+</body>
+</html>
