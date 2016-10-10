@@ -1,0 +1,77 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>导航条</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  font-family: "Microsoft YaHei","微软雅黑",sans-serif;
+}
+li{
+  list-style: none;
+}
+.nav{
+  background-color: #cbcbcb;
+  height: 26px;
+}
+.nav>li{
+  float: left;
+  padding:0 11px;
+  line-height: 26px;
+  position: relative;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.nav li:hover{
+  background-color: #a9a9a9;
+}
+.nav>li:hover .nav_inner{
+  display: block;
+}
+.nav_inner{
+position: absolute;
+left:0;
+top: 100%;
+background-color: #fff;
+border: 1px solid #cbcbcb;
+display: none;
+}
+.nav_inner>li{
+  padding: 0 5px;
+
+}
+</style>
+</head>
+<body>
+<ul class="nav">
+  <li><a href="#">前端</a>
+    <ul class="nav_inner">
+      <li><a href="#">Javascript</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">HTML</a></li>
+    </ul>
+  </li>
+  <li><a href="#">服务端</a>
+    <ul class="nav_inner">
+      <li><a href="#">NODE</a></li>
+      <li><a href="#">PHP</a></li>
+      <li><a href="#">JAVA</a></li>
+    </ul>
+  </li>
+  <li><a href="#">前端工具</a>
+    <ul class="nav_inner">
+      <li><a href="#">Sublime</a></li>
+      <li><a href="#">Webstrom</a></li>
+      <li><a href="#">Git</a></li>
+    </ul>
+  </li>
+  <li><a href="#">HTML</a></li>
+  <li><a href="#">NODE</a></li>
+</ul>
+</body>
+</html>
