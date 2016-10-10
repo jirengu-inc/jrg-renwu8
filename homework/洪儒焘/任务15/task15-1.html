@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-family: "microsoft yahei";
+	}
+	.layout{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	#header,#footer{
+		background: rgb(184,77,69);
+	}
+	.title{
+		padding: 50px 0;
+		color: #fff;
+	}
+	.button{
+		display: inline-block;
+		text-decoration: none;
+		padding: 5px;
+		margin:0 auto;
+		border: 1px solid #ccc;
+		color: #666;
+		border-radius: 3px;
+	}
+	.button:hover{
+		color: rgb(51,51,51);
+	}
+
+	/*header*/
+	#header .nav{
+		background: #fff;		
+	}
+	.fa-rocket{
+		font-size: 30px;
+	}
+	.fa-caret-down{
+		margin-left: 8px;
+	}
+	#header .nav a{
+		text-decoration: none;
+		color: rgb(102,102,102);
+	}
+	#header .nav a:hover{
+		color: rgb(51,51,51);
+	}
+	#header .nav ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav ul>li{
+		float: left;
+		margin-right: 20px;
+		padding: 15px 0;
+	}
+	#header .nav ul>li:nth-child(1){
+		padding: 8px 0;
+	}
+	#header .nav ul>li:nth-child(5) ul{
+		display: none;
+	}
+	#header .nav ul>li:nth-child(5) ul>li{
+		background: #fff;
+		border-bottom: 1px dashed rgb(102,102,102);
+		width: 50px;
+		padding: 8px;
+		text-align: center;
+	}
+	#header .nav ul>li:nth-child(5) ul>li:last-child{
+		border:none;
+	}
+	#header .nav ul>li:nth-child(5){
+		position: relative;
+	}
+	#header .nav ul>li:nth-child(5):hover ul{
+		display: block;	
+		position: absolute;
+		top: 100%;
+		left: -5px;
+	}
+	/*#header .nav ul>li:nth-child(5):hover ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}*/
+	
+	.title h1,.title p{
+		font-weight: 500;
+		line-height: 1.5;
+	}
+
+	/*main*/
+	#main .index-nav{
+		border-radius: 5px;
+		background: #eee;
+		margin: 30px 0;
+		padding: 8px;
+	}
+	#main .index-nav h2{
+		font-weight: 500;
+		color: #666;
+	}
+	#main .index-nav h2 span{
+		color: #b84d45;
+	}
+	
+	#main .products:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#main .products{
+		margin-left: -50px;
+	}
+	#main .products li{
+		float: left;
+		margin: 50px 0px 20px 50px;
+		border: 1px solid #ccc;
+		text-align: center;
+		padding-bottom: 20px;
+	}
+	#main .products li img{
+		width: 298px;
+	}
+	#main .products li h3,#main .products li p{
+		margin: 10px;
+		text-align: left;
+	} 
+
+	/*footer*/
+	#footer{
+		text-align: center;
+	}
+	#footer .title .button{	
+		margin-top: 30px;
+		color: #fff;
+	}
+	#footer .footer-bottom{
+		padding: 50px;
+		background: #fff;
+	}
+	#footer .footer-bottom p{
+		border-top: 1px solid #eee;
+		padding: 30px;
+	}
+	#footer .button:hover{
+		color: rgb(51,51,51);
+	}
+</style>
+<body>
+	<div id="header">
+		<div class="nav">
+			<div class="layout">
+				<ul>
+					<li><a href="javascript:;"><i class="fa fa-rocket"></i></a></li>
+					<li><a href="javascript:;">博客</a></li>
+					<li><a href="javascript:;">项目</a></li>						
+					<li><a href="javascript:;">简历</a></li>
+					<li>
+						<a href="javascript:;">更多<i class="fa fa-caret-down"></i></a>
+						<ul>
+							<li><a href="javascript:;">github</a></li>
+							<li><a href="javascript:;">知乎</a></li>
+							<li><a href="javascript:;">微博</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="layout title">
+			<h1>洪儒焘</h1>
+			<p>安徽人在成都</p>
+		</div>
+	</div>
+
+	<div id="main">
+		<div class="layout">
+			<div class="index-nav">
+				<h2><span>首页</span> / 我的作品</h2>
+			</div>
+			<ul class="products">
+				<li>
+					<a href="javascript:;"><img src="1.jpg"></a>
+					<h3>作品标题</h3>
+					<p>作品介绍</p>
+					<a class="button" href="javascript:;">查看</a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="1.jpg"></a>
+					<h3>作品标题</h3>
+					<p>作品介绍</p>
+					<a class="button" href="javascript:;">查看</a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="1.jpg"></a>
+					<h3>作品标题</h3>
+					<p>作品介绍</p>
+					<a class="button" href="javascript:;">查看</a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="1.jpg"></a>
+					<h3>作品标题</h3>
+					<p>作品介绍</p>
+					<a class="button" href="javascript:;">查看</a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="1.jpg"></a>
+					<h3>作品标题</h3>
+					<p>作品介绍</p>
+					<a class="button" href="javascript:;">查看</a>
+				</li>
+				<li>
+					<a href="javascript:;"><img src="1.jpg"></a>
+					<h3>作品标题</h3>
+					<p>作品介绍</p>
+					<a class="button" href="javascript:;">查看</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div class="title">
+			<div class="layout">
+				<h1>想更详细了解我?</h1>
+				<p>下载我的简历吧</p>
+				<a class="button" href="javascript:;">下载</a>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="layout">
+				<p>来自@RThong</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+	div{
+		font-size: 16px;
+		background-color: #ccc;
+		height: 30px;
+		width: 1000px;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color: black;
+	}
+	#pager>li{
+		line-height: 30px;
+		float: left;
+		padding-left: 10px;
+		padding-right: 10px;
+		position: relative;
+	}
+	#pager ul{
+		padding: 0;
+		position: absolute;
+		left: 0;
+	    border: 1px solid #ccc;
+		display: none;
+	}
+	#pager>li:hover{
+		background-color: #aaa;
+	}
+	#li1:hover>ul{
+		display: block;
+	}
+	#li2:hover>ul{
+		display: block;
+	}
+	#li3:hover>ul{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+<div>
+	<ul id="pager">
+	<li id="li1">
+	<a href="#">前端</a>
+	<ul>
+		<li><a href="#"> JavaScript </a></li>
+		<li><a href="#"> CSS </a></li>
+		<li><a href="#"> HTML </a></li>
+	</ul>
+	</li>	
+
+	<li id="li2">
+	<a href="#">服务端</a>
+	<ul>
+		<li><a href="#"> Node </a></li>
+		<li><a href="#"> PHP </a></li>
+		<li><a href="#"> Java </a></li>
+	</ul>
+	</li>
+
+    <li id="li3">
+    <a href="#">前端工具</a>
+    <ul>
+		<li><a href="#"> Subline </a></li>
+		<li><a href="#"> WebStrom </a></li>
+		<li><a href="#"> Git </a></li>
+	</ul>
+    </li>
+
+	<li><a href="#">HTML</a></li>
+	<li><a href="#">NODE</a></li>
+	</ul>
+</div>
+</body>
+</html>

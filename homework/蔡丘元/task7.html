@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务7</title>
+</head>
+
+<body>
+    <form action="task7.html" method="post" name="task7">
+        <div><b>姓名：</b>
+            <input type="text" name="name" placeholder="用户名">
+        </div>
+        <div><b>密码：</b>
+            <input type="password" name="password" value="12345678">
+        </div>
+        <div><b>性别：</b>
+            <label>
+                <input type="radio" name="sex" value="male" checked>男</label>
+            <label>
+                <input type="radio" name="sex" value="female">女</label>
+        </div>
+        <div><b>取向：</b>
+            <label>
+                <input type="radio" name="orientation" value="male">男</label>
+            <label>
+                <input type="radio" name="orientation" value="female" checked>女</label>
+        </div>
+        <div><b>爱好：</b>
+            <label>
+                <input type="checkbox" name="hobby" value="dota">dota</label>
+            <label>
+                <input type="checkbox" name="hobby" value="travel" checked>旅游</label>
+            <label>
+                <input type="checkbox" name="hobby" value="pet" checked>宠物</label>
+        </div>
+        <div><b>评论：</b>
+            <textarea name="commet" placeholder="ddd" cols="30" rows="10"></textarea>
+        </div>
+        <div><b>我的car：</b>
+            <select name="car">
+                <option value="volve">沃尔沃</option>
+                <option value="saab" selected>萨博</option>
+                <option value="benz">奔驰</option>
+                <option value="Volkswagen">大众</option>
+            </select>
+            <input type="submit" name="submit" value="提交">
+        </div>
+    </form>
+</body>
+
+</html>

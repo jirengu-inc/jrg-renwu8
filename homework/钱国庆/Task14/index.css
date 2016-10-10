@@ -1,0 +1,257 @@
+html, body, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#header {
+    background: url("images/bg.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.layout {
+    width: 900px;
+    margin: 0 auto;
+}
+.text-layout {
+    text-align: center;
+}
+#header .author {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+#header .author-description {
+    text-align: center;
+    font-size: 14px;
+}
+a {
+    text-decoration: none;
+}
+#header .read-more a{
+    display: block;
+    width: 140px;
+    height: 50px;
+    background: rgba(109, 125, 132, 0.8);
+    color: #fff;
+    text-align: center;
+    line-height: 55px;
+    margin-top: 20px;
+}
+#header .read-more a:hover {
+    background: #4e595e
+}
+.header-page {
+    position: relative;
+    top: 40%;
+}
+#container {
+    margin: 0 auto;
+}
+#container .about-me-container {
+    margin-top: 60px;
+}
+#container .about-my-resume {
+    margin-bottom: 60px;
+}
+#container .about-me-container .about-my-resume a {
+    color: #337ab7;
+}
+#container .about-me-container .about-my-resume a:hover {
+    text-decoration: underline;
+    color: #05354d;
+}
+#container .about-my-resume {
+    font-size: 20px;
+}
+#container .techniques-container {
+    background: #337ab7;
+    color: #fff;
+    padding: 40px;
+}
+#container .techniques-container .technique-title {
+    font-weight: bold;
+    font-size: 30px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 20px;
+    width: 100px;
+}
+@font-face {font-family: 'iconfont';
+    src: url('iconfont.eot'); /* IE9*/
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('iconfont.woff') format('woff'), /* chrome、firefox */
+    url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+#container .detailed-techniques .techniques-list li {
+    float: left;
+    list-style: none;
+    width: 25%;
+    padding: 50px;
+}
+.clear:after {
+    width: 0;
+    height: 0;
+    display: block;
+    content: '';
+    clear: both;
+}
+#container .techniques-container .detailed-techniques {
+    margin-top: 40px;
+}
+#container .detailed-techniques .techniques-list li .iconfont {
+    font-size: 110px;
+}
+#container .detailed-techniques .techniques-list .technique-item-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#container .detailed-techniques .techniques-list .technique-item-description {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+#container .detailed-techniques .techniques-list .relative-work {
+    color: black;
+    background: #fff;
+    padding: 5px 15px;
+}
+#container .detailed-techniques .techniques-list .relative-work:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+.new-paragraph-container {
+    background: url("images/bg2.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.new-paragraph-container .new-paragraph {
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+    position: relative;
+    top: 50%;
+}
+.my-work-container .my-work-title {
+    font-weight: bold;
+    font-size: 26px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.my-work-container .my-work-list {
+    margin-top: 20px;
+}
+.my-work-container .my-work-list li {
+    width: 420px;
+    height: 305px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    list-style: none;
+    float: left;
+}
+.my-work-container .more-work {
+    display: block;
+    background: #ccc;
+    color: #fff;
+    width: 100px;
+    padding: 5px 0;
+    margin: 0px auto;
+    margin-bottom: 50px;
+}
+.my-work-container .more-work:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+.my-work-container .my-work-list li img {
+    width: 420px;
+    height: 305px;
+}
+.interact-me-container {
+    background: #337ab7;
+    padding-bottom: 50px;
+}
+.interact-me-container .interact-me {
+    text-align: center;
+    margin: 20px auto;
+}
+.interact-me-container .interact-title {
+    font-weight: bold;
+    color: #fff;
+    font-size: 20px;
+    padding-top: 50px;
+}
+.interact-me-container .interact-me .click-me {
+    display: inline-block;
+    color: black;
+    background: white;
+    width: 150px;
+    line-height: 40px;
+    height: 40px;
+}
+.interact-me-container .interact-me .click-me:hover {
+    background: #cccccc;
+}
+.interact-me-container .interact-me .look-me {
+    color: white;
+    background: #3856b8;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+}
+.interact-me-container .interact-me .look-me:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+.contact-container .my-name {
+    padding-top: 60px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.contact-container .my-address {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.contact-container .my-phone, .my-email, .contact-method {
+    margin: 4px auto;
+    font-size: 14px;
+}
+.contact-container .my-email a {
+    color: #337ab7;
+}
+.contact-container .my-email a:hover {
+    text-decoration: underline;
+    color: #05354d;
+}
+.my-contact i.iconfont {
+    font-size: 40px;
+    padding: 20px 15px;
+    color: #337ab7;
+}
+.my-contact i.iconfont:hover {
+    color: #05354d;
+}
+.contact-method {
+    margin: 20px auto;
+}
+.space {
+    width: 100px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+.my-copyright {
+    font-size: 14px;
+    margin-top: 20px;
+}
