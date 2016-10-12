@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8">
-	<style type="text/css">
-	body{
-		font-size: 22px;
-	}
-	.header,.footer{
-		height: 50px;
-		background-color: #ccc;
-	}
-	.main:after{
-		content: "";
-		display: block;
-		clear: both;
-	}
-	.container{
-		height: 200px;
-		float: left;
-	}
-	.rightaside{
-		width: 200px;
-		height: 200px;
-		background-color: yellow;
-		float: left;
-		margin-left: -200px;
-	}
-	.container .wrap{
-		background-color: #008100;
-		margin-right: 200px;
-		height: 200px;
-	}
-	</style>
+  <meta charset="utf-8">
+  <title>task12-5</title>
+  <style>
+    html,body {
+      margin: 0;
+      padding: 0;
+    }
+    .layout {
+      width:100%;
+      height:50px;
+      background-color: #ccc;
+    }
+
+    .ct:after {
+      content:'';
+      display: block;
+      clear: both;
+    }
+    .ct .main {
+      width:100%;
+      float: left;
+    }
+    .ct .wrap {
+      height:400px;
+      background-color: green;
+      margin: 0 200px 0 0;
+    }
+    .ct .left,.ct .right {
+      width:200px;
+      height:200px;
+      background-color: orange;
+      float: left;
+    }
+    .ct .right {
+      margin-left: -200px;
+    }
+  </style>
 </head>
 <body>
-<div class="header">头部</div>
-<div class="main">
-	<div class="container">
-	<div class="wrap">圣杯布局指两边顶宽,中间自适应的三栏布局,中间栏要在放在文档流前面以优先渲染。参考<a href="#">
-	圣杯布局原理</a>。其流程为: 1) 设置container的左右padding,用于预留左右边栏的空间。 2) 给所有元素设置定位和浮动,用于设置左右两栏偏移; 3) 给左侧边栏设置right,让其移动位置。设置负边距100%(#center的宽度),让其跑到上面; 4) 给右边栏设置负边距使其跑到上面
-	</div>
-	</div>
-	<div class="rightaside">右侧边栏，固定宽度</div>
-</div>
-<div class="footer">尾部</div>
+   <div class="layout header">头部</div>
+  
+   <div class="ct">
+     
+     <div class="main">
+       <div class="wrap">双飞翼两栏布局</div>
+     </div>
+     
+     <div class="right">固定宽度</div>
+     
+   </div>
+  
+   <div class="layout footer">底部</div>
 </body>
 </html>

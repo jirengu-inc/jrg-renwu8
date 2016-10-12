@@ -1,79 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="utf-8">
-	<style type="text/css">
-	.ct{
-		width: 950px;
-		height: 250px;
-	}
-	.container{
-		float: left;
-		background-color: #ccc;
-		height: 100%;
-		width: 100%;
-	}
-	.box1{
-		float: left;
-		width: 300px;
-		height: 100px;
-		background-color: #004210;
-		margin-left: -300px;
-		margin-top: 30px;
-	}
-	.box2{
-		float: left;
-		width: 300px;
-		height: 100px;
-		background-color: #004210;
-		margin-left: -100%;
-		margin-top: 30px;
-	}
-	.box3{
-		float: left;
-		width: 300px;
-		height: 100px;
-		background-color: #004210;
-		margin-left: -625px;
-		margin-top: 30px;
-	}
-	.box4{
-		float: left;
-		width: 300px;
-		height: 100px;
-		background-color: #004210;
-		margin-left: -100%;
-		margin-top: 140px;
-	}
-	.box5{
-		float: left;
-		width: 300px;
-		height: 100px;
-		background-color: #004210;
-		margin-left: -625px;
-		margin-top: 140px;
-	}
-	.box6{
-		float: left;
-		width: 300px;
-		height: 100px;
-		background-color: #004210;
-		margin-left: -300px;
-		margin-top: 140px;
-	}
-	</style>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
 </head>
+<style>
+  html,body,ul,li {
+    margin: 0;
+    padding: 0;
+  }
+  ul,li {
+    list-style-type: none;
+  }
+  .layout {
+    width:800px;
+  }
+  #ct {
+    margin-top:50px;
+  }
+  #ct .main {
+    background-color: #ccc;
+  }
+  #ct .list {
+    margin-left: -10px;
+    padding:10px 0;
+  }
+  #ct .list:after {
+    content:'';
+    display: block;
+    clear: both;
+  }
+  #ct .list>li {
+    width: 260px;
+    height: 50px;
+    background-color: #004210;
+    float:left;
+    margin-left: 10px;
+    margin-top:10px;
+    
+  }
+</style>
 <body>
-<div>
-	<div class="ct">
-        <div class="container"></div>	
-		<div class="box1">1</div>
-		<div class="box2">2</div>
-		<div class="box3">3</div>
-		<div class="box4">4</div>
-		<div class="box5">5</div>
-		<div class="box6">6</div>
-	</div>
-</div>
+  <div class="layout" id="ct">
+    <div class="main">
+      <ul class="list">
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+        <li>eee</li>
+        <li>fff</li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
