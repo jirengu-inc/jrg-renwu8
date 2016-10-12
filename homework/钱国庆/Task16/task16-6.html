@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task16-6</title>
+</head>
+<body>
+<script>
+    document.write("信息在控制台输出,答案在代码注释中" + "<br>");
+    document.write("知识点: 变量提升");
+    /*
+    * 解释器在解释JavaScript时,会将所有变量先提取出来,这叫变量提升。
+    * 由于在上下文中,变量a定义了,所以先提取出来(赋值操作未提取),
+    * 所以第一个console.log(a)会输出undefined。
+    * */
+    console.log(a); // undefined,
+    var a = 1;
+    console.log(a); // 1
+    console.log(b); // error, 由于b变量未定义, 所以出现错误
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>renwu10-1</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+			list-style: none;
+			text-decoration:none;
+			font-family:'微软雅黑';
+		}
+		.header{
+			background-color: #333;
+			/*text-align: center;*/
+			
+		}
+		.container{
+			width:900px;
+			margin:0px auto;
+			overflow:hidden;
+		}
+		.container ul{
+			margin-left: 600px;
+			overflow: hidden;
+		}
+		.container li{
+			float:left;	
+			line-height: 62px;
+		}
+		.container a{
+			float:left;
+			padding: 0px 15px;
+			color:#fff;
+			margin:0px 6px;
+		}
+		.container_ul a:hover{
+			background-color: #fff;
+			color:#000;
+		}
+		/*----------------------------------------*/
+		.content{
+			margin:0 auto;
+			width:900px;
+			position: relative;
+			padding-top: 10px;
+		}
+		.aside{
+			float: left;
+			width: 200px;
+			min-height: 600px;
+			background-color: #efe6e6;
+		}
+		.main{
+			float: left;
+			width: 680px;
+			margin-left: 10px;
+			padding: 40px 0px 10px 10px;
+			background-color: #efe6e6;
+		}
+		.main h2{
+			margin-bottom: 20px;
+			color:#6E6767;
+		}
+		.main p{
+			color:#6E6767;
+		}
+		.content::after{
+			content: "";
+    		display: table;
+    		clear: both;
+		}
+		.footer{
+			background-color: #333;
+		}
+		.foot{
+			width:900px;
+			margin:0px auto;
+			overflow:hidden;		
+		}
+		.foot li{
+			float:left;	
+			line-height: 62px;
+		}
+		.foot a{
+			float:left;
+			padding: 0px 5px;
+			color:#fff;
+			margin:0px 6px;
+		}		
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="container">
+			<a href="#" class="logo"><img src="http://cdn.jirengu.com/public/logo-tiny.png"></a>
+			<ul class='container_ul'>
+				<li><a href="#">技能</a></li>
+				<li><a href="#">经历</a></li>
+				<li><a href="#">作品</a></li>
+				<li><a href="#">关于</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="aside">
+		</div>
+		<div class="main">
+			<h2>我的作品</h2>
+			<p>苦海，掀起爱浪</p>
+			<p>在世间，难逃命运</p>
+			<p>相亲，竟不可接近</p><br/>
+			<p>或我应该相信是缘分。</p>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="foot">
+			<ul>
+				<li><a href="http://jirengu.com/">饥人谷</a></li>
+				<li><a href="http://jscode.me/">JSCODE</a></li>
+				<li><a href="http://js.jirengu.com/">JSBIN</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

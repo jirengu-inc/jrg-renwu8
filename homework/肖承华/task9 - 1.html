@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>task9</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		li {
+			display: inline-block;
+			width: 80px;
+			height: 35px;
+			line-height: 35px;
+			text-indent: 35px;
+			background: url(img/img.png) no-repeat;
+			cursor: pointer;
+		}
+		.forward {
+			background-position: 0 0;
+		}
+		.start {
+			background-position: 0 -36px;
+		}
+		.stop {
+			background-position: -3px -78px;
+		}
+		.forward:hover {
+			background-position: -1px -115px;
+			color: #a663be;
+		}
+		.start:hover {
+			background-position: -6px -157px;
+			color: #a663be;
+		}
+		.stop:hover {
+			background-position: 1px -195px;
+			color: #a663be;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="forward">快进</li>
+		<li class="start">开始</li>
+		<li class="stop">暂停</li>
+	</ul>
+</body>
+</html>

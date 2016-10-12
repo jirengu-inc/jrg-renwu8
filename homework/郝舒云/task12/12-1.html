@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.m1
+		{
+width: 600px;
+background: #ccc;
+overflow: hidden;
+padding-top: 10px;
+		}
+		.c1
+		{
+float: left;
+		}
+		.c1,.d1
+		{
+width: 170px;
+height: 100px;
+background: #004210;
+		}
+		.p1
+		{
+			width:100%;
+			float: left;
+		}
+		.p1>div:nth-of-type(1)
+		{
+			margin:0 auto;
+		}
+		.p1>div:nth-of-type(2)
+		{
+			margin:10px auto;
+		}
+		.c1:nth-of-type(2){
+		margin-left:-100%;}
+		.c1:nth-of-type(3){
+		margin-left:-170px;}
+		.c1:nth-of-type(4){
+		margin-left:-100%;
+		position: relative;
+		top:110px;}
+		.c1:nth-of-type(5){
+		margin-left:-170px;
+	position: relative;
+	top:110px;}
+		
+	</style>
+</head>
+<body>
+<div class="m1">
+	<div class="p1">	<div class="d1">2</div>
+	<div class="d1">5</div></div><div class="c1">1</div>
+	
+	<div class="c1">3</div>
+	<div class="c1">4</div>
+
+	<div class="c1">6</div></div>
+</body>
+</html>

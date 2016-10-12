@@ -1,0 +1,134 @@
+/*通用样式*/
+body,body,ul,li,div,h2,p,h3,img {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font: 16px/1.5 "Microsoft Yahei";
+	background-color: #fff;
+}
+li {
+	list-style: none;
+}
+a {
+	color: #666;
+	text-decoration: none;
+}
+a:hover {
+	color: #333;
+}
+.clearfixed:after {
+	content: '';
+	display: block;	
+	clear: both;
+}
+.layout {
+	width: 1000px;
+	margin: 0 auto;
+}
+.btn {
+	padding: 5px;
+	border: 1px solid #ccc;
+	margin: 8px 0;
+	display: inline-block;
+	border-radius: 4px;
+}
+
+/*头部*/
+/*导航*/
+#header {
+	border-top: 1px solid #ccc;
+}
+.icon-sanjiaoxing-copy {
+	font-size: 12px !important;
+}
+.icon-xian {
+	font-size: 40px !important;
+}
+.nav>li {
+	float: left;
+	padding: 0 12px;
+	height: 60px;
+	line-height: 60px;
+	position: relative;
+}
+.nav li .drop-down {
+	display: none;
+}
+.nav>li:hover .drop-down{
+	display: block;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	text-align: center;
+	border: 1px solid #ccc;
+}
+.nav li .drop-down li {
+	border-bottom: 1px dashed #ccc;
+	padding: 0 8px;
+	line-height: 30px;
+	background-color: #fff;
+}
+.nav li .drop-down li:last-child {
+	border: none;
+}
+.nav li .drop-down li:hover {
+	background-color: #eee;
+}
+/*自我介绍*/
+.introduction {
+	background-color: #b84d45;
+	padding: 30px 0;
+	border: 1px solid #ccc;
+	color: #fff;
+	letter-spacing: 2px;
+}
+/*作品展示*/
+.ourworks {
+	margin: 30px 0;
+}
+.ourworks>p {
+	background-color: #eee;
+	padding: 8px;
+	border-radius: 4px;
+	color: #666;
+}
+.ourworks>p>a {
+	color: #b84d45;
+}
+.works-show {
+	margin-left: -50px
+}
+.works-show>li {
+	text-align: center;
+	margin: 10px 0;
+	margin-left: 48px;
+	float: left;
+	border: 1px solid #ccc;
+}
+.works-show>li h3,.works-show>li p {
+	text-align: left;
+	padding-left: 10px;
+}
+.works-show >li img {
+	width: 300px;
+	height: 200px;
+}
+/*简历下载*/
+.resume {
+	background-color: #b84d45;
+	text-align: center;
+	padding: 20px 0 15px 0;
+	color: #fff;
+	letter-spacing: 2px;
+	margin: 25px 0;
+}
+.resume .btn-download {
+	color: #eee;
+}
+/*底部*/
+#footer {
+	text-align: center;
+	border-top: 1px solid #eee;
+	padding: 30px 0;
+}

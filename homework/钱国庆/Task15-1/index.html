@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task15-1</title>
+    <style>
+        html, body, ul, li, div{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        li {
+            list-style: none;
+        }
+        #header .navigator>li {
+            float: left;
+            line-height: 50px;
+            padding: 0 10px;
+            position: relative;
+        }
+        a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .logo-link:hover {
+            opacity: 0.8;
+        }
+        #header .navigator li a {
+            color: #8e8e8e;
+        }
+        #header .navigator li a:hover{
+            color: black;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #header .logo {
+            width: 50px;
+            height: 50px;
+        }
+        #header .logo-link {
+            float: left;
+        }
+        #header .navigator .navigator-more-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+        }
+        #header .navigator .navigator-more-list li{
+            padding: 10px;
+            line-height: 1;
+            text-align: center;
+            border-left: 1px solid #8e8e8e;
+            border-right: 1px solid #8e8e8e;
+            border-bottom: 1px dashed #8e8e8e;
+        }
+        #header .navigator .navigator-more-list li a {
+            color: #fff;
+        }
+        .more img {
+            width: 10px;
+            height: 10px;
+        }
+        #header .navigator .navigator-more-list li:nth-child(1) {
+            border-top: 1px solid #8e8e8e;
+        }
+        #header .navigator .navigator-more-list li:nth-child(3) {
+            border-bottom: 1px solid #8e8e8e;
+        }
+        #header .navigator .navigator-more-list {
+            display: none;
+        }
+        #header .navigator li:hover > ul{
+            display: block;
+        }
+        #main-description {
+            background: #b84d45;
+            padding: 30px 0;
+        }
+        #main-description .container h2 {
+            color: #fff;
+        }
+        #main-description .container p {
+            color: #fff;
+            font-size: 14px;
+        }
+        #content .my-work {
+            margin: 30px auto;
+            padding: 10px;
+            background: #f5f6f6;
+        }
+        #content .my-work a{
+            color: #b84d45;
+        }
+        #content .my-work span {
+            color: #737171;
+            font-size: 14px;
+        }
+        #content .work-list .work-box {
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+        #content .work-list .work-box img {
+            width: 300px;
+            height: 200px;
+        }
+        #content .work-list {
+            margin-left: -50px;
+        }
+        #content .work-list li {
+            float: left;
+            margin-left: 50px;
+            margin-bottom: 20px;
+        }
+        #content .work-list .work-box h3,
+        #content .work-list .work-box p {
+            padding-left: 10px;
+        }
+        #content .work-list .work-box p {
+            font-size: 14px;
+        }
+        .btn {
+            color: #737171;
+            display: block;
+            width: 60px;
+            height: 25px;
+            border-radius: 3px;
+            border: 1px solid #737171;
+            line-height: 25px;
+            text-align: center;
+            margin: 10px auto;
+            padding: 5px 0;
+        }
+        .btn:hover {
+            color: black;
+        }
+        #footer {
+            background: #b84d45;
+            padding: 20px;
+        }
+        #footer h1,
+        #footer p {
+            text-align: center;
+            color: #fff;
+        }
+        #footer p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #footer a {
+            color: #fff;
+            border-color: #fff;
+        }
+        #copy-right p {
+            font-size: 14px;
+            text-align: center;
+            padding-top: 40px;
+        }
+        #copy-right .container {
+            border-top: 1px solid #ccc;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="container clear">
+            <a href="#" class="logo-link">
+                <img src="images/小火箭.png" alt="logo" class="logo">
+            </a>
+            <ul class="navigator clear">
+                <li>
+                    <a href="#">
+                        博客
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        项目
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        简历
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="more">
+                        更多 <img src="images/下拉.png" alt="下拉">
+                    </a>
+                    <ul class="navigator-more-list">
+                        <li>
+                            <a href="#">Github</a>
+                        </li>
+                        <li>
+                            <a href="#">知乎</a>
+                        </li>
+                        <li>
+                            <a href="#">微博</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main-description">
+        <div class="container">
+            <h2>我的简介</h2>
+            <p>姓名: 钱国庆</p>
+            <p>性别: 男</p>
+            <p>院校: 电子科技大学</p>
+            <p>学历: 研究生</p>
+            <p>专业: 计算机科学与技术/信息安全</p>
+        </div>
+    </div>
+    <div id="content">
+        <div class="container my-work">
+            <a href="#">首页</a> / <span>我的作品</span>
+        </div>
+        <div class="container">
+            <ul class="work-list clear">
+                <li>
+                    <div class="work-box">
+                        <img src="images/item.png" alt="work">
+                        <h3>作品标题</h3>
+                        <p>作品介绍</p>
+                        <a href="#" class="btn">查看</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="work-box">
+                        <img src="images/item.png" alt="work">
+                        <h3>作品标题</h3>
+                        <p>作品介绍</p>
+                        <a href="#" class="btn">查看</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="work-box">
+                        <img src="images/item.png" alt="work">
+                        <h3>作品标题</h3>
+                        <p>作品介绍</p>
+                        <a href="#" class="btn">查看</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="work-box">
+                        <img src="images/item.png" alt="work">
+                        <h3>作品标题</h3>
+                        <p>作品介绍</p>
+                        <a href="#" class="btn">查看</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="work-box">
+                        <img src="images/item.png" alt="work">
+                        <h3>作品标题</h3>
+                        <p>作品介绍</p>
+                        <a href="#" class="btn">查看</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="work-box">
+                        <img src="images/item.png" alt="work">
+                        <h3>作品标题</h3>
+                        <p>作品介绍</p>
+                        <a href="#" class="btn">查看</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <h1>想更详细了解我?</h1>
+            <p>下载我的简历吧</p>
+            <a href="#" class="btn">下载</a>
+        </div>
+    </div>
+    <div id="copy-right">
+        <div class="container">
+            <p>来自 @QianGuoqing</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+html,body,ul,li,p,h1,h3,div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font: 14px/1.5 normal;
+    font-family:  "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif
+color: #333;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #666;
+}
+a:hover {
+    color: #333;
+}
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.layout {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#header {
+    border: 1px solid #ccc;
+}
+#header .logo {
+    float: left;
+    line-height: 50px;
+    font-size: 30px;
+}
+#header .nav {
+    float: left;
+    margin-left: 20px;
+}
+.nav>li {
+    float: left;
+    position: relative;
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+}
+#header .more-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+#header .nav li:hover .more-list {
+    display: block;
+}
+.more-list li {
+    padding: 10px;
+    line-height: 1;
+    border-bottom: 1px dashed #ccc;
+}
+.more-list li:last-child{
+    border: none;
+}
+.more-list li:hover{
+    background: #eee;
+}
+
+.top {
+    padding: 30px 0;
+    background: #b84d45;
+    color: #fff;
+}
+.prd-title {
+    margin-top: 40px;
+    background: #eee;
+    border-radius: 3px;
+}
+.prd-title ul {
+    padding: 10px;
+}
+.prd-title li {
+    display: inline-block;
+    color: #666;
+}
+.prd-title a {
+    color: #b84d45;
+}
+
+.prds {
+    margin-top: 10px;
+}
+.prds ul {
+    margin-left: -40px;
+}
+.prds li {
+    float: left;
+    margin: 20px 0 0 43px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+.prds img {
+    height: 200px;
+    width: 300px;
+}
+.prds h3,
+.prds p {
+    text-align: left;
+    padding: 5px 10px;
+}
+.prds a {
+    display: inline-block;
+    padding: 5px 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.bottom {
+    margin-top: 30px;
+    padding: 20px 0;
+    text-align: center;
+    background: #b84d45;
+    color: #fff;
+}
+.bottom a {
+    display: inline-block;
+    padding: 5px 8px;
+    margin-top: 10px;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#footer p {
+    margin: 30px 0;
+    padding-top: 30px;
+    text-align: center;
+    border-top: 1px solid #dadada;
+}
