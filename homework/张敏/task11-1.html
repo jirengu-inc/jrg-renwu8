@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .list{
+            position: relative;
+            width:500px;
+            height:38px;
+            background-color: #eee;
+        }
+        .list li{
+            position: relative;
+            float: left;
+            padding: 8px;
+            cursor: pointer;
+            font-family: '微软雅黑';
+            list-style:none;
+        }
+        .list li:hover{
+            background: #cccccc;
+        }
+        .list li:hover .nav_list{
+            display: block;
+        }
+        .nav_list{
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #fff;
+            border: 1px solid #cbcbcb;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="list">
+    <ul>
+        <li>
+            <a href="">前端</a>
+            <ul class="nav_list">
+                <li>javascript</li>
+                <li>html</li>
+                <li>css</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">服务端</a>
+            <ul class="nav_list">
+                <li>node</li>
+                <li>php</li>
+                <li>java</li>
+            </ul>
+        </li>
+        <li>前端工具</li>
+        <li>HTML</li>
+        <li>NODE</li>
+    </ul>
+</div>
+</body>
+</html>
