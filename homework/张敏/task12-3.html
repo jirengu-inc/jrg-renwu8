@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task12-3</title>
+  <style>
+  	html,body {
+	  margin: 0;
+	  padding: 0;
+	}
+	.layout {
+	  width:100%;
+	  height:50px;
+	  background-color: #ccc;
+	}
+	.ct {
+	  margin-left:210px;
+	}
+	.ct:after {
+	  content:'';
+	  display: block;
+	  clear: both;
+	}
+	.ct .main {
+	  width:100%;
+	  height:400px;
+	  background-color: green;
+	  float: left;
+	}
+	.ct .left{
+	  width:200px;
+	  height:200px;
+	  background-color: orange;
+	  float: left;
+	  margin-left: -100%;
+	  position:relative;
+	  left: -210px;
+	}
+  </style>
+</head>
+<body>
+   <div class="layout header">头部</div>
+   <div class="ct">
+     <div class="main">圣杯两栏布局</div>
+     <div class="left">固定宽度</div>
+   </div>
+   <div class="layout footer">底部</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>双飞翼布局2</title>
+<style>
+html,body,div{
+  margin: 0;
+  padding: 0;
+}
+#header{
+  height: 50px;
+  background: #666;
+}
+#footer{
+  height: 50px;
+  background: #666;
+}
+.ct>div{
+  float: left;
+}
+.main{
+  width: 100%;
+
+}
+.right{
+  width: 200px;
+  height: 300px;
+  background: red;
+  margin-left:-200px;
+
+}
+.inner{
+  margin-right: 200px;
+  background: green;
+    height: 300px;
+}
+.ct{
+  clear: both;
+}
+.ct:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+</style>
+</head>
+<body>
+<div id="header">头部</div>
+<div class="ct">
+  <div class="main">
+    <div class="inner">
+    我是中间栏
+  </div>
+  </div>
+  <div class="right">我是右侧栏</div>
+</div>
+<div id="footer">尾部</div>
+</body>
+</html>

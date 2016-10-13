@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<style>
+  html,body,ul,li {
+    margin: 0;
+    padding: 0;
+  }
+  ul,li {
+    list-style-type: none;
+  }
+  .layout {
+    width:800px;
+  }
+  #ct {
+    margin-top:50px;
+  }
+  #ct .main {
+    background-color: #ccc;
+  }
+  #ct .list {
+    margin-left: -10px;
+    padding:10px 0;
+  }
+  #ct .list:after {
+    content:'';
+    display: block;
+    clear: both;
+  }
+  #ct .list>li {
+    width: 260px;
+    height: 50px;
+    background-color: #004210;
+    float:left;
+    margin-left: 10px;
+    margin-top:10px;
+    
+  }
+</style>
+<body>
+  <div class="layout" id="ct">
+    <div class="main">
+      <ul class="list">
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+        <li>eee</li>
+        <li>fff</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
