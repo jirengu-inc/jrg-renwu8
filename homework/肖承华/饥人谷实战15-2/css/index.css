@@ -54,10 +54,11 @@ h3 {
 /*头部*/
 #header {
 	background: url(../img/header-bg.jpg) no-repeat center 30%;
+	width: 100%;
 	height: 100%;
 	background-size: cover;
 	text-align: center;
-	padding: 100px 0;
+	display: table;
 }
 .navbar {
 	width: 100%;
@@ -92,7 +93,10 @@ h3 {
 	color: #fec503;
 }
 .intro-text {
-	padding-top: 140px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
 }
 .intro-text h2 {
 	font-size: 40px;
@@ -114,7 +118,7 @@ h3 {
 	font-size: 20px;
 	font-weight: bold;
 	border-radius: 5px;
-	display: inline-block;
+	cursor: pointer;
 }
 .btn-more:hover {
 	background-color: #fec503;
@@ -302,10 +306,11 @@ h3 {
 }
 /*contact us*/
 #contact {
-	height: 100%;
+	height: 700px;
 	background: #222 url(../img/map-image.png) no-repeat center center;
 	background-size: cover;
-	padding-top: 80px;
+	padding: 100px;
+	box-sizing: border-box;
 }
 #contact h2 {
 	color: #eee;
@@ -328,9 +333,7 @@ h3 {
 	background-color: #eee;
 }
 #contact .message {
-	height: 210px;
-	float: right;
-	padding: 15px;
+	height: 240px;
 }
 #contact .info:focus {
 	outline:none;
@@ -340,24 +343,25 @@ h3 {
 #footer {
 	height: 80px;
 	line-height: 80px;
+	text-align: center;
 }
 .copyright {
 	float: left;
-	margin-left: 60px;
+	width: 33%;
 }
 .contact-icon {
 	float: left;
-	margin-left: 230px;
+	width: 33%;
 }
 .contact-icon li {
-	float: right;
 	height: 80px;
 	line-height: 80px;
 	margin-right: 10px;
+	display: inline-block;
 }
 .using-declarative {
 	float: right;
-	margin-right:80px;
+	width: 33%;
 }
 .using-declarative a:hover {
 	color: #fec503;
