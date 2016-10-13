@@ -1,0 +1,470 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-10-05 22:20:43
+ * @version $Id$
+ */
+html,body,ul,li,h1,h4,p{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.layout{
+	width: 1000px;
+	margin: 0 auto;
+}
+h1,h4,a,p{
+	font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/*html,body{
+	height: 100%;
+}*/
+#header{
+	/*height: 130%;*/
+	background-image: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/header-bg.jpg);
+	background-size: cover;
+	/*background-repeat: no-repeat;*/
+    background-position: center center;
+}
+#header .start>a{
+	color: #fed136;
+	font-size: 2em;
+	font-family: 'Kaushan Script','Helvetica Neue',Helvetica,Arial,cursive;
+	font-style: italic;
+	font-weight: bold;
+	float: left;
+	margin: 10px 15px;
+}
+#header .start:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#header .nav{
+	float: right;
+}
+#header .layout:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#header .nav>li{
+	float: left;
+	margin: 10px 15px;
+}
+#header .nav:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#header .nav a{
+	color: white;
+	font-size: 13px;
+}
+#header .nav a:hover{
+	color: #fed136;
+}
+#header .start{
+	padding-top: 30px;
+    line-height: 20px;
+}
+#header .hellow{
+	color: white;
+	/*margin: 200px 0;*/
+	padding: 200px 0;
+	text-align: center;
+}
+#header .hellow>h1:first-of-type{
+	font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-style: italic;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+#header .hellow>h1:nth-of-type(2){
+	font-size: 4em;
+	margin-bottom: 50px;
+}
+#header .hellow>a{
+	color: white;
+    font-weight: bold;
+    display: inline-block;
+    border: 1px solid transparent;
+    background-color: #fec503;
+    padding: 20px 40px;
+    border-radius: 4px;
+}
+#services{
+	text-align: center;
+	padding: 150px 0;
+}
+#services .item>li{
+	width: 320px;
+	margin-left: 20px;
+	float: left;
+}
+#services .item:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#services .item{
+	margin-left: -20px;
+}
+#services>h1{
+	font-size: 2.5em;
+    padding-bottom: 20px;
+}
+#services>p{
+	font-style: italic;
+    color: #777;
+    padding-bottom: 40px;
+}
+#services .fa-4x {
+    font-size: 4em;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px solid;
+    line-height: 90px;
+    background-color: #fed136;
+    color: white;
+}
+#services .item h4{
+	padding: 20px 0;
+    font-size: 20px;
+}
+#services .item p{
+	color: #777;
+}
+#portfolio{
+	text-align: center;
+	background-color: #f7f7f7;
+}
+#portfolio .layout{
+	padding: 100px 0;
+} 
+#portfolio .image img{
+	width: 320px;
+	height: 250px;
+}
+#portfolio .image>li{
+	float: left;
+	margin-left: 20px;
+	background-color: white;
+	margin-bottom: 20px;
+	position: relative;
+}
+#portfolio .image:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#portfolio .image{
+	margin-left: -20px;
+}
+#portfolio .fa-3x {
+    font-size: 3em;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -24px;
+    margin-left: -19px;
+}
+#portfolio .yellowhover{
+	width: 320px;
+	height: 250px;
+	background-color: #fed136;
+	position: absolute;
+	opacity: 0;
+}
+#portfolio .layout>h1{
+	font-size: 2.5em;
+    margin-bottom: 20px;
+}
+#portfolio .layout>p{
+	font-style: italic;
+    color: #777;
+    margin-bottom: 50px;
+}
+#portfolio .image h4{
+	margin-top: 20px;
+}
+#portfolio .image p{
+	margin: 10px 0 30px 0;
+}
+#portfolio .image a:hover .yellowhover{
+	opacity: 0.9;
+}
+#about{
+	margin-top: 150px;
+    margin-bottom: 150px;
+    text-align: center;
+}
+#about>h1{
+	font-size: 2.5em;
+    margin-bottom: 20px;
+}
+#about>p{
+	font-style: italic;
+    color: #777;
+    margin-bottom: 50px;
+}
+#about .circle-item .history{
+	float: left;
+	width: 35%;
+	text-align: right;
+}
+#about .circle-item .history-right{
+	float: right;
+	width: 35%;
+	text-align: left;
+}
+#about .circle-item>li{
+	content: '';
+	display: block;
+	clear: both;
+}
+#about .circle-item>li{
+	position: relative;
+	min-height: 174px;
+	margin-bottom: 100px;
+}
+#about .circle-item img{
+	width: 100%;
+    border-radius: 50%;
+    border: 7px solid #ddd;
+}
+#about .circle-item .picture{
+	width: 160px;
+    height: 160px;
+    position: absolute;
+    left: 50%;
+    margin-left: -80px;
+}
+#about .circle-item h4{
+	margin-bottom: 10px;
+}
+#about .circle-item p{
+	line-height: 1.4;
+	color: #777;
+}
+#about .circle-item:before{
+	content: '';
+	width: 2px;
+	background-color: #f1f1f1;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	height: 100%;
+	margin-left: 6px;
+}
+#about .circle-item{
+	position: relative;
+}
+#about .circletext{
+	width: 160px;
+    height: 160px;
+    position: absolute;
+    left: 50%;
+    margin-left: -80px;
+    border-radius: 50%;
+    border: 7px solid #ddd;
+    background-color: #fed136;
+    color: white;
+    text-align: center;
+    display: table;
+}
+#about .circletext h4{
+	display: table-cell;
+    vertical-align: middle;
+    line-height: 1.6;
+}
+#team{
+	background-color: #f7f7f7;
+	padding: 150px 0;
+	text-align: center;
+}
+#team .layout>h1{
+	font-size: 2.5em;
+	margin-bottom: 20px;
+}
+#team .layout>p:first-of-type{
+	font-style: italic;
+	color: #777;
+	margin-bottom: 50px;
+}
+#team .person li{
+	float: left;
+	width: 33.33333333333333%
+}
+#team .person:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#team .person img{
+	border: 7px solid white;
+	border-radius: 50%;
+}
+#team .person h4{
+	margin-bottom: 5px;
+    font-size: 1.3em;
+}
+#team .person p{
+	color: #777;
+    margin-bottom: 20px;
+}
+#team .person a{
+	display: inline-block;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid;
+    border-radius: 50%;
+}
+#team .person a:hover{
+	background-color: #fed136;
+}
+#team .layout>p:nth-of-type(2){
+	color: #777;
+	padding: 50px 150px;
+	line-height: 1.8;
+}
+#linkimage{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#linkimage .linkimg>li{
+	float: left;
+	width: 25%;
+}
+#linkimage .linkimg:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#conect{
+	background-image: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png);
+	background-color: black;
+	text-align: center;
+}
+#conect .layout{
+	padding: 150px 0;
+}
+#conect .layout>h1{
+	color: white;
+	font-size: 2.5em;
+	margin-bottom: 20px;
+}
+#conect .layout>p{
+	font-style: italic;
+	color: #777;
+	margin-bottom: 50px;
+}
+#conect .inputtext>input{
+    width: 100%;
+    padding: 20px 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 17px;
+    font-weight: bold;
+}
+#conect .inputtext{
+	float: left;
+	width: 50%;
+	padding: 0 15px;
+	box-sizing: border-box;
+}
+#conect .myform:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#conect .areatext{
+	float: right;
+	width: 50%;
+    height: 226px;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+#conect .areatext>textarea{
+	width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 4px;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: Arial;
+    padding-top: 20px;
+    padding-left: 15px;
+}
+#conect .inputsublim>button{
+	font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #fec503;
+    border: 1px solid #fec503;
+    padding: 20px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+}
+#footer{
+	padding :50px 0;
+}
+#footer .copyright{
+	float: left;
+	width: 33.33333333%;
+	line-height: 40px;
+}
+#footer .item{
+	float: left;
+	text-align: center;
+	width: 33.33333333%;
+}
+#footer .footernav{
+	float: right;
+	width: 33.33333333%;
+	line-height: 40px;
+    text-align: right;
+}
+#footer:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#footer .item>a{
+	border: 1px solid transparent;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    width: 40px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 10px;
+}
+#footer .item>a:hover{
+	background-color: #fec503;
+}
+#footer .footernav>a{
+	color: #fec503;
+}
+#footer .footernav>a:hover{
+	text-decoration:underline;
+}

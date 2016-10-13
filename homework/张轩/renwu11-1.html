@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+			font-family: '微软雅黑';
+		}
+		.bar{
+			background-color: #ddd;
+			min-height: 30px;
+			line-height: 30px;
+		}
+		.bar> li{
+			float: left;
+			padding:0px 20px;
+			position: relative;
+			cursor:pointer;
+		}
+		.child{
+			position: absolute;
+			display: none;
+			left:0px;
+			cursor:pointer;
+		}
+		.child li{
+			border-left: 1px solid #aaa;
+			border-right: 1px solid #aaa;
+			padding:0px 20px;
+		}
+		.child li:nth-last-child(1){
+			border-bottom: 1px solid #aaa;
+		}
+		.child li:hover{
+			background-color: #ddd;
+		}
+
+		.bar>li:hover .child{
+			display: block;
+		}
+		.bar>li:hover{
+			background-color: #aaa;
+		}
+
+	</style>
+</head>
+<body>
+	<div class='contain'>
+		<ul class='bar'>
+			<li>前端
+				<ul class='child'>
+					<li>javascript</li>
+					<li>css</li>
+					<li>html</li>
+				</ul>
+			</li>
+			<li>服务端
+				<ul class='child'>
+					<li>node</li>
+					<li>php</li>
+					<li>java</li>
+				</ul>
+			</li>
+			<li>前端工具
+				<ul class='child'>
+					<li>sublime</li>
+					<li>webstrom</li>
+					<li>git</li>
+				</ul>
+			</li>
+			<li>HTML</li>
+			<li>NODE</li>
+		</ul>
+	</div>
+</body>
+</html>
