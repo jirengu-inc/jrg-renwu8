@@ -97,12 +97,12 @@ a:hover {
 	color: #b84d45;
 }
 .works-show {
-	margin-left: -50px
+	margin-left: -38px
 }
 .works-show>li {
 	text-align: center;
 	margin: 10px 0;
-	margin-left: 48px;
+	margin-left: 42px;
 	float: left;
 	border: 1px solid #ccc;
 }
