@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>实战一</title>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1476349647_0357254.css">
+    <style type="text/css">
+    html,
+    body,
+    h1,
+    h4,
+    p,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html,
+    body {
+        height: 100%;
+    }
+    
+    .layout {
+        width: 960px;
+        margin: 0 auto;
+    }
+    
+    h1,
+    h4,
+    p {
+        text-align: center;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    #header {
+        height: 100%;
+        background: url(http://img2.3lian.com/2014/f6/96/d/90.jpg) no-repeat;
+        background-size: cover;
+    }
+    
+    #header .table {
+        display: table;
+        height: 100%;
+    }
+    
+    #header .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    #header h1 {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    
+    #header p {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    #header .btn {
+        background-color: green;
+        display: inline-block;
+        color: white;
+        padding: 10px 20px;
+    }
+    #header .btn:hover{
+        background-color: #f99;
+    }
+    #main .explain {
+        margin: 50px auto;
+    }
+    
+    .explain p {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    
+    .services {
+        background-color: #337ab7;
+    }
+    
+    .services h1 {
+        padding-top: 50px;
+        color: white;
+    }
+    
+    .services li {
+        color: white;
+        float: left;
+        text-align: center;
+        padding-right: 20px;
+        width: 220px;
+    }
+    
+    .services .item:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .services h4,
+    .services p {
+        margin-bottom: 10px;
+    }
+    
+    .services .btn {
+        display: inline-block;
+        background-color: white;
+        padding: 10px 20px;
+    }
+    .services .btn:hover{
+        background-color: #63c;
+    }
+    .services .iconfont{
+        font-size: 100px;
+    }
+    
+    .services hr {
+        width: 100px;
+    }
+    
+    .services ul {
+        padding-bottom: 50px;
+    }
+    
+    .introduce {
+        background: url(http://img2.3lian.com/2014/f6/170/d/102.jpg) no-repeat;
+        background-size: cover;
+    }
+    
+    .introduce h1 {
+        padding: 150px 0;
+        font-size: 50px;
+    }
+    
+    .works {
+        text-align: center;
+    }
+    
+    .works h1 {
+        padding-top: 50px;
+    }
+    
+    .works hr {
+        width: 100px;
+        color: pink;
+    }
+    
+    .works ul {
+        margin-right: -20px;
+    }
+    
+    .works li {
+        float: left;
+        margin: 0 20px 20px 0;
+    }
+    
+    .works img {
+        width: 470px;
+        height: 300px;
+    }
+    
+    .works .item:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .works .btn {
+        display: inline-block;
+        background-color: #9a9698;
+        padding: 10px 20px;
+        color: white;
+    }
+    .works .btn:hover{
+        background-color: #6f0;
+    }
+    .encouragement {
+        background-color: #337ab7;
+        color: white;
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .encouragement .btn {
+        display: inline-block;
+        padding: 10px 20px;
+    }
+    
+    .encouragement a:first-of-type {
+        background-color: white;
+        color: black;
+    }
+    .encouragement a:first-of-type:hover{
+        background-color: #cc9;
+    }
+    .encouragement a:nth-of-type(2) {
+        background-color: #235a7e;
+        color: white;
+    }
+    .encouragement a:nth-of-type(2):hover{
+        background-color: #cfc;
+    }
+    .encouragement .layout {
+        padding: 50px 0;
+    }
+    
+    .encouragement h1 {
+        margin-bottom: 20px;
+    }
+    
+    #footer {
+        text-align: center;
+        margin-top: 100px;
+    }
+    
+    #footer h4 {
+        margin-bottom: 20px;
+    }
+    
+    #footer .tel {
+        margin-top: 20px;
+    }
+    
+    #footer .item>li {
+        display: inline-block;
+        padding-left: 15px;
+    }
+    
+    #footer .item .iconfont{
+        font-size: 35px;
+    }
+    
+    #footer .conclude {
+        margin-bottom: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="layout table">
+            <div class="table-cell">
+                <h1>这里是饥人谷前端培训</h1>
+                <P>一个专业的线上教学机构</P>
+                <a href="#" class="btn">了解更多</a>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="explain layout">
+            <h1>这是一个神奇且有爱的地方</h1>
+            <p>想了解这里的专业知识<a href="#">点击我吧</a></p>
+        </div>
+        <div class="services">
+            <div class="layout">
+                <h1>我们的服务</h1>
+                <hr>
+                <ul class="item">
+                    <li>
+                        <i class="iconfont icon-html-copy"></i>
+                        <h4>HTML</h4>
+                        <P>html,html5等相关知识</P>
+                        <a href="#" class="btn">详细情况</a>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-css3logo"></i>
+                        <h4>CSS</h4>
+                        <P>css,css3等相关知识</P>
+                        <a href="#" class="btn">详细情况</a>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-socialjavascript"></i>
+                        <h4>JavaScript</h4>
+                        <P>JavaScript等相关知识</P>
+                        <a href="#" class="btn">详细情况</a>
+                    </li>
+                    <li>
+                        <i class="iconfont icon-jquery-copy"></i>
+                        <h4>jQuery</h4>
+                        <P>jQuery等相关知识</P>
+                        <a href="#" class="btn">详细情况</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="introduce">
+            <div class="layout">
+                <h1>在这里，努力就有收获！</h1>
+            </div>
+        </div>
+        <div class="works layout">
+            <h1>我的作品</h1>
+            <hr>
+            <ul class="item">
+                <li>
+                    <a href="#" class="image">
+                        <img src="http://img2.3lian.com/2014/c6/18/d/61.jpg" alt="html">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="image">
+                        <img src="http://image.cnsc8.com/tupian_201503/Big_Pic/KCQBYrfGCt.jpg" alt="css">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="image">
+                        <img src="http://rescdn.qqmail.com/dyimg/20140630/7DACB53C8D56.jpg" alt="JavaScript">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="image">
+                        <img src="http://imgs.focus.cn/upload/cd/36637/a_366369143.jpg" alt="jQuery">
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="btn">更多作品</a>
+        </div>
+        <div class="encouragement">
+            <div class="layout">
+                <h1>梦想还在，准备扬帆起航！</h1>
+                <a href="#" class="btn">点击我</a>
+                <a href="#" class="btn">看看我</a>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="layout">
+        <h4>联系方式</h4>
+        <p>好像每次都偷偷的玩</p>
+        <p>总是控制不住我自己</p>
+        <ul class="tel">
+            <li><i class="iconfont icon-tel"></i>156****9968</li>
+            <li><i class="iconfont icon-email"></i><a href="#">14328064607@qq.com<a></li>
+        </ul>
+        <ul class="item">
+            <li><a href="#"><i class="iconfont icon-Twitter"></i></a></li>
+            <li><a href="#"><i class="iconfont icon-github"></i></a></li>
+            <li><a href="#"><i class="iconfont icon-Facebook"></i></a></li>
+        </ul>
+        <div class="conclude">
+            <p>Copyright © wangjieweb 2016</p>
+        </div>
+    </div>
+</body>
+
+</html>

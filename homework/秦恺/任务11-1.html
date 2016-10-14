@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>任务11-1</title>
+	<style>
+		html,body{
+			margin: 0px;
+			padding: 0px;
+		}
+		#dh{
+			position: relative;
+			margin: 0px;
+			padding: 0px;
+			background-color: #ccc;
+			height: 40px;
+		
+		}
+		ul{
+			list-style: none;
+			
+		}
+		.first{
+			margin: 0px;
+			padding: 0px;
+			
+			position: absolute;
+			top:0px;
+		}
+		.first>li{
+			position: relative;
+			height: 40px;
+			display: inline-block;
+			float: left;
+			padding: 0px 8px;
+			line-height: 40px;
+		}
+		
+		.first>li:hover{
+			cursor: pointer;
+			background-color: #999;
+		}
+		.second{
+			display: none;
+			margin: 0px;
+			padding:0px;
+			position: absolute;
+			left:0px;
+			top:100%;
+			border: solid 1px #ccc;
+		}
+		.first>li:hover .second{
+			display: block;
+		}
+		.second>li{
+			padding-left: 5px;
+		}
+		.second>li:hover{
+			cursor: pointer;
+			background-color: #ccc;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="dh">
+	
+	<ul class="first">
+		<li class="q">前端
+			<ul class="second">
+				<li class="w">JavaScript</li>
+				<li class="w">CSS</li>
+				<li class="w">HTML</li>
+			</ul>
+		</li>
+		<li class="q">服务端
+			<ul class="second">
+				<li class="e">Node</li>
+				<li class="e">PHP</li>
+				<li class="e">Java</li>
+			</ul>
+		</li>
+		<li class="q">前端工具
+			<ul class="second">
+				<li class="r">Sublime</li>
+				<li class="r">WebStorm</li>
+				<li class="r">Git</li>
+			</ul>
+		</li>
+		<li class="q">HTML</li>
+		<li class="q">NODE</li>
+	</ul>
+	</div>
+</body>
+</html>
