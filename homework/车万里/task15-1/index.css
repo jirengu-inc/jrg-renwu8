@@ -1,0 +1,177 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,ul,li,p,h1,h2,h3,h4,h5,h6,img{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font: 14px/1.5 normal;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.contenter{
+  width: 1000px;
+  margin: 0 auto;
+}
+#header{
+  height: 50px;
+  border-bottom: 1px solid #e2e2e2;
+}
+#header .logo{
+  color: #333;
+  font-size: 32px;
+  line-height: 50px;
+  float: left;
+}
+#header:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.nav{
+  float: left;
+  margin-left: 20px;
+}
+.nav>li{
+  float: left;
+  padding: 0 10px;
+  line-height: 50px;
+  position: relative;
+}
+.nav>li a{
+  color: #333;
+}
+.nav>li a:hover{
+  color: #666;
+}
+.nav>li a i{
+  font-size: 10px;
+}
+.more{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  display: none;
+}
+.more>li{
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed #ddd;
+  line-height: normal;
+}
+.nav>li:hover .more{
+  display: block;
+}
+.more li:hover{
+  background: #eee;
+}
+.introduce,.about{
+  background: #b84d45;
+  color: #fff;
+}
+.introduce{
+  padding: 30px 0;
+}
+.work_layout>ul{
+  background: #eee;
+  border-radius: 4px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+.work_layout>ul:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.work_layout ul li{
+  line-height: 36px;
+  float: left;
+}
+.work_layout ul li a{
+  color: #666;
+}
+.line{
+  padding: 0 4px;
+  color: #666;
+}
+.work_layout ul li:nth-child(1) a{
+  color: #b21f04;
+}
+.works ul li{
+  float: left;
+  border: 1px solid #ddd;
+  margin-left: 45px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.works ul{
+  margin-left: -45px;
+  overflow: auto;
+}
+.works ul li img{
+  width: 292px;
+  height: 200px;
+  border: 1px solid #ddd;
+  margin: 4px;
+}
+.works ul li h5{
+  font-size: 16px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+.works ul li p{
+  margin-bottom: 20px;
+}
+.works ul li .look{
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 52px;
+  height: 32px;
+  line-height: 32px;
+  color: #333;
+  margin-bottom: 30px;
+}
+.works ul li .look:hover{
+  color: blue;
+}
+.about{
+  padding: 50px 0;
+  color: #fff;
+  text-align: center;
+}
+.about h3{
+  font-size: 30px;
+}
+.about p{
+  font-size: 16px;
+  line-height: 40px;
+}
+.about .down{
+  display: inline-block;
+  padding: 4px 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+.about .down:hover{
+  background: #fff;
+  color: #333;
+}
+.layout_line{
+  height: 1px;
+  width: 100%;
+  margin-bottom: 22px;
+  background:#ddd;
+}
+#footer{
+  padding: 60px 0;
+  text-align: center;
+}
