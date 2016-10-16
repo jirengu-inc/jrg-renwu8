@@ -37,9 +37,10 @@ img
 	padding-left: 55px;
 	width:300px;
 	float: left;
-	font-size: 30px;
+	font-size: 60px;
 	color:#fed136;
 	text-align: left;
+	font-family: "Brush Script MT";
 }
 
 #header ul
@@ -439,16 +440,18 @@ display: inline-block;
 		color:#b9b9b9;
 		border:1px solid #ccc;
 }
-.tright input
+.tright textarea
 {
-	height: 230px;
-	width: 400px;
+	outline: none;
+	height: 190px;
+	width: 360px;
 	font-size: 20px;
 	line-height: 30px;
-	padding-left: 20px;
-		border-radius: 10px;
-		color:#b9b9b9;
-		border:1px solid #ccc;
+	padding:20px;
+font-family: "微软雅黑";
+border-radius: 10px;
+color:#b9b9b9;
+border:1px solid #ccc;
 }
 #contact a
 {
