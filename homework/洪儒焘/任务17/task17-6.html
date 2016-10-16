@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    function fn(fn2){
+		    console.log(fn2);
+		    var fn2 = 3;
+		    console.log(fn2);
+		    console.log(fn);
+		    function fn2(){
+		        console.log('fnnn2');
+		    }
+	    }
+    	fn(10);
+    	//a, 调用fn(10)，10为实参传递给fn2，但是fn()的函数体内，fn2()函数提升，所以覆盖掉了fn2=10，此时输出fn2()函数的内容。
+		//b, fn2=3又覆盖掉了fn2之前被赋予的函数，此时输出3.
+		//c, console.log(fn); 直接输出fn()函数本身。
+
+  
+	</script>
+</body>
+</html>
