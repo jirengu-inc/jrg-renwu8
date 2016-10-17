@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sumOfSquares(a, b, c) {
+        var total = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            total+=Math.pow(arguments[i],2);
+        }
+        console.log(total);
+    }
+    sumOfSquares(2, 3, 4);   // 29
+    sumOfSquares(1, 3);   // 10
+
+</script>
+</body>
+</html>

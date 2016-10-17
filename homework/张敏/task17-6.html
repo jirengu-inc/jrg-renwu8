@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fn(fn2){
+        console.log(fn2);//输出fn2,function被前置，优先级高于var
+        var fn2 = 3;
+        console.log(fn2);//3
+        console.log(fn);//输出自己
+        function fn2(){
+            console.log('fnnn2');
+        }
+    }
+    fn(10);
+</script>
+</body>
+</html>
