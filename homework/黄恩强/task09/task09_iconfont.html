@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	ul,li,img,span{
+        		margin: 0;
+        		padding: 0;
+        		list-style:none;
+        		border: none;
+        	}
+            ul li{
+                display: inline-block;
+                width: 65px;
+                padding-left: 23px;
+                text-align:center;
+                line-height: 35px;
+                font-size:18px;
+                font-family: "微软雅黑"
+            }
+            @font-face {
+              font-family: 'iconfont';
+              src: url('//at.alicdn.com/t/font_1476709414_036225.eot'); /* IE9*/
+              src: url('//at.alicdn.com/t/font_1476709414_036225.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+              url('//at.alicdn.com/t/font_1476709414_036225.woff') format('woff'), /* chrome、firefox */
+              url('//at.alicdn.com/t/font_1476709414_036225.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+              url('//at.alicdn.com/t/font_1476709414_036225.svg#iconfont') format('svg'); /* iOS 4.1- */
+            }
+
+            .iconfont{
+                font-family:"iconfont";
+                font-size:22px;
+                font-style:normal;
+            }
+        	.next:hover,.play:hover,.stop:hover{
+                color: #a663be;
+            }
+        </style>
+    </head>
+    <body>
+    	<ul>
+    		<li class="next">
+                <i class="iconfont">&#xe601;</i>
+    			<span>前进</span>
+    		</li>
+    		<li class="play">
+                <i class="iconfont">&#xe600;</i>
+    			<span>开始</span>
+    		</li>
+    		<li class="stop">
+                <i class="iconfont">&#xe602;</i>
+    			<span>停止</span>
+    		</li>
+    	</ul>
+    </body>
+</html>
