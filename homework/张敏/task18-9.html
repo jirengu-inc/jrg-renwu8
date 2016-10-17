@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var john = { name: "John Smith", age: 23 }
+    var mary = { name: "Mary Key", age: 18 }
+    var bob2 = { name: "Bob-small", age: 2 }
+    var bob = { name: "Bob-small", age: 6 }
+    var people = [ john, bob2,mary, bob ];
+    console.log(ageSort(people)); // [ bob, mary, john ]
+    function ageSort(arr) {
+        var temp=null;
+        for(var i=0;i<arr.length;i++){
+            for(var j=0;j<arr.length-1-i;j++){
+                if(arr[j]['age']>arr[j+1]['age']){
+                    temp=arr[j]['age'];
+                    arr[j]['age']=arr[j+1]['age'];
+                    arr[j+1]['age']=temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+</script>
+</body>
+</html>

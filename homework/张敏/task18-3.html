@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = ["test", 2, 1.5, false]
+    find(arr, "test") // 0
+    find(arr, 2) // 1
+    find(arr, 0) // -1
+    function find(arr, selector) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == selector) {
+                return i;
+            } else {
+                return -1;
+            }
+        }
+    }
+    //    console.log(find(arr,'sssss'));
+
+</script>
+</body>
+</html>

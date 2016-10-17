@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //用 splice 实现 push、pop、shift、unshift方法 （***）
+    function push() {
+        var arr=arguments[0];
+        for(var i=1;i<arguments.length;i++){
+            arr.splice(arr.length, 0, arguments[i]);
+        }
+        return arr.length;
+    }
+    function unshift() {
+        var arr=arguments[0];
+        for(var i=1;i<arguments.length;i++){
+            arr.splice(0, 0, arguments[i]);
+        }
+        return arr.length;
+    }
+    function pop(arr) {
+        if (arr.length != 0) {
+            var temp = arr[arr.length - 1];
+            arr.splice(arr.length - 1, 1);
+            return temp;
+        } else {
+            return 'undefined';
+        }
+    }
+    function shift(arr) {
+        if (arr.length != 0) {
+            var temp = arr[0];
+            arr.splice(0, 1);
+            return temp;
+        } else {
+            return 'undefined'
+        }
+    }
+
+</script>
+</body>
+</html>

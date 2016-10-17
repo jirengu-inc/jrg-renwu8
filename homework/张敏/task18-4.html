@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    arr = ["a", "b", 1, 3, 5, "b", 2];
+    var newarr = filterNumeric(arr);  //   [1,3,5,2]
+    function filterNumeric(arr) {
+        var res=[];
+        for(var i=0;i<arr.length;i++){
+            if(!isNaN(arr[i])){
+                res.push(arr[i]);
+            }
+        }
+        return res;
+    }
+     console.log(newarr);
+</script>
+</body>
+</html>
