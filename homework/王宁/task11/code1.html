@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>code1</title>
+  <style media="screen">
+    html,body,p,ul,li{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      font-family: "微软雅黑";
+    }
+    li{
+      list-style: none;
+    }
+    .bar{
+      border-bottom: 2px solid #eee;
+      font-size: 0px;
+    }
+    .bar>li{
+      display: inline-block;
+      cursor: pointer;
+      padding: 0 20px;
+      line-height: 60px;
+      position: relative;
+      font-size: 20px;
+    }
+    .bar>li .child{
+      position: absolute;
+      left: 0;
+      top: 100%;
+      display: none;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+    .bar>li .child li{
+      padding: 0 10px;
+    }
+    .bar li:hover{
+      background-color: #ccc;
+    }
+    .bar>li:hover .child{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <ul class="bar">
+    <li>前端<ul class="child">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul></li>
+    <li>服务端<ul class="child">
+      <li>Node</li>
+      <li>PHP</li>
+      <li>Java</li>
+    </ul></li>
+    <li>前端工具<ul class="child">
+      <li>Sublime</li>
+      <li>WebStorm</li>
+      <li>Git</li>
+    </ul></li>
+    <li>HTML</li>
+    <li>NODE</li>
+  </ul>
+</body>
+</html>
