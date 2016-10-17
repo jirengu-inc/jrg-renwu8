@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log(a);//输出undefined,应为根据JS的预解析原理，a变量虽然已经解析到了，但是a还未定义就已经输出，所以是undefined
+    var a = 1;
+    console.log(a);//输出1,预解析完成之后赋值为1
+    console.log(b);//输出错误，预解析没有解析到，不存在这个变量
+</script>
+</body>
+</html>
