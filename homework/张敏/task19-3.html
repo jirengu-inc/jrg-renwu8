@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    写一个函数获取n天前的日期
+    function getLastNDays(day) {
+        var date=new Date();
+        var time=date.getTime();
+        var disMs=time-day*24*60*60*1000;
+        var date2=new Date(disMs);
+        document.write(date2.getFullYear()+"年"+(date2.getMonth()+1)+"月"+date2.getDate()+"日");
+    }
+    getLastNDays(5);
+</script>
+</body>
+</html>

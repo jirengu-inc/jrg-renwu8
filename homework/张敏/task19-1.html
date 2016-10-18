@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    写一个函数getIntv，获取从当前时间到指定日期的间隔时间
+    function getIntv(str) {
+        //获取当前电脑时间
+        var tartime = new Date(str);
+        var nowtime = new Date();
+        var tarms = tartime.getTime();
+        var nowms = nowtime.getTime();
+        var distime = tarms - nowms;
+        //把毫秒转换为天
+        var days = distime / 1000 / 60 / 60 / 24;
+        var daysRound = Math.floor(days);
+        var hours = distime / 1000 / 60 / 60 - (24 * daysRound);
+        var hoursRound = Math.floor(hours);
+        var minutes = distime / 1000 / 60 - (24 * 60 * daysRound) - (60 * hoursRound);
+        var minutesRound = Math.floor(minutes);
+        var seconds = distime / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
+        var secondsRound = Math.floor(seconds);
+        document.write('距离目标日期还剩' + daysRound + '天' + hoursRound + '时' + minutesRound + '分' + secondsRound + '秒');
+
+    }
+    getIntv('2016-10-29');
+</script>
+</body>
+</html>
