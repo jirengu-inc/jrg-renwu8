@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    //push
+	    function myPush(arr,value){
+	    	arr.splice(arr.length,0,value);
+	    }
+	    //pop
+	    function myPop(arr){
+	    	arr.splice(arr.length-1,1);
+	    }
+	    //shift
+	    function myShift(arr,value){
+	    	arr.splice(0,0,value);
+	    }
+	    //unshift
+	    function myUnshift(arr){
+	    	arr.splice(0,1);
+	    }
+	    var arr1 = new Array(1,2,3,4,5);
+	    var arr2 = new Array(10,11);
+	    myPush(arr1,6);
+	    console.log(arr1);
+	    myPop(arr1);
+	    console.log(arr1);
+	    myPush(arr1,[10,11]);
+	    console.log(arr1);
+	    myShift(arr1,0);
+	    console.log(arr1);
+	    myUnshift(arr1);
+	    console.log(arr1);
+	    
+
+	</script>
+</body>
+</html>

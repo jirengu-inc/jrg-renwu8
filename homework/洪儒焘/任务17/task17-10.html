@@ -6,16 +6,13 @@
 </head>
 <body>
 	<script type="text/javascript">
-	    var say = 0;
-	    (function say(n){
-	        console.log(n);
-	        if(n<3) return;
-	        say(n-1);
-	    }( 10 ));
-	    console.log(say);
-	    //function say(n)是一个立即执行函数表达式，而这个表达式的一个特性就是可以保护该函数体内的变量，所以var say和function say(n)无关，不会产生冲突，所以最后一行的console.log(say);还是会输出say原来的值，即0；
-		//在function say(n)函数内部，这是一个带参数的立即执行函数表达式，参数为10。而且这个函数还是用了递归形式，递归的跳出条件是 n < 3。当n每次减一时，会输出一个值(console.log(n))。当n减至为2时，2 < 3满足跳出递归的条件，所以执行return跳出函数。所以该函数的输出是10 9 8 7... 2。
-
+	    //push
+	    // function splice-push(arr){
+	    // 	arr.splice(arr.length-1,0,)
+	    // }
+	    var arr = new Array(1,2,3,4,5);
+	    arr.push(2);
+	    console.log(arr);
 
 	</script>
 </body>
