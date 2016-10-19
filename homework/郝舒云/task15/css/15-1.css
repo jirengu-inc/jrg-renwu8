@@ -44,6 +44,7 @@ img
 	line-height: 50px;
 position: relative;
 	padding:0 15px;
+	vertical-align: top;
 }
 #navbar>ul>li>a
 {
