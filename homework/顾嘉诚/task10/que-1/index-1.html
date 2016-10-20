@@ -1,0 +1,48 @@
+<!--
+
+写出如下两栏布局, 其中中间区块宽度900px, 居中,左侧边栏宽度200px, 右侧边栏宽度700px
+做完可参考范例
+ps: 图片左浮动，导航栏整体右浮动，导航栏里面的li元素左浮动。
+ps: aside左浮动，main左浮动
+凡是有浮动的地方，其直接父元素必须清除浮动
+
+不适用背景图片实现如下效果
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>task 10</title>
+</head>
+<body>
+	<div id="header">
+		<div class="wrap">
+			<a href="#"><img src="logo-tiny.png"></a>
+			<ul>
+				<li><a href="#">技能</a></li>
+				<li><a href="#">经历</a></li>
+				<li><a href="#">作品</a></li>
+				<li><a href="#">关于</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div class="sidebar"></div>
+		<div class="main">
+			<h1>我的作品</h1>
+			<p>浮动和定位</p>
+			<p>是很重要的知识点</p>
+			<p>一定要深入学习</p>
+		</div>
+	</div>
+	<div id="footer">
+		<ul>
+			<li><a href="http://jirengu.com/">饥人谷</a></li>
+			<li><a href="http://jscode.me/">JSCODE</a></li>
+			<li><a href="http://js.jirengu.com/?html,css,js,output">JSBIN</a></li>
+		</ul>
+	</div>
+</body>
+</html>

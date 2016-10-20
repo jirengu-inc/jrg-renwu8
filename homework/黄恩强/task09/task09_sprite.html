@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	ul,li,img,span{
+        		margin: 0;
+        		padding: 0;
+        		list-style:none;
+        		border: none;
+        	}
+        	ul li{
+        		display: inline-block;
+        		width: 65px;
+        		padding-left: 23px;
+        		text-align:center;
+        		line-height: 35px;
+        		font:18px/1.8 "微软雅黑";
+        	}
+        	.next{
+        		background: url(./result.png) 0 0 no-repeat;
+        	}
+        	.play{
+        		background: url(./result.png) 0 -45px no-repeat;
+        	}
+        	.stop{
+        		background: url(./result.png) 0 -92px no-repeat;
+        	}
+        	.next:hover{
+        		background: url(./result.png) 0 -135px no-repeat;
+        		color: #a663be;
+        	}
+        	.play:hover{
+        		background: url(./result.png) 0 -186px no-repeat;
+        		color: #a663be;
+        	}
+        	.stop:hover{
+        		background: url(./result.png) 0 -230px no-repeat;
+        		color: #a663be;
+        	}
+        </style>
+    </head>
+    <body>
+    	<ul>
+    		<li class="next">
+    			<span>前进</span>
+    		</li>
+    		<li class="play">
+    			<span>开始</span>
+    		</li>
+    		<li class="stop">
+    			<span>停止</span>
+    		</li>
+    	</ul>
+    </body>
+</html>

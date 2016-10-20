@@ -1,0 +1,315 @@
+@font-face {
+        font-family: 'iconfont';
+        src: url('../font/iconfont.eot');
+        /* IE9*/
+        src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+        url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('../font/iconfont.svg#iconfont') format('svg');
+        /* iOS 4.1- */
+    }
+    
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 48px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+        color: #337ab7;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    
+    ul,
+    li,
+    p,
+    h1,img,
+    h2 {
+        padding: 0;
+        margin: 0;
+        border:none;
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    #header {
+        width: 100%;
+        height: 100%;
+        background: url(../images/bg.jpg);
+        background-size: cover;
+        min-height: 460px;
+        *height: 460px;
+    }
+    
+    .wrap {
+        width: 960px;
+        margin: 0 auto;
+    }
+    
+    .wrap>h1 {
+        font-size: 50px;
+        margin-top: 28px;
+    }
+    
+    .wrap>h2 {
+        font-size: 25px;
+        line-height: 66px;
+    }
+    
+    .header-contain {
+        padding-top: 200px;
+        text-align: center;
+    }
+    
+    .btn {
+        width: 140px;
+        height: 50px;
+        display: block;
+        line-height: 50px;
+        text-align: center;
+        background: #748189;
+        color: #fff;
+        margin: 10px auto;
+    }
+    
+    #blank-tip {
+        height: 145px;
+        text-align: center;
+        padding-top: 70px;
+    }
+    
+    #blank-tip .p1 {
+        font-size: 30px;
+    }
+    
+    #blank-tip .p2 {
+        font-size: 20px;
+        margin-top: 24px;
+    }
+    
+    #services {
+        background: #337ab7;
+        height: 430px;
+        padding-top: 45px;
+        text-align: center;
+    }
+    
+    .underline {
+        width: 100px;
+        height: 28px;
+        margin: 0 auto;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 28px;
+    }
+    
+    #services .wrap>h1 {
+        color: #fff;
+        font-size: 28px;
+    }
+    
+    #services .wrap ul li {
+        display: inline-block;
+        *display: inline;
+        zoom:1;
+        margin-left: 75px;
+        color: #fff;
+        text-align: center;
+        width: 170px;
+    }
+    
+    #services .wrap ul {
+        margin-left: -75px;
+    }
+    
+    #services .wrap>ul>li>p:nth-of-type(1) {
+        line-height: 60px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    #services .wrap>ul>li>p:nth-of-type(2) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    
+    #services .wrap>ul>li>p:nth-of-type(3) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    
+    #services .wrap>ul>li>a {
+        display: block;
+        width: 95px;
+        height: 35px;
+        font-size: 12px;
+        line-height: 35px;
+        color: #000;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #fff;
+    }
+    
+    #services:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .round {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        border-radius: 50px;
+        background: #fff;
+        font-size: 60px;
+        margin: 0 auto;
+    }
+    
+    #vertically {
+        height: 400px;
+        background: url(../images/ver.jpg);
+        background-size: cover;
+        line-height: 400px;
+        font-size: 70px;
+        color: #fff;
+        text-align: center;
+    }
+    
+    #ourwork {
+        height: 900px;
+        text-align: center;
+        overflow: hidden;
+    }
+    
+    #ourwork .underline {
+        border-color: #ccc;
+    }
+
+    #ourwork ul li {
+        display: block;
+        width:458px;
+        height: 310px;
+        float: left;
+        margin-left: 44px;
+        margin-top: 44px;
+    }
+     #ourwork ul li a
+     {
+        display: block;
+        width: 458px;
+        height: 310px;
+        overflow: hidden;}
+    #ourwork ul {
+        margin-left: -44px;
+        margin-top: -44px;
+    }
+    
+    #ourwork ul:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+     #ourwork:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .items {
+        display: block;
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        margin: 30px auto 50px auto;
+        background: #999395;
+    }
+    
+    #resist {
+        height: 180px;
+        padding-top: 40px;
+        background: #337ab7;
+        color: #fff;
+        text-align: center;
+    }
+    
+    #resist p {
+        line-height: 72px;
+        font-size: 18px;
+    }
+    
+    #resist a {
+        display: inline-block;
+        padding: 15px;
+        font-size: 12px;
+        color: #000;
+        margin-left: 28px;
+        background: #fff;
+    }
+    
+    #footer {
+        height: 374px;
+        padding-top: 100px;
+        text-align: center;
+    }
+    
+    #footer>p:nth-of-type(1) {
+        font-size: 18px;
+        line-height: 32px;
+        font-weight: bold;
+    }
+    
+    #footer>p:nth-of-type(2) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    
+    #footer>p:nth-of-type(3) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    
+    #footer>p:nth-of-type(4) {
+        font-size: 12px;
+        line-height: 24px;
+        margin-top: 10px;
+    }
+    
+    #footer>p:nth-of-type(5) {
+        font-size: 12px;
+        line-height: 24px;
+        color: #036fb3;
+    }
+    
+    #footer>p:nth-of-type(6) {
+        font-size: 50px;
+        line-height: 160px;
+    }
+    
+    #footer>p>i {
+        font-size: 12px;
+    }
+    
+    #footer>p:nth-of-type(7) {
+        font-size: 12px;
+        line-height: 43px
+    }
+    
+    .btns {
+        margin-left: -24px;
+        overflow: hidden;
+    }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	.wrapper{
+        		border: 1px solid;
+        		padding: 10px;
+        		width: 300px;
+        		height: 300px;
+        		margin-top: 10px;
+        	}
+			
+			.red{
+				background-color: red;
+				width: 30%;
+				height: 30%;
+			}
+			.black{
+				background-color: black;
+				color: white;
+				width: 30%;
+				height: 30%;
+			}
+			.left{
+				float: left;
+			}
+			.right{
+				float: right;
+			}
+			.wrapper:nth-child(1)>h2{
+				clear: left;
+			}
+			.wrapper:nth-child(2)>h2{
+				clear: right;
+			}
+			.wrapper:nth-child(3)>h2{
+				clear: both;
+			}
+        </style>
+    </head>
+    <body>
+
+    	<div class="wrapper">
+    		<div class="left red">red</div>
+    		<div class="left black">black</div>
+    		<h2>清除左浮动</h2>
+    	</div>
+    	
+    	<div class="wrapper">
+    		<div class="right red">red</div>
+			<div class="right black">black</div>    
+			<h2>清除右浮动</h2>		
+    	</div>
+
+    	<div class="wrapper">
+    		<div class="left red">red</div>
+    		<div class="right black">black</div>
+    		<h2>清除左右浮动</h2>
+    	</div>
+    </body>
+</html>

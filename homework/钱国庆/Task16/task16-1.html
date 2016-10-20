@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task16-1</title>
+</head>
+<body>
+<input type="button" value="点击执行" id="btnClick">
+<script>
+    var btnClick = document.getElementById("btnClick");
+    btnClick.onclick = function () {
+        var a = 2;
+        var b = "jirengu";
+        var c = false;
+        alert(isNumber(a));
+        alert(isString(a));
+        alert(isString(b));
+        alert(isBoolean(c));
+        alert(isFunction(a));
+        alert(isFunction(isNumber));
+    }
+    function isNumber(el) {
+        if (typeof el === "number")
+                return true;
+        else
+                return false;
+    }
+    function isString(el) {
+        if (typeof el === "string") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function isBoolean(el) {
+        return (typeof el === "boolean") ? true : false;
+    }
+    function isFunction(el) {
+        return (typeof el == "function") ? true : false;
+    }
+
+</script>
+</body>
+</html>

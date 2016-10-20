@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+	<style>
+	html,body,p,h1,h2,h3,h4,ul,li{
+		margin: 0;
+		padding: 0;
+	}
+    li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color: black;
+	}
+	.layout{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	#logo{
+		font-size: 25px;
+	}
+	#header>ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header>ul>li{
+		float: left;
+		padding: 15px;
+		position: relative;
+	}
+	#header .dropdownmenu{
+		position: absolute;
+		top: 100%;
+		left: 0;
+		display: none;
+		border: 1px solid #ccc;
+	}
+	#header .dropdownmenu>li{
+		padding: 10px;
+		border: 1px dashed #ccc;
+	}
+    #more:hover .dropdownmenu{
+		background-color: #fff;
+		display: block;
+	}
+    .dropdownmenu>li:hover{
+		background-color: #eee;
+	}
+	#content .intro{
+		line-height: 30px;
+		background-color: #bb4d45;
+		color: white;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	#content .intro .intro_wrap h1{
+		margin-bottom: 15px;
+	}
+	#content .firstpage{
+		margin-top: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		overflow: auto;
+		background-color: #eee;
+	}
+	#content .firstpage li{
+		margin-left: 10px;
+		float: left;
+	}
+	#content .firstpage #li1{
+		color: #b84d45;
+	}
+	#content .mywork{
+		margin-top: 25px;
+	}
+	#content .mywork>ul{
+		margin-left: -50px;
+		overflow: auto;
+	}
+	#content .mywork li{
+		text-align: center;
+		margin-left: 50px;
+		float: left;
+	}
+	#content .mywork img{
+		width: 300px;
+		height: 200px;
+	}
+	#content .mywork div{
+		width: 50px;
+		margin: 10px auto;
+		border: 1px solid #ccc;
+		text-align: center;
+	}
+	#content .knowme{
+		background-color: #b84d45;
+		color: white;
+		text-align: center;
+		margin-top: 20px;
+		padding-top: 25px;
+		padding-bottom: 25px;
+		line-height: 35px;
+	}
+	#download{
+		padding: 7px;
+		color: white;
+		border: 1px solid white;
+	}
+	#footer{
+		padding-top: 60px;
+		padding-bottom: 40px;
+		text-align: center;
+	}
+	#footer a{
+		color: #b84d45;
+	}
+	</style>
+</head>
+<body>
+<div id="header" class="layout">
+	<ul>
+		<li>
+		<a href="#"><i id="logo" class="fa fa-rocket"></i></a>
+		</li>
+		<li>
+		<a href="#">博客</a>
+		</li>
+		<li>
+		<a href="#">项目</a>
+		</li>
+		<li>
+		<a href="#">简历</a>
+		</li>
+		<li id="more">
+		<a href="#">更多 <i class="fa fa-caret-down"></i></a>
+		<ul class="dropdownmenu">
+			<li>
+				<a href="#">GitHub</a>
+			</li>
+			<li>
+				<a href="#">知乎</a>
+			</li>
+			<li>
+				<a href="#">微博</a>
+			</li>
+		</ul>
+		</li>
+	</ul>
+</div>
+<div id="content">
+<div class="intro">
+    <div class="intro_wrap layout">
+	<h1>页面特征</h1>
+	<h3>不需要处理响应式，不使用Bootstrap，不需要js。</h3>
+	<h3>图标使用font-awesome，页面中心内容固定宽度1000px</h3>
+	</div>
+</div>
+<div class="firstpage layout">
+	<ul>
+		<li id="li1">首页</li>
+		<li id="li2">/</li>
+		<li id="li3">我的作品</li>
+	</ul>
+</div>
+<div class="mywork layout">
+	<ul>
+		<li>
+		<img src="1.jpg">
+		<h1>作品标题</h1>
+		<p>作品介绍</p>
+		<div>查看</div>
+		</li>
+		<li>
+		<img src="1.jpg">
+		<h1>作品标题</h1>
+		<p>作品介绍</p>
+		<div>查看</div>
+		</li>
+		<li>
+		<img src="1.jpg">
+		<h1>作品标题</h1>
+		<p>作品介绍</p>
+		<div>查看</div>
+		</li>
+		<li>
+		<img src="1.jpg">
+		<h1>作品标题</h1>
+		<p>作品介绍</p>
+		<div>查看</div>
+		</li>
+		<li>
+		<img src="1.jpg">
+		<h1>作品标题</h1>
+		<p>作品介绍</p>
+		<div>查看</div>
+		</li>
+		<li>
+		<img src="1.jpg">
+		<h1>作品标题</h1>
+		<p>作品介绍</p>
+		<div>查看</div>
+		</li>
+	</ul>
+</div>
+<div class="knowme">
+	<div class="layout">
+		<h1>想更详细了解我</h1>
+		<P>下载我的简历吧</P>
+		<p><a href="#" id="download">下载</a></p>
+	</div>
+</div>
+</div>
+<div id="footer" class="layout">
+	<p>模板来自<a href="#">start BootStrap</a></p>
+</div>
+</body>
+</html>

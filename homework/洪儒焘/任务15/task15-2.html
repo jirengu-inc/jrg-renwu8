@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="ux_1476177014_726651/iconfont.css">
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-decoration: none;
+		font-family: "microsoft yahei";
+	}
+	html,body{
+		height: 100%;
+	}
+	.layout{
+		width: 1100px;
+		margin: 0 auto;
+	}
+	#header{
+		background: #222;
+		background: url("header-bg.jpg");
+		background-size: cover;
+		height: 100%;
+		min-width: 1100px;
+	}
+	#header .nav{
+		padding: 10px 0;
+	}
+	#header .nav>a{
+		color: #FEC503;
+		font-size: 30px;
+	}
+	#header .nav a:hover{
+		color: #FEC503;
+	}
+	#header .nav:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav ul{
+		float: right;
+	}
+	#header .nav ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav ul>li{
+		float: left;
+		padding: 14px;
+		font-weight: 550;
+	}
+	#header .nav ul>li a{
+		color: #fff;
+	}
+	
+		
+	
+	/*#header .nav>a:nth-child(2){
+		float: right;
+		display: none;
+	}*/
+	/*@media screen and (min-width:800px){
+	#header .nav ul{
+		float: right;
+	}
+	#header .nav ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav ul>li{
+		float: left;
+		padding: 14px;
+		font-weight: 550;
+	}
+	}*/
+	/*@media screen and (max-width:800px){
+		#header .nav>a:nth-child(2){
+		display: inline-block;
+		}
+		#header .nav{
+			position: relative;
+		}
+		#header .nav ul{
+			position: absolute;
+			top: 100%;
+		}	
+	}*/
+
+
+	
+	/*#header .header-bg{
+		background: url("header-bg.jpg");
+		background-size: cover;
+		height: 100%;
+		text-align: center;
+		color: #fff;
+		padding-top: 150px;
+	}*/
+	#header .header-title{
+		text-align: center;
+		color: #fff;
+		padding-top: 150px;
+	}
+	#header .header-title h2{
+		font-family: "Droid Serif";
+		font-style: italic;
+		margin-bottom: 20px;
+		font-size: 40px;
+	}
+	#header .header-title h1{
+		font-size: 80px;
+		margin-bottom: 20px;
+	}
+	#header .header-title a{
+		display: inline-block;
+		padding: 20px 40px;
+		color: #fff;
+		background: #fed136;
+		border-radius: 5px;
+		font-weight: 600;
+		font-size: 20px;
+	}
+	#header .header-title a:hover{
+		background: #fec503;
+		color: #fff;
+	}
+	
+
+	/*main*/
+	#main{	
+		text-align: center;
+		color: #424141;
+	}
+	#main h2{
+		font-size: 40px;
+	}
+	#main #services,#main #protfolio,#main #about,#main #contact{
+		padding: 100px 0;
+	}
+	#main #services ul,#main #protfolio ul{
+		margin-left: -25px;
+		margin-top: 60px;
+	}
+	#main #services ul:after,#main #protfolio ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#main #services ul>li,#main #protfolio ul>li{
+		float: left;
+		width: 350px;
+		margin-left: 25px;
+		line-height: 1.5;
+		text-align: center;
+		margin-top: 40px;
+	}
+	#main #services ul>li .iconfont{
+		font-size: 60px;
+		padding: 20px;
+		color: #fff;
+		background: #fed136;
+		border-radius:50px; 
+	}
+	#main #services ul>li h3{
+		margin: 20px 0;
+	}
+	#main #services p,#main #protfolio p{
+		color: #777;
+	}
+
+	
+	#main #protfolio{
+		background: #f7f7f7;
+	}
+	#main #protfolio img{
+		width: 100%;
+	}
+	#main #protfolio a{
+		position: relative;
+		display: block;
+		height: 252.875px;
+	}
+	#main #protfolio a .hover{
+		background:transparent;
+		color: transparent;
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    /*opacity: 0;*/
+	    
+	    line-height: 252.875px;
+	    font-size: 20px;
+	    
+
+	    /* -webkit-transition: all ease .5s; */
+	}
+	#main #protfolio a .hover .fa{
+		margin-top: 100px;
+	}
+	#main #protfolio a .hover:hover{
+		/*opacity: 1;*/
+		transition: all ease .5s;
+		color: #fff;
+		background: rgba(254,209,54,.9);
+	}
+	
+	#main #about ul{
+		margin: 80px 0;
+	}
+	#main #about ul>li:after{
+		content: "";
+		display: block;
+		clear: both;	
+	}
+	#main #about ul>li .about-content{	
+		width: 350px;
+	}
+	#main #about ul>li{
+		position: relative;
+		margin-bottom: 80px;
+	}
+	#main #about ul>li img{
+		position: absolute;
+		float: left;
+		display: block;
+		width: 100px;
+		height: 100px;
+		left: 50%;
+		margin-left: -50px;
+		border-radius: 50%;
+		border:5px solid #ccc;
+	}
+	.left{
+		margin-left: 100px;
+		float: left;
+		text-align: right;
+	}
+	.right{
+		margin-right: 100px;
+		float: right;
+		text-align: left;
+	}
+</style>
+<body>
+	<div id="header">
+		<div class="layout">
+			<div class="nav">
+				<a href="">RThong</a>	
+				<ul>
+					<li><a href="#services">SERVICES</a></li>
+					<li><a href="#protfolio">PORTFOILO</a></li>
+					<li><a href="javascript:;">ABOUT</a></li>
+					<li><a href="javascript:;">TEAM</a></li>
+					<li><a href="javascript:;">CONTACT</a></li>
+				</ul>
+			</div>
+				<div class="header-title">
+					<h2>Welcome To Our Studio!</h2>
+					<h1>IT'S NICE TO MEET YOU</h1>
+					<a href="javascript:;">TELL ME MORE</a>
+				</div>
+		</div>
+		
+	</div>
+
+	<div id="main">
+		<div id="services">
+			<div class="layout">		
+				<h2>SERVICES</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<i class="iconfont">&#xe607;</i>
+						<h3>E-Commerce</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					</li>
+					<li>
+						<i class="iconfont">&#x343e;</i>
+						<h3>Responsive Design</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					</li>
+					<li>
+						<i class="iconfont">&#xe612;</i>
+						<h3>Web Security</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="protfolio">
+			<div class="layout">
+				<h2>PORTFOLIO</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="roundicons.png">
+						</a>
+						<h3>Round Icons</h3>
+						<p>Graphic Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="startup-framework.png">
+						</a>
+						<h3>Startup Framework</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="treehouse.png">
+						</a>
+						<h3>Treehouse</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="golden.png">
+						</a>
+						<h3>Golden</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>		
+							<img src="escape.png">
+						</a>
+						<h3>Escape</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>			
+							<img src="dreams.png">
+						</a>
+						<h3>Dreams</h3>
+						<p>Website Design</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="about">
+			<div class="layout">
+				<h2>ABOUT</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<div class="about-content left">
+							<h3>2009-2011</h3>
+							<h3>Our Humble Beginnings</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+						<img src="about-1.jpg">
+					</li>
+					<li>
+						<div class="about-content right">
+							<h3>MARCH 2011</h3>
+							<h3>An Agency is Born</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+                        <img src="about-2.jpg">
+					</li>
+					<li>
+						<div class="about-content left">
+							<h3>DECEMBER 2012</h3>
+							<h3>Transition to Full Service</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+                        <img src="about-3.jpg">
+					</li>
+					<li>
+						<div class="about-content right">
+							<h3>JULY 2014</h3>
+							<h3>Phase Two Expansion</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+                        <img src="about-4.jpg">
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer"></div>
+</body>
+</html>

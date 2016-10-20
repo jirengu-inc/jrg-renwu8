@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    .btn{
+      display:inline-block;  /* 是元素到同一行 */
+      text-decoration:none;  /* 去掉a链接的下划线 */ 
+      background-color:#f36e41; /* 设置背景颜色 */
+      border:none;   /* 去掉button按钮的边框 */
+      outline: none;    /* 去掉button按钮获得焦点时的蓝色边框 */
+      font-size:17px;   /*设置字条大小*/
+      font-family:"微软雅黑"; /*设置文本字体*/
+      color:#fff;  /* 设置文本颜色 */
+      padding:10px;
+      border-radius:8px;
+      cursor:pointer;  /* 鼠标移上去都是小手图标 */
+   
+    }
+   .btn:hover{
+     background-color:#c14d21; /* 鼠标悬浮时改变背景颜色 */
+   }
+    .btn:active{
+      background-color:#e25f31; /* 鼠标点击时改变背景颜色 */
+    }
+  </style>
+</head>
+<body>
+<a class="btn" href="#">确定</a>
+<span class="btn" >取消</span>
+<div class="btn">提交</div>
+<button class="btn"> 发送</button>
+</body>
+</html>

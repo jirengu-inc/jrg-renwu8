@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    写一个函数使用setTimeout模拟setInterval的功能
+
+    function set(str) {
+        console.log(str);
+        setTimeout(function () {
+          set('模拟setInterval功能');
+        },1000);
+    }
+    set('模拟setInterval功能');
+</script>
+</body>
+</html>

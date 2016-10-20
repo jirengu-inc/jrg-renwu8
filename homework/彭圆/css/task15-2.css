@@ -1,0 +1,311 @@
+body,html {
+    box-sizing: border-box;
+}
+body {
+    margin-top: -65px;
+}
+.btn {
+    padding: 20px 40px;
+    background: #fed136;
+    border-color: #fed136;
+    border-radius: 3px;
+    color: #fff;
+    font: bold 18px "Microsoft YaHei";
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #fec503;
+    border-color: #f6bf01;
+}
+.layout {
+    width: 1170px;
+    margin: 0 auto;
+}
+.icons {
+    padding: 0 95px 0 54px;
+}
+.icons a {
+    display: block;
+    font-size: 20px;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background: #222222;
+    color: #fff;
+    border-radius: 100%;
+    transition: all .3s ease;
+}
+.icons a:hover {
+    background: #fed136;
+}
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+#header {
+    padding: 300px 0 350px 0;
+    background: url("../img/task15-2/header.jpg") no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+#header .index {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 25px 0;
+}
+#header .index a {
+    float: left;
+    margin-top: 4px;
+    color: #fed136;
+    font: italic bold 24px cursive;
+}
+#header .nav {
+    float: right;
+}
+#header li {
+    float: left;
+    padding: 15px;
+}
+#header li:hover a {
+    color: #fed136;
+}
+#header .nav a {
+    font: bold 14px/20px "Microsoft YaHei";
+    letter-spacing: 1px;
+    color: #fff;
+}
+#header .welcome {
+    text-align: center;
+}
+#header .welcome h2 {
+    font: italic bold 40px/40px -webkit-pictograph;
+    letter-spacing: 2px;
+}
+#header .welcome h1 {
+    font: bold 75px/75px "Microsoft YaHei";
+    margin: 25px 0 50px 0;
+}
+
+#services,
+#protfolio,
+#about,
+#team,
+#contact {
+    padding: 150px 0;
+}
+#content {
+    text-align: center;
+}
+#content h1 {
+    font: bold 40px "Microsoft YaHei";
+}
+#content h3 {
+    font: bold 18px "Microsoft YaHei";
+}
+#content .margin-h3 {
+    margin: 15px 0;
+    letter-spacing: 1px;
+}
+#content p {
+    font: italic 18px -webkit-pictograph;
+    color: #777;
+}
+#content .main-disc {
+    margin: 15px 0 75px 0;
+    letter-spacing: 1px;
+}
+#content .more-disc {
+    font: 17px/1.5 -webkit-pictograph;
+    color: #777;
+}
+
+#services ul {
+    margin-top: 60px;
+}
+#services li {
+    float: left;
+    width: 360px;
+    padding: 0 15px;
+}
+#services .fa-stack:first-child {
+    color: #fed136;
+}
+#services .fa-stack:last-child {
+    color: #fff;
+}
+
+#protfolio {
+    background: #f7f7f7;
+}
+#protfolio li {
+    float: left;
+    width: 33.33333%;
+    box-sizing: border-box;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+#protfolio a {
+    display: block;
+    position: relative
+}
+#protfolio img {
+    width: 100%;
+}
+#protfolio i {
+    position: relative;
+    top: 40%;
+}
+#protfolio .caption {
+    background: #fff;
+    padding: 25px;
+}
+#protfolio .hover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    color: transparent;
+    font-size: 19px;
+    transition: all ease .5s;
+}
+#protfolio a:hover .hover {
+    background: rgba(254,209,54,.9);
+    color: #fff;
+}
+
+#about li {
+    width: 50%;
+    padding-bottom: 100px;
+    border-right: 2px solid #f1f1f1;
+}
+#about h3 {
+    line-height: 2;
+}
+#about p {
+    line-height: 25px;
+}
+#about .story-img {
+    float: right;
+    position: relative;
+    left: 92px;
+}
+#about img, .last {
+    width: 170px;
+    height: 170px;
+    border-radius: 100%;
+    border: 7px solid #f1f1f1;
+}
+#about .story {
+    width: 52%;
+    position: relative;
+}
+#about .left {
+    text-align: right;
+    left: 175px;
+}
+#about .right {
+    text-align: left;
+    left: 825px;
+}
+#about .last {
+    background: #fed136;
+    color: #fff;
+}
+#about .last h3 {
+    margin-top: 30px;
+}
+
+#team {
+    background-color: #f7f7f7;
+}
+#team ul {
+    margin-top: 10px;
+}
+#team .clear {
+    margin-bottom: 50px;
+}
+#team li {
+    float: left;
+    width: 33.33333%;
+    box-sizing: border-box;
+    padding: 0 30px;
+}
+#team img {
+    border: 7px solid #fff;
+    border-radius: 50%;
+}
+#team h3 {
+    margin-top: 25px;
+}
+
+#logos ul {
+    padding: 50px 120px;
+}
+#logos li {
+    float: left;
+    width: 25%;
+}
+
+#contact {
+    background: #222 center url("../img/task15-2/contact-bg.png") no-repeat;
+    color: #fff;
+}
+#contact input,textarea {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.075);
+    font-family: fantasy;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+#contact textarea {
+    width: 90%;
+    height: 190px;
+}
+#contact .form-group {
+    margin-bottom: 55px;
+}
+#contact .form-left {
+    float: left;
+    width: 44%;
+    padding: 0 15px;
+}
+#contact .form-right {
+    float: right;
+    width: 47%;
+    padding: 0 15px;
+}
+
+#footer {
+    padding: 25px 0;
+}
+#footer li {
+    float: left;
+    margin: 0 7px;
+}
+#footer p {
+    font: normal bold 14px/40px "Microsoft YaHei";
+    color: #333;
+}
+#footer .layout div {
+    display: inline-block;
+    padding: 0 70px;
+}
+#footer .icons {
+    margin-bottom: -15px;
+}
+#footer .others {
+    font: normal 14px/40px "Microsoft YaHei";
+    color: #fed136;
+}
+#footer .others:hover {
+    text-decoration: underline;
+}

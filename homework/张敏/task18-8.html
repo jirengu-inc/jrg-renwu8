@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    arr = ["a", "b", 1, 3, 4, 5, "b", 2];
+    //对原数组进行操作，不需要返回值
+    filterNumericInPlace(arr);
+    function filterNumericInPlace(arr) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (typeof arr[i] !== 'number') {
+                arr.splice(i, 1);
+            }
+        }
+    }
+    console.log(arr)  // [1,3,4,5,2]
+</script>
+</body>
+</html>

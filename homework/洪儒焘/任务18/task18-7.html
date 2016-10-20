@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	arr = ["a", "b"];
+	arr.push( function() { alert(console.log('hello hunger valley')) } );
+	arr[arr.length-1]();  // 输出：
+// 弹框会弹出undefined，控制台输出 "hello hunger valley"。
+// 原因：
+// 当执行arr.push()时，将一个函数放入了arr数组中，而arr[arr.length-1]就是去除数组中最后一个元素。而此时arr数组的最后一个元素恰好是以函数。
+// 所以arr[arr.length-1]()相当于调用了这个函数。由于console.log()的返回值是undefined,所以alert()会弹出"undefined"的信息，而控制台会打印console.log()参数的信息，此时是"hello hunger valley"。	
+	</script>
+</body>
+</html>
