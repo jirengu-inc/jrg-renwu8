@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //        var Car = //todo;
+    //    Car.setSpeed(30);
+    //    Car.getSpeed(); //30
+    //    Car.accelerate();
+    //    Car.getSpeed(); //40;
+    //    Car.decelerate();
+    //    Car.decelerate();
+    //    Car.getSpeed(); //20
+    //    Car.getStatus(); // 'running';
+    //    Car.decelerate();
+    //    Car.decelerate();
+    //    Car.getStatus();  //'stop';
+    //    //Car.speed;  //error
+
+    function setCar() {
+        var speed = 10;
+        var state = 'stop';
+        //减速
+        function decelerate() {
+            speed -= 10;
+        }
+
+        //获取状态
+        function getStatus(sta) {
+            state = sta;
+        }
+
+        //获取速度
+        function getSpeed() {
+            return speed;
+        }
+
+        //加速
+        function accelerate() {
+            speed += 10;
+        }
+
+        return {
+            decelerate: decelerate,
+            getStatus: getStatus,
+            getSpeed: getSpeed,
+            accelerate: accelerate
+        }
+    }
+    var car = setCar();
+    console.log(car.getSpeed());
+    car.accelerate();
+    console.log(car.getSpeed());
+
+
+</script>
+</body>
+</html>
