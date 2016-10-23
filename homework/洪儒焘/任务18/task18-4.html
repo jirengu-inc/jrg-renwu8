@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function filterNumeric(arr) {
+		var result=[];
+		for (var i = 0; i < arr.length; i++) {
+			if(typeof arr[i]=="number"){
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+	    arr = ["a", "b", 1, 3, 5, "b", 2];
+		newarr = filterNumeric(arr);  //   [1,3,5,2]
+		console.log(newarr);
+	</script>
+</body>
+</html>

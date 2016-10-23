@@ -1,0 +1,14 @@
+/*
+* @Author: abc02
+* @Date:   2016-10-20 20:58:29
+* @Last Modified by:   abc02
+* @Last Modified time: 2016-10-20 21:07:13
+*/
+
+html,body,h1,h2,h3,h4,h5,h6,p,ul,ol,li{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}

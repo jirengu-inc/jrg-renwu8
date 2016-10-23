@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./css/reset.css">
+        <style type="text/css">
+        	.ct{
+        		background-color: #333;
+        	}
+        	.box{
+        		border: 1px solid black;
+        		background-color: #eee;
+        		width: 100px;
+        		height: 100px;
+        	}
+        	.box1{
+				margin: 20px;        		
+        	}
+        	.box2{
+        		margin: 20px;
+        	}
+
+        	/*解决ct1，box1父子外边距合并*/
+        	.ct2{
+        		/*padding-top: 1px;*/
+        		/*border-top: 1px solid transparent;*/
+        		overflow: hidden;
+        	}
+        	/*解决box1，box相邻外边距合并*/
+        	.ct3>.box1,.ct3>.box2{
+        		float: left;
+        		/*display: inline-block;*/
+        		/*overflow: hidden;*/	/*形成BFC，但是边距依旧合并*/
+        	}
+        	.ct3{
+        		overflow: hidden;
+        	}
+
+
+        	.ct4>.box1,.ct4>.box2{
+        		float: left;
+        	}
+        	.maxbox{
+        		overflow: hidden;
+        		/*border: 1px solid red;*/
+        	}
+   </style>
+    </head>
+    <body>
+    	<!-- 父子外边距合并 -->
+    	<div class="ct ct1">
+    		<div class="box box1">box1</div>
+    		<div class="box box2">box2</div>
+    	</div>
+    	<!-- 解决父子外合并方式，border,padding,overflow让产生隔阂 -->
+    <!-- 	<div class="ct ct2">
+    		<div class="box box1">box1</div>
+    		<div class="box box2">box2</div>
+    	</div> -->
+    	<!-- 解决相邻外边距合并方式，float,inline-block不会对齐外边距进行合并 -->
+<!--     	<div class="ct ct3">
+    		<div class="box box1">box1</div>
+    		<div class="box box2">box2</div>
+    	</div>
+
+    	<div class="ct ct4">
+    		<div class="maxbox">
+    			<div class="box box1">box1</div>
+    		</div>
+    		<div class="maxbox">
+	    		<div class="box box2">box2</div>
+    		</div> -->
+    	</div>
+    </body>
+</html>

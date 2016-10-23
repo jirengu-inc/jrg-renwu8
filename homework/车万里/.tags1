@@ -1,0 +1,13 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+*	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^*{$/;"	function	line:3
+li	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^li{$/;"	function	line:7
+a	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^a{$/;"	function	line:10
+html,body	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^html,body{$/;"	function	line:13
+#header	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^#header{$/;"	function	line:16
+.contenter	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^.contenter{$/;"	function	line:22
+.logo	C:\Users\cwl\jrg-renwu8\homework\车万里\task15-2\index.css	/^.logo{$/;"	function	line:26

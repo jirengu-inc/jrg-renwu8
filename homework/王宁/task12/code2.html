@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>code2</title>
+  <style media="screen">
+    .header,.footer{
+      background: #ccc;
+      height: 50px;
+    }
+    .container{
+      padding: 0 200px;
+      /*position: relative;*/
+    }
+    .box1{
+      background: green;
+      float: left;
+      width: 100%;
+    }
+    .box2{
+      position: relative;
+      left: -200px;
+      background: red;
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin-left: -100%;
+    }
+    .box3{
+      position: relative;
+      left: 200px;
+      background: yellow;
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin-left: -200px;
+    }
+    .container::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    头部
+  </div>
+  <div class="container">
+    <div class="box1">
+      圣杯布局指两边顶宽，中间自适应的三栏布局，中间栏要在放在文档流前面以优先渲染.参考<a href="">圣杯布局原理</a>。其流程为1.设置container的左右padding，用于预留左右边栏的空间2.给所有元素设置定位和浮动，用于设置左右两栏偏移3.给左侧边栏设置right：本身宽度，让其移动至container最左边，margin-left设置100%（center的宽度）4.给右侧边栏设置left：本身宽度，让其移动至container最右边，margin-left设置本身宽度
+    </div>
+    <div class="box2">左侧边栏，固定宽度</div>
+    <div class="box3">右侧边栏，固定宽度</div>
+  </div>
+  <div class="footer">
+    尾部
+  </div>
+</body>
+</html>

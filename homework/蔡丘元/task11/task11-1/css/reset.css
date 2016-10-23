@@ -1,0 +1,13 @@
+html, body, ul, li {
+    padding: 0;
+    margin: 0;
+    font: 1rem/1.5rem "Microsoft YaHei";
+}
+
+li {
+    list-style: none;
+}
+
+a{
+    text-decoration:none;
+}

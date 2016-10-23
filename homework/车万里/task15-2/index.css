@@ -1,0 +1,398 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+html,body{
+  height: 100%;
+  font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#header{
+  width: 100%;
+  height: 100%;
+  background: url(images/header-bg.jpg) no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+.contenter{
+  width: 1170px;
+  margin: 0 auto;
+}
+.logo{
+  font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial;
+  font-size: 28px;
+  color: #fed136;
+  line-height: 40px;
+  font-style: italic;
+}
+.choice{
+  float: right;
+}
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+
+}
+.nav{
+  position: absolute;
+  width: 100%;
+  top:30px;
+}
+.nav .choice li{
+  float: left;
+  font-size:18px;
+  font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin-left:22px;
+  color: #fff;
+}
+.nav .choice li a{
+  color: #fff;
+  line-height: 40px;
+}
+.welcome{
+  padding-top: 300px;
+  text-align: center;
+  color: #fff;
+}
+.welcome p{
+  font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 40px;
+  line-height: 40px;
+  padding-bottom: 25px;
+  font-style: italic;
+  c
+}
+.welcome h2{
+  font-size: 75px;
+  line-height: 75px;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+.welcome a{
+  display: inline-block;
+  font-family : Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  width: 200px;
+  height: 66px;
+  background-color: #fed136;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 66px;;
+  font-size: 18px;
+  font-weight: 600;
+}
+.servises{
+  text-align: center;
+  padding: 158px 0;
+}
+.middle_title{
+  font-size: 40px;
+  color: #333;
+}
+.small_title{
+  margin-top: 29px;
+  font-size:: 14px;
+  font-style: italic;
+  color: #907777;
+}
+.servises ul li{
+  float: left;
+  width: 362px;
+  text-align: center;
+  margin-left: 40px;
+}
+.servises ul{
+  margin-top: 85px;
+  margin-left: -40px;
+}
+.servises ul li .icon{
+  display: inline-block;
+  width: 96px;
+  height: 96px;
+  background: #fed136;
+  border-radius: 96px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.icon i{
+  font-size: 45px;
+  line-height: 96px;
+}
+.servises ul li h4{
+  font-size: 18px;
+  color: #333;
+  line-height: 54px;
+}
+.servises ul li p{
+  font-size: 12px;
+  color: #777;
+  line-height: 22px;
+}
+.portfolio{
+  padding: 150px 0;
+  background: #f7f7f7;
+  text-align: center;
+}
+.portfolio ul{
+  margin-left: -30px;
+  text-align:center;
+  margin-top: 74px;
+}
+.portfolio ul li{
+  float: left;
+  margin-left: 30px;
+  width: 360px;
+  background: #fff;
+}
+
+.portfolio .hover{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 260px;
+  background-color: rgba(254, 217, 54, 0.8);
+  color: #fff;
+  line-height: 260px;
+  text-align: center;
+  font-size: 24px;
+}
+.portfolio ul li .image{
+  position: relative;
+}
+.portfolio ul li a:hover .hover{
+  display: block;
+}
+.portfolio ul li img{
+  width: 360px;
+  height: 260px;
+}
+.portfolio ul li h3{
+  font-size: 18px;
+  margin-top: 25px;
+}
+.portfolio ul li p{
+  font-size: 16px;
+  line-height: 36px;
+  margin-bottom: 20px;
+  color: #777;
+  font-style: italic;
+}
+.about{
+  padding: 158px 0;
+  text-align: center;
+}
+.time_line{
+  position: relative;
+  margin-top: 78px;
+}
+.time_line:before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  background: #f1f1f1;
+}
+.time_line li{
+  position: relative;
+  margin-bottom: 128px;
+}
+.time_line li img{
+  width: 156px;
+  height: 156px;
+  border-radius: 156px;
+  border: 8px solid #f1f1f1;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -82px;
+}
+.timeline_txt{
+  width: 460px;
+
+}
+.time_line .left{
+  padding: 0 0 0 100px;
+  text-align: right;
+}
+.timeline_txt h4{
+  font-size: 18px;
+  line-height: 30px;
+}
+.timeline_txt p{
+  font-size: 14px;
+  line-height: 1.75;
+}
+.time_line .right{
+  float: right;
+  text-align: left;
+  padding: 0 100px 0 0;
+}
+.time_line .last{
+  margin: 0;
+}
+ .last>div{
+  width: 156px;
+  height: 156px;
+  border-radius: 156px;
+  border: 8px solid #f1f1f1;
+  display: inline-block;
+  background:#fed136;
+}
+.last h4{
+  font-size: 18px;
+  color: #fff;
+  line-height: 26px;
+  margin-top: 35px;
+}
+.team{
+  padding: 156px 0;
+  text-align: center;
+  background: #f7f7f7;
+}
+.team ul{
+  margin-top: 78px;
+}
+.team ul li{
+  float: left;
+  width: 390px;
+}
+.team_img{
+  width: 226px;
+  height: 226px;
+  border: 8px solid #fff;
+  border-radius: 226px;
+}
+.team ul li h5{
+  font-size: 18px;
+  margin-top: 25px;
+}
+.team ul li p{
+  font-size: 14px;
+  line-height: 24px;
+}
+.team ul li  a{
+  display: inline-block;
+  width: 40px;
+  font-size: 18px;
+  color: #fff;
+  line-height: 36px;
+  height: 40px;
+  border-radius: 40px;
+  background: #222;
+  margin: 10px 7px;
+}
+.team_last{
+  padding-top: 48px;
+  font-size: 16px;
+  color: #777;
+}
+.logonav{
+  padding: 50px 0;
+  text-align: center;
+}
+.logonav ul li{
+  display: inline-block;
+  margin: 0 25px;
+}
+.foot_form{
+  text-align: center;
+  background-color: #222;
+  padding: 150px 0;
+  background-image: url(images/map-image.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.foot_form h1{
+  color: #fff;
+}
+.foot_form p{
+  color: #777;
+}
+form{
+  margin-top: 76px;
+  color: #555;
+}
+.form_content{
+  float: left;
+  width: 50%;
+}
+form input{
+  width: 555px;
+  height: 62px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+textarea{
+  width: 555px;
+  height: 237px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+button{
+  width: 230px;
+  height: 67px;
+  background: #fed136;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 67px;
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+.submit{
+  clear: both;
+}
+.contact{
+  text-align: center;
+}
+.contact p{
+  float: left;
+  line-height: 88px;
+  width: 33.3333%;
+}
+.contact  ul li{
+  display: inline-block;
+}
+.chat{
+  padding-top: 25px;
+  float: left;
+  width: 33.3333%;
+}
+.chat a{
+  display: inline-block;
+  width: 40px;
+  font-size: 18px;
+  color: #fff;
+  line-height: 36px;
+  height: 40px;
+  border-radius: 40px;
+  background: #222;
+  margin: 0 8px;
+}
+.zanzu{
+  float: right;
+}
+.zanzu a{
+  color: #fed936;
+  font-size: 18px;
+  line-height: 88px;
+}

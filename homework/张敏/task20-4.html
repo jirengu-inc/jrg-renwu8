@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    写一个函数，计算setTimeout平均[备注：新加]最小时间粒度
+
+function timeMinx(){
+    var j = 0;
+    var startTime = new Date();
+    var clock = setTimeout(function(){
+        j++;
+        if(j === 1000){
+            clearTimeout(clock);
+            var endTime = Date.now();
+            console.log((endTime-startTime)/j);
+        }else{
+            clock = setTimeout(arguments.callee,0)
+        };
+    },0);
+}
+timeMinx();
+
+</script>
+</body>
+</html>

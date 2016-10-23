@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="ct">
+    <li data-img="1.jpg">鼠标放置查看图片1</li>
+    <li data-img="2.jpg">鼠标放置查看图片2</li>
+    <li data-img="3.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview">
+    <img src="" alt="" class="img">
+</div>
+<script>
+//    补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。
+    var oli=document.getElementsByTagName('li');
+var preview=document.getElementsByClassName('img-preview')[0];
+var img=document.getElementsByClassName('img')[0];
+    for(var i=0;i<oli.length;i++){
+        oli[i].onmouseover=function () {
+            var url=this.getAttribute('data-img');
+            img.src='img/'+url;
+        }
+    }
+</script>
+</body>
+</html>

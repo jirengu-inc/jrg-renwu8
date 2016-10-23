@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>10-2</title>
+  </head>
+  <body>
+    <div class="a">
+      <div class="aa">
+
+      </div>
+    </div>
+    <div class="b">
+      <div class="bb">
+
+      </div>
+    </div>
+    <div class="c">
+      <div class="cc">
+
+      </div>
+    </div>
+    <style media="screen">
+    .body{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: black;
+    }
+      .a{
+        position: relative;
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 1px solid #ccc;
+      }
+      .aa{
+        position: absolute;
+        top: -10px;
+        left: 6px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #ccc;
+      }
+      .b{
+        position: relative;
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 1px solid #ccc;
+      }
+      .bb{
+        position: absolute;
+        top: 0px;
+        left: 180px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid red;
+        border-bottom: 10px solid transparent;
+        border-top: 10px solid red;
+      }
+      .c{
+        position: relative;
+        width: 200px;
+        height: 100px;
+        margin-top: 20px;
+        margin-left: 20px;
+        border: 1px solid #ccc;
+      }
+      .cc{
+        position: absolute;
+        top: -10px;
+        left: 6px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #ccc;
+      }
+      .c .cc:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: -10px;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #fff;
+      }
+
+    </style>
+  </body>
+</html>

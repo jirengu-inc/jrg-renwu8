@@ -251,7 +251,7 @@ body {
 }
 
 #contact {
-    background: #222 center url("img/task15-2/contact-bg.png") no-repeat;
+    background: #222 center url("../img/task15-2/contact-bg.png") no-repeat;
     color: #fff;
 }
 #contact input,textarea {

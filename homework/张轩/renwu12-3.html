@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    </script>
+    <style type="text/css">
+    body{
+        margin:0px;
+        padding: 0px;
+    }
+        .header{
+            background-color: grey;
+            height: 60px;
+        }
+        .header::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .content{
+            padding-left:200px;
+        }
+        .middle{
+            background-color: rgba(100,0,0,0.1);
+            float: left;
+        }
+        .left{
+            position: relative;
+            float: left;
+            background-color: blue;
+            width: 200px;
+            margin-left: -100%;
+            left:-200px;
+        }
+        .footer{
+            background-color: grey;
+            height: 60px;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <div class="middle">
+            who am i who am i who am i who am i who am i who am i 
+            who am i who am i who am i who am i who am i who am i 
+            who am i who am i who am i who am i who am i who am i 
+            who am i who am i who am i who am i who am i who am i 
+            who am i who am i who am i who am i who am i who am i 
+            who am i who am i who am i who am i who am i who am i 
+        </div>
+        <div class="left">left</div>
+        <!-- <div class="right">right</div> -->
+    </div>
+    <div class="footer">
+        foot
+    </div>
+</body>
+</html>

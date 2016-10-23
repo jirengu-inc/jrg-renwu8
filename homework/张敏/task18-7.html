@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    arr = ["a", "b"];
+    arr.push(
+        function() {
+        alert(console.log('hello hunger valley'))
+        }
+    );
+    arr[arr.length-1]();//输出了undefined,应为函数没有返回值
+//    var aaa=[];
+//    aaa.push(function () {
+//        console.log(222);
+//    })
+//    aaa[aaa.length-1]();
+</script>
+</body>
+</html>

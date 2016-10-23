@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>code4</title>
+  <style media="screen">
+    .header,.footer{
+      background: #ccc;
+      height: 50px;
+    }
+    .box1{
+      float: left;
+      width: 100%;
+    }
+    .box1>.ct1{
+      margin-left: 200px;
+      margin-right: 200px;
+      height: 200px;
+      background: green;
+    }
+    .box2{
+      background: red;
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin-left: -100%;
+    }
+    .box3{
+      background: yellow;
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin-left: -200px;
+    }
+    .container::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    头部
+  </div>
+  <div class="container">
+    <div class="box1">
+      <div class="ct1">
+        双飞翼布局指两边顶宽，中间自适应的三栏布局，中间栏要在放在文档流前面以优先渲染.
+      </div>
+    </div>
+    <div class="box2">左侧边栏，固定宽度</div>
+    <div class="box3">右侧边栏，固定宽度</div>
+  </div>
+  <div class="footer">
+    尾部
+  </div>
+</body>
+</html>
