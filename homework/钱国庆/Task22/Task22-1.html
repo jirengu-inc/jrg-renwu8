@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22-1</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<script>
+    var ctList = document.getElementsByClassName("ct")[0].getElementsByTagName("li");
+
+    /**
+     * 方法一: 将事件绑定在每个li元素上
+     * */
+//    for (var i = 0; i < ctList.length; i++) {
+//        ctList[i].addEventListener("click", function () {
+//            console.log(this.innerText);
+//        }, false);
+//    }
+
+    /**
+     * 方法二: 将事件绑定在父元素上
+     * */
+    var ulCt = document.getElementsByClassName("ct")[0];
+    ulCt.addEventListener("click", function (event) {
+        console.log(event.target.innerText);
+    });
+</script>
+</body>
+</html>

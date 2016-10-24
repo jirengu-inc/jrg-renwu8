@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>position:relative与负边距的区别</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 960px;
+            margin: 50px;
+        }
+
+        .col-1, .col-2, .col-3, .col-4 {
+            width: 100px;
+            height: 100px;
+        }
+
+        .col-1 {
+            position: relative;
+            left: -10px;
+            top: -10px;
+            background: blue;
+        }
+
+        .col-2 {
+            background: yellow;
+        }
+
+        .col-3 {
+            margin-bottom: -10px;
+            background: blue;
+            opacity: 0.3;
+        }
+
+        .col-4 {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="col-1">position: relative</div>
+    <div class="col-2">后续元素</div>
+</div>
+<div class="wrapper">
+    <div class="col-3">margin-bottom: -10px</div>
+    <div class="col-4">后续元素</div>
+</div>
+</body>
+</html>
