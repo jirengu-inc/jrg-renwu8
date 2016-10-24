@@ -1,0 +1,193 @@
+body,ul,li,h1,h2,a
+{
+	padding:0;
+	margin:0;
+	list-style: none;
+	color: #fff;
+	font-family:"微软雅黑"; 
+}
+a
+{
+	text-decoration:none;
+}
+img
+{
+	border:none;
+}
+.wrap
+{
+	width:1000px;
+	margin:0 auto;
+}
+#header
+{
+	height: 50px;
+	line-height: 50px;
+	
+
+}
+#header h1
+{
+	font-size: 56px;
+}
+#header p
+{
+	font-size: 24px;
+	line-height: 40px;
+}
+
+#navbar>ul>li
+{
+	display: inline-block;
+	*display: inline;
+	height: 50px;
+	line-height: 50px;
+position: relative;
+	padding:0 15px;
+	vertical-align: top;
+}
+#navbar>ul>li>a
+{
+font-size: 16px;
+color: #595655;
+
+}
+#navbar>ul>li:hover ul
+{
+	display: block;
+}
+.worklist
+{
+	position: absolute;
+	border:1px solid #ccc;
+
+	top:50px;
+	left: 0;
+	background:#fff;
+	display: none;
+
+}
+.worklist a
+{
+	color: #595655;
+
+	
+}
+.worklist li
+{
+		padding: 0 15px;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px dotted #ccc;
+	}
+
+#headtitle
+{
+	height: 200px;
+	background:#b84d45;
+	padding-top: 58px;
+
+}
+#myworks
+{
+	margin-top: 40px;
+
+
+}
+#myworks:after
+{
+	content: "";
+	display: block;
+	clear: both;
+}
+.workbar
+{
+	height: 34px;
+	background:#f5f6f6;
+	line-height: 34px;
+	color: #000;
+	padding-left: 20px;
+}
+.workbar>span
+{
+	color: #b84d45;
+}
+.works 
+{
+	
+	text-align: center;
+
+}
+.works ul
+{
+	margin-left: -35px;
+}
+.works ul li
+{
+	width: 300px;
+	height: 358px;
+	border:1px solid #ccc;
+	display: block;
+	float: left;
+	margin-left: 35px;
+	margin-top:20px;
+	padding:4px;
+}
+.works ul li a
+{
+
+display: block;
+
+	border:1px solid #ccc;
+	overflow: hidden;
+}
+.show
+{
+	display: block;
+	margin-top: 10px;
+	width: 52px;
+	height: 32px;
+	line-height: 32px;
+	border:1px solid #ccc;
+	border-radius: 5px;
+	color: #595655;
+	margin:0 auto;
+}
+.works ul li a img
+{
+
+	height: 228px;
+
+}
+.works ul li>h2
+{
+margin-top:20px; 
+font-size: 20px;
+color: #020609;
+}
+.works ul li>p
+{
+	margin-top: 10px;
+font-size: 12px;
+color: #595655;
+}
+
+#footer
+{
+	height: 155px;
+	background: #b84d45;
+	text-align: center;
+	padding-top: 50px;
+	margin-top: 20px;
+}
+#footer>p:nth-of-type(1)
+{
+font-size: 30px;
+
+}
+#footer>p:nth-of-type(2)
+{
+font-size: 20px;
+
+}

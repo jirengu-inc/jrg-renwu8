@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    fn();
+    var i = 10;
+    var fn = 20;
+    console.log(i);//输出10
+    function fn(){
+        console.log(i);//输出undefined i还未赋值，
+        var i = 99;
+        fn2();//被改写了赋值
+        console.log(i);//输出100
+        function fn2(){
+            i = 100;
+        }
+    }
+</script>
+</body>
+</html>

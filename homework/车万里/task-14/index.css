@@ -1,0 +1,265 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  height: 100%;
+  font-family: "Microsoft YaHei","微软雅黑",sans-serif;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+#header{
+  width: 100%;
+  height: 100%;
+  background:url(images/bg.jpg) no-repeat center center;
+  background-size: cover;
+  text-align: center;
+}
+.contenter{
+  width: 960px;
+  margin: 0 auto;
+}
+.table{
+  display: table;
+  height: 100%;
+}
+.header_content{
+  display: table-cell;
+  vertical-align: middle;
+}
+#header h1{
+  font-size:60px;
+  margin-bottom: 30px;
+}
+#header p{
+  font:22px;
+  margin-bottom: 30px;
+}
+#header .button{
+  width: 140px;
+  height: 46px;
+  background:rgba(0, 0, 0, 0.4);;
+  color:#fff;
+  line-height: 46px;
+  display:inline-block;
+}
+#header .button:hover{
+  background: rgba(0, 0, 0, 0.8);
+}
+#content .title{
+  height: 212px;
+  text-align: center;
+}
+.title_content{
+  display: table-cell;
+  vertical-align: middle;
+}
+.title_content h2{
+  font-size: 26px;
+  margin-bottom: 22px;
+}
+.title_content .myworks{
+  color: #036fb3;
+  margin-left: 10px;
+}
+#content .services{
+  padding: 74px 0;
+  background: #337ab7;
+  text-align: center;
+  color: #fff;
+}
+
+.services h2{
+  color: #fff;
+  font-size: 24px;
+}
+.line{
+  width: 100px;
+  height: 1px;
+  background: #fff;
+  display: inline-block;
+  margin: 20px 0;
+}
+.services ul li{
+  width: 240px;
+  box-sizing: border-box;
+  float: left;
+}
+.services ul:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.servises_name .icon{
+  width: 98px;
+  height: 98px;
+  border-radius: 98px;
+  background: #fff;
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #337ab7;
+}
+.icon .iconfont{
+font-family:'iconfont';
+font-size:56px;
+font-style:normal;
+line-height: 98px;
+}
+.servises_name h4{
+  font-size: 18px;
+  margin-bottom: 13px;
+}
+.servises_name p{
+  font-size: 13px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.servises_name .more{
+  width: 92px;
+  height: 34px;
+  display: inline-block;
+  background: #fff;
+  font-size: 13px;
+  line-height: 34px;
+  color: #333;
+}
+.servises_name .more:hover{
+  background: none;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.callout{
+  background: url(images/callout.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 175px 0;
+  text-align: center;
+}
+.callout p{
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+}
+.works{
+  text-align: center;
+  padding: 50px 0;
+}
+.works h2{
+  color: #333;
+  font-size: 24px;
+}
+.works .line{
+  background-color: #ddd;
+}
+.works ul:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.works ul .work_content a{
+  display: block;
+  width: 450px;
+  height: 304px;
+  float: left;
+  margin: 15px;
+  background: url(images/portfolio-1.jpg) no-repeat center center;
+}
+.works .works_more{
+  display: block;
+  width: 122px;
+  height: 34px;
+  background: #999395;
+  margin: 0 auto;
+  font-size: 12px;
+  color: #fff;
+  line-height: 34px;
+  margin-top: 15px;
+}
+.works .works_more:hover{
+  background: rgba(0, 0, 0, 0.5);
+}
+.call_to_action{
+  background: #337ab7;
+  text-align: center;
+  padding: 60px 0;
+}
+.call_to_action h4{
+  color: #fff;
+  font-size: 24px;
+  line-height: 45px;
+  margin-bottom: 11px;
+}
+.call_to_action .click a{
+  padding: 0 18px;
+  height: 46px;
+  display: inline-block;
+  line-height: 46px;
+  margin: 0 10px;
+}
+.left_click{
+  background: #fff;
+  color: #333;
+}
+.left_click:hover{
+  background: rgba(255, 255, 255, 0.8);
+}
+.right_click{
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.right_click:hover{
+  background: rgba(0, 0, 0, 0.7);
+}
+#footer{
+  padding: 115px 0;
+  text-align: center;
+}
+#footer h5{
+  font-size: 16px;
+  margin-bottom: 9px;
+}
+#footer p{
+  font-size: 12px;
+  color: #333;
+  line-height: 20px;
+}
+#footer .address{
+  margin-bottom: 10px;
+}
+#footer .email{
+  font-size: 12px;
+  line-height: 20px;
+  color: blue;
+}
+#footer .email i{
+  color: #333;
+}
+#footer ul li{
+  display: inline-block;
+}
+#footer ul:after{
+  content: '';
+  display:block;
+  width: 100px;
+  height: 1px;
+  margin: 0 auto;
+  background: #ddd;
+  margin-bottom: 25px;
+}
+#footer ul li .iconfont{
+  font-size: 40px;
+  color:#337ab7;
+  line-height: 90px;
+  padding: 0 20px;
+}
+#footer ul li .iconfont:hover{
+  color: #1e64a1;
+}

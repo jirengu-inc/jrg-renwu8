@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //死循环，卡在while循环这块，永远执行不到setTimeout了
+    var flag = true;
+    setTimeout(function(){
+        flag = false;
+    },0)
+    while(flag){}
+    console.log(flag);
+</script>
+</body>
+</html>

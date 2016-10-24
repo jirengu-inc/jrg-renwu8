@@ -1,0 +1,245 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-10-02 20:35:32
+ * @version $Id$
+ */
+    html,
+    body,
+    h1,
+    h4,
+    p,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    html,
+    body {
+        height: 100%;
+    }
+    
+    .layout {
+        width: 960px;
+        margin: 0 auto;
+    }
+    
+    h1,
+    h4,
+    p {
+        text-align: center;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    #header {
+        height: 100%;
+        background-image: url(http://img2.3lian.com/2014/f6/96/d/90.jpg);
+    }
+    
+    #header .table {
+        display: table;
+        height: 100%;
+    }
+    
+    #header .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    
+    #header h1 {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    
+    #header p {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    #header .btn {
+        background-color: green;
+        display: inline-block;
+        color: white;
+        padding: 10px 20px;
+    }
+    
+    #main .explain {
+        margin: 50px auto;
+    }
+    
+    .explain p {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+    
+    .services {
+        background-color: #337ab7;
+    }
+    
+    .services h1 {
+        padding-top: 50px;
+        color: white;
+    }
+    
+    .services li {
+        color: white;
+        float: left;
+        text-align: center;
+        padding-right: 20px;
+        width: 220px;
+    }
+    
+    .services .item:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .services h4,
+    .services p {
+        margin-bottom: 10px;
+    }
+    
+    .services .btn {
+        display: inline-block;
+        background-color: white;
+        padding: 10px 20px;
+    }
+    
+    .services .icon {
+        font-size: 100px;
+    }
+    
+    .services hr {
+        width: 100px;
+    }
+    
+    .services ul {
+        padding-bottom: 50px;
+    }
+    
+    .introduce {
+        background-image: url(http://img2.3lian.com/2014/f6/170/d/102.jpg);
+        background-size: cover;
+    }
+    
+    .introduce h1 {
+        padding: 150px 0;
+        font-size: 50px;
+    }
+    
+    .works {
+        text-align: center;
+    }
+    
+    .works h1 {
+        padding-top: 50px;
+    }
+    
+    .works hr {
+        width: 100px;
+        color: pink;
+    }
+    
+    .works ul {
+        margin-right: -20px;
+    }
+    
+    .works li {
+        float: left;
+        margin: 0 20px 20px 0;
+    }
+    
+    .works img {
+        width: 470px;
+        height: 300px;
+    }
+    
+    .works .item:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .works .btn {
+        display: inline-block;
+        background-color: #9a9698;
+        padding: 10px 20px;
+        color: white;
+    }
+    
+    .encouragement {
+        background-color: #337ab7;
+        color: white;
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .encouragement .btn {
+        display: inline-block;
+        padding: 10px 20px;
+    }
+    
+    .encouragement a:first-of-type {
+        background-color: white;
+        color: black;
+    }
+    
+    .encouragement a:nth-of-type(2) {
+        background-color: #235a7e;
+        color: white;
+    }
+    
+    .encouragement .layout {
+        padding: 50px 0;
+    }
+    
+    .encouragement h1 {
+        margin-bottom: 20px;
+    }
+    
+    #footer {
+        text-align: center;
+        margin-top: 100px;
+    }
+    
+    #footer h4 {
+        margin-bottom: 20px;
+    }
+    
+    #footer .tel {
+        margin-top: 20px;
+    }
+    
+    #footer .item {
+        margin: 30px 400px;
+    }
+    
+    #footer .item>li {
+        float: left;
+        padding-left: 15px;
+    }
+    
+    #footer .item:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    #footer .item .icon {
+        font-size: 35px;
+    }
+    
+    #footer .conclude {
+        margin-bottom: 50px;
+    }

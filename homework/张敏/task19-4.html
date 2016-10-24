@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Runtime = (function () {
+        //code here ...
+        var obj = {
+            nowtime: 0,
+            endtime: 0,
+            distime: 0,
+            start: function () {
+                //code here ...， 当前时间
+                nowtime = Date.now();
+
+            },
+            end: function () {
+                //code here ...  结束时间
+                endtime = Date.now();
+
+            },
+            get: function () {
+                //code here ...  获取执行时间
+                distime = endtime - nowtime;
+                return distime;
+            }
+        };
+        return obj;
+    }());
+    Runtime.start();
+    for (var i = 0; i < 22; i++) {
+        console.log('11');
+    }
+    Runtime.end();
+    console.log(Runtime.get());
+</script>
+</body>
+</html>

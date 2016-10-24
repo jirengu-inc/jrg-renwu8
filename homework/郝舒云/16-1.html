@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    function filter(arr,func)
+    {
+      
+    }
+   function isNumeric (el){
+    return typeof el === 'number'; 
+}
+arr = ["a",3,4,true, -1, 2, "b"]
+
+arr = filter(arr, isNumeric) ; // arr = [3,4,-1, 2],  过滤出数字
+arr = filter(arr, function(val) { return  typeof val === "number" && val > 0 });  // arr = [3,4,2] 过滤出大于0的整数
+ 
+    </script>
+</body>
+
+</html>

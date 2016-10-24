@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    .btn{
+  font-family:"微软雅黑";
+  font-size:23px;
+  display:inline-block;
+}
+span{
+  display:inline-block;
+    height:28px;
+    padding-left:35px;   background:url(http://csssprites.com/results/7b37370ad5dab3f28bd0d2dd5802e57e/result.png) 0 0 no-repeat;
+  }
+span:hover{
+  cursor:pointer;
+}
+/* 通过设置内边距的方式使得span标签左侧预留一块空间，放置icon*/
+.btn1 span{
+  background-position:0px 0px;
+}
+.btn1 span:hover{
+  background-position:0px -126px;
+}
+.btn2 span{
+  background-position:0px -42px;
+}
+.btn2 span:hover{
+  background-position: 0px -168px;
+}
+.btn3 span{
+  background-position:0px -84px;
+}
+.btn3 span:hover{
+  background-position:0px -210px;
+}
+.btn span:hover{
+  color:#00bb9c;
+}
+
+  </style>
+</head>
+<body>
+<div class="bottom">
+  <div class="btn btn1">
+    <span>小狗</span>
+  </div>
+  <div class="btn btn2">
+    <span>懒猫</span>
+  </div>
+  <div class="btn btn3">
+    <span>小鼠</span>
+  </div>
+</div>
+</body>
+</html>

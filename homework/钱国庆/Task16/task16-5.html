@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task16-5</title>
+</head>
+<body>
+<script>
+    document.write("答案在控制台和页面中都显示" + "<br>");
+    document.write("思路: 用for in循环遍历取得JSON(对象)中的数据,在打印" + "<br>");
+    var obj  = {
+        name: "jirengu",
+        sex: "male",
+        age: 28
+    };
+    var information = "";
+    for (var key in obj) {
+        information += key + ": " + obj[key] + ", ";
+    }
+    information = information.substr(0, information.length - 2);
+    console.log(information);
+    document.write(information);
+</script>
+</body>
+</html>

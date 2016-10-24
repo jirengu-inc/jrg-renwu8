@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function truncate(arr,value) {
+		if(arr.length>value){
+			return arr.substr(0,value)+"...";
+		}
+		else{
+			return arr;
+		}
+	}
+	console.log(truncate("hello, this is hunger valley,", 10)) == "hello, thi...";
+	console.log(truncate("hello world", 20)) == "hello world"
+
+	</script>
+</body>
+</html>

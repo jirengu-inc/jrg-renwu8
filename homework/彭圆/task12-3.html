@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>圣杯布局之两栏</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        #header,#footer {
+            height: 30px;
+            background: #ccc;
+        }
+        #content {
+            padding-left: 200px;
+        }
+        #content .main {
+            float: left;
+            width: 100%;
+            height: 400px;
+            background: green;
+        }
+        #content .left {
+            float: left;
+            width: 200px;
+            height: 500px;
+            background: red;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+        #content::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="header">头部</div>
+    <div id="content">
+        <div class="main">
+            1.创建一个包裹三个子元素的父容器，左右栏固定宽高，中间栏宽度自适应，并给父元素设置左右padding，预留左右两栏的位置
+            2.给所有子元素设置浮动（父容器清除浮动），并给左右边栏设置负边距使其都跑到上面
+            3.给左右边栏设置相对定位，移动到左右两栏的预留位置
+        </div>
+        <div class="left">左边栏</div>
+    </div>
+    <div id="footer">尾部</div>
+</div>
+</body>
+</html>

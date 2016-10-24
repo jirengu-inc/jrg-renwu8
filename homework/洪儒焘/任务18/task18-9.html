@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function ageSort(argument) {
+		for (var i = 0; i < argument.length-1; i++) {
+			for (var j = i+1; j < argument.length; j++) {
+				if(argument[i].age>argument[j].age){
+					var a;
+					a=argument[j];
+					argument[j]=argument[i];
+					argument[i]=a;
+				}
+			}
+		}
+		console.log(argument);
+	}
+
+	var john = { name: "John Smith", age: 23 };
+	var mary = { name: "Mary Key", age: 18 };
+	var bob = { name: "Bob-small", age: 6 };
+	var people = [ john, mary, bob ];
+	ageSort(people); // [ bob, mary, john ]
+	</script>
+</body>
+</html>

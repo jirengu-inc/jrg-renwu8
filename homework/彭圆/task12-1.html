@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>固定宽度居中</title>
+    <style>
+        body,html,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .layout {
+            width: 900px;
+            margin: 0 auto;
+
+        }
+        #content {
+            margin-top: 30px;
+        }
+        #content .main {
+            background: #ccc;
+            margin-top: 20px;
+            padding: 10px 0;
+        }
+        #content .panels::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #content .panels {
+            margin-left: -20px;
+        }
+        .panels li {
+            float: left;
+            margin-left: 20px;
+            margin-top: 10px;
+            width: 286px;
+            height: 80px;
+            background: #004210;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" class="layout">
+        <div class="main">
+            <ul class="panels">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

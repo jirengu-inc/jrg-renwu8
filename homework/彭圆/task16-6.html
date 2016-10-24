@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    console.log(a);  //undefined，因为变量提升，变量a的声明语句在后面
+    var a = 1;  //声明变量a并被赋值为1
+    console.log(a);  //输出为1，因为变量a已被声明
+    console.log(b);  //抛出错误，因为变量b不存在
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>关于解决inline-block的问题</title>
+    <meta name="description" content="饥人谷">
+    <meta name="keywords" content="饥人谷">
+    <style>
+    html,
+    body,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    .ct,
+    .ct1,
+    .ct2 {
+        border: 1px solid;
+    }
+    
+    .ct li {
+        display: inline-block;
+        background: blue;
+        color: #fff;
+    }
+    
+    .ct1:after {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+    
+    .ct1 li {
+        display: inline-block;
+        float: left;
+        background: blue;
+        color: #fff;
+    }
+    
+    .ct2 {
+        font-size: 0;
+    }
+    
+    .ct2 li {
+        font-size: 20px;
+        display: inline-block;
+        background: blue;
+        color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <span>display:inline-block造成的缝隙问题</span>
+    <div class="ct">
+        <ul>
+            <li>tag1</li>
+            <li>tag2</li>
+            <li>tag3</li>
+            <li>tag4</li>
+        </ul>
+    </div>
+    <span>解决方式：HTML并列写元素</span>
+    <div class="ct">
+        <ul>
+            <li>tag1</li>
+            <li>tag2</li>
+            <li>tag3</li>
+            <li>tag4</li>
+        </ul>
+    </div>
+    <span>解决方式：利用浮动原理</span>
+    <div class="ct1">
+        <ul>
+            <li>tag1</li>
+            <li>tag2</li>
+            <li>tag3</li>
+            <li>tag4</li>
+        </ul>
+    </div>
+    <span>利用父容器添加font-size:0属性</span>
+    <div class="ct2">
+        <ul>
+            <li>tag1</li>
+            <li>tag2</li>
+            <li>tag3</li>
+            <li>tag4</li>
+        </ul>
+    </div>
+</body>
+
+</html>

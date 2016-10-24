@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="ux_1476177014_726651/iconfont.css">
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-decoration: none;
+		font-family: "microsoft yahei";
+	}
+	html,body{
+		height: 100%;
+		min-width: 525px;
+	}
+	.layout{
+		width: 80%;
+		margin: 0 auto;
+	}
+
+
+	#header{
+		background: url("header-bg.jpg");
+		background-size: cover;
+		height: 100%;
+	}
+	#header .nav{
+		padding: 10px 0;
+		background: #222;
+		position: fixed;
+		width: 100%;
+		z-index: 999;
+	}
+	#header .nav .layout:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav .layout>a:nth-child(1){
+		color: #FEC503;
+		font-size: 30px;
+	}
+	#header .nav .layout>a:nth-child(1):hover{
+		color: #feba17;
+	}
+	/*#header .nav a:hover{
+		color: #FEC503;
+	}*/
+	#header .nav:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav .nav-content{
+		float: right;
+	}
+	#header .nav .nav-content:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#header .nav .nav-content>li{
+		float: left;
+		margin-top: 10px;
+		padding: 0 14px;
+		font-weight: 550;
+	}
+	#header .nav .nav-content>li a{
+		color: #fff;
+	}
+	#header .nav .nav-content>li a:hover{
+		color: #fed12d;
+	}
+	/*.btn{
+		display: inline-block;
+		float: right;
+		width: 50px;
+		height: 40px;
+		background: #FEC503;
+	}*/
+	#header .nav-hidden{
+		border-top: 1px solid #383838;
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;		
+		background: #222;
+		width: 100%; 
+		padding: 5px 0;
+	}
+	#header .nav-hidden li{
+		padding: 10px 0;
+		padding-left: 10%;
+	}
+	#header .nav-hidden li a{
+		color: #fff;
+	}
+	#header .nav-hidden li a:hover{
+		color: #fed12d;
+	}
+	@media screen and (max-width: 768px) { 
+		#header .layout .nav-content{
+			display: none;
+		}
+		#header .nav-hidden{
+			display: block;
+			z-index: 2;	
+		}
+	}
+
+	/*.btn:hover + .nav-hidden{
+		display: block;
+	}*/
+	#header .header-title{
+		text-align: center;
+		color: #fff;
+		padding-top: 200px;
+	}
+	#header .header-title h2{
+		font-family: "Droid Serif";
+		font-style: italic;
+		margin-bottom: 20px;
+		font-size: 40px;
+	}
+	#header .header-title h1{
+		font-size: 80px;
+		margin-bottom: 20px;
+	}
+	#header .header-title a{
+		display: inline-block;
+		padding: 20px 40px;
+		color: #fff;
+		background: #fed136;
+		border-radius: 5px;
+		font-weight: 600;
+		font-size: 20px;
+	}
+	#header .header-title a:hover{
+		background: #fec503;
+		color: #fff;
+	}
+
+	/*main*/
+	/*main*/
+	#main{	
+		text-align: center;
+		color: #424141;
+	}
+	#main h2{
+		font-size: 40px;
+	}
+	#main #services,#main #protfolio,#main #about,#main #our-amazing-team,#main #contact{
+		padding: 100px 0;
+	}
+	#main #services ul{
+		margin-left: -15px;
+		margin-top: 60px;
+	}
+	#main #services ul:after,#main #protfolio ul:after,#our-amazing-team ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#main #services ul>li{
+		float: left;
+		width: 33.33%;
+		box-sizing: border-box;
+		padding: 0 15px;
+		line-height: 1.5;
+		text-align: center;
+		margin-top: 40px;
+	}
+	@media screen and (max-width: 768px){
+		#main #services ul{
+			width: 80%;
+			margin: 0 auto;
+		}
+		#main #services ul>li{
+			width: 100%;
+		}
+	}
+	#main #services ul>li .iconfont{
+		font-size: 60px;
+		padding: 20px;
+		color: #fff;
+		background: #fed136;
+		border-radius:50px; 
+	}
+	#main #services ul>li h3{
+		margin: 20px 0;
+	}
+	#main #services p,#main #protfolio p{
+		color: #777;
+	}
+
+
+	#main #protfolio{
+		background: #f7f7f7;
+	}
+	#main #protfolio img{
+		width: 100%;
+	}
+	#main #protfolio a{
+		position: relative;
+		display: block;
+		line-height: 0;
+	}
+	#main #protfolio a .hover{
+		background:transparent;
+		color: transparent;
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    /*opacity: 0;*/
+	    /* -webkit-transition: all ease .5s; */
+	}
+	#main #protfolio a .hover .fa{
+		position: absolute;
+		width: 15%;
+		height: 15%;
+		top: 42.5%;
+		left: 42.5%;
+	}
+	#main #protfolio a .hover:hover{
+		/*opacity: 1;*/
+		transition: all ease .5s;
+		color: #fff;
+		background: rgba(254,209,54,.9);
+	}
+	
+	
+	#main #protfolio ul{
+		margin-top: 60px;
+	}
+	#main #protfolio ul>li{
+		float: left;
+		line-height: 1.5;
+		text-align: center;
+		margin-top: 40px;
+	}
+	@media screen and (min-width: 992px){
+		#main #protfolio .layout{
+			width: 950px;
+		}
+		#main #protfolio ul{
+			margin-left: -25px;
+		}
+		#main #protfolio ul>li{
+			width: 300px;
+			margin-left: 25px;
+		}
+		#main #protfolio a .hover .fa{
+			font-size: 50px;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 992px){
+		#main #protfolio .layout{
+			width: 750px;
+		}
+		#main #protfolio ul{
+			margin-left: -50px;
+		}
+		#main #protfolio ul>li{
+			width: 350px;
+			margin-left: 50px;
+		}
+		#main #protfolio a .hover .fa{
+			font-size: 70px;
+		}
+	}
+	@media screen and (max-width: 768px){
+		#main #protfolio ul>li{
+			width: 100%;
+		}
+		#main #protfolio a .hover .fa{
+			font-size: 500%;
+		}
+	}
+
+	#main #about ul{
+		position: relative;
+		margin: 80px 0;
+	}
+	#main #about ul>li:after{
+		content: "";
+		display: block;
+		clear: both;	
+	}
+	
+	#main #about ul>li{
+		position: relative;
+		margin-bottom: 80px;
+		text-align: center;
+	}
+	#main #about ul>li img{
+		position: absolute;
+		display: inline-block;
+		left: 50%;
+		border-radius: 50%;
+		border:5px solid #ccc;
+	}
+	#main #about .about-lastimg{
+		border-radius: 50%;
+		border:5px solid #ccc;
+	}
+	
+	@media screen and (min-width: 992px){
+		#main #about .layout{
+			width: 1100px;
+		}
+		#main #about ul>li img{
+			width: 170px;
+			height: 170px;
+			margin-left: -85px;
+		}
+		#main #about ul>li .about-content{	
+			width: 350px;
+		}
+		.left{
+		margin-left: 50px;
+		float: left;
+		text-align: right;
+		}
+		.right{
+			margin-right: 50px;
+			float: right;
+			text-align: left;
+		}
+		.about-lastimg{
+			width: 170px;
+			height: 170px;
+			/*margin-left: -85px;*/
+			color: #fff;
+			line-height: 25px; 
+			background: #fed136;
+			text-align: center;
+			margin: 0 auto;
+		}
+		.about-lastimg h3{
+			margin-top: 43px;
+		}
+		#main #about .timeline{
+			position: absolute;
+			border: 2px solid #dde;
+			top: 0;
+			left: 50%;
+			height: 98%;
+			z-index: -1;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 992px){
+		#main #about .layout{
+			width: 750px;
+		}
+		#main #about ul>li img{
+			width: 100px;
+			height: 100px;
+			margin-left: -50px;
+		}
+		#main #about ul>li .about-content{	
+			width: 250px;
+		}
+		.left{
+			margin-left: 10px;
+			float: left;
+			text-align: right;
+		}
+		.right{
+			margin-right: 10px;
+			float: right;
+			text-align: left;
+		}
+		.about-lastimg{
+			margin: 0 auto;
+			width: 100px;
+			height: 100px;
+			/*margin-left: -85px;*/
+			color: #fff;
+			line-height: 18px; 
+			background: #fed136;
+			text-align: center;
+		}
+		.about-lastimg h3{
+			font-size: 16px;
+			margin-top: 24px;
+		}
+		#main #about .timeline{
+			position: absolute;
+			border: 2px solid #dde;
+			top: 0;
+			left: 50%;
+			height: 98%;
+			z-index: -1;
+		}
+	}
+
+	@media screen and (max-width: 768px){
+		/*#main #about .layout{
+			width: 700px;
+		}*/
+		#main #about ul>li img{
+			width: 65px;
+			height: 65px;
+			margin-left: 17px;
+			left: 0;
+		}
+		#main #about ul>li .about-content{	
+			/*width: 600px;*/
+			float: left;
+			text-align: left;
+			margin-left: 120px;
+		}
+		
+		.about-lastimg{
+			width: 65px;
+			height: 65px;
+			float: left;
+			margin-left: 17px;
+			color: #fff;
+			line-height: 18px; 
+			background: #fed136;
+			text-align: center;
+		}
+		.about-lastimg h3{
+			font-size: 8px;
+			margin-top: 8px;
+		}
+		#main #about .timeline{
+			position: absolute;
+			border: 2px solid #dde;
+			top: 0;
+			left: 0;
+			margin-left: 52px;
+			height: 98%;
+			z-index: -1;
+		}
+	}
+
+
+	#main #our-amazing-team{
+		background: #f7f7f7;
+	}
+	#main #our-amazing-team .layout>ul{
+		padding-top: 100px;
+		padding-bottom: 50px;
+	}
+	#main #our-amazing-team .layout>ul>li{
+		float: left;
+		width: 33.3%;
+		box-sizing: border-box; 
+		margin-bottom: 50px; 
+	}
+	#main #our-amazing-team ul li img{
+		border: 5px solid #fff;
+		border-radius: 50%;
+		margin-bottom: 20px;
+		width: 70%;
+		box-sizing: border-box;
+	}
+	#main #our-amazing-team .layout>ul>li>ul{
+		text-align: center;
+	}
+	#main #our-amazing-team .layout>ul>li li{
+		padding: 0 5px;
+		display: inline-block;
+	}
+	#main #our-amazing-team ul li a{
+		display: inline-block;
+		width: 34px;
+		height: 34px;
+		border-radius: 50%;
+		background: #222;
+		color: #fff;
+		padding: 5px;
+		line-height: 34px;
+		text-align: center;
+		font-size: 20px;
+		margin-top: 20px;
+	}
+	#main #our-amazing-team ul li a:hover{
+		background: #fed136;
+		transition: all 0.3s;
+	}
+	#main #our-amazing-team .team-last{
+		width: 80%;
+		margin: 0 auto;
+	}
+	@media screen and (max-width: 768px){
+		#main #our-amazing-team .layout>ul>li{
+			width: 100%;
+		}
+		#main #our-amazing-team ul li img{
+			width: 50%;
+		}
+	}
+
+	
+	#main #advertisement ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#main #advertisement li{
+		text-align: center;
+		width: 25%;
+		float: left;
+		padding: 40px 0;
+	}
+	@media screen and (max-width: 992px){
+		#main #advertisement li{
+			width: 50%;
+		}
+	}
+	@media screen and (max-width: 768px){
+		#main #advertisement li{
+			width: 100%;
+		}
+	}
+	
+
+	#main #contact{
+		background-color:#222;
+		background-image: url("map-image.png");
+		background-position: center;
+    	background-repeat: no-repeat;
+	}
+	#main #contact h2{
+		color: #fff;
+	}
+	#main #contact .layout>p{
+		color: #777;
+	}
+	#main #contact .layout:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#main #contact .input,#main #contact .textarea{
+		width: 50%;
+		float: left;
+	}
+	#main #contact .input input{
+		width: 90%;
+		padding: 20px;
+		margin-bottom: 20px;
+		box-sizing: border-box;
+		border-radius: 5px;
+	}
+	
+	#main #contact textarea{
+		border-radius: 5px;
+		height: 229px;
+		width: 90%;
+		box-sizing: border-box;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+	#main #contact .layout>p{
+		margin-bottom: 50px;
+	}
+	#main #contact .button{
+		text-align: center;
+	}
+	#main #contact .btn{
+		display: inline-block;
+		padding: 20px 30px;
+		font-size: 22px;
+		color: #fff;
+		background: #fed136;
+		border-radius: 7px;
+		margin-top: 30px;
+	}
+	#main #contact .btn:hover{
+		background: #fec503;
+	}
+	@media screen and (max-width: 992px){
+		#main #contact .input,#main #contact .textarea{
+			width: 100%;
+		}	
+	}
+
+	#footer{
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	#footer .layout:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#footer .layout>li{
+		width: 33.3%;
+		box-sizing: border-box;
+		float: left;
+		text-align: center;
+	}
+	#footer .layout .footer-content{
+		text-align: center;
+	}
+	#footer .layout .footer-content li{
+		display: inline-block;
+		padding: 0 5px;
+		position: relative;
+		bottom: 8px;
+	}
+	#footer .layout .footer-content a{
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		color: #fff;
+		background: #222;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 40px;
+	}
+	#footer .layout .footer-content a:hover{
+		background: #fed136;
+		transition: all 0.3s;
+	}
+	@media screen and (max-width: 992px){
+		#footer .layout>li{
+			width: 100%;
+			line-height: 3;
+		}
+		#footer .layout .footer-content li{
+			bottom: 0;
+		}
+	}
+</style>
+<body>
+	<div id="header">
+		<div class="nav">
+			<div class="layout">
+				<a href="">RThong</a>	
+				<ul class="nav-content">
+					<li><a href="#services">SERVICES</a></li>
+					<li><a href="#protfolio">PORTFOILO</a></li>
+					<li><a href="javascript:;">ABOUT</a></li>
+					<li><a href="javascript:;">TEAM</a></li>
+					<li><a href="javascript:;">CONTACT</a></li>
+				</ul>
+			</div>
+			<ul class="nav-hidden">
+				<li><a href="#services">SERVICES</a></li>
+				<li><a href="#protfolio">PORTFOILO</a></li>
+				<li><a href="javascript:;">ABOUT</a></li>
+				<li><a href="javascript:;">TEAM</a></li>
+				<li><a href="javascript:;">CONTACT</a></li>
+			</ul>
+		</div>
+		<div class="header-title">
+			<h2>Welcome To Our Studio!</h2>
+			<h1>IT'S NICE TO MEET YOU</h1>
+			<a href="javascript:;">TELL ME MORE</a>
+		</div>
+	</div>
+
+	<div id="main">
+		<div id="services">
+			<div class="layout">		
+				<h2>SERVICES</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<i class="iconfont">&#xe607;</i>
+						<h3>E-Commerce</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					</li>
+					<li>
+						<i class="iconfont">&#x343e;</i>
+						<h3>Responsive Design</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					</li>
+					<li>
+						<i class="iconfont">&#xe612;</i>
+						<h3>Web Security</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="protfolio">
+			<div class="layout">
+				<h2>PORTFOLIO</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="roundicons.png">
+						</a>
+						<h3>Round Icons</h3>
+						<p>Graphic Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="startup-framework.png">
+						</a>
+						<h3>Startup Framework</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="treehouse.png">
+						</a>
+						<h3>Treehouse</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>
+							<img src="golden.png">
+						</a>
+						<h3>Golden</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>		
+							<img src="escape.png">
+						</a>
+						<h3>Escape</h3>
+						<p>Website Design</p>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<div class="hover">
+								<i class="fa fa-plus fa-3x"></i>
+							</div>			
+							<img src="dreams.png">
+						</a>
+						<h3>Dreams</h3>
+						<p>Website Design</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="about">
+			<div class="layout">
+				<h2>ABOUT</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<img src="about-1.jpg">
+						<div class="about-content left">
+							<h3>2009-2011</h3>
+							<h3>Our Humble Beginnings</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+					</li>
+					<li>
+						<img src="about-2.jpg">
+						<div class="about-content right">
+							<h3>MARCH 2011</h3>
+							<h3>An Agency is Born</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+                        
+					</li>
+					<li>
+						<img src="about-3.jpg">
+						<div class="about-content left">
+							<h3>DECEMBER 2012</h3>
+							<h3>Transition to Full Service</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+                        
+					</li>
+					<li>
+						<img src="about-4.jpg">
+						<div class="about-content right">
+							<h3>JULY 2014</h3>
+							<h3>Phase Two Expansion</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+						</div>
+                        
+					</li>	
+					<li>
+						<div class="about-lastimg">
+							<h3>BE PART <br> OF OUR<br> STORY!</h3>
+						</div>
+					</li>
+					<div class="timeline"></div>
+				</ul>
+			</div>
+		</div>
+
+		<div id="our-amazing-team">
+			<div class="layout">
+				<h2>OUR AMAZING TEAM</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<ul>
+					<li>
+						<img src="5.jpg">
+						<h3>Kay Garland</h3>
+						<p>Lead Designer</p>
+						<ul>
+							<li>
+								<a href="javascript:;"><i class="fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+							</li>
+						</ul>	
+					</li>
+					<li>
+						<img src="6.jpg">
+						<h3>Larry Parker</h3>
+						<p>Lead Marketer</p>
+						<ul>
+							<li>
+								<a href="javascript:;"><i class="fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<img src="7.jpg">
+						<h3>Diana Pertersen</h3>
+						<p>Lead Developer</p>
+						<ul>
+							<li>
+								<a href="javascript:;"><i class="fa fa-twitter"></i></a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+							</li>
+							<li>
+								<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p class="team-last">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+			</div>
+		</div>
+
+		<div id="advertisement">
+			<div class="layout">
+				<ul>
+					<li><a href="javascript:;"><img src="creative-market.jpg" alt=""></a></li>
+					<li><a href="javascript:;"><img src="designmodo.jpg" alt=""></a></li>
+					<li><a href="javascript:;"><img src="envato.jpg" alt=""></a></li>
+					<li><a href="javascript:;"><img src="themeforest.jpg" alt=""></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="contact">
+			<div class="layout">
+				<h2>CONTACT US</h2>
+				<p>Lorem ipsum dolor sit amet consectetur.</p>
+				<div class="input">
+					<input type="text" class="contact-name" placeholder="Your Name">
+					<input type="email" class="contact-email" placeholder="Your Email">
+					<input type="tel" class="contact-tel" placeholder="Your Phone">
+				</div>
+				<div class="textarea">
+					<textarea placeholder="Your Message"></textarea>
+				</div>
+				
+			</div>
+			<div class="button">
+				<a class="btn" href="javascript:;">SEND MESSAGE</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<ul class="layout">
+			<li>
+				<p>Copyright © Your Website 2014</p>
+			</li>
+			<li class="footer-content">
+				<ul>
+					<li>
+						<a href="javascript:;"><i class="fa fa-twitter"></i></a>
+					</li>
+					<li>
+						<a href="javascript:;"><i class="fa fa-facebook"></i></a>
+					</li>
+					<li>
+						<a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<p>Privacy Policy  Terms of Use</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

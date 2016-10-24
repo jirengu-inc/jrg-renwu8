@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="./css/reset.css">
+        <style type="text/css">
+        	.box{
+        		margin-left: 10px;
+        		border: 1px solid black;
+        	}
+        	.box>li{
+        		display: inline-block;
+        		background-color: black;
+        		color: white;
+        	}
+
+        	.box3>li{
+        		/*padding: 3px;*/
+        		margin-left: -8px;
+        	}
+        	.box3>li:first-child{
+        		margin-left: 0px;
+        	}
+
+        	.box4>li{
+        		float:left;
+        	}
+        	.box4{
+        		overflow: hidden;
+        	}
+
+        	.box5{
+        		font-size: 0;
+        	}
+        	.box5>li{
+        		font-size: 16px;
+        	}
+
+        	.box6>li{
+        		display: inline-block;
+        		*dispaly: inline;
+        	}
+        </style>
+    </head>
+    <body>
+    	<p>范例：</p>
+		<ul class="box">
+			<li>tag1</li>
+			<li>tag2</li>
+			<li>tag3</li>
+		</ul>
+		<p>解决方案1：</p>
+		<ul class="box box1">
+			<li>tag1</li><li>tag2</li><li>tag3</li>
+		</ul>
+		<p>解决方案2：</p>
+		<ul class="box box2">
+			<li>tag1</li
+			><li>tag2</li
+			><li>tag3</li>
+		</ul>
+		<p>解决方案3：</p>
+		<ul class="box box3">
+			<li>tag1</li>
+			<li>tag2</li>
+			<li>tag3</li>
+		</ul>
+		<p>解决方案4：</p>
+		<ul class="box box4">
+			<li>tag1</li>
+			<li>tag2</li>
+			<li>tag3</li>
+		</ul>
+		<p>解决方案5：</p>
+		<ul class="box box5">
+			<li>tag1</li>
+			<li>tag2</li>
+			<li>tag3</li>
+		</ul>
+		<p>兼容方案：</p>
+		<ul class="box box6">
+			<li>tag1</li>
+			<li>tag2</li>
+			<li>tag3</li>
+		</ul>
+    </body>
+</html>

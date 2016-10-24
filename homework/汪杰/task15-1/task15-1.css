@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-10-05 15:40:56
+ * @version $Id$
+ */
+
+html,
+body,
+h1,
+h4,
+ul,
+li,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.layout {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#header {
+    border-top: 1px solid #ccc;
+}
+
+#header .fatheritems>li {
+    float: left;
+    position: relative;
+    padding: 0 10px;
+    line-height: 50px;
+    height: 50px;
+}
+
+#header .fatheritems:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#header a {
+    color: #666;
+}
+
+#header .sonitems {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+
+}
+
+#header .sonitems>li:nth-of-type(2) {
+    border-bottom: 1px dashed #ccc;
+    border-top: 1px dashed #ccc;
+}
+#header .sonitems>li{
+	padding: 0 10px;
+}
+#header a:hover {
+    color: black;
+}
+#header .sonitems>li:hover{
+	background-color: #eee;
+}
+#header .fatheritems>li:hover .sonitems {
+    display: block;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+#header .fatheritems .rocket>i {
+    font-size: 30px;
+}
+#header .summary{
+	background-color: #b84d45;
+	color: white;
+	padding: 40px 0;
+}
+#main .homepage{
+	background-color: #eee;
+    margin: 40px 0;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+#main .homepage a{
+	color: red;
+	margin: 0 10px;
+}
+#main .imagetext>li{
+	float: left;
+	margin-left: 47px;
+	border: 1px solid #ccc;
+	text-align: center;
+	margin-bottom: 20px;
+}
+#main .imagetext:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#main .imagetext{
+	margin-left: -47px;
+}
+#main .imagetext img{
+	width: 300px;
+	height: 200px;
+}
+#main .imagetext>li>h4{
+	margin: 5px 10px;
+	text-align: left;
+}
+#main .imagetext>li>p{
+	margin: 5px 10px;
+	text-align: left;
+}
+#main .imagetext .btn{
+	display: inline-block;
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+}
+#main .imagetext .btn:hover{
+	color: black;
+}
+#footer .more{
+	background-color: #b84d45;
+	margin-top: 10px;
+    margin-bottom: 30px;
+}
+#footer .introduce{
+	text-align: center;
+	padding: 20px 0;
+}
+#footer .introduce>a{
+	color: white;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+#footer .introduce>h1{
+	margin-bottom: 10px;
+}
+#footer .introduce>p{
+	margin-bottom: 10px;
+}
+#footer .from{
+	text-align: center;
+}
+#footer .from>p{
+	margin: 40px 0;
+}

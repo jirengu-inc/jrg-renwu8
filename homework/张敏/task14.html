@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        li, a, h1, h2, h3, h4, p {
+            text-align: center;
+        }
+
+        html, body, ul, li {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        @font-face {
+            font-family: 'iconfont';
+            src: url('font/iconfont.eot'); /* IE9*/
+            src: url('font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('font/iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a.btn_bigger {
+            height: 50px;
+            width: 140px;
+            line-height: 50px;
+        }
+
+        .btn1 {
+            display: inline-block;
+            width: 140px;
+            height: 30px;
+            line-height: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .btn2 {
+            display: inline-block;
+            width: 95px;
+            height: 30px;
+            line-height: 30px;
+            color: black;
+            background-color: white;
+            text-align: center;
+        }
+
+        .btn1:hover {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        #header {
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg");
+            background-size: cover;
+        }
+
+        .container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .table {
+            display: table;
+            height: 100%;
+        }
+
+        .vertical-center {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        #header h3 {
+            font-size: 24px;
+            margin: 24px auto;
+        }
+
+        #header p {
+            margin: 14px auto;
+        }
+
+        #header .btn_more {
+            display: inline-block;
+            width: 140px;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+            background: rgba(0, 0, 0, .4);
+        }
+
+        #content .about {
+            padding: 50px 0;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin: 38px auto;
+        }
+
+        #content .services {
+            padding: 50px 0;
+            color: white;
+            background-color: #337ab7;
+            border: 1px solid black;
+        }
+
+        hr {
+            /*display: block;*/
+
+            border-top: 1px solid #eee;
+            max-width: 100px;
+            margin: 20px auto;
+        }
+
+        #content .services li {
+            float: left;
+            padding: 10px;
+            width: 25%;
+        }
+
+        #content .services span {
+            font-size: 112px;
+        }
+
+        #content .services p {
+            margin: 18px 0;
+        }
+
+        #content .services h4 {
+            margin: 18px 0;
+        }
+
+        .callout {
+            padding: 200px 0;
+            color: white;
+            background: url('img/callout.jpg');
+            background-size: cover;
+        }
+
+        .callout h1 {
+            font-size: 65px;
+        }
+
+        .myAuther {
+            padding: 50px 0;
+        }
+
+        .myAuther ul {
+            margin-right: -30px;
+        }
+
+        .myAuther li {
+            float: left;
+            width: 465px;
+            height: 305px;
+            margin-bottom: 30px;
+            margin-right: 30px;
+        }
+
+        .myAuther li img {
+            width: 465px;
+            height: 305px;
+        }
+
+        .connect_me {
+            padding: 50px 0;
+            background-color: #337ab7;
+            color: white;
+        }
+
+        .connect_me h3 {
+            margin: 20px auto;
+        }
+
+        #footer {
+            padding: 100px 0;
+        }
+
+        #footer .icon_list {
+            text-align: center;
+        }
+
+        #footer .icon_list li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        #footer .other {
+            margin-bottom: 30px;
+        }
+        .icon_list a{
+            font-size: 45px;
+            color: #337ab7;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="container table">
+        <div class="vertical-center text-center">
+            <h3>xxx</h3>
+            <p>一个爱前端的同学</p>
+            <a href="" class="btn1 btn_bigger">查看更多</a>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <!--这里是个标题-->
+    <div class="about">
+        <div class="container">
+            <h2>这里是个标题</h2>
+            <p>关于我的简介<a href="">作品</a></p>
+        </div>
+    </div>
+    <div class="services">
+        <div class="container">
+            <h2>技能</h2>
+            <hr>
+            <ul class="clearfix">
+                <li>
+                    <span class="iconfont">&#xe67a;</span>
+                    <h4>HTML&CSS</h4>
+                    <p>JS组件、插件.比如...</p>
+                    <a href="#" class="btn2">相关作品</a>
+                </li>
+                <li>
+                    <span class="iconfont">&#xe60a;</span>
+                    <h4>JS&Jquery</h4>
+                    <p>JS组件、插件.比如...</p>
+                    <a href="#" class="btn2">相关作品</a>
+                </li>
+                <li>
+                    <span class="iconfont">&#xe608;</span>
+                    <h4>项目</h4>
+                    <p>比如 xxx, xxxx, xxxx, xxx</p>
+                    <a href="#" class="btn2">我的项目</a>
+                </li>
+                <li>
+                    <span class="iconfont">&#xe6ac;</span>
+                    <h4>个人博客</h4>
+                    <p>学习历程总结，比如，做了什么事</p>
+                    <a href="#" class="btn2">我的项目</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="callout">
+        <div class="container">
+            <h1>又是一段话</h1>
+        </div>
+    </div>
+    <div class="myAuther">
+        <div class="container text-center">
+            <h2>我的作品</h2>
+            <hr>
+            <ul class="clearfix">
+                <li><img src="img/myauther.jpg" alt=""></li>
+                <li><img src="img/myauther.jpg" alt=""></li>
+                <li><img src="img/myauther.jpg" alt=""></li>
+                <li><img src="img/myauther.jpg" alt=""></li>
+            </ul>
+            <a href="" class="btn1">更多作品</a>
+        </div>
+    </div>
+    <div class="connect_me">
+        <div class="container text-center">
+            <h3>我是一个勤奋聪明的人</h3>
+            <a href="" class="btn2 btn_bigger">Click Me</a>
+            <a href="" class="btn1 btn_bigger">Look at Me</a>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <h4>我的信息</h4>
+        <p>3481 Melrose Place<br> Beverly Hills, CA 90210</p>
+        <p><i class="iconfont">&#xe62e;</i>(123) 456-7890</p>
+        <p class="other"><i class="iconfont">&#xe64d;</i><a href="">name@example.com</a></p>
+        <ul class="icon_list">
+            <li><a href="" class="iconfont">&#xe60f;</a></li>
+            <li><a href="" class="iconfont">&#xe634;</a></li>
+            <li><a href="" class="iconfont">&#xe693;</a></li>
+        </ul>
+        <hr>
+        <p>Copyright © hunger 2016</p>
+    </div>
+</div>
+</body>
+</html>

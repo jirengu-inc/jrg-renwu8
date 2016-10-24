@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    var arr = [ "test", 2, 1.5, false ];
+	    function find(arr,value) {
+	    	for (var i = 0; i < arr.length; i++) {
+	    		if (value===arr[i]) {
+	    			console.log(i);
+	    			return;
+	    		}	
+	    	}
+	    	console.log(-1);
+	    }
+		find(arr, "test") // 0
+		find(arr, 2) // 1
+		find(arr, 0) // -1
+
+	</script>
+</body>
+</html>

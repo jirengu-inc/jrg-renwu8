@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function camelize(argument) {
+		var arr=argument.split("");
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]=='-'){
+				arr[i]="";
+				arr[i+1]=arr[i+1].toUpperCase();
+			}
+		}
+		result=arr.join("");
+		console.log(result);
+		return	result;	
+	}
+	camelize("background-color") == 'backgroundColor'
+
+	camelize("list-style-image") == 'listStyleImage'
+	
+	</script>
+</body>
+</html>

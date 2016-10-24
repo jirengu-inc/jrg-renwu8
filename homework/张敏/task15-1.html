@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body, ul, li, p, h1, h2, h3, h4, h5, h6, div {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        @font-face {font-family: 'iconfont';
+            src: url('font15/iconfont.eot'); /* IE9*/
+            src: url('font15/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('font15/iconfont.woff') format('woff'), /* chrome、firefox */
+            url('font15/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('font15/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:16px;font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;}
+        body {
+            font: 14px/1.5 normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .ft {
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .header_all_public {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header_logo {
+            display: block;
+            float: left;
+            font-size: 30px;
+            line-height: 50px;
+            /*background-color: red;*/
+        }
+
+        #header .nav {
+            float: left;
+            margin-left: 20px;
+        }
+
+        #header .nav > li {
+            float: left;
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 10px;
+        }
+
+        #header .nav > li a:hover {
+            color: #333;
+        }
+
+        #header .nav .drop_list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            display: none;
+            border: 1px solid #ccc;
+        }
+
+        .drop_list li {
+            line-height: 1;
+            padding: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .drop_list li:hover {
+            background: #ccc;
+        }
+
+        #header .nav > li:last-child:hover .drop_list {
+            display: block;
+        }
+
+        .drop_list li:last-child {
+            border: none;
+        }
+
+        #content .con_top {
+            background-color: #b84d45;
+            color: #fff;
+            padding: 30px 0;
+        }
+
+        #content .myAuther_title {
+            margin-top: 40px;
+            background: #eee;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        #content .myAuther_title .other a {
+            color: red;
+        }
+
+        #content .myAuther_title span {
+            display: inline-block;
+        }
+
+        #content .myAuther_list {
+            margin-top: 10px;
+        }
+
+        .myAuther_list > ul {
+            margin-left: -45px;
+        }
+
+        .myAuther_list > ul > li {
+            float: left;
+            margin-left: 45px;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .myAuther_list > ul > li img {
+            display: block;
+            width: 300px;
+            height: 200px;
+        }
+
+        .myAuther_list > ul > li h1 {
+            font-size: 16px;
+            text-align: left;
+            padding: 5px 10px;
+        }
+
+        .myAuther_list > ul > li p {
+            text-align: left;
+            padding: 5px 10px;
+        }
+
+        #content .about {
+            margin-top: 30px;
+            background-color: #b84d45;
+            text-align: center;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        #content .about .btn {
+            color: #fff;
+            margin-top: 10px;
+        }
+
+        #footer p {
+            margin: 30px 0;
+            padding-top: 30px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="header_all_public clearfix">
+        <a href="" class="header_logo iconfont">&#xe695;</a>
+        <ul class="nav clearfix">
+            <li><a href="">博客</a></li>
+            <li><a href="">项目</a></li>
+            <li><a href="">简历</a></li>
+            <li>
+                <a href="">更多<i class="ft iconfont">&#xe636;</i></a>
+                <ul class="drop_list">
+                    <li><a href="">GitHub</a></li>
+                    <li><a href="">知乎</a></li>
+                    <li><a href="">微博</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+    <div class="con_top">
+        <div class="header_all_public">
+            <h1>我的简介</h1>
+            <p>这里是我的简介</p>
+            <p>精通JS,HTML,CSS</p>
+        </div>
+    </div>
+    <div class="myAuther_title header_all_public">
+        <span class="other"><a href="">首页</a></span>
+        <span>/</span>
+        <span>我的作品</span>
+    </div>
+    <div class="myAuther_list header_all_public">
+        <ul class="clearfix">
+            <li>
+                <a href=""> <img src="img/1.jpg" alt=""></a>
+                <h1>作品标题</h1>
+                <p>作品介绍</p>
+                <a href="" class="btn">查看</a>
+            </li>
+            <li>
+                <a href=""> <img src="img/1.jpg" alt=""></a>
+                <h1>作品标题</h1>
+                <p>作品介绍</p>
+                <a href="" class="btn">查看</a>
+            </li>
+            <li>
+                <a href=""> <img src="img/1.jpg" alt=""></a>
+                <h1>作品标题</h1>
+                <p>作品介绍</p>
+                <a href="" class="btn">查看</a>
+            </li>
+            <li>
+                <a href=""> <img src="img/1.jpg" alt=""></a>
+                <h1>作品标题</h1>
+                <p>作品介绍</p>
+                <a href="" class="btn">查看</a>
+            </li>
+            <li>
+                <a href=""> <img src="img/1.jpg" alt=""></a>
+                <h1>作品标题</h1>
+                <p>作品介绍</p>
+                <a href="" class="btn">查看</a>
+            </li>
+            <li>
+                <a href=""> <img src="img/1.jpg" alt=""></a>
+                <h1>作品标题</h1>
+                <p>作品介绍</p>
+                <a href="" class="btn">查看</a>
+            </li>
+        </ul>
+    </div>
+    <div class="about">
+        <div class="header_all_public">
+            <h1>想更详细了解我</h1>
+            <p>下载我的简历吧</p>
+            <p>
+                <a href="" class="btn">下载</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div id="footer" class="header_all_public">
+    <p>来自BAT大神张敏...哈哈哈哈</p>
+</div>
+</body>
+</html>
