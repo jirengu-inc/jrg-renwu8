@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分解动作2</title>
+    <style>
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .container {
+            padding: 0 200px 0 200px;
+        }
+
+        .main, .side-L, .side-R {
+            float: left;
+            min-height: 130px;
+        }
+
+        .main {
+            width:100%;
+            background: red;
+        }
+
+        .side-L {
+            width: 200px;
+            background: blue;
+            margin-left: -100%;
+        }
+
+        .side-R {
+            width: 200px;
+            background: yellow;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container clearfix">
+    <div class="main"></div>
+    <div class="side-L"></div>
+    <div class="side-R"></div>
+</div>
+</body>
+</html>
