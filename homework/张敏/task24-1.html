@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+        width: 100%;
+        line-height: 30px;
+        border: 1px solid black;
+        margin-top: 5px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .register {
+        margin: 30px;
+    }
+
+    .register-ct dd {
+        margin-left: 86px;
+    }
+
+    .register-ct dt {
+        width: 86px;
+        float: left;
+        height: 24px;
+        line-height: 24px;
+    }
+
+    .register-ct input {
+        height: 24px;
+        line-height: 24px;
+        padding-left: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .register-ct input.error {
+        border-color: red;
+    }
+
+    .register-ct .msg {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #aaa;
+        height: 12px;
+        font-size: 12px;
+    }
+
+    .register-ct .focus {
+        border: 1px solid red;
+    }
+
+</style>
+<body>
+<ul id="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+</ul>
+<input type="button" value="加载更多" id="btn">
+<br/>
+<div class="register">
+    <h3>注册</h3>
+    <form id="register-form" action="">
+        <dl class="register-ct">
+            <dt>用户名</dt>
+            <dd>
+                <input id="username" type="text" placeholder="用户名(hunger被注册过)">
+            </dd>
+            <dd class="msg msg-un">只能是字母、数字、下划线，3-10个字符</dd>
+
+            <dt>密码:</dt>
+            <dd>
+                <input type="password" id="password1" placehoder="密码">
+            </dd>
+            <dd class="msg msg-pwd1">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+
+            <dt> 在输一次:</dt>
+            <dd>
+                <input type="password" id="passowrd2" placeholder="在输入一次密码">
+            </dd>
+            <dd class="msg msg-pwd2"></dd>
+            <dd>
+                <button id="btn-register">注册</button>
+            </dd>
+        </dl>
+    </form>
+
+
+</div>
+<script>
+    //ajax学习
+    var btn = document.getElementById('btn');
+    var ct = document.getElementById('ct');
+    var username = document.getElementById('username');
+    var pwd1 = document.getElementById('password1');
+    var pwd2 = document.getElementById('passowrd2');
+    var reg = document.getElementById('btn-register');
+    var msg = document.getElementsByClassName('msg');
+
+    var cur = 2;//初始索引
+    //****************************************封装ajax**********************************************
+    function ajax(opts) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            //ajax成功
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+            if (xmlhttp.status == 404) {
+                opts.error();
+            }
+        }
+        var dataStr = "";
+        for (var k in opts.data) {
+            //?username='xxxx'&pwd="123"这种格式,用于get模式提交的时候
+            dataStr += k + "=" + opts.data[k] + "&";
+        }
+        dataStr = dataStr.substr(0, dataStr.length - 1);
+        if (opts.type.toLocaleLowerCase() === 'get') {
+            xmlhttp.open(opts.type, opts.url + '?' + dataStr, true);
+            xmlhttp.send();
+        }
+        if (opts.type.toLocaleLowerCase() === 'post') {
+            xmlhttp.open(opts.type, opts.url, true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send(dataStr);
+        }
+    }
+
+    //    btn.addEventListener('click', function () {
+    //        ajax({
+    //            url: 'ajax.php',
+    //            type: 'get',
+    //            data: {
+    //                //请求数据的条数,也就是加载数据的条数
+    //                index: cur,
+    //                len: 2
+    //            },
+    //            success: function (ev) {
+    //                var index = parseInt(ev.len);
+    //                addChild(index);
+    //            },
+    //            error: function () {
+    //
+    //            }
+    //        })
+    //    }, false)
+    //    //cur为数据库里面的数据的索引号,实际工作中是需要向后台请求的，这里模拟
+    //    function addChild(index) {
+    //        for (var i = 0; i < index; i++) {
+    //            cur++;
+    //            var li = document.createElement('li');
+    //            li.innerHTML = '内容' + cur;
+    //            ct.appendChild(li);
+    //        }
+    //    }
+
+    function checkname(str) {
+        //匹配字母数字下划线
+        var pat = /^\w{3,10}$/ig;
+        return pat.test(str)
+    }
+    function checkpwd(str) {
+        //大写字母，小写字母，下划线，数字最少两种，6-15个字符
+        var pat = /^((?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
+        return pat.test(str);
+    }
+    username.addEventListener('focus', function () {
+        this.className = '';
+    })
+    username.addEventListener('blur', function () {
+        if (username.value.length != 0) {
+            if (checkname(username.value)) {
+                msg[0].innerHTML = '该用户名符合规范';
+            } else {
+                msg[0].innerHTML = '该用户名不符合规范';
+                this.className = 'focus';
+            }
+        } else {
+            msg[0].innerHTML = '用户名不能为空';
+            this.className = 'focus';
+        }
+    }, false)
+    pwd1.addEventListener('focus', function () {
+        this.className = '';
+    }, false)
+    pwd1.addEventListener('blur', function () {
+        if (pwd1.value.length != 0) {
+            if (checkpwd(pwd1.value)) {
+                msg[1].innerHTML = '该密码符合规范';
+            } else {
+                msg[1].innerHTML = '该密码不符合规范';
+                this.className = 'focus';
+            }
+        } else {
+            msg[1].innerHTML = '密码不能为空';
+            this.className = 'focus';
+        }
+    }, false)
+    pwd2.addEventListener('focus', function () {
+        this.className = '';
+    }, false)
+    pwd2.addEventListener('blur', function () {
+        if (pwd2.value.length != 0) {
+            if (checkpwd(pwd2.value)) {
+                msg[2].innerHTML = '该密码符合规范';
+            } else {
+                msg[2].innerHTML = '该密码不符合规范';
+                this.className = 'focus';
+            }
+        } else {
+            msg[2].innerHTML = '密码不能为空';
+            this.className = 'focus';
+        }
+    }, false)
+    reg.addEventListener('click', function (e) {
+        ajax({
+            url: 'ajax2.php',
+            type: 'get',
+            data: {
+                'username': username.value,
+                'pwd1': pwd1.value,
+                'pwd2': pwd2.value
+            },
+            success: function (ev) {
+                //做一个用户名是否重复的判断,
+//                console.log(ev);
+                msg[0].innerHTML = ev.tip;
+            },
+            error: function () {
+
+            }
+        })
+        e.preventDefault();
+    })
+
+</script>
+
+
+</body>
+</html>
