@@ -1,0 +1,189 @@
+html,body,div,h1,p,ul,li,img,h1,h2,h3{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,"宋体";
+	font-size: 14px;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.layout{
+	width: 960px;
+	margin: 0 auto;
+}
+.text-center{
+	text-align: center;
+}
+.clearfix:after{
+	 content: '';
+	 display: block;
+	 clear: both;
+}
+
+.tb-block{
+	display: table;
+	height: 100%;
+}
+.vertically-middle{
+		display: table-cell;
+		vertical-align: middle;
+}
+.button{
+		margin-top: 16px;
+		display: inline-block;
+		padding: 15px 35px;
+		color: #fff;
+		background-color: rgba(0,0,0,0.4);
+}
+.button:hover{
+		background-color: rgba(0,0,0,0.8);
+}
+/*header start*/
+#header{
+	height: 100%;
+	width: 100%;
+	background: url(../img/bg.jpg) no-repeat;
+	background-size: cover;
+}
+#header h1{
+		margin-bottom: 16px;
+}
+
+/* header end */
+/* content start */
+/* 标题 */
+#content h1{
+			margin-top: 80px;
+			margin-bottom: 21px;
+}
+#content .top p,a{
+			display: inline-block;
+			font-size: 16px;
+			margin-bottom: 52px;
+}
+#content .top a:visited{color: blue;}
+#content .top a:hover{
+			color: blue;
+			text-decoration: underline;
+}
+#content .middle{
+			width: 100%;
+			background-color:#337ab7;
+}
+#content .middle h2{
+			width: 99px;
+			padding: 70px 0px 20px 0px;
+			color: #fff;
+			font-size: 33px;
+			border-bottom: 2px solid #fff;
+}
+/* 标题结束 */
+/* 技能 */
+
+#content .skills li{
+					display: inline-block;
+					padding: 30px 65px;
+					color: #fff;
+}
+#content .skills .icon{
+					font-size: 100px;
+}
+#content .name{
+					padding: 18px 0px 10px 0px;
+}
+#content .skills a{
+				color: #000;
+				padding: 5px 15px;
+				background-color: #fff;
+				font-size: 14px;
+				margin-top: 12px;
+}
+#content .skills a:hover{
+				background-color: #ddd;
+}
+/* picture */
+#picture{
+		width: 100%;
+		height: 560px;
+		background: url(../img/callout.jpg) no-repeat;
+		background-size: cover;
+}
+#picture h2{
+		color: #fff;
+		font-size: 60px;
+}
+/* picture end */
+/* works */
+#works h2{
+			width: 136px;
+			padding: 82px 0px 25px 0px;
+			font-size: 33px;
+			border-bottom: 2px solid #eee;
+			margin-bottom: 20px;
+}
+#works .photo li{
+			width: 465px;
+			height: 305px;
+			float: left;
+			
+			margin: 0px 7.5px 30px 7.5px;
+}
+.photo li img{
+			width: 465px;
+			height: 305px;
+}
+
+#works .button{
+		padding: 5px 35px;
+		margin-top: 0px;
+}
+/* works end */
+/* footer */
+#footer{
+		width: 100%;
+		background-color: #337ab7;
+}
+#footer h2{
+		color: #fff;
+		padding-top: 80px;
+}
+
+#footer .btn2{
+	padding: 15px 25px;
+}
+/* footer end */
+/* information */
+#information h3{
+		padding: 120px 0px 20px;
+}
+#information .phone{
+		padding-top: 14px;
+}
+#information .email{font-size: 12px;}
+#information .email:visited{color: blue;}
+#information .email:hover{
+		text-decoration: underline;
+}
+
+#information li{
+		display: inline-block;
+		margin: 0px 12px;
+		padding: 0px;
+}
+#information .app .iconfont{
+	    font-size: 43px;
+	    color: #337ab7;
+}
+#information .app .iconfont:hover{color:#23527c; }
+#information .under{
+	    width: 98px;
+	    height: 5px;
+	    border-top: 1px solid #eee;
+}
+#information .copy{margin-bottom: 123px;}
