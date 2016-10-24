@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	html,body,p,ul,li{margin:0; padding: 0;}
+        	#header,#footer{
+        		height: 80px;
+        		background-color: #eee;
+        	}
+			.clearfix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			#content{
+				padding: 0 200px;
+			}
+			#content .main{
+				float: left;
+				width: 100%;
+				min-height: 400px;
+				background-color: green;
+			}
+        	#content .leftAside{
+        		float: left;
+        		width: 200px;
+        		height: 80px;
+        		background-color: red;
+        		margin-left: -100%;
+        		position: relative;
+        		left: -200px;
+        	}
+        	#content .rightAside{
+        		float: left;
+        		width: 200px;
+        		height: 80px;
+        		background-color: yellow;
+        		margin-left: -200px;
+        		position: relative;
+        		left: 200px;
+        	}
+        	#content{
+        	}
+        </style>
+    </head>
+    <body>
+    	<div id="header">
+    		头部
+    	</div>
+    	<div id="content" class="clearfix">
+	    		<div class="main">我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..我是主体 ..</div>
+	    		<div class="leftAside">左侧边栏，固定宽度</div>
+	    		<div class="rightAside">右侧边栏，固定宽度</div>
+    	</div>
+    	<div id="footer">
+    		尾部
+    	</div>
+    </body>
+</html>

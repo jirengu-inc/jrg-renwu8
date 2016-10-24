@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	html,body,p,ul,li{margin: 0;padding: 0;}
+			#header,#footer{
+				min-height: 80px;
+				background-color: #eee;
+			}
+			.clearfix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			#content .main{
+				float: left;
+				width: 100%;
+				background-color: green;
+				min-height: 400px;
+			}
+			#content .L-Sidebar{
+				float: left;
+				background-color: red;
+				width: 200px;
+				min-height: 400px;
+				margin-left: -100%;
+			}
+			#content .R-Sidebar{
+				float: left;
+				background-color: yellow;
+				width: 200px;
+				min-height: 400px;
+				margin-left: -200px;
+			}
+			#content .main-cont{
+				background-color: pink;
+				min-height: 400px;
+				margin: 0 220px;
+			}
+        </style>
+    </head>
+    <body>
+    	<div id="header">头部</div>
+    	<div id="content" class="clearfix">
+    		<div class="main">
+    			<div class="main-cont">
+    				我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..
+    			</div>
+    		</div>
+    		<div class="L-Sidebar">左侧边框，固定宽度</div>
+    		<div class="R-Sidebar">右侧边栏，固定宽度</div>
+    	</div>
+    	<div id="footer">尾部</div>
+    </body>
+</html>
