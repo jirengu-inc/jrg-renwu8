@@ -14,7 +14,7 @@ li{
   list-style: none;
 }
 .layout{
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
 }
 .text-center{
@@ -42,6 +42,14 @@ li{
   line-height: 60px;
   font-size: 20px;
   position: relative;
+}
+.float-list>li a{
+  position: relative;
+}
+.fa-sort-desc{
+  position: relative;
+  left: 3px;
+  bottom: 3px;
 }
 .float-list>li .invisible{
   line-height: 60px;
@@ -111,12 +119,12 @@ li{
   margin-left: 50px;
 }
 .content .work{
-  width: 365px;
+  width: 298px;
   border: 1px solid #ccc;
   margin-bottom: 30px;
 }
 .content .work img{
-  width: 365px;
+  width: 298px;
 }
 .content .work h3{
   margin-left: 10px;
