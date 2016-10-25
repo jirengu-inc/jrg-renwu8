@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        ul li {
+            padding: 0;
+            margin: 0;
+            /*list-style: none;*/
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            border-bottom: 1px dotted #de272e;
+            font-family: '微软雅黑';
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        li {
+            background-color: #c7171e;
+            list-style: none;
+            width: 180px;
+            line-height: 30px;
+            position: relative;
+        }
+
+        .icon {
+            position: absolute;
+            right: 0;
+            top: 12px;
+            margin-right: 10px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav_content {
+            position: absolute;
+            z-index: 2;
+            left: 180px;
+            top: 0;
+            width: 200px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            margin: 0;
+            padding: 0;
+            display: none;
+        }
+
+        .nav_content li {
+            background: white;
+            width: 50%;
+            float: left;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<ul class="nav">
+    <li class="item">
+        <a href="">珠宝玉器</a><span class="icon">></span>
+        <ul class="nav_content clearfix">
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+        </ul>
+    </li>
+    <li class="item">
+        <a href="">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="nav_content clearfix">
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+        </ul>
+    </li>
+    <li class="item">
+        <a href="">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="nav_content clearfix">
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+        </ul>
+    </li>
+    <li class="item">
+        <a href="">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="nav_content clearfix">
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+        </ul>
+    </li>
+    <li class="item">
+        <a href="">珠宝玉器</a>
+        <span class="icon">></span>
+        <ul class="nav_content clearfix">
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+            <li>玉石</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $(function () {
+        $('.nav .item').on('mouseover', function () {
+//            console.log(1111);
+            $(this).find('.nav_content').show();
+        })
+        $('.nav .item').on('mouseout',function () {
+            $(this).find('.nav_content').hide();
+        })
+    })
+</script>
+</body>
+</html>
