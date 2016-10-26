@@ -178,8 +178,11 @@
     }
     function checkpwd(str) {
         //大写字母，小写字母，下划线，数字最少两种，6-15个字符
-        var pat = /^((?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
-        return pat.test(str);
+        if(str.length>=6 && str.length<=15){
+            var pat = /^((?=.*?[a-z](?=.*?[A-Z]))|(?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
+            return pat.test(str);
+        }
+
     }
     username.addEventListener('focus', function () {
         this.className = '';
