@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--刚开始没看清题目。。。以为只要把年月日做成中文就可以了-->
+<script>
+    function getChsDate(dateString) {
+        var date = new Date(dateString);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+
+        return getChsYear(year) + getChsMonth(month) + getChsDay(day);
+    }
+    function getChsYear(year) {
+        var numberArray = [];
+        while (year > 0) {
+            numberArray.push(format(year % 10));
+            year = parseInt(year / 10);
+        }
+        numberArray.reverse();
+        return numberArray.join("") + "年";
+    }
+    function getChsMonth(month) {
+        var monthString;
+        if (month < 10) {
+            monthString = format(month);
+        } else if(month === 10) {
+            monthString = "十";
+        } else {
+            var dayUnit = format(month % 10);
+            monthString = "十" + dayUnit;
+        }
+
+        return monthString + "月";
+    }
+    function getChsDay(day) {
+        var dayString;
+        if (day < 10) {
+            dayString = format(day);
+        } else if (day === 10) {
+            dayString == "十";
+        } else if (day > 10 && day < 20) {
+            var dayUnit = format(day % 10);
+            dayString = "十" + dayUnit;
+        } else if (day === 20) {
+            dayString = "二十";
+        } else if (day > 20 && day < 30) {
+            var dayUnit = format(day % 10);
+            dayString = "二十" + dayUnit;
+        } else if (day === 30){
+            dayString = "三十";
+        } else {
+            var dayUnit = format(day % 10);
+            dayString = "三十" + dayUnit;
+        }
+
+        return dayString + "日";
+    }
+    function format(number) {
+        var tempStr;
+        switch (number) {
+            case 1:
+                tempStr = "一";
+                break;
+            case 2:
+                tempStr = "二";
+                break;
+            case 3:
+                tempStr = "三";
+                break;
+            case 4:
+                tempStr = "四";
+                break;
+            case 5:
+                tempStr = "五";
+                break;
+            case 6:
+                tempStr = "六";
+                break;
+            case 7:
+                tempStr = "七";
+                break;
+            case 8:
+                tempStr = "八";
+                break;
+            case 9:
+                tempStr = "九";
+                break;
+            case 0:
+                tempStr = "零";
+                break;
+        }
+        return tempStr;
+    }
+    document.write(getChsDate('2016-2-13'));
+</script>
+</body>
+</html>

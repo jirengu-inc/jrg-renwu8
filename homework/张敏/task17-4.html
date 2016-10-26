@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    sayName('world');//输出hello world
+    sayAge(10);//报错，函数表达式不会像函数声明一样被前置，所以报错了
+    function sayName(name){
+        console.log('hello ', name);
+    }
+    var sayAge = function(age){
+        console.log(age);
+    };
+</script>
+</body>
+</html>

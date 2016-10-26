@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>code1</title>
+  <style media="screen">
+    html,body{
+      margin: 0;
+      padding: 0;
+    }
+    .layout{
+      margin: 0 auto;
+      width: 940px;
+    }
+    .container{
+      margin-top: 30px;
+      background: #ccc;
+      padding: 20px 0;     /*设置上下内边距，同时隔开两个相邻的外边距*/
+    }
+    .main{                 /*包裹六个div，设置负margin*/
+      margin-left: -20px;
+      margin-top: -10px;
+    }
+    .ct{
+      background: green;
+      width: 300px;
+      height: 100px;
+      float: left;
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    .container:after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="container layout">
+    <div class="main">
+      <div class="ct div1">1</div>
+      <div class="ct div2">2</div>
+      <div class="ct div3">3</div>
+      <div class="ct div4">4</div>
+      <div class="ct div5">5</div>
+      <div class="ct div6">6</div>
+    </div>
+  </div>
+</body>
+</html>

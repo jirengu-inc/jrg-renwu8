@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+	<style>
+	html,body,p,h1,h2,h3,h4,ul,li,button,input{
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	.container{
+		width: 1200px;
+		margin: 0 auto;
+	}
+	#header{
+		background: url(img/header-bg.jpg) no-repeat;
+		background-size: cover;
+		height: 1250px;
+	}
+	#header{
+		color: white;
+		text-align: center;
+	}
+	#sb{
+		text-decoration: none;
+		color: #fed136;
+		font-size: 2em;
+		font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+		font-style: italic;
+		padding: 30px;
+		float: left;
+	}
+	#header ul{
+		padding-top: 40px;
+		margin-left: 650px;
+		overflow: auto;
+	}
+	#header li{
+		float: left;
+		margin-left: 30px;
+	}
+	#header a:hover{
+		color: #fed136;
+	}
+	.header_wrap{
+		font-size: 40px;
+		margin-top: 470px;
+		line-height: 85px;
+	}
+	.header_wrap button{
+		width: 220px;
+		height: 65px;
+		color: white;
+		background-color: #fed136;
+	}
+	.header_wrap button:hover{
+		background-color: #fec503;
+	}
+	.service{
+		padding-top: 150px;
+		padding-bottom: 160px;
+		text-align: center;
+	}
+	.service h2{
+		margin-bottom: 20px;
+	}
+	.service ul{
+		margin-left: -75px;
+		margin-top: 80px;
+		overflow: auto;
+	}
+	.service li{
+		float: left;
+		width: 350px;
+		margin-left: 75px;
+	}
+	.service .bg{
+		color: #fed136;
+	}
+	.portgolio{
+		text-align: center;
+		padding-top: 140px;
+		padding-bottom: 160px;
+		background-color: #f7f7f7;
+	}
+	.portgolio h2{
+		margin-bottom: 20px;
+	}
+	.portgolio ul{
+		margin-left: -30px;
+		margin-top: 60px;
+	}
+	.portgolio ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.portgolio li{
+		margin-left: 30px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		float: left;
+		width: 380px;
+	}
+	.portgolio img{
+		width: 100%;
+	}
+	.portgolio li>div{
+		position: relative;
+	}
+	.portgolio .bg{
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(254,209,54,0.9);
+	}
+	.portgolio li>div:hover>.bg{
+		display: block;
+	}
+	.portgolio li i{
+		margin-top: 116px;
+		color: white;
+	}
+	.about{
+		padding-top: 160px;
+		margin-bottom: 160px;
+		text-align: center;
+	}
+	.about .timeline{
+	}
+	.about .timeline:before{
+		content: "";
+		position: absolute;
+		width: 2px;
+		background-color: #f1f1f1;
+		height: 1200px;
+	}
+	.about h2{
+		margin-bottom: 20px;
+	}
+	.about ul{
+		margin-top: 60px;
+	}
+	.about ul img{
+		position: absolute;
+		left: 500px;
+		height: 200px;
+		width: 200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+	.about li{
+		margin-bottom: 100px;
+		position: relative;
+	}
+	.about li:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.about li>.p1,.p2,.p3,.p4{
+		font-size: 14px;
+		line-height: 35px;
+		padding-right: 40px;
+		width: 400px;
+		height: 200px;
+	}
+	.about .p1,.p3{
+		float: left;
+		text-align: right;
+	}
+	.about .p2,.p4{
+		float: right;
+		text-align: left;
+	}
+	.about .p5{
+		width: 200px;
+		height: 200px;
+		margin: 0 auto;
+		border-radius: 50%;
+		color: white;
+		text-align: center;
+		background-color: #fed136;
+		line-height: 30px;
+		font-size: 25px;
+	}
+	.about .p5 h4{
+		padding-top: 55px;
+	}
+	.team{
+		background-color: #f7f7f7;
+		padding-top: 150px;
+		padding-bottom: 160px;
+		text-align: center;
+	}
+	.team h2{
+		margin-bottom: 20px;
+	}
+	.team ul{
+		margin-left: -75px;
+		margin-top: 60px;
+		margin-bottom: 50px;
+	}
+	.team ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.team li{
+		float: left;
+		width: 350px;
+		margin-left: 75px;
+	}
+	.team img{
+		border-radius: 50%;
+	}
+	.team a{
+		margin-top: 10px;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		border-radius: 100%;
+		background-color: #222;
+	}
+	.team a:hover{
+		background-color: #fed136;
+	}
+	.team i{
+		margin-top: 7.5px;
+		color: white;
+		font-size: 25px;
+	}
+	.clients img{
+		margin: 55px 0 55px 80px;
+	}
+	.contact{
+		padding-top: 150px;
+		text-align: center;
+		background-color: black;
+		height: 720px;
+		background-image: url(http://book.jirengu.com/jirengu-inc/jrg-tehui/homework/%E8%8B%A5%E6%84%9A/16/img/map-image.png);
+	}
+	.contact h2{
+		color: white;
+		margin-bottom: 20px;
+	}
+	.contact p{
+		color: #777;
+		margin-bottom: 75px;
+	}
+	.contact .container{
+		overflow: auto;
+	}
+	.contact .form-left{
+		float: left;
+		width: 585px;
+	}
+	.contact .form-right{
+		float: right;
+		width: 585px;
+	}
+	.contact .form-left input{
+		box-sizing: border-box;
+		width: 100%;
+		border-radius: 10px;
+		padding: 20px;
+		margin-top: 12.5px;
+		margin-bottom: 12.5px;
+	}
+	.contact .form-right .message{
+		margin-top: 12.5px;
+		margin-bottom: 12.5px;
+		box-sizing: border-box;
+		width: 100%;
+		border-radius: 10px;
+		height: 215px;
+		padding: 20PX;
+	}
+	.contact button{
+		background-color: #fed136;
+		color: white;
+		font-size: 16px;
+		width: 230px;
+		height: 75px;
+		border-radius: 5px;
+	}
+	.contact button:hover{
+		background-color: #fec503;
+	}
+	#footer .container{
+		line-height: 40px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	#footer ul:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	#footer li{
+		text-align: center;
+		box-sizing: border-box;
+		width: 400px;
+		float: left;
+	}
+	#footer #li2 a{
+		display: inline-block;
+		border-radius: 100%;
+		color: white;
+		background-color: #222;
+		width: 40px;
+		height: 40px;
+		font-size: 25px;
+	}
+	#footer #li2 i{
+		margin-top: 7.5px;
+	}
+	#footer #li2 a:hover{
+		background-color: #fed136;
+	}
+	#footer #li3 a{
+		text-decoration: none;
+		color: #fed136;
+	}
+	#footer #li3 a:hover{
+		text-decoration: underline;
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<div class="container">
+		<a id="sb" href="#">Start Bootstrap</a>
+		<ul>
+			<li><a>SERVICE</a></li>
+			<li><a>PORTFOLIO</a></li>
+			<li><a>ABOUT</a></li>
+			<li><a>TEAM</a></li>
+			<li><a>CONTACT</a></li>
+		</ul>
+		<div class="header_wrap">
+		<h3>Welcome To Our Studio!</h3>
+		<h1>It's Nice To Meet You</h1>
+		<button>TELL ME MORE</button>
+		</div>
+	</div>
+</div>
+<div id="main">
+	<div class="service">
+	<div class="container">
+		<h2>SERVICES</h2>
+		<p>Lorem ipsum dolor sit amet consectetur.</p>
+		<ul>
+			<li>
+			    <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x bg"></i>
+                    <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                </span>
+				<h4>E-Commerce</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			</li>
+			<li>
+			    <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x bg"></i>
+                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                </span>
+				<h4>Responsive Design</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			</li>
+			<li>
+			    <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x bg"></i>
+                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                </span>
+				<h4>Web Security</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+			</li>
+		</ul>
+	</div>
+	</div>
+	<div class="portgolio">
+		<div class="container">
+			<h2>PORTFOLIO</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<ul>
+				<li>
+				<div>
+				<div class="bg"><i class="fa fa-plus fa-3x"></i></div>
+				<img src="img/portfolio/roundicons.png">
+				</div>
+				<h4>Round Icons</h4>
+				<p>Graphic Design</p>
+				</li>
+				<li>
+				<div>
+				<div class="bg"><i class="fa fa-plus fa-3x"></i></div>
+				<img src="img/portfolio/startup-framework.png">
+				</div>
+				<h4>Startup Framework</h4>
+				<p>Website Design</p>
+				</li>
+				<li>
+				<div>
+				<div class="bg"><i class="fa fa-plus fa-3x"></i></div>
+				<img src="img/portfolio/treehouse.png">
+				</div>
+				<h4>Treehouse</h4>
+				<p>Website Design</p>
+				</li>
+				<li>
+				<div>
+				<div class="bg"><i class="fa fa-plus fa-3x"></i></div>
+				<img src="img/portfolio/golden.png">
+				</div>
+				<h4>Golden</h4>
+				<p>Website Design</p>
+				</li>
+				<li>
+				<div>
+				<div class="bg"><i class="fa fa-plus fa-3x"></i></div>
+				<img src="img/portfolio/escape.png">
+				</div>
+				<h4>Escape</h4>
+				<p>Website Design</p>
+				</li>
+				<li>
+				<div>
+				<div class="bg"><i class="fa fa-plus fa-3x"></i></div>
+				<img src="img/portfolio/dreams.png">
+				</div>
+				<h4>Dreams</h4>
+				<p>Website Design</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="about">
+		<div class="container">
+			<h2>ABOUT</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<ul class="timeline">
+				<li>
+					<img src="img/about/1.jpg">
+					<div class="p1">
+						<h4>2009-2011</h4>
+						<h4>Our Humble Beginnings</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/about/2.jpg">
+					<div class="p2">
+						<h4>MARCH 2011</h4>
+						<h4>An Agency is Born</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/about/3.jpg">
+					<div class="p3">
+						<h4>DECEMBER 2012</h4>
+						<h4>Transition to Full Service</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+					</div>
+				</li>
+				<li>
+					<img src="img/about/4.jpg">
+					<div class="p4">
+						<h4>JULY 2014</h4>
+						<h4>Phase Two Expansion</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+					</div>
+				</li>
+				<li>
+				<div class="p5">
+					<h4>BE PART<br>OF OUR<br>STORY</h4>
+				</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="team">
+		<div class="container">
+			<h2>OUR AMAZING TEAM</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<ul>
+				<li>
+					<img src="img/team/1.jpg">
+					<h4>Kay Garland</h4>
+					<p>Lead Designer</p>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>	
+				</li>
+				<li>
+					<img src="img/team/2.jpg">
+					<h4>Larry Parker</h4>
+					<p>Lead Designer</p>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>	
+				</li>
+				<li>
+					<img src="img/team/3.jpg">
+					<h4>Diana Pertersen</h4>
+					<p>Lead Designer</p>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>	
+				</li>
+			</ul>
+			<p style="padding: 0 150px 0 150px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+		</div>
+	</div>
+	<div class="clients">
+		<div class="container">
+			<img src="img/logos/1.jpg">
+			<img src="img/logos/2.jpg">
+			<img src="img/logos/3.jpg">
+			<img src="img/logos/4.jpg">
+		</div>
+	</div>
+	<div class="contact">
+		<div class="container">
+			<h2>CONTACT US</h2>
+			<p>Lorem ipsum dolor sit amet consectetur.</p>
+			<div class="form-left">
+			<input type="text" name="username" placeholder="YOUR NAME *">
+			<input type="text" name="username" placeholder="YOUR EMAIL *">
+			<input type="text" name="username" placeholder="YOUR PHONE *">
+			</div>
+			<div class="form-right">
+			<textarea class="message" placeholder="YOUR MESSAGE *"></textarea>
+			</div>
+			<div class="container">
+			<button>Send Message</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+<div class="container">
+<ul>
+	<li id="li1">Copyright © Your Website 2014</li>
+	<li id="li2">
+		<a href="#"><i class="fa fa-twitter"></i></a>
+		<a href="#"><i class="fa fa-facebook"></i></a>
+		<a href="#"><i class="fa fa-linkedin"></i></a>	
+	</li>
+	<li id="li3">
+	<a href="#">Privacy Policy</a>
+	<a href="#">Terms of Use</a>
+	</li>
+</ul>
+</div>
+</div>
+</body>
+</html>

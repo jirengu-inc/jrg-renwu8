@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Task24-3</title>
+    <style>
+        #username-hint, #password-hint, #re-password-hint {
+            color: #ccc;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .space {
+            float: left;
+            opacity: 0;
+        }
+        .error-active {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+<h3>注册</h3>
+用户名 <input type="text" placeholder="用户名(hunger)被注册过" name="username" id="username"/> <br/>
+<div class="space">填充11</div>
+<div id="username-hint">只能是字母、数字、下划线、3-10个字符</div>
+密码: &nbsp;&nbsp;
+<input type="password" name="password" id="password"/> <br/>
+<div class="space">填充11</div>
+<div id="password-hint">大写字母、小写、数字、下划线最少两种，6-15个字符</div>
+再输入一次:
+<input type="password" placeholder="再输入一次" name="rePassword" id="rePassword"/> <br/>
+<div class="space">填充11</div>
+<div id="re-password-hint">1</div>
+<input type="button" id="btn" value="注册"/>
+
+<script src="ajax.js"></script>
+</body>
+</html>

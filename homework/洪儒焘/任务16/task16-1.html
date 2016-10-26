@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function isNumber(i){
+			return typeof i==="number";
+		}
+		function isString(i){
+			return typeof i==="string";
+		}
+		function isBoolean(i){
+			return typeof i==="boolean";
+		}
+		function isFunction(i){
+			return typeof i==="object";
+		}
+		var a = 2,
+	    b = "jirengu",
+	    c = false;
+		alert( isNumber(a) );  //true
+		alert( isString(a) );  //false
+		alert( isString(b) );  //true
+		alert( isBoolean(c) ); //true
+		alert( isFunction(a)); //false
+		alert( isFunction( isNumber ) ); //true
+	</script>
+</body>
+</html>

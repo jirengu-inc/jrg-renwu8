@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function isNumber(el){
+        return typeof el === "number"  //严格相等运算符（===）比较它们是否为同一类型
+    }
+    function isString(el){
+        return typeof el === "string"
+    }
+    function isBoolean(el){
+        return typeof el === "boolean"
+    }
+    function isFunction(el){
+        return typeof el === "function"
+    }
+
+    var a = 2,  //a为数值类型
+        b = "jirengu",  //b为字符串类型
+        c = false;  //c为布尔类型
+    alert( isNumber(a) );  //true
+    alert( isString(a) );  //false
+    alert( isString(b) );  //true
+    alert( isBoolean(c) ); //true
+    alert( isFunction(a)); //false
+    alert( isFunction( isNumber ) ); //true //isNumber为函数类型
+</script>
+</body>
+</html>

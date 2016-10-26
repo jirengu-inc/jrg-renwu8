@@ -190,19 +190,27 @@
     #ourwork {
         height: 900px;
         text-align: center;
+        overflow: hidden;
     }
     
     #ourwork .underline {
         border-color: #ccc;
     }
-    
+
     #ourwork ul li {
         display: block;
+        width:458px;
+        height: 310px;
         float: left;
         margin-left: 44px;
         margin-top: 44px;
     }
-    
+     #ourwork ul li a
+     {
+        display: block;
+        width: 458px;
+        height: 310px;
+        overflow: hidden;}
     #ourwork ul {
         margin-left: -44px;
         margin-top: -44px;

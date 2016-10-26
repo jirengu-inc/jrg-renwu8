@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>解决父容器高度塌陷</title>
+    <style>
+    .ct {
+        border: 1px solid #ccc;
+    }
+    
+    .ct1,
+    .ct2 {
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin: 10px;
+    }
+    
+    .ct1 {
+        background: red;
+    }
+    
+    .ct2 {
+        background: blue;
+    }
+    
+    .m150 {
+        margin-top: 150px;
+    }
+    
+    .bfc {
+        overflow: hidden;
+    }
+    
+    .ct3 {
+        clear: both;
+    }
+    
+    .clearfix:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    </style>
+</head>
+
+<body>
+    <p>父容器高度塌陷</p>
+    <div class="ct">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+    </div>
+    <p class="m150">利用BFC特性overflow:hidden</p>
+    <div class="ct bfc">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+    </div>
+    <p>利用添加清除浮动的元素clear:both</p>
+    <div class="ct">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+        <div class="ct3"></div>
+    </div>
+    <p>添加伪类.clearfix:after</p>
+    <div class="ct clearfix">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+    </div>
+    </div>
+</body>
+
+</html>

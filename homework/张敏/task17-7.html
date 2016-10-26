@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var fn = 1;
+    function fn(fn){
+        console.log(fn);
+    }
+    console.log(fn());//报错，应为这个函数的FN未被执行，所以赋值之后，fn其实是数字1，所以fn已经不是函数了
+</script>
+</body>
+</html>

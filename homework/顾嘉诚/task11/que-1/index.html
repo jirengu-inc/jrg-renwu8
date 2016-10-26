@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 11-1</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color: rgb(51,51,51);
+		}
+		.child{
+			display: none;
+			margin-left: -10px;
+		}
+		.nav{
+			background-color: rgb(191,191,191);
+			display: inline-block;
+			position: relative;
+		}
+		.nav>li{
+			float: left;
+			padding: 10px;
+		}
+		.nav>li:hover{
+			background-color: rgb(154,154,154);
+		}
+		.nav>li:hover .child{
+			display: block;
+			border: 1px solid rgb(191,191,191);
+			position: absolute;
+			top: 100%;
+		}
+	</style>
+</head>
+<body>
+	<ul class="nav">
+		<li>
+			<a href="#">前端</a>
+			<ul class="child">
+				<li><a href="#">HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">JavaScript</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">服务端</a>
+			<ul class="child">
+				<li><a href="#">PHP</a></li>
+				<li><a href="#">NODE</a></li>
+				<li><a href="#">JAVA</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#">前端工具</a>
+			<ul class="child">
+				<li><a href="#">Sublime</a></li>
+				<li><a href="#">WebStrom</a></li>
+				<li><a href="#">Git</a></li>
+			</ul>
+		</li>
+		<li><a href="#">HTML</a></li>
+		<li><a href="#">NODE</a></li>
+	</ul>
+</body>
+</html>

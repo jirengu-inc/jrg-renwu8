@@ -1,0 +1,98 @@
+/*公共样式*/
+
+.wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+
+/*公共样式结束*/
+
+#header img {
+    float: left;
+}
+
+
+/*header样式*/
+
+#header {
+    width: 100%;
+    background: #000;
+}
+
+#header ul {
+    float: right;
+}
+
+#header ul li {
+    float: left;
+}
+
+#header ul a {
+    color: #fff;
+    line-height: 57px;
+    padding: 0 10px;
+}
+
+#header ul li:hover {
+    background: #fff;
+}
+
+#header ul li:hover a {
+    color: #000;
+}
+
+
+/*header样式结束*/
+
+
+/*内容样式开始*/
+
+#content {
+    margin-top: 10px;
+}
+
+#content .aside,
+#content .main {
+    float: left;
+    background: #eee;
+}
+
+#content .aside {
+    width: 200px;
+    min-height: 600px;
+}
+
+#content .main {
+    box-sizing: border-box;
+    margin-left: 10px;
+    width: 690px;
+    padding: 30px 10px;
+}
+
+#content .main h1 {
+    margin: 20px 0;
+}
+
+
+/*内容样式结束*/
+
+
+/*底部样式开始*/
+
+#footer {
+    width: 100%;
+    background-color: #000;
+}
+
+#footer li {
+    float: left;
+}
+
+#footer li a {
+    color: #fff;
+    line-height: 57px;
+    padding: 0 10px 0 0;
+}
+
+/*底部样式结束*/

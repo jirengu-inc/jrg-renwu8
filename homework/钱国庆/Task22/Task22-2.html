@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22-2</title>
+    <style>
+        ul {
+            background: pink;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+    // 获得已知所需节点
+    var btnAdd = document.querySelector("#btn-add-start");
+    var btnEnd = document.querySelector("#btn-add-end");
+    var addContent = document.querySelector(".ipt-add-content");
+    var ulList = document.querySelector(".ct");
+
+    // 给addStart按钮添加事件
+    btnAdd.addEventListener("click", function () {
+        doAction("li", addContent.value, "start");
+    }, false);
+
+    // 给addEnd按钮添加事件
+    btnEnd.addEventListener("click", function () {
+        doAction("li", addContent.value, "end");
+    }, false);
+
+    // 封装好的事件函数
+    function doAction(element, text, choice) {
+        if (addContent.value === "") {
+            return;
+        }
+        var newNode = document.createElement(element);
+        var textNode = document.createTextNode(text);
+        newNode.appendChild(textNode);
+
+        if (choice === "start") {
+            ulList.insertBefore(newNode, ulList.firstChild);
+        } else if (choice === "end") {
+            ulList.appendChild(newNode);
+        }
+    }
+
+</script>
+</body>
+</html>

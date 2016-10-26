@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 50px;
+            border: 1px solid greenyellow;
+            text-align: center;
+            margin-right: 10px;
+        }
+
+        #show {
+            width: 550px;
+            height: 500px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 500px;
+            border: 1px solid black;
+        }
+
+        .focus {
+            background: darkgray;
+        }
+    </style>
+</head>
+<body>
+<ul class="clearfix">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<div id="show"></div>
+<script>
+    //    tab切换
+    var oli = document.getElementsByTagName('li');
+    var show = document.getElementById('show');
+    var ul=document.getElementsByTagName('ul')[0];
+    for (var i = 0; i < oli.length; i++) {
+        oli[i].onmouseover = function (e) {
+            for(var j=0;j<oli.length;j++){
+                oli[j].className="";
+            }
+            this.className='focus';
+            show.innerHTML = e.target.innerHTML;
+        }
+    }
+</script>
+</body>
+</html>

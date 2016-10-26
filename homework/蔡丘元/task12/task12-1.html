@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task12-1</title>
+    <style>
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: 0 auto;
+            background: #ccc;
+            padding: 10px 0;
+        }
+
+        .wrap ul {
+
+            margin-left: -21px;
+        }
+
+        .wrap ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .wrap ul > li {
+            float: left;
+            background: green;
+            margin: 10px 0px 0 21px;
+            width:286px;
+            height:80px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+</body>
+</html>

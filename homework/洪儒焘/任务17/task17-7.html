@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    var fn = 1;
+	    function fn(fn){
+	         console.log(fn);
+	    }
+	    console.log(fn(fn)); 
+	    //以如上顺序，解析器从上至下解析，起初fn被赋予了一个函数，但是fn=1将先前的函数给覆盖。当在调用fn(fn)时，由于fn此时为1，是一个基本变量(Number)，而不是一个函数，所以会报错
+
+  
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj = {
+        className: 'open menu'
+    }
+    //    function changeArr(obj) {
+    //        var arr = [];
+    //        var str = "";
+    //        for (var attr in obj) {
+    //            str += obj[attr];
+    //        }
+    //        arr = str.split(" ");
+    //        return arr;
+    //    }
+    //    var newArr = [];
+    function addClass(obj, cls) {
+        var classArr = obj.className.split(' ');
+        for (var i = 0; i < classArr.length; i++) {
+            if (cls === classArr[i]) {
+                return;
+            }
+        }
+        obj.className += ' ' + cls;
+    }
+    function removeClass(obj, cls) {
+        var classArr = obj.className.split(' ');
+        for (var i = 0; i < classArr.length; i++) {
+            if (cls === classArr[i]) {
+                classArr.splice(i, 1);
+                i--;
+            }
+        }
+        obj.className = classArr.join(' ');
+    }
+    addClass(obj, 'new') // obj.className='open menu new'
+    addClass(obj, 'open')  // 因为open已经存在，所以不会再次添加open
+    addClass(obj, 'me') // me不存在，所以 obj.className变为'open menu new me'
+
+
+    removeClass(obj, 'open') // 去掉obj.className里面的 open，变成'menu new me'
+    removeClass(obj, 'blabla')  // 因为blabla不存在，所以此操作无任何影响
+    console.log(obj.className)  // "open menu new me"
+
+</script>
+</body>
+</html>

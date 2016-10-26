@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	html,body,div,ul,li{margin:0; padding:0;border:none;list-style:none;font:16px/1 "微软雅黑";}
+        	#header,#footer{
+        		height:80px;
+        		background-color: black;
+        		clear:both;
+        	}
+        	.wrap{
+        		margin: 0 auto;
+				width: 900px; 
+        	}
+        	#header .logo{
+        		width: 230px;
+        		height: 57px;
+        		background: url(./img/logo-tiny.png) 0 0 no-repeat;
+        		float:left;
+        	}
+        	#header .nav>li{
+				color:white;
+				display: inline-block;
+				/*margin-left: 30px;*/
+				padding: 30px;
+				float: right;
+        	}
+        	#header .nav>li:hover{
+        		background-color: white;
+        		color: black;
+        	}
+        	#content .aside{
+        		float: left;
+        		background-color: #eee;
+        		width: 200px;
+        		height: 500px;
+        	}
+        	#content .wrap{
+        		margin-top: 20px;
+        		margin-bottom: 20px;
+        	}
+        	#content .main{
+        		float: left;
+        		margin-left: 15px;
+        		background-color: #eee;
+        		width: 685px;
+        		height: 300px;
+        	}
+        	#footer .copyright{
+        		color: white;
+        		font: 25px/1 "微软雅黑";
+        		line-height: 80px;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div id="header">
+    		<div class="wrap">
+	    		<a class="logo"><img alt></img></a>
+	    		<ul class="nav">
+	    			<li>技能</li>
+	    			<li>经历</li>
+	    			<li>作品</li>
+	    			<li>关于</li>
+	    		</ul>
+    		</div>
+    	</div>
+    	<div id="content">
+    		<div class="wrap">
+	    		<div class="aside"></div>
+	    		<div class="main">
+	    			<h1>我的作品</h1>
+	    			<p>生活很美好</p>
+	    			<p>心情不错</p>
+	    			<p>代码写的很漂亮</p>
+	    		</div>
+    		</div>
+    	</div>
+    	<div id="footer">
+    		<div class="wrap">
+    			<div class="copyright">
+    				饥人谷	JSCODE	 JSBIN
+    			</div>
+    		</div>
+    	</div>
+    </body>
+</html>

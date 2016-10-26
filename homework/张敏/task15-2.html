@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        @font-face {
+            font-family: 'iconfont';
+            src: url('font15-2/iconfont.eot'); /* IE9*/
+            src: url('font15-2/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('font15-2/iconfont.woff') format('woff'), /* chrome、firefox */ url('font15-2/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('font15-2/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 10px;
+            font-family: sans-serif;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .btn {
+            display: block;
+            width: 200px;
+            height: 60px;
+            margin: 0 auto;
+            line-height: 60px;
+            background: #fed136;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            line-height: 100px;
+        }
+
+        .container {
+            width: 1170px;
+            margin: 0 auto;
+        }
+
+        #header .nav_list {
+            float: right;
+        }
+
+        #header .left_title {
+            float: left;
+            font-size: 30px;
+            color: yellow;
+        }
+
+        #header .nav_list li {
+            float: left;
+            font-size: 18px;
+            margin-right: 20px;
+        }
+
+        #header .nav_list li a {
+            color: white;
+        }
+
+        #header .nav_list li a:hover {
+            color: yellow;
+        }
+
+        #content {
+            width: 100%;
+            height: 100%;
+            border: 1px solid transparent;
+            background: url("img/header-bg.jpg");
+            background-size: 100% 100%;
+        }
+
+        #content .container {
+            margin-top: 120px;
+        }
+
+        #content .container p {
+            text-align: center;
+        }
+
+        #content .container p:first-child {
+            font-size: 55px;
+            color: white;
+        }
+
+        #content .container p:nth-child(2) {
+            font-size: 80px;
+            color: white;
+        }
+
+        #content .container a {
+            margin-top: 25px;
+        }
+
+        #services {
+            padding-top: 150px;
+            padding-bottom: 150px;
+            /*border: 1px solid black;*/
+        }
+
+        #services .sev_top {
+            text-align: center;
+        }
+
+        #services .sev_top h2 {
+            font-size: 45px;
+        }
+
+        #services .sev_top h3 {
+            color: #777;
+        }
+
+        #services .sev_bottom {
+            width: 1170px;
+            height: 243px;
+            margin-top: 80px;
+
+        }
+
+        #services .sev_bottom_item {
+            float: left;
+            /*background: red;*/
+            width: 390px;
+            text-align: center;
+            height: 243px;
+
+        }
+
+        #services .sev_bottom_item_pic {
+            width: 112px;
+            height: 112px;
+            border-radius: 112px;
+            background: #fed136;
+            margin: 0 auto;
+            /*margin-top: 80px;*/
+        }
+
+        #services .sev_bottom_item .other {
+            color: #000;
+            margin: 15px auto;
+        }
+
+        #portfolio {
+            padding-top: 150px;
+            padding-bottom: 150px;
+            text-align: center;
+            /*border: 1px solid black;*/
+        }
+
+        #portfolio h1 {
+            font-size: 40px;
+            padding-bottom: 20px;
+        }
+
+        #portfolio p {
+            font-size: 16px;
+        }
+
+        #portfolio .portfolio_bottom {
+            width: 1300px;
+            margin-top: 80px;
+        }
+
+        #portfolio .portfolio_bottom img {
+            display: block;
+            width: 390px;
+        }
+
+        #portfolio .portfolio_bottom li {
+            float: left;
+            width: 390px;
+            margin-bottom: 30px;
+            margin-right: 20px;
+        }
+
+        #portfolio .portfolio_bottom h2 {
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+
+        #about {
+            padding: 80px 0;
+        }
+
+        #about .container {
+            text-align: center;
+        }
+
+        #about .container .title {
+            font-size: 40px;
+        }
+
+        #about .container .other {
+            color: #777;
+        }
+
+        .timeline-wrap {
+            padding: 80px 0;
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline:before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 100%;
+            background-color: #f1f1f1;
+            position: absolute;
+            left: 50%;
+        }
+
+        .timeline li {
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        .timeline img {
+            width: 170px;
+            height: 170px;
+            box-sizing: border-box;
+            border: 7px solid #f1f1f1;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: -7px;
+            margin-left: -85px;
+        }
+
+        .timeline .timeline-end {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            background-color: #fed136;
+            color: #fff;
+            font-size: 18px;
+            border: 7px solid #f1f1f1;
+            position: absolute;
+            left: 50%;
+            margin-left: -85px;
+            padding-top: 15px;
+            cursor: pointer;
+        }
+
+        .timeline-panel {
+            width: 30%;
+            font-size: 14px;
+            padding-left: 100px;
+            line-height: 1.8;
+        }
+
+        .timeline-panel p, .timeline-panel h3 {
+            text-align: right;
+        }
+
+        .timeline-panel .timeline-header {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .timeline-panel.right {
+            padding-right: 100px;
+            float: right;
+        }
+
+        .timeline-panel.right p, .timeline-panel.right h3 {
+            text-align: left;
+        }
+
+        #ourteam {
+            padding-top: 150px;
+            padding-bottom: 150px;
+            /*border: 1px solid black;*/
+            background-color: #eee;
+        }
+
+        #ourteam .ourteam_top {
+            text-align: center;
+        }
+
+        #ourteam .ourteam_top h1 {
+            font-size: 40px;
+        }
+
+        #ourteam .ourteam_bottom {
+            margin-top: 80px;
+        }
+
+        #ourteam .ourteam_bottom .ourteam_bottom_item {
+            display: inline-block;
+            /*border: 1px solid black;*/
+            text-align: center;
+            padding: 0 80px;
+        }
+
+        #ourteam .ourteam_bottom .ourteam_bottom_item_top {
+            width: 220px;
+            height: 220px;
+            border-radius: 220px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        #ourteam .item_list {
+            width: 100%;
+            /*margin: 0 auto;*/
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+        #ourteam .item {
+            display: block;
+            float: left;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 40px;
+            background: #000;
+            /*margin-right: 15px;*/
+            margin-left: 15px;
+        }
+
+        #ourteam .item:hover {
+            background: #fed136;
+        }
+
+        #ourteam .ourteam_bootom_title {
+            text-align: center;
+            width: 650px;
+            margin: 0 auto;
+            margin-top: 60px;
+        }
+
+        #clients {
+            width: 100%;
+            /*height:150px;*/
+            text-align: center;
+            background: white;
+        }
+
+        #clients .nav_list li {
+            width: 292px;
+            height: 150px;
+            float: left;
+
+        }
+
+        #clients img {
+            display: block;
+            margin: 50px auto;
+        }
+
+        section#contact {
+            background-color: #222;
+            background-image: url(img/map-image.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            /*height: 500px;*/
+            border: 1px solid transparent;
+            padding-bottom: 150px;
+        }
+
+        #contact .connect_top {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        #contact .connect_top h1 {
+            color: #fff;
+            font-size: 40px;
+        }
+
+        #contact .connect_top h3 {
+            color: #ccc;
+        }
+
+        #contact .connect_bottom {
+            /*width: 1190px;*/
+            border: 1px solid transparent;
+            margin-top: 60px;
+        }
+
+        .connect_bottom_left, .connect_bottom_right {
+            width: 585px;
+            height: 261px;
+            /*background-color: red;*/
+        }
+
+        .connect_bottom_left {
+            float: left;
+            width: 555px;
+            /*padding-right: 20px;*/
+        }
+
+        .connect_bottom_left input {
+            display: block;
+            width: 515px;
+            height: 22px;
+            padding: 20px 20px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            margin-bottom: 25px;
+        }
+
+        .connect_bottom_right {
+            float: right;
+        }
+
+        .connect_bottom_right textarea {
+            width: 515px;
+            height: 199px;
+            padding: 20px;
+        }
+
+        #contact .connect_bottom_btn {
+            text-align: center;
+        }
+
+        #contact .connect_bottom_btn a {
+            display: block;
+            margin: 0 auto;
+            width: 220px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 5px;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            background: #fed136;
+        }
+
+        #footer {
+            padding: 25px 0;
+        }
+
+        #footer .t1, #footer .nav, #footer .t2 {
+            width: 390px;
+            height: 40px;
+            float: left;
+            /*background: red;*/
+        }
+
+        #footer .t2 {
+            width: 320px;
+        }
+
+        #footer .nav {
+            position: relative;
+        }
+
+        #footer .nav li {
+            float: left;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 40px;
+            background-color: black;
+            position: relative;
+            left: 100px;
+            margin-right: 15px;
+        }
+
+        #footer .t2 a {
+            float: right;
+            width: 100px;
+            color: #fed136;
+        }
+
+        span.iconfont {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="container">
+        <div class="left_title">bootstarp</div>
+        <ul class="nav_list">
+            <li><a href="">Services</a></li>
+            <li><a href="">Portfolio</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Team</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </div>
+</header>
+<div id="content">
+    <div class="container">
+        <p>Welcome To Our Studio!</p>
+        <p>IT'S NICE TO MEET YOU</p>
+        <a href="" class="btn">Tell Me More</a>
+    </div>
+</div>
+<div id="services">
+    <div class="container">
+        <div class="sev_top">
+            <h2>SERVICES</h2>
+            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="sev_bottom">
+            <div class="sev_bottom_item">
+                <div class="sev_bottom_item_pic"></div>
+                <h3 class="other">E-Commerce</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore
+                    harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="sev_bottom_item">
+                <div class="sev_bottom_item_pic"></div>
+                <h3 class="other">E-Commerce</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore
+                    harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="sev_bottom_item">
+                <div class="sev_bottom_item_pic"></div>
+                <h3 class="other">E-Commerce</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore
+                    harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="portfolio">
+    <div class="container">
+        <div class="portfolio_top">
+            <h1>PORTFOLIO</h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <ul class="portfolio_bottom clearfix">
+            <li>
+                <a href=""><img src="img/list.png" alt=""></a>
+                <h2>Round Icons</h2>
+                <p>Graphic Design</p>
+            </li>
+            <li>
+                <a href=""><img src="img/list.png" alt=""></a>
+                <h2>Round Icons</h2>
+                <p>Graphic Design</p>
+            </li>
+            <li>
+                <a href=""><img src="img/list.png" alt=""></a>
+                <h2>Round Icons</h2>
+                <p>Graphic Design</p>
+            </li>
+            <li>
+                <a href=""><img src="img/list.png" alt=""></a>
+                <h2>Round Icons</h2>
+                <p>Graphic Design</p>
+            </li>
+            <li>
+                <a href=""><img src="img/list.png" alt=""></a>
+                <h2>Round Icons</h2>
+                <p>Graphic Design</p>
+            </li>
+            <li>
+                <a href=""><img src="img/list.png" alt=""></a>
+                <h2>Round Icons</h2>
+                <p>Graphic Design</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<section id="about">
+    <div class="container">
+        <h2 class="title">ABOUT</h2>
+        <h3 class="other">Lorem ipsum dolor sit amet consectetur.</h3>
+        <div class="timeline-wrap">
+            <ul class="timeline clearfix">
+                <li class="clearfix">
+                    <img src="img/1.jpg" alt="">
+                    <div class="timeline-panel">
+                        <div class="timeline-header">
+                            <h3>2009-2011</h3>
+                            <h3>Our Humble Beginnings</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius
+                                sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+                                incidunt et ea quo dolore laudantium consectetur
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="img/2.jpg" alt="">
+                    <div class="timeline-panel right">
+                        <div class="timeline-header">
+                            <h3>MARCH 2011</h3>
+                            <h3>An Agency is Born</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius
+                                sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+                                incidunt et ea quo dolore laudantium consectetur
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="img/3.jpg" alt="">
+                    <div class="timeline-panel">
+                        <div class="timeline-header">
+                            <h3>DECEMBER 2012</h3>
+                            <h3>Transition to Full Service</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius
+                                sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+                                incidunt et ea quo dolore laudantium consectetur
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="img/4.jpg" alt="">
+                    <div class="timeline-panel right">
+                        <div class="timeline-header">
+                            <h3>JULY 2014</h3>
+                            <h3>Phase Two Expansion</h3>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius
+                                sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed,
+                                incidunt et ea quo dolore laudantium consectetur
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="timeline-end">
+                        <h4>
+                            BE PART<br>
+                            OF OUR<br>
+                            STORY!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="ourteam">
+    <div class="container">
+        <div class="ourteam_top">
+            <h1>OUR AMAZING TEAM</h1>
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="ourteam_bottom">
+            <div class="ourteam_bottom_item">
+                <div class="ourteam_bottom_item_top"><img src="img/5.jpg" alt=""></div>
+                <h2>Kay Garland</h2>
+                <p>Lead Designer</p>
+                <div class="item_list clearfix">
+                    <a href="" class="item"><span class="iconfont">&#xe999;</span></a>
+                    <a href="" class="item"><span class="iconfont">&#xe62f;</span></a>
+                    <a href="" class="item"><span class="iconfont">&#xe620;</span></a>
+                </div>
+            </div>
+            <div class="ourteam_bottom_item">
+                <div class="ourteam_bottom_item_top"><img src="img/6.jpg" alt=""></div>
+                <h2>Larry Parker</h2>
+                <p>Lead Marketer</p>
+                <div class="item_list clearfix">
+                    <a href="" class="item"><span class="iconfont">&#xe999;</span></a>
+                    <a href="" class="item"><span class="iconfont">&#xe62f;</span></a>
+                    <a href="" class="item"><span class="iconfont">&#xe620;</span></a>
+                </div>
+            </div>
+            <div class="ourteam_bottom_item">
+                <div class="ourteam_bottom_item_top"><img src="img/7.jpg" alt=""></div>
+                <h2>Diana Pertersen</h2>
+                <p>Lead Developer</p>
+                <div class="item_list clearfix">
+                    <a href="" class="item"><span class="iconfont">&#xe999;</span></a>
+                    <a href="" class="item"><span class="iconfont">&#xe62f;</span></a>
+                    <a href="" class="item"><span class="iconfont">&#xe620;</span></a>
+                </div>
+            </div>
+        </div>
+        <p class="ourteam_bootom_title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam
+            veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+    </div>
+</section>
+<section id="clients">
+    <div class="container">
+        <ul class="nav_list clearfix">
+            <li><a href=""><img src="img/br1.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/br2.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/br3.jpg" alt=""></a></li>
+            <li><a href=""><img src="img/br4.jpg" alt=""></a></li>
+        </ul>
+    </div>
+</section>
+<section id="contact">
+    <div class="container">
+        <div class="connect_top">
+            <h1>CONTACT US</h1>
+            <h3>Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="connect_bottom clearfix">
+            <div class="connect_bottom_left">
+                <input type="text" placeholder="Your Name *">
+                <input type="text" placeholder="Your Email *">
+                <input type="text" placeholder="Your Phone *">
+            </div>
+            <div class="connect_bottom_right">
+                <textarea name="" placeholder="Your Message *"></textarea>
+            </div>
+
+        </div>
+        <div class="connect_bottom_btn">
+            <a href="" class="btn2">Send Message</a>
+        </div>
+    </div>
+</section>
+<section id="footer">
+    <div class="container clearfix">
+        <div class="t1">Copyright © Your Website 2014</div>
+        <ul class="nav">
+            <li><span class="iconfont">&#xe999;</span></li>
+            <li><span class="iconfont">&#xe62f;</span></li>
+            <li><span class="iconfont">&#xe620;</span></li>
+        </ul>
+        <div class="t2">
+            <a href="">Privacy Policy</a>
+            <a href="">Terms of Use</a>
+        </div>
+    </div>
+</section>
+</body>
+</html>

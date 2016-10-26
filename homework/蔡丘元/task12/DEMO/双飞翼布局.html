@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>双飞翼布局</title>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .m-wrap, .side-L, .side-R {
+            float: left;
+            min-height: 130px;
+        }
+
+        .m-wrap {
+            width: 100%;
+            min-height: 130px;
+            background: red;
+        }
+
+        .main {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+        .side-L {
+            width: 200px;
+            background: blue;
+            margin-left: -100%;
+        }
+
+        .side-R {
+            width: 200px;
+            background: yellow;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container clearfix">
+    <div class="m-wrap">
+        <div class="main">1231231312313</div>
+    </div>
+    <div class="side-L"></div>
+    <div class="side-R"></div>
+</div>
+</body>
+</html>

@@ -5,3 +5,5 @@
 * 10/06 task6-1,task6-2,task6-3,task6-4
 * 10/10 task7
 * 10/12 task9
+* 10/17 task9-2
+* 10/18 task10

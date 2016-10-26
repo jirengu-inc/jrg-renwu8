@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+       <style>
+       		.box{
+       			border: 1px solid;
+       			width: 500px;
+       			height: 300px;
+       		}
+       		.ct1,.ct2,.ct3{
+       			width: 100px;
+       			height: 100px;
+       		}
+       		.float{
+       			float: left;
+       			background-color: red;
+       		}
+       		.ct1.left-other{
+       			float: left;
+       			background-color: blue;
+       		}
+       		.ct1.right-other{
+       			float: right;
+       			/*clear:left;*/
+       			background-color: yellow;
+       		}
+       </style>
+    </head>
+    <body>
+    	<h2>对其他浮动元素影响</h2>
+    	<div class="box ct1-box">
+    		<div class="ct1 float">left浮动</div>
+    		<div class="ct1 left-other">其他left浮动</div>
+    		<div class="ct1 right-other">其他right浮动</div>
+
+    		
+    	</div>
+    	<h2>对普通块级元素影响</h2>
+    		<div class="box ct2-box">
+    			<div class="ct2 float">left浮动</div>
+    			<div>普通块级元素</div>
+    			<span>普通行内元素</span>
+    		</div>
+    	<h2>对文字影响</h2>
+    		<div class="box ct3-box">
+    			<div class="ct3 float">left浮动</div>
+    		我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字我是文字
+    		</div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>外边距合并计算取值</title>
+    <style>
+    .ct1,
+    .ct2,
+    .ct3,
+    .ct4,
+    .ct5,
+    .ct6 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+    }
+    
+    .ct1 {
+        background: red;
+        margin-bottom: 10px;
+    }
+    
+    .ct2 {
+        background: blue;
+        margin-top: 20px;
+    }
+    
+    .ct {
+        margin-top: 150px;
+    }
+    
+    .ct3 {
+        background: red;
+        margin-bottom: -10px;
+    }
+    
+    .ct4 {
+        background: blue;
+        margin-top: -20px;
+    }
+    
+    .ct5 {
+        background: red;
+        margin-bottom: 10px;
+    }
+    
+    .ct6 {
+        background: blue;
+        margin-top: -20px;
+    }
+    </style>
+</head>
+
+<body>
+    <p>同为正值的外边距合并的取较大值</p>
+    <p>ct1的margin-bottom:10px,ct2的margin-top为20px,则值为20px</p>
+    <div class="ct1"></div>
+    <div class="ct2"></div>
+    <p>同为负值的外边距合并的取值为负数取绝对值较大的一边</p>
+    <p>ct3的margin-bottom:-10px,ct4的margin-top:-20px,则值为-20px</p>
+    <div class="ct">
+        <div class="ct3"></div>
+        <div class="ct4"></div>
+    </div>
+    <p>一正一负的外边距合并取值为负值加上正值计算得出的值</p>
+    <p>ct5的margin-bottom:10px,ct6的margin-top:-20px,则值为-10px</p>
+    <div class="ct">
+        <div class="ct5"></div>
+        <div class="ct6"></div>
+    </div>
+</body>
+
+</html>

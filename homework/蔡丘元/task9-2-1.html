@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS_Sprite</title>
+    <style>
+    .container {
+        width: 900px;
+        margin: 0 auto;
+        font-size: 35px;
+    }
+    
+    .arrow,
+    .play,
+    .pause {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        text-decoration: none;
+    }
+    
+    .arrow {
+        background: url(task9-img/按钮图标.gif) 0 10px no-repeat;
+    }
+    
+    .arrow:hover {
+        background: url(task9-img/按钮图标.gif) 0 -35px no-repeat;
+    }
+    
+    .play {
+        background: url(task9-img/按钮图标.gif) -45px 9px no-repeat;
+    }
+    
+    .play:hover {
+        background: url(task9-img/按钮图标.gif) -45px -35px no-repeat;
+    }
+    
+    .pause {
+        background: url(task9-img/按钮图标.gif) -90px 10px no-repeat;
+    }
+    
+    .pause:hover {
+        background: url(task9-img/按钮图标.gif) -90px -35px no-repeat;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a class="arrow" href="javascript:void(0)"></a>前进
+        <a class="play" href="javascript:void(0)"></a>开始
+        <a class="pause" href="javascript:void(0)"></a>停止
+    </div>
+</body>
+
+</html>

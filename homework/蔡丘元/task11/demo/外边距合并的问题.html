@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>外边距合并DEMO</title>
+    <style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .ct1,
+    .ct2 {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+    
+    .ct {
+        overflow: auto;
+    }
+    
+    .ct-1 {
+        margin: 20px;
+        background: red;
+    }
+    
+    .clear {
+        padding: 1px;
+    }
+    </style>
+</head>
+
+<body>
+    <span>相邻元素外边距合并的情况</span>
+    <div class="ct1"></div>
+    <div class="ct2"></div>
+    <span>相邻元素清除外边距合并</span>
+    <div class="ct">
+        <div class="ct1"></div>
+    </div>
+    <div class="ct">
+        <div class="ct2"></div>
+    </div>
+    <span>父子元素外边距合并的情况</span>
+    <div class="ct-1">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+    </div>
+    <span>父子元素清除外边距合并的情况</span>
+    <div class="ct-1 clear">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+    </div>
+</body>
+
+</html>
