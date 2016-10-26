@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// var timerId = setTimeout(function(){
+	// 	console.log("ok");
+	// }, 5000);
+	var i = s = 0;
+	function simulateIntv() {
+		setTimeout(function(){
+		   console.log(i++);
+		   simulateIntv();
+		},3000);
+	}
+	simulateIntv();
+	var timer = setInterval(function() {
+	    console.log(s++);
+	}, 3000);
+	</script>
+</body>
+</html>

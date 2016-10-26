@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//下面这段代码输出结果是? 为什么?
+	var a = 1;
+	setTimeout(function(){
+	    a = 2;
+	    console.log(a);
+	}, 0);
+	var a ;
+	console.log(a);//1
+	a = 3;
+	console.log(a);//3
+	//先执行16和18行的代码，再执行setTimeout，因为setTimeout会在执行完所有其他代码后执行
+	</script>
+</body>
+</html>

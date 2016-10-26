@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+    var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+    	(function(n){
+    		fnArr[i] =  function(){
+            	return n;
+        	};
+    	}(i))   
+    }
+    console.log( fnArr[3]() );  //
+
+    var fnArr1 = [];
+    for (var i = 0; i < 10; i ++) {
+    	(function (){
+    		var s=i;
+    		fnArr1[i] =  function(){
+            	return s;
+        	};
+    	}())   
+    }
+    console.log( fnArr1[3]() );  //
+
+    var fnArr2 = [];
+    for (var i = 0; i < 10; i ++) {
+    	(function (){
+    		var p=i;
+    		return fnArr2[i] =  function(){
+            	return p;
+        	};
+    	}())   
+    }
+    console.log( fnArr2[3]() );  //
+	</script>
+</body>
+</html>
