@@ -9,20 +9,6 @@
 <body>
 <script>
     $(function () {
-        function isValidPassword(str) {
-            if(str.length>=6 && str.length<=20){
-                var pat = /^((?=.*?[a-z](?=.*?[A-Z]))|(?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
-                return pat.test(str);
-            }else{
-                return false;
-            }
-//            if(/^\w{6,20}$/.test(str)){
-//                return true
-//            }
-        }
-        //    写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）
-
-        console.log(isValidPassword('yyyQ'));
 
     })
 </script>
