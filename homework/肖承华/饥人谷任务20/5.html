@@ -19,12 +19,12 @@
 		//执行seTimeout会有一个异步效果，虽然延迟是0但不是立即执行，需要等队列中其他任务执行结束后才立即执行，正确执行顺序应该如下
 		var a = 1;
 		var a ;
-		console.log(a);//1
+		console.log(a);//输出1
 		a = 3;
-		console.log(a);//3
+		console.log(a);//输出3
 		setTimeout(function(){
 		    a = 2;
-		    console.log(a);//2
+		    console.log(a);//输出2
 		}, 0);
 	</script>
 </body>
