@@ -190,7 +190,7 @@ background:#fdd035;
 	height: 262px;
 	background-color: rgba(254,209,54,0.8);
 	position: absolute;
-	z-index: 3;
+	z-index: 1;
 	top: -263px;
 }
 #port a:hover .iconfont{
