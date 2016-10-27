@@ -22,6 +22,7 @@ h1{
 	padding-top: 160px;
 	padding-bottom: 15px;
 }
+
 ::selection {
 background:#fdd035; 
 }
@@ -149,6 +150,9 @@ background:#fdd035;
 }
 #port p{
 	padding-bottom: 77px;
+}
+#port li p{
+	padding-bottom: 35px;
 }
 #port li{
 	float: left;
