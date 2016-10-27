@@ -175,27 +175,22 @@ background:#fdd035;
 	z-index: 1;
 }
 #port .iconfont{
-	display: none;
 	position: absolute;
-	top: -143px;
+	top: 50%;
 	left: 50%;
-	z-index: 100;
 	color: #fff;
 	font-size: 50px;
 	margin-left: -25px;
+	margin-top: -25px;
 }
 #port .bg-hover{
 	display: none;
-	width: 360px;
-	height: 261px;
-	background-color: rgba(254,209,54,0.8);
 	position: absolute;
-	z-index: 2;
-	top: -263px;
+	width: 360px;
+	height: 260px;
+	background-color: rgba(254,209,54,0.9);
 }
-#port a:hover .iconfont{
-	display: block;
-}
+
 #port a:hover .bg-hover{
 	display: block;
 }
@@ -378,7 +373,10 @@ background:#fdd035;
 	width: 237px;
 	padding-top: 12px;
 }
-
+#contact .btn1:hover{
+	background-color: #fec503;
+	cursor: pointer;
+}
 
 
 /* copyright */
