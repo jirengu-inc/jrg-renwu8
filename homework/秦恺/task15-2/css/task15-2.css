@@ -179,7 +179,7 @@ background:#fdd035;
 	position: absolute;
 	top: -143px;
 	left: 50%;
-	z-index: 10;
+	z-index: 100;
 	color: #fff;
 	font-size: 50px;
 	margin-left: -25px;
@@ -187,10 +187,10 @@ background:#fdd035;
 #port .bg-hover{
 	display: none;
 	width: 360px;
-	height: 262px;
+	height: 261px;
 	background-color: rgba(254,209,54,0.8);
 	position: absolute;
-	z-index: 1;
+	z-index: 2;
 	top: -263px;
 }
 #port a:hover .iconfont{
