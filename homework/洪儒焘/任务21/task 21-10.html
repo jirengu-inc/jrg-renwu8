@@ -7,7 +7,7 @@
 <body>
 	<script type="text/javascript">
 	//补全如下正则表达式
-	var re = /<\b\w[\w\W]+>/
+	var re = /<\b\w.+>/
 
 	var str = '<> <a href="/"> <input type="radio" checked> <b>'
 	console.log(str.match(re)) // '<a href="/">', '<input type="radio" checked>', '<b>'
