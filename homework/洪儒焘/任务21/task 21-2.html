@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body id="myid" class="mystyle">
+	<script type="text/javascript">
+		function hasClass(el, cls) {
+			var reg = new RegExp('(\\s|^)' + cls + '(\\b|$)',  'g');
+			return reg.test(el.className);
+		}
+		function addClass(el, cls) {
+			if(hasClass(el,cls)){
+				return;
+			}
+			el.className+=" "+cls;
+		}
+		function removeClass(el,cls) {
+			if(!hasClass(el,cls)){
+				return;
+			}
+			var reg = new RegExp('\\s' + cls + '\\b'+'|'+'\\b' + cls + '\\s',  'g');
+			el.className=el.className.replace(reg,"");
+		}
+		var x=document.getElementsByTagName('body')[0];
+		console.log(x);
+		console.log(hasClass(x,"mystyle"));
+		addClass(x,"layout");
+		console.log(x.className);
+		removeClass(x,"mystyle");
+		console.log(x.className);
+	</script>
+</body>
+</html>

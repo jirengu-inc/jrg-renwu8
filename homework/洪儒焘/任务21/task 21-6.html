@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）
+	//
+		function isValidPassword(str) {
+			if(!/^\w{6,20}$/.test(str)){
+				alert("输入的密码不合法!");
+			}
+			else if(/^[A-Z]+$/.test(str)){
+				alert("输入的密码不合法!");
+			}
+			else if(/^[a-z]+$/.test(str)){
+				alert("输入的密码不合法!");
+			}
+			else if(/^[0-9]+$/.test(str)){
+				alert("输入的密码不合法!");
+			}
+			else if(/^_+$/.test(str)){
+				alert("输入的密码不合法!");
+			}
+			else{
+				alert("输入的密码合法!");
+			}
+		}
+		var str="1111111111111aa1111_";
+		isValidPassword(str);
+	</script>
+</body>
+</html>

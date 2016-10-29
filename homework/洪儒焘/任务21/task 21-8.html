@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.
+	var str = 'hello  "hunger" , hello "world"';
+	var pat =  /".*"/g;
+	console.log(str.match(pat)); // [""hunger"", hello "world"]这是由于贪婪模式会尽可能的匹配多
+	var str1 = 'hello  "hunger" , hello "world"';
+	var pat1 =  /".*?"/g;
+	console.log(str.match(pat1));
+
+// 	var str="Hellooo Hunger! Hello World!"; 
+// var patt1=/lo*/g;
+// document.write(str.match(patt1))
+	</script>
+</body>
+</html>
