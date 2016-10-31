@@ -131,6 +131,7 @@
             //?username='xxxx'&pwd="123"这种格式,用于get模式提交的时候
             dataStr += k + "=" + opts.data[k] + "&";
         }
+        dataStr+='_t='+new Date().getTime();//加上这句的作用就是每次在AJAX请求的时候，都带一个_t参数过去，这样可以保证，每次都请求最新数据，而不会应为缓存问题导致页面不更新
         dataStr = dataStr.substr(0, dataStr.length - 1);
         if (opts.type.toLocaleLowerCase() === 'get') {
             xmlhttp.open(opts.type, opts.url + '?' + dataStr, true);
@@ -178,8 +179,11 @@
     }
     function checkpwd(str) {
         //大写字母，小写字母，下划线，数字最少两种，6-15个字符
-        var pat = /^((?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
-        return pat.test(str);
+        if(str.length>=6 && str.length<=15){
+            var pat = /^((?=.*?[a-z](?=.*?[A-Z]))|(?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
+            return pat.test(str);
+        }
+
     }
     username.addEventListener('focus', function () {
         this.className = '';

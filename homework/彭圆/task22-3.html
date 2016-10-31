@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>代码题3</title>
+</head>
+<body>
+<ul class="ct">
+    <li data-img="1.jpg">鼠标放置查看图片1</li>
+    <li data-img="2.jpg">鼠标放置查看图片2</li>
+    <li data-img="3.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+    //获取列表
+    var list = document.querySelector(".ct").querySelectorAll("li"),
+        showPic = document.querySelector(".img-preview");
+
+    //创建查看图片的节点
+    var img = document.createElement("img");
+    showPic.appendChild(img);
+
+    //方法一：遍历列表绑定事件
+
+    for (var i=0;i<list.length;i++) {
+        list[i].addEventListener("mouseenter",function() {
+            img.src = "img/task22-3/" + this.getAttribute("data-img");
+        });
+    }
+
+
+    //方法二：用事件代理把事件绑定到父元素上
+    /*
+    var ct = document.querySelector(".ct");
+    ct.addEventListener("mouseover",function(e) {
+        img.src = "img/task22-3/" + e.target.getAttribute("data-img");
+    });
+    */
+</script>
+</body>
+</html>

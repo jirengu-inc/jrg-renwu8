@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend>动画</legend>
+    <input type="button" id="reset" value="还原">
+    <input type="button" id="toWidth" value="变宽">
+    <input type="button" id="toHeight" value="变高">
+    <input type="button" id="toWidthHeight" value="变宽变高">
+    <input type="button" id="sameChange" value="同时变化">
+    <input type="button" id="manyAnimate" value="多个动画">
+    <div class="div1"></div>
+</fieldset>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#reset").on('click', function () {
+            $(".div1").animate({
+                width: "100px",
+                height: "100px",
+                top: "0px",
+                left: "0px",
+                opacity: "1"
+            }, 1000);
+        });
+        $("#toWidth").on("click", function () {
+            $(".div1").animate({
+                width: "+=100px"
+            }, 500);
+        });
+        $("#toHeight").on("click", function () {
+            $(".div1").animate({
+                height: "+=100px"
+            }, 500);
+        });
+        $("#toWidthHeight").on("click", function () {
+            $(".div1").animate({
+                width: "+=100px",
+                height: "+=100px"
+            }, 500);
+        });
+        $("#sameChange").on("click", function () {
+            $(".div1").animate({
+                width: "200px",
+                height: "200px",
+                opacity: "0",
+                top: "100px",
+                left: "100px"
+            }, 1000);
+        });
+        $("#manyAnimate").on("click", function () {
+           $(".div1").animate({
+               left: "200px"
+           }, 500).animate({
+               top: "200px"
+           }, 500).animate({
+               left: "0px"
+           }, 500).animate({
+               top: "-0px"
+           }, 500);
+        });
+    });
+</script>
+</body>
+</html>

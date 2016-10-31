@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+//使用闭包封装一个汽车对象，可以通过如下方式获取汽车状态
+var Car =(function(){
+        var i ;
+        function setSpeed(num){
+            i = num;
+        }
+        function getSpeed(){
+            return i
+        }
+        function accelerate(){
+            i+=10;
+        }
+        function decelerate(){
+            i-=10;
+        }
+        function getStatus(){
+            if (i>0) {
+                return 'running'
+            }else{
+                return 'stop'
+            }
+        }
+        return {
+            'setSpeed':setSpeed,
+            'getSpeed':getSpeed,
+            'accelerate':accelerate,
+            'decelerate':decelerate,
+            'getStatus':getStatus
+        }
+    }());
+    Car.setSpeed(30);
+    Car.getSpeed(); //30
+    Car.accelerate();
+    Car.getSpeed(); //40;
+    Car.decelerate();
+    Car.decelerate();
+    Car.getSpeed(); //20
+    Car.getStatus(); // 'running';
+    Car.decelerate(); 
+    Car.decelerate();
+    Car.getStatus();  //'stop';
+    //Car.speed;  //error	
+		
+	</script>
+</body>
+</html>

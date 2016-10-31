@@ -25,11 +25,11 @@
     }
     //    写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）
     function isValidPassword(str) {
-        if(/(^[a-z]{6,20}$)|(^[A-Z]{6,20}$)|(^\d{6,20}$)|(^_{6,20}$)|(^\w{0,5}$)|(^\w{21,}$)/.test(str)){
-            return 'aaaa';
-        }
-        if(/^\w{6,20}$/.test(str)){
-            return true
+        if(str.length>=6 && str.length<=20){
+            var pat = /^((?=.*?[a-z](?=.*?[A-Z]))|(?=.*?\d)(?=.*?[A-Za-z])|(?=.*?\d)(?=.*?[_])|(?=.*?[A-Za-z])(?=.*?[_]))[\dA-Za-z_]+$/ig;
+            return pat.test(str);
+        }else{
+            return false;
         }
     }
     //    写一个正则表达式，得到如下字符串里所有的颜色（#121212）
@@ -38,7 +38,7 @@
 
         var subj = "color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee #fd2 "
 
-        alert( subj.match(re) )  // #121212,#AA00ef
+        alert( subj.match(re) ); // #121212,#AA00ef
     }
     console.log(getColor());
 </script>

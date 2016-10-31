@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1, .div2, .div3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<h1>展示/隐藏元素</h1>
+<fieldset>
+    <legend>show, hide</legend>
+    <input type="button" id="show" value="show">
+    <input type="button" id="hidden" value="hidden">
+    <input type="button" id="show2s" value="show in 2s">
+    <input type="button" id="hide2s" value="hide in 2s">
+    <div class="div1">
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>fadeIn, fadeOut</legend>
+    <input type="button" id="fadeIn" value="fadeIn">
+    <input type="button" id="fadeOut" value="fadeOut">
+    <input type="button" id="fadeIn2s" value="fadeIn in 2s">
+    <input type="button" id="fadeOut2s" value="fadeOut in 2s">
+    <div class="div2">
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>slideUp, slideDown</legend>
+    <input type="button" id="slideUp" value="slideUp">
+    <input type="button" id="slideDown" value="slideDown">
+    <input type="button" id="slideUp2s" value="slideUp in 2s">
+    <input type="button" id="slideDown2s" value="slideDown in 2s">
+    <div class="div3">
+    </div>
+</fieldset>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#show").on('click', function () {
+            $(".div1").show();
+        });
+        $("#show2s").on('click', function () {
+            $(".div1").show(2000);
+        });
+        $("#hidden").on('click', function () {
+            $(".div1").hide();
+        });
+        $("#hide2s").on('click', function () {
+            $(".div1").hide(2000);
+        });
+        $("#fadeIn").on('click', function () {
+            $(".div2").fadeIn();
+        });
+        $("#fadeOut").on('click', function () {
+            $(".div2").fadeOut();
+        });
+        $("#fadeIn2s").on('click', function () {
+            $(".div2").fadeIn(2000);
+        });
+        $("#fadeOut2s").on('click', function () {
+            $(".div2").fadeOut(2000);
+        });
+        $("#slideUp").on('click', function () {
+            $(".div3").slideUp();
+        });
+        $("#slideDown").on('click', function () {
+            $(".div3").slideDown();
+        });
+        $("#slideUp2s").on('click', function () {
+            $(".div3").slideUp(2000);
+        });
+        $("#slideDown2s").on('click', function () {
+            $(".div3").slideDown(2000);
+        });
+    });
+</script>
+</body>
+</html>

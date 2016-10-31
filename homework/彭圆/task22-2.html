@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>代码题2</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+<script>
+    //获取所需元素
+    var ct = document.querySelector(".ct");
+    var input = document.querySelector(".ipt-add-content");
+    var addStartBtn = document.querySelector("#btn-add-start");
+    var addEndBtn = document.querySelector("#btn-add-end");
+    //设置开头添加按钮
+    addEndBtn.addEventListener('click', function(){
+        if (/\s/g.test(input.value)) {
+            return false;
+        } else {
+            var li = document.createElement('li');
+            li.innerText = input.value;
+            ct.appendChild(li);
+        }
+    });
+    //设置结尾添加按钮
+    addStartBtn.addEventListener("click",function(){
+        if (/\s/g.test(input.value)) {
+            return false;
+        } else {
+            var newLi = document.createElement("li");
+            newLi.innerText = input.value;
+            ct.insertBefore(newLi,ct.firstChild);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//补全如下正则表达式，输出字符串中的注释内容. (可尝试使用贪婪模式和非贪婪模式两种方法)
+	str = '.. <!-- My -- comment \n test --> ..  <!----> .. '
+	re = /<.*[\n]*.*?>/g
+
+	console.log(str.match(re)) // '<!-- My -- comment \n test -->', '<!---->'
+	str1 = '.. <!-- My -- comment \n test --> ..  <!----> .. '
+	re1 = /<!--[^.]*-->/g
+
+	console.log(str.match(re1))
+	</script>
+</body>
+</html>

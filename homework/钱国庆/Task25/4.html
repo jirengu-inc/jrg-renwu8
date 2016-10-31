@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <legend>设置获取表单内容</legend>
+    <input type="text" id="username">
+    <input type="button" id="getValue" value="获取内容">
+    <input type="button" id="changeValue" value="改变内容">
+</fieldset>
+
+<fieldset>
+    <legend>获取,更换属性</legend>
+    <a href="http://www.jirengu.com" id="link">饥人谷</a>
+    <input type="button" value="更换属性" id="changeAttr">
+</fieldset>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#getValue").on('click', function () {
+            alert($('#username').val());
+            console.log($('#username').val());
+        });
+        $('#changeValue').on('click', function () {
+            $("#username").val('改变了username');
+        });
+        $("#link").on('click', function () {
+            alert('url: ' + $(this).attr('href'));
+            console.log('url: ' + $(this).attr('href'));
+        })
+        $("#changeAttr").on('click', function () {
+            $('#link').text('jscode');
+            $('#link').attr('href', 'http://www.jscode.me');
+        });
+    });
+</script>
+</body>
+</html>

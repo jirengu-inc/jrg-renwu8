@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//写一个正则表达式，得到如下字符串里所有的颜色（#121212）
+	var re = /\B#[a-zA-Z0-9]{6}/g;
+
+	var subj = "color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee #fd2 "
+
+	alert( subj.match(re) )  // #121212,#AA00ef
+	</script>
+</body>
+</html>
