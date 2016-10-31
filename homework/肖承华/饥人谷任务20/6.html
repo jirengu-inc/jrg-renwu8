@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//下面这段代码输出结果是? 为什么?
+		var flag = true;
+		setTimeout(function(){
+		    flag = false;
+		},0)
+		while(flag){}
+		console.log(flag);
+		//此段代码没有输出，而且会导致浏览器卡死,代码变形如下
+		var flag = true;
+		while(flag){} //flag一直为真，这段代码会无限循环，后面的代码可以忽略
+		console.log(flag);
+		  setTimeout(function(){
+		    flag = false;
+		},0)
+	</script>
+</body>
+</html>

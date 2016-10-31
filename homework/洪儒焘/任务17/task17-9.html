@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	    fn();
+	    var i = 10;
+	    var fn = 20;
+	    console.log(i);//
+	    function fn(){
+	        console.log(i);
+	        var i = 99;
+	        fn2();
+	        console.log(i);
+	        function fn2(){
+	            i = 100;
+	        }
+	    }
+	    //改写为
+	   //  var i;
+	   //  var fn;
+	   //  function fn(){
+	   //      console.log(i);
+	   //      var i = 99;
+	   //      fn2();
+	   //      console.log(i);
+	   //      function fn2(){
+	   //          i = 100;
+	   //      }
+	   //  }
+	   //  fn();
+	   //  i=10;
+	   //  fn=20;
+  		// console.log(i);
+  		//所以执行fn()时，i为undefined，执行fn2()时，i=100,执行console.log(i)时，i=10
+	</script>
+</body>
+</html>

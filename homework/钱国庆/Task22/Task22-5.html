@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22-5</title>
+    <style>
+        body, div, html {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100%;
+            width: 100%;
+        }
+        .body-active {
+            background: #ccc;
+        }
+        .container {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 100px auto;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            clear: both;
+            display: block;
+            content: '';
+        }
+        .container-active {
+            background: #fff;
+        }
+        .container .top {
+            height: 50px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .container .top h3 {
+            float: left;
+            padding-left: 10px;
+        }
+        .container .top a {
+            text-decoration: none;
+            color: black;
+            float: right;
+            line-height: 50px;
+            padding-right: 10px;
+        }
+        .contents .content {
+            padding: 10px;
+        }
+        .contents {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+        .bottom a {
+            float: right;
+            line-height: 45px;
+            padding-right: 10px;
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="click-me" value="点我">
+<div class="container">
+    <div class="top clear">
+        <h3>我是标题</h3>
+        <a href="#" class="close"> x </a>
+    </div>
+    <div class="contents">
+        <div class="content">我是内容</div>
+        <div class="content">我是内容</div>
+    </div>
+    <div class="bottom clear">
+        <a href="#" class="enter">确定</a>
+        <a href="#" class="cancel">取消</a>
+    </div>
+</div>
+
+<script>
+    var btn = document.querySelector("#click-me");
+    var container = document.querySelector(".container");
+    var cancel = document.querySelector(".cancel");
+    var close = document.querySelector(".close");
+
+    btn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        addRemoveClass("add");
+    }, false);
+
+    close.addEventListener("click", function (event) {
+        addRemoveClass("close");
+        event.preventDefault();
+    }, false);
+
+    cancel.addEventListener("click", function (event) {
+        addRemoveClass("cancel");
+        event.preventDefault();
+    }, false);
+
+    document.body.addEventListener("click", function (event) {
+        if (event.target.nodeName === "BODY") {
+            addRemoveClass("close");
+        }
+    }, false);
+
+    function addRemoveClass(addOrRemove) {
+        if (addOrRemove === "add") {
+            addClass(document.body, "body-active");
+            addClass(container, "container-active");
+            addClass(container, "active");
+        } else if (addOrRemove === "close" || addOrRemove == "cancel") {
+            removeClass(document.body, "body-active");
+            removeClass(container, "container-active");
+            removeClass(container, "active");
+        } else {
+            return;
+        }
+    }
+
+    function addClass(object, value) {
+        var classNameString = object.className;          /* 获得className字符串 */
+        var classNameArray = classNameString.split(" "); /* 将字符串转换为数组 */
+
+        // 若传入的对象是基本数据类型，返回
+        if (!object instanceof Object) {
+            return;
+        }
+
+        // 若className数组中存在元素和传入的元素相同，返回
+        for (var i = 0; i < classNameArray.length; i++) {
+            if (value === classNameArray[i]) {
+                return;
+            }
+        }
+
+        // 将传入的元素添加到className中
+        object.className = object.className + " " + value;
+    }
+
+    function removeClass(object, value) {
+        var classNameString = object.className;          /* 获得className字符串 */
+        var classNameArray = classNameString.split(" "); /* 将字符串转换为数组 */
+
+        // 若传入的对象是基本数据类型，返回
+        if (!object instanceof Object) {
+            return;
+        }
+
+        if (object.className.indexOf(classNameString) === -1) {
+            return;
+        }
+
+        // 遍历className数组，若找到要删除的元素，将其移除数组
+        for (var i = 0; i < classNameArray.length; i++) {
+            if (value === classNameArray[i]) {
+                classNameArray.splice(i, 1);
+            }
+        }
+
+        // 将更新后的数组用空格拼接后返回给className
+        object.className = classNameArray.join(" ");
+    }
+</script>
+</body>
+</html>

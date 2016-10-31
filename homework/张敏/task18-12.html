@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //truncate("hello, this is hunger valley,", 10);
+//    truncate("hello world", 20)) == "hello world"
+    console.log(truncate("hello, this is hunger valley",10));
+    function truncate(str,len) {
+        if(str.length>len){
+            str=str.substr(0,len)+"...";
+        }
+        return str;
+    }
+
+</script>
+</body>
+</html>

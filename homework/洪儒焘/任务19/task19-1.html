@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//写一个函数getIntv，获取从当前时间到指定日期的间隔时间
+		function getIntv(argument) {
+			if(typeof argument !=="string"){
+				return;
+			}
+			if (!(+new Date(argument))) {
+				return;
+			}
+			var Time,Days,Hours,Minutes,Seconds;
+			Time=Math.abs((Date.parse(argument) - Date.now())/1000);
+			Days=Math.floor(Time/(24*60*60));
+			Hours=Math.floor(Time/(60*60)-Days*24);
+			Minutes=Math.floor(Time/60-Days*24*60-Hours*60);
+			Seconds=Math.floor(Time-Days*24*60*60-Hours*60*60-Minutes*60);
+			if(Date.parse(argument)>Date.now()){
+				return "距除夕还有"+ Days +"天"+ Hours+ "小时"+ Minutes +"分" +Seconds+ "秒"
+			}else{
+				return "距除夕已经过了"+ Days +"天"+ Hours+ "小时"+ Minutes +"分" +Seconds+ "秒"
+			}
+			
+		}
+		var str = getIntv("2017-01-27");
+		console.log(str);  // 距除夕还有 20 天 15 小时 20 分 10 秒
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//下面的代码输出多少？修改代码让fnArri 输出 i。使用两种以上的方法
+	var fnArr = [];
+	     for (var i = 0; i < 10; i ++) {
+	        fnArr[i] =  function(){
+	            return i;
+	        };
+	    }
+	    console.log( fnArr[3]() ); 
+	//方法一
+	var fnArr = [];
+	    for (var i = 0; i < 10; i++) {
+	        fnArr[i] = (function(num){//return出闭包函数，让数组每项都为一个闭包函数，保存着不同的变量
+	            return function(){
+	                return num;
+	            }
+	        }(i))
+	    }
+	    console.log( fnArr[3]() ); 
+	//方法二
+	 var fnArr = [];
+	    for (var i = 0; i < 10; i++) {
+	        (function(){ 
+	            var num=i
+	            fnArr[i]=function(){//变量fnArr为全局变量，通过赋值把不同闭包函数传递给fnArr的每项。
+	                return num
+	            }
+	        }());
+	    }
+	    console.log( fnArr[3]() ); 
+		
+	</script>
+</body>
+</html>

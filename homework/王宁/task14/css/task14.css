@@ -1,0 +1,189 @@
+html,body,ul,li,p,h1{
+  margin: 0;
+  padding: 0;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.text-center{
+  text-align: center;
+}
+.vertical-center{
+  display: table-cell;
+  vertical-align: middle;
+}
+.table{
+  display: table;
+  height: 100%;
+}
+.layout{
+  width: 960px;
+  margin: 0 auto;
+}
+.btn1{
+  width: 120px;
+  height: 35px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  font-size: 24px;
+  color: white;
+  padding-top: 5px;
+}
+.btn1:hover{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+#header{
+  height: 100%;
+  width: 100%;
+  background: url(../img/header-background.png);
+  background-size: cover;
+}
+#header h1{
+  margin-bottom: 20px;
+}
+#header p{
+  margin-bottom: 20px;
+}
+#main .about h1{
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+#main .about p{
+  font-size: 24px;
+  margin-bottom: 100px;
+}
+#main .about a{
+  color: blue;
+}
+#main .about a:hover{
+  text-decoration: underline;
+}
+#main .skills{
+  background: #337ab7;
+  width: 100%;
+  color: white;
+}
+#main .box{
+  border-bottom: 1px solid white;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+#main li{
+  float: left;
+  margin-bottom: 70px;
+}
+#main .skill{
+  width: 240px;
+}
+#main li i{
+  font-size: 120px;
+}
+#main .btn2{
+  width: 100px;
+  height: 30px;
+  color: black;
+  background-color: #fff;
+  display: inline-block;
+  font-size: 18px;
+  padding-top: 8px;
+  margin-top: 15px;
+}
+#main .btn2:hover{
+  background-color: #ccc;
+}
+#main .submit{
+  height: 500px;
+  background-image: url(../img/main.png);
+  background-size: cover;
+  color: white;
+  font-size: 60px;
+}
+#main .works .box{
+  border-bottom: 1px solid #ccc;
+}
+#main img{
+  width: 465px;
+}
+#main .works ul{
+  margin-left: -30px;
+}
+#main .works li{
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+#main .works .btn1{
+  margin-bottom: 60px;
+}
+#footer .me{
+  background: #337ab7;
+  height: 300px;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+}
+#footer .btn3{
+  width: 200px;
+  height: 50px;
+  color: black;
+  background-color: #fff;
+  display: inline-block;
+  padding-top: 16px;
+  margin-top: 21px;
+}
+#footer .btn3:hover{
+  background-color: #ccc;
+}
+#footer .btn4{
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding-top: 16px;
+  margin-top: 21px;
+}
+#footer .btn4:hover{
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#footer li{
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#footer li i{
+  font-size: 50px;
+}
+#footer .infor{
+  padding: 200px 0;
+  font-size: 20px;
+}
+#footer .infor p{
+  margin-bottom: 10px;
+}
+#footer .infor a{
+  color: #337ab7;
+}
+#footer .infor .mail{
+  text-decoration: underline;
+}
+#footer .infor a:hover{
+  color: #23527c;
+}
+#footer .twitter{
+  position: relative;
+  top: 5px;
+}

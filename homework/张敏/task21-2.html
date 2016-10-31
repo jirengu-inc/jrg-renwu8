@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    使用实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)，使用正则
+    function addClass(el, clas) {
+        var reg = new RegExp("(^|[^-])\\b" + clas + "\\b([^-]|$)"),
+                trim = /^\s+|\s+$/g,
+                classStr = el.className;
+
+        classStr = classStr.replace(trim, "");
+        el.className = reg.test(classStr) ? classStr : classStr + " " + clas;
+    }
+    function removeClass(el, clas) {
+        var reg = new RegExp("(^|[^-])\\b" + clas + "\\b([^-]|$)", "g"),
+                trim = /^\s+|\s+$/g,
+                classStr = el.className;
+
+        classStr = classStr.replace(reg, "");
+        el.className = classStr.replace(trim, "");
+    }
+    function hasClass(el,clas)
+    {
+        var reg=new RegExp('(\\s|^)'+clas+'(\\b|$)','g');
+        return reg.test(el.className);
+    }
+</script>
+</body>
+</html>

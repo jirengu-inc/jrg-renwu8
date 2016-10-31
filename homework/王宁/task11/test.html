@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    html,body,ul,li{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    .box{
+      border: 1px solid green;
+      margin-left: 10px;
+      font-size: 0;
+    }
+    .box>li{
+      display: inline-block;
+      background: blue;
+      color: #fff;
+      padding: 3px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>1.inline-block缝隙</h1>
+  <ul class="box">
+    <li>tag1</li>
+    <li>tag2</li>
+    <li>tag3</li>
+  </ul>
+</body>
+</html>

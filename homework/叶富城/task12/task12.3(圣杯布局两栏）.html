@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task12</title>
+  <style>
+  	*{
+  margin:0;
+  padding:0;
+/*以上margin和padding用来重置整个布局*/
+  font-family:"微软雅黑";
+}
+#header,#footer{
+  background:#ccc;
+  height:40px;
+  line-height:40px;
+}
+#container{
+  margin:0 0 0 200px;/*设置margin是为了腾出位置让aside进行设置*/
+}
+#container:after{
+  content:"";
+  display:block;
+  clear:both;
+}/*after伪元素是用来清除浮动*/
+.main{
+  background:#008100;
+  float:left;
+}
+.aside{
+  background:red;
+  width:200px;
+  height:100px;
+  float:left;
+  margin-left:-100%;/*负边距是用来使aside元素走上*/
+  position:relative;/*定位是使aside元素走到合适的位置*/
+  left:-200px;
+}
+  </style>
+</head>
+<body>
+<div id="header">头部</div>
+<div id="container">
+  <div class="main">圣杯布局指的是两边顶宽，中间自适应三栏布局，中间要文档流前面以优先渲染。1：先设置container左右padding，用来预留左右边栏空间，2：给所有元素设置folat，用于设置左右两栏偏移，给左侧边栏设置right定位和负边距让其到达合适位置，同理右侧栏。</div>
+  <div class="aside">左侧边栏</div>
+</div>
+  <div id="footer">尾部</div>
+</body>
+</html>

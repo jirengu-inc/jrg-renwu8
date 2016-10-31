@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+</style>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<script>
+    //    有如下代码，要求当点击每一个元素li时控制台展示该元素的文本内容。不考虑兼容
+    var oli=document.getElementsByTagName('li');
+    for(var i=0;i<oli.length;i++){
+        oli[i].onclick=function (e) {
+            console.log(e.target.innerHTML);
+        }
+    }
+</script>
+<script>
+
+</script>
+</body>
+</html>

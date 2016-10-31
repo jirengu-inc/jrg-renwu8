@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--写一个函数，获取从min到max之间的随机整数，包括min不包括max （***）-->
+<!--写一个函数，获取从min都max之间的随机整数，包括min包括max （***）-->
+<!--写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机整数 （***）-->
+<!--写一个函数，生成一个长度为 n 的随机字符串，字符串字符的取值范围包括0到9，a到 z，A到Z。-->
+
+<script>
+    //写一个函数，获取从min到max之间的随机数，包括min不包括max
+    function rand1(min, max) {
+        return min + Math.floor(Math.random() * (max - min))
+    }
+
+    //写一个函数，获取从min都max之间的随机整数，包括min包括max
+    function rand2(min, max) {
+        return min + Math.floor(Math.random() * (max - min + 1))
+    }
+
+    //获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数
+    function randArr(len, min, max) {
+        var arr = [],
+                randVal;
+        for (var i = 0; i < arr.length; i++) {
+            randVal = min + Math.floor(Math.random() * (max - min + 1));
+            arr.push(randVal);
+        }
+        return randArr;
+    }
+
+    function randomStr(len) {
+        var retStr = '';
+        var randIdx;
+        var dict = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for (var i = 0; i < len; i++) {
+            randIdx = Math.floor(Math.random() * dict.length);
+            retStr += dict[randIdx];
+        }
+        return retStr;
+    }
+
+
+</script>
+
+</body>
+</html>

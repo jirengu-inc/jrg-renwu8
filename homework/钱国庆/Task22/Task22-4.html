@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22-4</title>
+    <style>
+        body, html, ul, li, div {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            margin: 10px;
+            width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .top .clear li {
+            float: left;
+            list-style: none;
+            width: 199px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .content {
+            display: none;
+        }
+        .active {
+            background: #ccc;
+        }
+        .content-display {
+            display: block;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <ul class="tab-ul clear">
+            <li class="tab">tab1</li>
+            <li class="tab">tab2</li>
+            <li class="tab">tab3</li>
+        </ul>
+    </div>
+    <div class="content">内容1</div>
+    <div class="content">内容2</div>
+    <div class="content">内容3</div>
+</div>
+<script>
+    var tab = document.getElementsByClassName("tab");
+    var tabUl = document.getElementsByClassName("tab-ul")[0];
+    var contents = document.getElementsByClassName("content");
+
+    // 仅用父元素监听事件的方法,而不用for循环遍历子节点绑定事件
+    tabUl.addEventListener("click", function (event) {
+        removeClass(event.target, "active");
+        for (var i = 0; i < tab.length; i++) {
+            if (tab[i].className.indexOf("active")) {
+                removeClass(tab[i], "active");
+            }
+            if (contents[i].className.indexOf("content-display")) {
+                removeClass(contents[i], "content-display");
+            }
+        }
+        var index;
+        if (event.target.innerText === "tab1") {
+            index = 0;
+        } else if (event.target.innerText === "tab2") {
+            index = 1;
+        } else if (event.target.innerText === "tab3") {
+            index = 2;
+        } else  {
+            index = -1;
+        }
+
+        addClass(event.target, "active");
+        addClass(contents[index], "content-display");
+    }, false);
+
+    function addClass(object, value) {
+        var classNameString = object.className;          /* 获得className字符串 */
+        var classNameArray = classNameString.split(" "); /* 将字符串转换为数组 */
+
+        // 若传入的对象是基本数据类型，返回
+        if (!object instanceof Object) {
+            return;
+        }
+
+        // 若className数组中存在元素和传入的元素相同，返回
+        for (var i = 0; i < classNameArray.length; i++) {
+            if (value === classNameArray[i]) {
+                return;
+            }
+        }
+
+        // 将传入的元素添加到className中
+        object.className = object.className + " " + value;
+    }
+
+    function removeClass(object, value) {
+        var classNameString = object.className;          /* 获得className字符串 */
+        var classNameArray = classNameString.split(" "); /* 将字符串转换为数组 */
+
+        // 若传入的对象是基本数据类型，返回
+        if (!object instanceof Object) {
+            return;
+        }
+
+        if (object.className.indexOf(classNameString) === -1) {
+            return;
+        }
+
+        // 遍历className数组，若找到要删除的元素，将其移除数组
+        for (var i = 0; i < classNameArray.length; i++) {
+            if (value === classNameArray[i]) {
+                classNameArray.splice(i, 1);
+            }
+        }
+
+        // 将更新后的数组用空格拼接后返回给className
+        object.className = classNameArray.join(" ");
+    }
+
+</script>
+</body>
+</html>

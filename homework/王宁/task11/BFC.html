@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BFC</title>
+  <style media="screen">
+    html,body,p{
+      margin: 0;
+      padding: 0;
+    }
+    .clearfix{
+      clear: both;
+    }
+    .clearfix::after{
+      display: block;
+      content: '';
+      clear: both;
+    }
+    .ct1{
+      border: 1px solid #000;
+    }
+    .ct1 img{
+      float: left;
+    }
+    .ct1 p{
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="ct1 clearfix">
+    <img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="" />
+    <p>
+      首先BFC是一个名词，是一个独立的布局环境，我们可以理解为一个箱子（实际上是看不见摸不着的），箱子里面物品的摆放是不受外界的影响的。转换为BFC的理解则是：BFC中的元素的布局是不受外界的影响（我们往往利用这个特性来消除浮动元素对其非浮动的兄弟元素和其子元素带来的影响。）并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。
+    </p>
+  </div>
+</body>
+</html>

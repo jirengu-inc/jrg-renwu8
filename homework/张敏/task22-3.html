@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+
+<script>
+    //    补全代码，要求：
+    //    当点击按钮开头添加时在<li>这里是</li>元素前添加一个新元素，内容为用户输入的非空字符串；当点击结尾添加时在<li>前端6班</li>后添加用户输入的非空字符串.
+    //            当点击每一个元素li时控制台展示该元素的文本内容。
+    var input = document.getElementsByClassName('ipt-add-content')[0];
+    var ct = document.getElementsByClassName('ct')[0];
+    console.log(input);
+    var btn1 = document.getElementById('btn-add-start');
+    var btn2 = document.getElementById('btn-add-end');
+    var oli = document.getElementsByTagName('li');
+
+    function empty(str) {
+        if (str.length != 0) {
+            return true
+        } else {
+            return false;
+        }
+    }
+
+    btn1.onclick = function (e) {
+        var li = document.createElement('li');
+        empty(input.value)?(li.innerHTML = input.value)(ct.insertBefore(li, ct.firstChild)):null;
+    }
+    btn2.onclick = function (e) {
+        var li = document.createElement('li');
+        empty(input.value)?(li.innerHTML = input.value)(ct.appendChild(li)):null;
+    }
+    ct.addEventListener('click', function (e) {
+        if (e.target.tagName === 'LI') {
+            console.log(e.target.innerText);
+        }
+    }, false);
+
+
+</script>
+</body>
+</html>

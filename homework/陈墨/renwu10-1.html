@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>10-1</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <a href="#"class="logo">
+          <img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="" class="logo" />
+          </a>
+        <ul class="nav">
+          <li><a href="#">技能</a></li>
+          <li><a href="#">经历</a></li>
+          <li><a href="#">作品</a></li>
+          <li><a href="#">关于</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container">
+        <div class="aside">
+
+        </div>
+        <div class="main">
+          <h1>我的作品</h1>
+          <p>我的作品</p>
+          <p>心情不错</p>
+          <p>代码写的很漂亮</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <ul>
+          <li><a href="#">饥人谷</a></li>
+          <li><a href="#">JSCODE</a></li>
+          <li><a href="#">JSBIN</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <style media="screen">
+    body,ul,li,p,h1{
+      padding: 0;
+      margin: 0;
+    }
+    ul,li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+    .body{
+      font: 14px "黑体";
+      color:#656565;
+    }
+    .container{
+      width: 900px;
+      margin: 0 auto;
+    }
+    .header{
+      height: 50px;
+      width: 100%;
+      background: black;
+      display: block;
+    }
+    .header .logo img{
+      height: 40px;
+    }
+    .header .nav{
+      float: right;
+    }
+    .header .nav li{
+      float: left;
+      display: block;
+      margin: 0 10px;
+    }
+    .header .nav a{
+      display: block;
+      height: 50px;
+      line-height: 50px;
+      color: #fff;
+      padding: 0 10px;
+    }
+    .header .nav a:hover{
+      color: black;
+      background-color: #fff;
+    }
+    .footer{
+      background-color: black;
+      padding: 10px 0;
+      /*height: 30px;*/
+    }
+    .footer:after{
+      content: '';
+      clear: both;
+      display: table;
+    }
+    .footer li{
+      float: left;
+      margin-left: 10px;
+      color: : #fff;
+      /*color: black;*/
+      /*display: block;*/
+    }
+    .footer a{
+      color: #fff;
+      display: inline-block;
+    }
+    .content{
+      margin-top: 10px;
+    }
+    .content::after{
+      content:  '';
+      display: table;
+      clear: both;
+    }
+    .content .aside{
+      float: left;
+      width: 200px;
+      min-height:500px;
+      background-color: #eee;
+    }
+    .content .main{
+      margin-left: 210px;
+      padding: 20px 10px;
+      background-color: #eee;
+    }
+    .content .main h1{
+      margin: 20px 0;
+    }
+  </style>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+<style>
+@font-face {
+  font-family: 'iconfont';
+  src: url('http://at.alicdn.com/t/font_1477318736_2564437.eot'); /* IE9*/
+  src: url('http://at.alicdn.com/t/font_1477318736_2564437.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('http://at.alicdn.com/t/font_1477318736_2564437.woff') format('woff'), /* chrome、firefox */
+  url('http://at.alicdn.com/t/font_1477318736_2564437.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('http://at.alicdn.com/t/font_1477318736_2564437.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+                    
+                    
+.iconfont{
+	font-family:"iconfont" !important;
+    font-size:140px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color: white;
+}      
+                                      
+
+	html,body{
+		padding: 0px;
+		margin: 0px;
+		height: 100%;
+		width: 100%;
+		font-family: '微软雅黑';
+		font-size: 18px;
+		background: #444 url(./img/bg.jpg) bottom;
+		background-attachment:fixed;
+	}
+	ul{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.font-c{
+		text-align: center;
+	}
+	#cover{
+		height: 100%;
+		width: 100%;
+		
+	}
+	#cover .cover-wrap{
+		width: 800px;
+		margin: 0 auto;
+		display: table;
+		height: 100%;
+	}
+	#cover .cover-lan{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	#cover a{
+		color: #fff;
+		background-color: grey;
+		display: block;
+		width: 100px;
+		padding: 10px;
+		margin: 20px auto;
+	}
+	#cover a:hover{
+		background-color: #6C6868;
+	}
+	#introduction{
+		width: 100%;
+		background-color: #7EABD4;
+		height: 418px;
+	}
+	#introduction .introduction-mid{
+		width: 1200px;
+		font-size: 18px;
+		margin: 0px auto;
+		padding: 80px;
+	}
+	#directory{
+		background-color: #337ab7;
+		overflow: hidden;
+	}
+	#directory .directory-title{
+		width: 1200px;
+		margin: 50px auto 20px auto;
+		font-size: 28px;
+	}
+	.divider{
+		width: 100px;
+		border-top: 2px solid #fff;
+		margin: 10px auto;
+	}
+	.section{
+		width: 1200px;
+		margin: 0 auto;
+	
+	}
+	.section li{
+		float: left;
+		margin:20px 70px; 
+	}
+
+	.section a{
+		color: #fff;
+		background-color: grey;
+		display: block;
+		width: 80px;
+		padding: 10px;
+		margin: 0 auto;
+	}
+	.section a:hover{
+		background-color: #6C6868;
+	}
+	#content{
+		padding: 50px 0px 25px 0px;
+
+	}
+	#content .content-wrap:hover{
+		background-color: rgba(102,102,102,1)
+	}
+	#content .content-wrap{
+		background-color: rgba(102,102,102,0.9);
+		width: 1200px;
+		margin: 0 auto;
+		margin-bottom: 50px;
+		padding: 50px 25px 30px 25px;
+	}
+
+	#content .content-title{
+		margin: 0px auto 20px auto;
+		font-size: 28px;
+	}
+	#content .divider{
+		border-top: 2px solid #000;
+	}
+	#pic{
+		margin-bottom: 50px;
+	}
+	#pic .pic-wrap{
+		width: 1250px;
+		margin: 0px auto;
+		padding: 50px 0px;
+		background-color: rgba(102,102,102,0.9)
+	}
+	#pic .pic-title{
+		font-size: 28px;
+		margin-bottom: 15px;
+	}
+	#pic .divider{
+		border-top: 2px solid #000;
+		margin-bottom: 25px;
+	}
+	#pic .pic-mid{
+		margin: 0px 32px;
+	}
+	#pic a{
+		color: #000;
+		background-color: grey;
+		display: block;
+		width: 80px;
+		padding: 10px;
+		margin: 0 auto;
+
+	}
+	#pic a:hover{
+		background-color: #6C6868;
+	}
+	#pic img{
+		height: 320px;
+		width: 580px;
+		margin: 5px;
+	}
+	#close{
+		background-color: #7EABD4;
+	}
+	#close .close-wrap{
+		width: 1200px;
+		margin: 0px auto;
+		padding: 50px 25px;
+		overflow: auto;
+	}
+	#close a{
+		color: #000;
+		background-color: grey;
+		display: block;
+		width: 80px;
+		padding: 10px;
+		float: left;
+		position: relative;
+		left: 470px;
+		margin: 25px 10px;
+	}
+	#close a:hover{
+		background-color: #6C6868;
+	}
+	#footer{
+		background-color: #fff;
+	}
+	#footer h5, p{
+		margin: 0px 0px 8px 0px;
+	}
+	#footer .footer-wrap{
+		width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+		padding:25px 0px;
+		font-size: 14px;
+	}
+	#footer .footer-icon{
+		overflow: auto;
+		padding-left: 45%;
+	}
+	#footer .footer-icon span{
+		display: block;
+		color: #7EABD4;
+		font-size: 40px;
+		margin: 10px auto;
+		float: left;
+	}
+	#footer .divider{
+		border-top: 2px solid #000;
+		margin: 20px auto;
+	}
+</style>
+</head>
+<body>
+	<div id="cover">
+		<div class="cover-wrap">
+			<div class="cover-lan font-c">
+				<!-- <h1>bilibili- ( ゜- ゜)つロ</h1> -->
+				<h1>喳喳是个小傻瓜</h1>
+				<p>吃葡萄不吐葡萄皮，不吃葡萄倒吐葡萄皮</p>
+				<a href="#">UP</a>
+			</div>
+		</div>
+	</div>
+	<div id="introduction">
+		<div class="introduction-mid">
+			<p>香港（英文：Hong Kong；普通话拼音：xiāng gǎng；缩写：HK），简称“港”，全称为中华人民共和国香港特别行政区（HKSAR）。地处中国华南地区，珠江口以东，南海沿岸，北接广东省深圳市，西接珠江，与中华人民共和国澳门特别行政区、广东省珠海市以及中山市隔着珠江口相望，其余两面与南海邻接。</p>
+			<p>香港是全球高度繁荣的国际大都会之一，全境由香港岛、九龙半岛、新界等3大区域组成，管辖陆地总面积1104.32平方公里，截至2014年末，总人口约726.4万人，人口密度居全世界第三。</p>
+			<p>香港是继纽约、伦敦后的世界第三大金融中心，曾齐称为“纽伦港”，在世界享有极高声誉。是国际和亚太地区重要的航运枢纽和最具竞争力的城市之一，连续21年经济自由度指数位居世界首位。</p>
+			<p>香港素以优良治安、自由经济和健全的法律制度等而闻名于世，素有“东方之珠”、“美食天堂”和“购物天堂”等美誉，也是全球最富裕、经济最发达和生活水准最高的地区之一。</p>
+		</div>
+	</div>
+	<div id="directory">
+		<div class="directory-title font-c">
+			指 南
+		</div>
+		<div class='divider'></div>
+		<ul class="section font-c">
+			<li>
+				<span class="iconfont">&#xe600</span>
+				<h4>交 通</h4>
+				<a href="#Traffic">MORE</a>
+			</li>
+			<li>
+				<span class="iconfont">&#xe601</span>
+				<h4>旅 宿</h4>
+				<a href="#Airbnb">MORE</a>
+			</li>
+			<li>
+				<span class="iconfont">&#xe603</span>
+				<h4>路 线</h4>
+				<a href="#Route">MORE</a>
+			</li>
+			<li>
+				<span class="iconfont">&#xe602</span>
+				<h4>备 忘</h4>
+				<a href="#Care">MORE</a>
+			</li>
+		</ul>
+	</div>
+	<div id="content">
+		<div class="content-wrap" id='Traffic'>
+			<div class="content-title font-c">交通 Traffic</div>
+			<p class='font-c'>尖沙咀, 九龙, 香港</p>
+			<div class='divider'></div>
+			<p>香港人把电车唤作“叮叮”。电车行走的速度很慢，但胜在车费便宜（成人HK$2.3，小孩HK$1.2，长者HK$1.1），且在港岛闹市上行走，可细意欣赏四周的景物和行人，又是另一番乐趣。喜欢怀旧的旅客，可乘坐敞篷古董电车，漫游中环至北角，饱览大城小景。</p>
+			<p>运营时间6:00-24:00，平均每1分30秒内有电车到达车站；班次及目的地可能因交通情况而有所更改。</p>
+			<p>坚尼地城至筲箕湾段全为双线行车，跑马地段则是单线。电车现时经营6条部分重叠的路线连接坚尼地城至筲箕湾，6条主要路线分别如下：</p>
+				<p>筲箕湾——上环(西港城)</p>
+				<p>筲箕湾——跑马地</p>
+				<p>北角——石塘咀</p>
+				<p>铜锣湾——石塘咀</p>
+				<p>跑马地——坚尼地城</p>
+				<p>筲箕湾——坚尼地城</p>
+		</div>	
+		<div class="content-wrap" id='Airbnb'>
+			<div class="content-title font-c">旅宿 Airbnb</div>
+			<p class='font-c'>尖沙咀, 九龙, 香港</p>
+			<div class='divider'></div>
+			<p>“ 寬敞的雙人房地理位置優越,有兩個人。這是一個非常舒適的臥室以高品質的床墊,衣櫃,書桌,椅子,空氣精讀,無線網絡,吹風機...等。</p>
+			<p>有一客廳一飯廳,四房的平兩間浴室。對於四間臥室,兩個是為我們的家庭,兩個用於發現生活怎樣客人。客廳是一個大的L形沙發和一個長的柚木餐桌的公共區域。廚房設施齊全,適合中國和西式烹飪。客人可以分享所有的起居和就餐區,並使用設備齊全的廚房和洗衣機,乾衣機和洗衣機。
+			<p>我們很高興地交互,多可少作為我們的客人想。到哪裡去,什麼做將確保您得到最出你的香港訪問豐富的當地知識。該公寓坐落在尖沙咀一忙,但寧靜的地方。維多利亞港,公園巷,天星碼頭,鐘樓,九龍公園,博物館,餐廳,酒吧,銀行和超市......都在附近。</p> 
+			<p>尖沙咀是香港樞紐交通的地方方便地訪問到地鐵,公交車,出租車和輪渡。這需要步行到佐敦和尖沙咀地鐵站只有五分鐘距離我們的地方。只有一個地鐵站到香港島一側。乘坐出租車只需30分鐘或45分鐘的A21機場巴士從香港機場。 “</p>
+		</div>
+		<div class="content-wrap" id='Route'>
+			<div class="content-title font-c">路线 Route</div>
+			<p class='font-c'>尖沙咀, 九龙, 香港</p>
+			<div class='divider'></div>
+			<p>如果你只是来感受这里的繁华，女人爱上的是血拼，孩子们爱上的则是梦幻中的迪士尼，但是香港的精髓还在于他的夜，你可以去中环的兰桂坊点上一杯红酒彻夜不眠，乘着天星小轮畅游海港，或是乘山顶缆车登上太平山顶，眺望维多利亚港的迷人夜色，感受香港霓虹灯的律动。</p>
+			<p>而香港，也有娴静的时候，去大屿山，体验时光的交错；去海水湾，享受海风拂面的浪漫；去赤柱，细品旧时的欧陆风情；去南丫岛，让心灵做一场瑜伽；去西贡，寻找昔日渔港风情，又让你看到了不一样的香港。</p>
+			<p>维多利亚港是亚洲的第一大海港，世界第三大。维多利亚港（简称维港，英语：Victoria Harbour）是位于香港的香港岛和九龙半岛之间的海港。由于港阔水深，为天然良港，香港亦因而有“东方之珠”、“世界三大天然良港”及“世界三大夜景”之美誉。维多利亚港的名字，来自英国的维多利亚女王。一年四季皆可自由进出。早年已被英国人看中有成为东亚地区优良港口的潜力，后来从清政府手上夺得香港，发展其远东的海上贸易事业。维多利亚港一直影响香港的历史和文化，主导香港的经济和旅游业发展，是香港成为国际大化大都市的关键之一。</p>
+			<p>太平山顶是香港最高点，海拔554米，位于香港岛西北部，一直是香港的标志。它又称维多利亚峰或扯旗山，是港岛最负盛名的豪华高级住宅区，也是游览香港的第一焦点。这里是俯瞰维多利亚港景色的最佳地点，无论你是不是浪漫的人，都一定要安排到太平山赏夜景。当你坐着夹角呈30°的缆车向山顶进发时，感觉就像飞起来。</p>
+			<p>香港迪士尼乐园（Hong Kong Disneyland）位于大屿山，环抱山峦，与南中国海遥遥相望，是一座融合了美国加州迪士尼乐园及其他迪士尼乐园特色于一体的主题公园。
+			香港迪士尼乐园包括七大主题区：幻想世界、明日世界、探险世界、反斗骑兵大本营、灰熊山谷、美国小镇、迷离庄园。唐老鸭会在3D的米奇幻想曲出现；米奇、米妮和高飞，更会随时现身在梦想花园与您近距离会面。如果想一次与众多迪士尼朋友见面，记得留意场面盛大的迪士尼飞天巡游；还有一定要欣赏载歌载舞的百老汇歌舞剧米奇金奖音乐剧，到了晚上，璀璨的星梦奇缘烟花表演一定不能错过。</p>
+		</div>
+		<div class="content-wrap" id='Care'>
+			<div class="content-title font-c">备忘 Care</div>
+			<p class='font-c'>尖沙咀, 九龙, 香港</p>
+			<div class='divider'></div>
+			<p>首先备齐资料，往来港澳通行证申请表贴好照片+数码回执+身份证原件复印件+户口本首页和自己那一页的原件复印件。
+    		以深圳为例，深户是可以在任意出入境办理通行证的，通行证是100元，一年往返多次签注是100元，一次签注是20元，从申请当日起一般7个工作日可以领取。</p>
+    		<p>非深户的如果有有效的居住证也可以在深圳的出入境管理局申请港澳通行证，其他的则是在户口所属地的出入境办理证件。
+    		PS：深圳的证件香港和澳门是不能同时签注，例如本次申请香港签注，要想再申请澳门签注的话必须等到香港的签注下来之后方可申请。</p>
+    		<p>G签就是所谓的自由行，这种签注的持有人是可以自由往返香港。
+    		L签就是所谓的团队签，这种签注的持有人出关是必须跟着旅游团的，如果想自己出行的友友们可以在关口或者在网上（前者可以在出行当天办理，后者必须确定出行时间）找旅行社办理团签，然后跟着他们出关入关，入关之后可以自由活动，然后自己返回。 </p>
+    		<p>在酒店入住的时候要交押金，可以交港币现金，也可以刷信用卡，注意这时必须是信用卡，借记卡不行。退房的时候，现金直接还回来。信用卡15－20天内自动解冻，不会把钱真刷走的。没有信用卡的朋友要多准备一天房价的现金。</p>
+		</div>
+	</div>
+	<div id="pic">
+		<div class="pic-wrap">
+			<div class="pic-title font-c">有梦在远方</div>
+			<p class='font-c'>闲来垂钓碧溪上，忽复乘舟梦日边。</p>
+			<div class='divider'></div>
+			<div class="pic-mid">
+				<img src="./img/pic-mid-1.jpg" alt="">
+				<img src="./img/pic-mid-2.jpg" alt="">
+				<img src="./img/pic-mid-3.jpg" alt="">
+				<img src="./img/pic-mid-4.jpg" alt="">
+			</div>
+			<a href="#" class='font-c'>MORE</a>
+		</div>
+	</div>
+	<div id="close">
+		<div class="close-wrap">
+			<div class="close-mid font-c">
+			1997年过去了，我很怀念它。
+			</div>
+			<a href="#" class='font-c'>加入</a>
+			<a href="#" class='font-c'>建议</a>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="footer-wrap">
+			<p>日月神教责任有限公司</p>
+			<p>南京创意产业园一幢</p>
+			<p>TEL:025-88888888</p>
+			<p>E-MAIL:RY@RYchuangyi.com</p>
+			<div class="footer-icon">
+				<span class="iconfont">&#xe606</span>
+				<span class="iconfont">&#xe604</span>
+				<span class="iconfont">&#xe605</span>
+			</div>
+			<div class='divider'></div>
+			<p>Copyright © RY 2016</p>
+		</div>
+	</div>
+</body>
+</html>
