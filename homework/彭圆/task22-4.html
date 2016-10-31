@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>代码题4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+        .container .tabs::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .container .tabs li {
+            float: left;
+            list-style: none;
+            width: 33.33333%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-top: none;
+            cursor: pointer;
+        }
+        .container .tabs li:last-child {
+            border-right: none;
+        }
+        .container .content {
+            display: none;
+            height: 180px;
+            padding: 20px;
+        }
+        .container .active {
+            display: block;
+        }
+        .container .tabs .active {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="tabs">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="content active">内容1</div>
+    <div class="content">内容2</div>
+    <div class="content">内容3</div>
+</div>
+<script>
+    var ctrl = {
+        //控制class的增删改查
+        hasClass: function(el, cls){
+            return new RegExp('\\b'+cls+'\\b','g').test(el);
+        },
+        addClass:function(el, cls){
+            if(el.length && el.length > 0){
+                for(var i=0; i<el.length; i++){
+                    ctrl.singleAddClass(el[i], cls);
+                }
+            } else {
+                ctrl.singleAddClass(el, cls);
+            }
+        },
+        removeClass:function(el, cls){
+            if(el.length && el.length > 0){
+                for(var i=0; i<el.length; i++){
+                    ctrl.singleRemoveClass(el[i], cls);
+                }
+            } else {
+                ctrl.singleRemoveClass(el, cls);
+            }
+        },
+        singleAddClass: function (el,cls) {
+            if (ctrl.hasClass(el,cls)) return;
+            el.className = ctrl.trim(el.className) + ' ' + cls;
+        },
+        singleRemoveClass: function(el, cls){
+            el.className = el.className.replace(new RegExp('\\b'+cls+'\\b', 'g'), '');
+        },
+        //去除class前后的空格
+        trim: function (str) {
+            return str.replace(/^\s+|\s+$/g,'');
+        },
+        //获取被点击的tap的序号
+        indexOf: function (el) {
+            var parent = el.parentElement,
+                childrens = parent.children;
+            for (var i=0;i<childrens.length;i++) {
+                if (el === childrens[i]) return i;
+            }
+            return -1;
+        }
+    };
+    //获取节点
+    var tabCt = document.querySelector('.tabs');
+    //使用事件代理在父元素上绑定事件
+    tabCt.addEventListener('click', function(e){
+        var target = e.target,
+            tabs = tabCt.children,
+            index = ctrl.indexOf(target),
+            contents = document.querySelectorAll('.content');
+        if(index > -1){
+            ctrl.removeClass(tabs, 'active');
+            ctrl.addClass(target, 'active');
+            ctrl.removeClass(contents, 'active');
+            ctrl.addClass(contents[index], 'active');
+        }
+    });
+</script>
+</body>
+</html>
