@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//下面这段代码输出结果是? 为什么?
+	var flag = true;
+	setTimeout(function(){
+	    flag = false;
+	},0)
+	while(flag){}
+	console.log(flag);
+	//无输出，因为setTimeout会在所有其他代码执行后执行，所以while循环中flag为真，一直循环
+	</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+html,body,div,p,h1,h2,h3,h4,ul,li,img,a,i,span{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+	font-size: 16px;
+}
+
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #666;
+}
+a:hover{
+	color: #000;
+}
+.layout{
+	width: 1000px;
+	margin: 0 auto;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+
+/* top */
+#top .clearfix{
+	height: 50px;
+}
+#top .menu{
+	float: left;
+	margin: 0px 12px;
+	position: relative;
+	line-height: 50px;
+}
+#top .rocket{
+	float: left;
+	margin-top: 9px;
+	margin-right: 9px;
+}
+#top .rocket .iconfont{
+	font-size: 30px;
+	color: #666;
+}
+#top .rocket .iconfont:hover{
+	color: #000;
+}
+#top .sj{
+	font-size: 8px;
+}
+#top .xla{
+	position: absolute;
+	top: 50px;
+	left: -8px;
+	display: none;
+}
+#top .xlb{
+	height: 36px;
+	line-height: 36px;
+	padding: 0 8px;
+	background-color: #fff;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+#top .xla li:first-child{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px dashed #ccc;
+}
+#top .xla li:last-child{
+	border-top: 1px dashed #ccc;
+	border-bottom: 1px solid #ccc;
+}
+#top .xlb:hover{
+	background-color: #eee;
+}
+#top .xl:hover .xla{
+	display: block;
+}
+
+/* header */
+#header{
+	width: 100%;
+	background-color: #b84d45;
+	padding-bottom: 27px;
+}
+#header h1{
+	color: #fff;
+}
+#header h1{
+	padding-top: 33px;
+	padding-bottom: 2px;
+}
+#header p{
+	color: #fff;
+	padding-top: 4px;
+}
+/* main */
+
+#main .them{
+	width: 970px;
+	padding: 10px 15px;
+	background-color: #eee;
+	margin-top: 39px;
+	margin-bottom: 30px;
+}
+#main .them a{
+	color: #b84d45;
+}
+#main .them a:hover{
+	color:#b84d45;
+}
+#main li{
+	float: left;
+	width: 298px;
+	margin-right: 50px;
+	border: 1px solid #ccc;
+	margin-bottom: 25px;
+}
+#main li:nth-child(3){
+	margin-right: 0px;
+}
+#main li:nth-child(6){
+	margin-right: 0px;
+}
+#main li img{
+	width: 298px;
+	height: 200px;
+}
+#main .btn{
+	width: 37px;
+	margin: 10px auto;
+	padding: 7px 5px;
+	border: 1px solid #ccc;
+	text-align: center;
+	border-radius: 3px;
+}
+#main h3{
+	padding: 12px;
+}
+#main p{
+	padding: 0 12px;
+	font-size: 14px;
+}
+
+/* footer */
+#ft .foot{
+	background-color: #b84d45;
+	width: 100%;
+	padding: 12px;
+	text-align: center;
+}
+#ft h1{
+	color: #fff;
+	padding: 10px;
+}
+#ft .foot p{
+	color: #fff;
+	padding-bottom: 12px;
+}
+#ft a{
+	display: inline-block;
+	color: #fff;
+	padding: 7px;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	margin-bottom: 6px;
+}
+#ft .ry{
+	text-align: center;
+	padding: 30px;
+	margin-top: 50px;
+}

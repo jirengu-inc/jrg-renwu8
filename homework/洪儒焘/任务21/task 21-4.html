@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//写一个函数isPhoneNum(str)，判断用户输入的是不是手机号
+	//1**12345678
+		function isPhoneNum(str) {
+			if(!/^1[0-9]{10}$/.test(str)){
+				alert("输入的不是手机号!");
+			}else{
+				alert("输入的是手机号!");
+			}
+		}
+		var str="111111111112";
+		isPhoneNum(str);
+	</script>
+</body>
+</html>

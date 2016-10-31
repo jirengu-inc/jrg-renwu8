@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .tab {
+            margin: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .tab_top {
+            border: 1px solid #ccc;
+        }
+
+        .tab_top li {
+            float: left;
+            padding: 8px 0;
+        }
+
+        .tab_top li a {
+            padding: 0 10px;
+            border-right: 1px solid #ccc;
+        }
+
+        .tab_nav_con {
+            /*border: 1px solid black;*/
+            width: 722px;
+            margin-left: -20px;
+            margin-top: -20px;
+        }
+
+        .tab_nav_con li {
+            position: relative;
+            float: left;
+            width: 220px;
+            margin-left: 20px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #D40202;
+            background: #fff;
+        }
+
+        .tab_nav_con p {
+            height: 36px;
+            text-align: left;
+            font-weight: normal;
+            font-size: 12px;
+            color: #666;
+            width: 190px;
+            margin-left: 20px;
+        }
+
+        .tab_nav_con p.price {
+            color: red;
+        }
+
+        .nav_list {
+            border: 1px solid #ccc;
+            width: 702px;
+        }
+
+        .tab_nav_con li .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            opacity: 0;
+        }
+
+        .tab_nav_con li .cover .qgbtn {
+            display: block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            background: white;
+            border-radius: 5px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -54px;
+            margin-top: -40px;
+            border: 1px solid red;
+        }
+
+        .tab_nav_con li .hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <!--头部控制条-->
+    <ul class="tab_top clearfix">
+        <li>
+            <a href="javascript:;">热门</a>
+        </li>
+        <li>
+            <a href="javascript:;">珠宝首饰</a>
+        </li>
+        <li>
+            <a href="javascript:;">奢侈品</a>
+        </li>
+        <li>
+            <a href="javascript:;" class="addbtn">增加</a>
+        </li>
+    </ul>
+    <!--同一面板1-->
+    <div class="nav_list">
+        <ul class="tab_nav_con clearfix">
+            <li>
+                <div class="cover">
+                    <a href="javascript:;" class="qgbtn">立即抢购</a>
+                </div>
+                <a href="">
+                    <img src="img/aa.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </a>
+
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="javascript:;" class="qgbtn">立即抢购</a>
+                </div>
+                <a href="">
+                    <img src="img/aa.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </a>
+
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="javascript:;" class="qgbtn">立即抢购</a>
+                </div>
+                <a href="">
+                    <img src="img/aa.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </a>
+
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="javascript:;" class="qgbtn">立即抢购</a>
+                </div>
+                <a href="">
+                    <img src="img/aa.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </a>
+
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="javascript:;" class="qgbtn">立即抢购</a>
+                </div>
+                <a href="">
+                    <img src="img/aa.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </a>
+
+            </li>
+            <li>
+                <div class="cover">
+                    <a href="javascript:;" class="qgbtn">立即抢购</a>
+                </div>
+                <a href="">
+                    <img src="img/aa.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p class="price">￥1699.00</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<script>
+
+    $(function () {
+        var index = 0;
+        $('.tab_nav_con').on('mouseenter', 'li', function () {
+            $(this).find('div').addClass('hover');
+        })
+        $('.tab_nav_con').on('mouseleave', 'li', function () {
+            $(this).find('div').removeClass('hover');
+        })
+
+        $('.tab_top li').on('click', function () {
+            index = $(this).index();
+            //$('.nav_list').eq(index).show().siblings('.nav_list').hide();
+            $(this).parent().siblings('.nav_list').eq(index).show().siblings('.nav_list').hide();
+        })
+        var products = [
+            {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            }, {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金转运珠 猴哥款',
+                price: '￥100.00'
+            }, {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手链 3D猴哥款222',
+                price: '￥45.00'
+            }
+        ];
+        $('.addbtn').on('click', function () {
+            $.each(products, function (i, val) {
+//               i为索引号,val为内容
+//                console.log(val.name);
+                $('.tab_nav_con').append('<li class="add_list"><div class="cover"> <a href="javascript:;" class="qgbtn">立即抢购</a> </div><a href=""> <img src=' + val.img + ' alt=""> <p class="title">' + val.name + '</p> <p class="price">' + val.price + '</p> </a></li>');
+            });
+
+            //这种写法不好的地方就是无法获取i,这样最终循环出来就都变成了数组中最后一个的结果，
+            //必须用i来选择到底是哪个add_list,这样就可以按索引号填入数据
+//            for(var attr in products){
+//                var name=products[attr]['name'];
+//                //var url=products[attr]['img'];
+//                $('.tab_nav_con').append('<li class="add_list"><div class="cover"> <a href="javascript:;" class="qgbtn">立即抢购</a> </div><a href=""> <img src="" alt=""> <p class="title">藏美千足金和田玉金镶玉路路通吊坠</p> <p class="price">￥1699.00</p> </a></li>');
+//                $('.tab_nav_con').find('.add_list img').attr('src',products[attr]['img']);
+//                $('.tab_nav_con').find('.add_list .title').html(name);
+//                $('.tab_nav_con').find('.add_list .price').html(products[attr]['price']);
+//
+//            }
+        })
+
+
+    })
+</script>
+</body>
+</html>

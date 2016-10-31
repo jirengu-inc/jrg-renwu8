@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form>
+    username: <input type="text" name="username" id="username"/> <br/>
+    password: <input type="password" name="password" id="password"/> <br/>
+    <input type="button" value="login" id="btn"/>
+</form>
+<script>
+    function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.status == 200 && xmlhttp.readyState == 4) {
+                var json = JSON.parse(xmlhttp.responseText);
+                opts.success(json);
+            }
+
+            if (xmlhttp.status === 404) {
+                opts.error();
+            }
+        }
+
+        var dataString = "";
+        for (var key in opts.data) {
+            dataString += key + "=" + opts.data[key] + "&";
+        }
+        dataString = dataString.substr(0, dataString.length - 1);
+
+        if (opts.type.toLowerCase() === "get") {
+            xmlhttp.open("get", opts.url + "?" + dataString, true);
+            xmlhttp.send();
+        } else if (opts.type.toLowerCase() === "post") {
+            xmlhttp.open("post", opts.url, true);
+            xmlhttp.setRequestHeader("Content-type", "applicaiton/x-www-form-urlencoded");
+            xmlhttp.send(dataString);
+        }
+    }
+    document.querySelector('#btn').addEventListener('click', function(){
+        ajax({
+            url: 'getData.php',   //接口地址
+            type: 'get',               // 类型， post 或者 get,
+            data: {
+                username: 'xiaoming',
+                password: 'abcd1234'
+            },
+            success: function(ret){
+                console.log(ret);       // {status: 0}
+            },
+            error: function(){
+                console.log('出错了');
+            }
+        })
+    });
+
+</script>
+</body>
+</html>

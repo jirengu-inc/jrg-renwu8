@@ -10,9 +10,13 @@
 		function copy(obj) {
 			var result={};
 			for(var i in obj){
-				if (obj[i] === "object"|"array") {
+				if (obj[i] === "object" || obj[i] === "array") {
 			      	result[i] = copy(obj[i]);
-			    }else {
+			    }
+			    // else if(obj[i] === "array"){
+			    // 	result[i] = copy(obj[i]);
+			    // }
+			    else {
 			      	result[i] = obj[i];
 			    }
 			}

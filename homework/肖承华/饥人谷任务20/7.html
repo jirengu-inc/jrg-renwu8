@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//下面这段代码输出？如何输出delayer: 0, delayer:1…（使用闭包来实现）
+		for(var i=0;i<5;i++){
+		    setTimeout(function(){
+		         console.log('delayer:' + i );
+		    }, 0);
+		    console.log(i);
+		}
+		//首先console.log(i);输出0,1,2,3,4，然后输出5个delayer:5
+		    for(var i=0;i<5;i++){
+		        (function(){//遍历生成五个闭包，保存不同的n
+		            var n=i
+		            setTimeout(function(){
+		                console.log('delayer:' + n ) 
+		            }, 0);
+		        }()); 
+		        console.log(i);
+		    }   
+	</script>
+</body>
+</html>
