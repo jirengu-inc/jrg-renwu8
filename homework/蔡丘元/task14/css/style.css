@@ -289,6 +289,22 @@
     padding: 10px;
 }
 
+#footer .footer-larger-icon {
+    margin: 0;
+    padding: 20px 0;
+}
+
+#footer .footer-larger-icon:after {
+    content: '';
+    display: block;
+    width: 60px;
+    position: relative;
+    left: 50%;
+    margin-left: -30px;
+    top: 15px;
+    border-top: 1px solid #eee;
+}
+
 #footer .footer-larger-icon a:hover {
     opacity: 0.6;
     text-decoration: none;
