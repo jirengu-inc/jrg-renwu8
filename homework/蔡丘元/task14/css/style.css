@@ -1,0 +1,297 @@
+/*公用模块*/
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.m-btn {
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/*字体图标*/
+@font-face {
+    font-family: 'font-icon';  /* project id："171896" */
+    src: url('http://at.alicdn.com/t/font_big11dsakna02j4i.eot');
+    src: url('http://at.alicdn.com/t/font_big11dsakna02j4i.eot') format('embedded-opentype'),
+    url('http://at.alicdn.com/t/font_big11dsakna02j4i.woff') format('woff'),
+    url('http://at.alicdn.com/t/font_big11dsakna02j4i.ttf') format('truetype'),
+    url('http://at.alicdn.com/t/font_big11dsakna02j4i.svg#iconfont') format('svg');
+}
+
+/*外圆*/
+.m-cycle {
+    display: inline-block;
+    width: 81px;
+    line-height: 61px;
+    border-radius: 50%;
+    background: #fff;
+    text-align: center;
+}
+
+.font-icon {
+    font-family: "font-icon";
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*公用模块结束*/
+
+/*头部模块*/
+#header {
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg.jpg);
+    background-size: cover;
+}
+
+#header .table {
+    height: 100%;
+    display: table;
+}
+
+#header .vertical-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#header .m-btn {
+    color: #fff;
+    background: rgba(0, 0, 0, 1);
+}
+
+#header a.m-btn:hover {
+    background: rgba(0, 0, 0, .4);
+}
+
+/*头部模块结束*/
+
+/*内容模块*/
+
+/*资料模块*/
+#content .m-profile {
+    padding: 60px 0;
+}
+
+#content .m-profile h3, #content .m-profile p {
+    text-align: center;
+}
+
+#content .m-profile a {
+    color: #337ab7;
+}
+
+#content .m-profile a:hover, #footer a:hover {
+    text-decoration: underline;
+}
+
+/*资料模块结束*/
+
+/*信息模块*/
+#content .m-service {
+    padding: 60px;
+    background: #337ab7;
+    color: #fff;
+}
+
+#content .m-service h3 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#content .m-service h3:after {
+    content: '';
+    display: block;
+    width: 120px;
+    position: relative;
+    left: 50%;
+    margin-left: -60px;
+    top: 30px;
+    border-top: 1px solid #fff;
+}
+
+#content .m-service ul {
+    padding: 50px 0;
+}
+
+#content .m-service li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.m-service .font-icon {
+    font-size: 4rem;
+    color: #337ab7;
+}
+
+/*图标位置微调*/
+.m-service .m-service-icon2 {
+    position: relative;
+    left: 5px;
+    top: 3px;
+}
+
+.m-service .m-service-icon4 {
+    position: relative;
+    top: 7px;
+}
+
+.m-service .m-btn {
+
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+}
+
+.m-service .m-btn:hover {
+    background: #eee;
+}
+
+/*信息模块结束*/
+
+/*广告模块*/
+#content .m-callout {
+    background: url(../img/callout.jpg) no-repeat;
+    background-size: cover;
+    padding: 300px 0;
+}
+
+#content .m-callout h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 4rem;
+}
+
+/*广告模块结束*/
+
+/*工作台模块*/
+.m-workspace {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.m-workspace h3 {
+    padding: 20px 0;
+    margin: 0;
+    color: #000;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.m-workspace h3:after {
+    content: '';
+    display: block;
+    width: 60px;
+    position: relative;
+    left: 50%;
+    margin-left: -30px;
+    top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.m-workspace li {
+    width: 465px;
+    height: 305px;
+    float: left;
+    padding: 20px 7.5px;
+}
+
+.m-workspace .m-btn {
+    color: #fff;
+    background: #ccc;
+    padding: 10px 8px;
+}
+
+.m-workspace .m-btn:hover {
+    background: #000;
+}
+
+/*工作台模块结束*/
+
+/*关于自己模块*/
+.m-about {
+    background: #337ab7;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.m-about h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.m-about .m-btn {
+    background: #ccc;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.m-about .m-btn:hover {
+    background: #000;
+}
+
+.m-about .m-btn.active {
+    background: #000;
+}
+
+/*关于自己模块结束*/
+
+/*页脚模块*/
+#footer {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#footer .footer-normal-icon .font-icon {
+    padding-right: 5px;
+    font-size: 1rem;
+    color: #000;
+}
+
+#footer p:nth-child(4), #footer p:nth-child(5) {
+    vertical-align: middle;
+}
+
+#footer a {
+    color: #337ab7;
+}
+
+#footer .footer-larger-icon .font-icon {
+    color: #337ab7;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+#footer .footer-larger-icon a:hover {
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+/*页脚模块结束*/
