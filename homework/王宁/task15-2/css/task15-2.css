@@ -64,10 +64,14 @@ html,body{
   z-index: 1000;
 }
 #header{
-  width: 1895px;
-  height: 940px;
+  width: 100%;
+  min-width: 1515px;
+  height: 90%;
+  min-height: 756px;
   background-image: url(../img/header-bg.jpg);
-  background-position: 0px;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 #nav .layout h1{
