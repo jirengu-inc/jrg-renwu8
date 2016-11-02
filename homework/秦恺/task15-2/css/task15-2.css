@@ -327,7 +327,6 @@ background:#fdd035;
 
 
 #contact{
-	padding: 1px;
     height: 100%;
 	width: 100%;
 	background: url(../img/map.jpg) no-repeat;
@@ -341,12 +340,16 @@ background:#fdd035;
 	color:#fff;
 	padding-bottom: 75px;
 }
-#contact .left,#contact .right{
+#contact .left{
 	float: left;
 	width: 560px;
 	padding:0 18px;
 }
-
+#contact .right{
+	float: left;
+	width: 560px;
+	padding:0 18px;
+}
 #contact .left input{
 	
 	width: 520px;
@@ -374,7 +377,7 @@ background:#fdd035;
 	padding: 20px 40px;
 }
 #contact .btn{
-	clear:both;
+	
 	width: 237px;
 	padding-top: 12px;
 }
@@ -386,9 +389,7 @@ background:#fdd035;
 
 /* copyright */
 
-#cr{
-	padding: 1px;
-}
+
 
 #cr .layout{
 	position: relative;
