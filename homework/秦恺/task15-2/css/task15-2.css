@@ -331,6 +331,7 @@ background:#fdd035;
 	width: 100%;
 	background: url(../img/map.jpg) no-repeat;
 	background-size: cover;
+	padding-bottom: 50px;
 }
 
 #contact h1{
