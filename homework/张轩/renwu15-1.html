@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	html, body{
+		margin: 0px;
+		padding: 0px;
+		font-family: '微软雅黑'；
+		font-size:18px;
+	}
+	ul{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color: #000;
+	}
+	@font-face {
+  		font-family: 'iconfont';
+  		src: url('http://at.alicdn.com/t/font_1477409793_3604422.eot'); /* IE9*/
+  		src: url('http://at.alicdn.com/t/font_1477409793_3604422.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  		url('http://at.alicdn.com/t/font_1477409793_3604422.woff') format('woff'), /* chrome、firefox */
+  		url('http://at.alicdn.com/t/font_1477409793_3604422.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  		url('http://at.alicdn.com/t/font_1477409793_3604422.svg#iconfont') format('svg'); /* iOS 4.1- */
+	}
+    .iconfont{
+		font-family:"iconfont" !important;
+    	font-size:28px;font-style:normal;
+   		-webkit-font-smoothing: antialiased;
+    	-webkit-text-stroke-width: 0.2px;
+    	-moz-osx-font-smoothing: grayscale;
+    
+	}
+	#nav{
+		background-color: #f7f1ea;
+	}
+	.wrap-mid{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	.wrap-mid::after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#nav .iconfont{
+		float: left;
+		margin: 10px;
+	}
+	#nav .nav-fa{
+		position: relative;
+		margin: 0px;
+	}
+	#nav .nav-fa::after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#nav .nav-fa>li{
+		float: left;
+		padding: 17px 12px;
+	}
+	#nav .nav-fa ul{
+		position: absolute;
+		left: 175px;
+		top: 52px;
+	}
+	#nav .nav-fa>li:hover .nav-so{
+		display: block;
+
+	}
+	#nav .nav-so{
+		display: none;
+	}
+	#nav .nav-fa ul li{
+		border: 1px solid #f7f1ea;
+		border-bottom:1px dashed #f7f1ea; 
+		border-top:none; 
+		padding: 10px;
+	}
+	#nav .nav-so li{
+		background: #f7f1ea;
+	}
+	#nav .nav-so li:last-child{
+		border-bottom: 1px solid #f7f1ea;
+	}
+	#nav .nav-fa li:hover{
+		background-color: #e6dfdb;
+	}
+	#nav .nav-so li:hover{
+		background-color: #e6dfdb;
+	}
+	#cover{
+		background-color: #b84d45;
+		padding: 30px 0px;
+	}
+	#cover h2, h3, h4{
+		margin: 0px;
+		padding: 2px 0px;
+		color: #fff;
+	}
+	#content .wrap-mid{
+		padding: 30px 0px;
+	}
+	#content .thumbnail img{
+		width: 300px;
+		height: 200px;
+	}
+	#content .thumbnail h4{
+		color: #000;
+		margin-left: 10px;
+	}
+	#content .thumbnail p{
+		margin: 10px 0px;
+		font-size: 14px;
+		margin-left: 10px;
+	}
+	#content .thumbnail a{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 5px 7px;
+		display: block;
+		margin: 10px 110px;
+		text-align: center;
+	}
+	#content .thumbnail{
+		float: left;
+		margin-left: 45px;
+		margin-top: 20px;
+		border: 1px solid #ccc;
+
+	}
+	#content .thumbnail-full{
+		margin-left: -45px;
+	}
+	#content .thumbnail-full::after{
+		display: block;
+		content: '';
+		clear: both;
+	}
+	#content .directory{
+		background-color: #ccc;
+		padding: 10px 10px;
+	}
+	#cover-buttom{
+		background-color: #b84d45;
+		padding: 30px 0px;
+	}
+	#cover-buttom h2{
+		margin: 0px;
+		padding: 2px 0px;
+		color: #fff;
+		text-align: center;
+	}
+	#cover-buttom p{
+		text-align: center;
+		color: #fff;
+	}
+	#cover-buttom a{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 5px 7px;
+		display: block;
+		margin: 10px 470px;
+		text-align: center;
+		color: #fff;
+	}
+/*	#footer{
+		background-color: #fff;
+	}*/
+	#footer .line{
+		border-top: 1px solid #ccc;
+		width: 1000px;
+		margin: 30px auto;
+	}
+	#footer p{
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<div class="wrap-mid">
+			<div class="iconfont">&#xe600</div>
+			<ul class='nav-fa'>
+				<li><a href="#">博客</a></li>
+				<li><a href="#">项目</a></li>
+				<li><a href="#">简历</a></li>
+				<li>
+					<a href="#">更多</a>
+					<div class="triangle"></div>
+					<ul class='nav-so'>
+						<li><a href="#">Github</a></li>
+						<li><a href="#">知乎</a></li>
+						<li><a href="#">微博</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="cover">
+		<div class="wrap-mid">
+			<h2>我有一头小毛驴</h2>
+			<h3>我从来也不骑</h3>
+			<h4>有一天...</h4>
+		</div>
+	</div>
+	<div id="content">
+		<div class="wrap-mid">
+			<div class="directory">首页/我的作品</div>
+			<div class="thumbnail-full">
+				<div class="thumbnail">
+					<img src="./img/renwu15-1.jpg" alt="">
+					<h4>作品标题</h4>
+					<p>作品介绍</p>
+					<a href="#">查看</a>
+				</div>
+				<div class="thumbnail">
+					<img src="./img/renwu15-1.jpg" alt="">
+					<h4>作品标题</h4>
+					<p>作品介绍</p>
+					<a href="#">查看</a>					
+				</div>
+				<div class="thumbnail">
+					<img src="./img/renwu15-1.jpg" alt="">
+					<h4>作品标题</h4>
+					<p>作品介绍</p>
+					<a href="#">查看</a>					
+				</div>
+				<div class="thumbnail">
+					<img src="./img/renwu15-1.jpg" alt="">
+					<h4>作品标题</h4>
+					<p>作品介绍</p>
+					<a href="#">查看</a>					
+				</div>
+				<div class="thumbnail">
+					<img src="./img/renwu15-1.jpg" alt="">
+					<h4>作品标题</h4>
+					<p>作品介绍</p>
+					<a href="#">查看</a>					
+				</div>
+				<div class="thumbnail">
+					<img src="./img/renwu15-1.jpg" alt="">
+					<h4>作品标题</h4>
+					<p>作品介绍</p>
+					<a href="#">查看</a>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="cover-buttom">
+		<div class="wrap-mid">
+			<h2>想更详细了解我</h2>
+			<p>下载我的简历吧</p>
+			<a href="#">下载</a>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="line"></div>
+		<p>来自@RY</p>
+	</div>
+</body>
+</html>

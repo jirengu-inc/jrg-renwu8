@@ -327,6 +327,7 @@ background:#fdd035;
 
 
 #contact{
+	padding: 1px;
     height: 100%;
 	width: 100%;
 	background: url(../img/map.jpg) no-repeat;
@@ -347,7 +348,7 @@ background:#fdd035;
 }
 
 #contact .left input{
-	display: block;
+	
 	width: 520px;
 	height: 20px;
 	padding: 20px;
@@ -356,7 +357,7 @@ background:#fdd035;
 	border: 1px solid #777;
 }
 #contact .right textarea{
-	display: block;
+	
 	width: 520px;
 	height: 195px;
 	padding: 20px;
@@ -385,7 +386,9 @@ background:#fdd035;
 
 /* copyright */
 
-
+#cr{
+	padding: 1px;
+}
 
 #cr .layout{
 	position: relative;

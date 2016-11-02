@@ -1,0 +1,185 @@
+/*公共样式*/
+.layout {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.m-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    color: #ccc;
+}
+
+.m-btn:hover {
+    color: #fff;
+    background: #000;
+}
+
+/*字体图标*/
+@font-face {
+    font-family: 'fonticon';  /* project id："172670" */
+    src: url('http://at.alicdn.com/t/font_zbg480eq2q0yhkt9.eot');
+    src: url('http://at.alicdn.com/t/font_zbg480eq2q0yhkt9.eot') format('embedded-opentype'),
+    url('http://at.alicdn.com/t/font_zbg480eq2q0yhkt9.woff') format('woff'),
+    url('http://at.alicdn.com/t/font_zbg480eq2q0yhkt9.ttf') format('truetype'),
+    url('http://at.alicdn.com/t/font_zbg480eq2q0yhkt9.svg#iconfont') format('svg');
+}
+
+.font-icon {
+    font-family: "fonticon";
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*导航模块*/
+
+#nav .clearfix > li {
+    float: left;
+    padding-right: 15px;
+    height: 60px;
+    line-height: 60px;
+}
+
+#nav li a {
+    color: #545454;
+}
+
+#nav li a:hover {
+    color: #000;
+}
+
+#nav .logo-larger {
+    font-size: 48px;
+}
+
+#nav .logo-larger:hover {
+    color: #cc5d3b;
+}
+
+#nav .m-navbar-list {
+    position: relative;
+}
+
+/*二级菜单*/
+#nav .m-navbar-list:hover ul {
+    display: block;
+}
+
+#nav .m-navbar-list > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 100;
+}
+
+#nav .m-navbar-list li {
+    padding: 0 10px;
+    text-align: center;
+    border: 1px dashed #eee;
+    line-height: 30px;
+}
+
+#nav .m-navbar-list li:hover {
+    background: #ccc;
+}
+
+/*关于自我*/
+#m-about {
+    padding: 40px 0;
+    background: #b84d45;
+    color: #fff;
+}
+
+#m-about h1 {
+    margin: 20px 0;
+}
+
+/*内容模块*/
+
+#content {
+    padding: 40px 0;
+}
+
+#content .m-title {
+    background: #eee;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+#content .m-title > a {
+    color: #b84d45;
+}
+
+#content .m-title > a:hover {
+    color: #000;
+}
+
+#content .clearfix {
+    padding: 20px 0;
+    margin-left: -20px;
+}
+
+#content .clearfix > li {
+    float: left;
+    box-sizing: border-box;
+    width: 320px;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#content .clearfix > li > img {
+    width: 310px;
+    height: 200px;
+}
+
+/*底部模块*/
+#footer {
+    text-align: center;
+}
+
+#m-resume {
+    padding: 40px 0;
+    color: #fff;
+    background: #b84d45;
+}
+
+#m-resume h1 {
+    margin: 10px 0;
+}
+
+#m-copyright p {
+    margin: 20px 0;
+    padding: 20px 0 10px 0;
+    border-top: 1px solid #ccc;
+}
+
+#m-copyright p > a {
+    color: #000;
+}
+
+#m-copyright p > a:hover {
+    color: #b84d45;
+}
