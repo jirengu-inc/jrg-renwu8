@@ -331,6 +331,7 @@ background:#fdd035;
 	width: 100%;
 	background: url(../img/map.jpg) no-repeat;
 	background-size: cover;
+	padding-bottom: 150px;
 }
 
 #contact h1{
@@ -340,14 +341,18 @@ background:#fdd035;
 	color:#fff;
 	padding-bottom: 75px;
 }
-#contact .left,#contact .right{
+#contact .left{
 	float: left;
 	width: 560px;
 	padding:0 18px;
 }
-
+#contact .right{
+	float: left;
+	width: 560px;
+	padding:0 18px;
+}
 #contact .left input{
-	display: block;
+	
 	width: 520px;
 	height: 20px;
 	padding: 20px;
@@ -356,7 +361,7 @@ background:#fdd035;
 	border: 1px solid #777;
 }
 #contact .right textarea{
-	display: block;
+	
 	width: 520px;
 	height: 195px;
 	padding: 20px;
@@ -373,7 +378,7 @@ background:#fdd035;
 	padding: 20px 40px;
 }
 #contact .btn{
-	clear:both;
+	
 	width: 237px;
 	padding-top: 12px;
 }
@@ -384,30 +389,21 @@ background:#fdd035;
 
 
 /* copyright */
-
-
-
-#cr .layout{
-	position: relative;
-}
-#cr p{
+#cr li{
 	float: left;
+	width: 250px;
+	padding: 30px;
+	/* border: 1px solid red; */
+	margin-right: 135px;
 }
-#cr p:first-child{
-	padding: 40px 40px 40px 70px;
-	color: #000;
-	font-weight: bold;
+#cr li:last-child{
+	margin-right: 0px;
+	padding-top: 41px;
 }
-#cr p:nth-child(2){
-	position: absolute;
-	left: 50%;
-	top:25%;
-	margin-left: -79px;
+#cr li:first-child{
+	padding-top: 43px;
 }
-#cr p:nth-child(2) a{
-	color: #222;
-	padding: 3px;
-}
+
 #cr .iconfont{
 	font-size: 39px;
 }
@@ -419,17 +415,17 @@ background:#fdd035;
 	position: relative;
 	top:4px;
 }
-#cr p:nth-child(3){
-	float: right;
-	padding: 40px 70px 40px 40px;
-}
-#cr p:nth-child(3) a{
+
+#cr .webs{
 	color: #fed136;
 }
-#cr p:nth-child(2) a:hover{
+#cr .logo{
+	color: #222;
+}
+#cr .logo:hover{
 	color: #fed136;
 }
-#cr p:nth-child(3) a:hover{
+#cr .webs:hover{
 	color: #fec503;
 	text-decoration: underline;
 }

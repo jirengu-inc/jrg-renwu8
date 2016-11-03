@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>代码题4</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        .btn-ct {
+            margin: 10px;
+        }
+        .mod-box {
+            display: none;
+        }
+        .mod-box .cover {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            opacity: 0.4;
+            z-index: 1;
+        }
+        .mod-box .box-ct {
+            position: fixed;
+            top: 38%;
+            left: 38%;
+            background: #fff;
+            border-radius: 3px;
+            width: 350px;
+            z-index: 2;
+            font-size: 14px;
+        }
+        .box-ct .header {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .header .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 21px;
+            font-family: "Simhei";
+            line-height: 0.5;
+        }
+        .box-ct .content {
+            padding: 20px 10px;
+        }
+        .content p {
+            padding: 5px 0;
+        }
+        .mod-box .footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        .footer .btn {
+            float: right;
+            padding: 0 5px;
+        }
+        .footer::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="btn-ct">
+    <button class="btn-mod">点我1</button>
+</div>
+
+<div class="mod-box" id="modal">
+    <div class="cover"></div>
+    <div class="box-ct">
+        <div class="header">
+            <h3>我是标题</h3>
+            <a class="close" href="#">x</a>
+        </div>
+        <div class="content">
+            <p>我是内容1</p>
+            <p>我是内容2</p>
+        </div>
+        <div class="footer">
+            <a class="btn btn-confirm" href="#">确定</a>
+            <a class="btn btn-cancel" href="#">取消</a>
+        </div>
+    </div>
+</div>
+<script>
+    //获取所需节点
+    var button = document.querySelector('.btn-mod'),
+        close = document.querySelector('.close'),
+        cancel = document.querySelector('.btn-cancel'),
+        cover = document.querySelector('.cover'),
+        modal = document.querySelector('#modal');
+    //点击按钮时显示模态框
+    button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        showMod(modal);
+    });
+    //点击关闭、取消以及周围的覆盖层时隐藏模态框
+    close.addEventListener('click', function (e) {
+        e.stopPropagation();
+        hideMod(modal);
+    });
+    cancel.addEventListener('click', function (e) {
+        e.stopPropagation();
+        hideMod(modal);
+    });
+    cover.addEventListener('click', function (e) {
+        e.stopPropagation();
+        hideMod(modal);
+    });
+    //显示和隐藏模态框的函数
+    function showMod(modal){
+        modal.style.display = 'block';
+    }
+    function hideMod(modal){
+        modal.style.display = 'none';
+    }
+</script>
+</body>
+</html>
