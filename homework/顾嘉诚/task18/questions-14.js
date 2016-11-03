@@ -1,9 +1,6 @@
-//14.写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机整数 （***）
-function randArr(len,max,min){
-	var arr=[];
-	for(var i=0;i<len;i++){
-		arr.push(Math.floor(Math.random()*(max-min+1)+min));
-	}
-	return arr;
+//14.写一个函数，获取从min到max之间的随机整数，包括min包括max （***）
+function getInter(min,max){
+	return Math.floor(Math.random()*(max-min+1)+min);
 }
-randArr(5,5,1);
+
+getInter(1,5);
