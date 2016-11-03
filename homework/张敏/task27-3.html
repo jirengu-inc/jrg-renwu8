@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>改变DOM顺序的做法</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        .container {
+            width: 480px;
+            height: 360px;
+            position: relative;
+            border: 1px solid blue;
+            margin-left: 300px;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        ul, li {
+            padding: 0;
+            margin: 0;
+        }
+
+        .pics {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+        }
+
+        a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .l_btn {
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+
+        .r_btn {
+            position: absolute;
+            right: 0;
+            top: 150px;
+        }
+
+        .focus {
+            position: absolute;
+            left: 150px;
+            bottom: 50px;
+        }
+
+        .focus li {
+            float: left;
+            width: 40px;
+            height: 5px;
+            margin-right: 10px;
+            background: greenyellow;
+        }
+
+        .focus .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="pics clearfix">
+        <li id="aa"><img src="img/23.jpg" alt=""></li>
+        <li id="bb"><img src="img/24.jpg" alt=""></li>
+        <li id="cc"><img src="img/25.jpg" alt=""></li>
+        <li id="dd"><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+    <ul class="focus clearfix">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        //改变DOM顺序实现无限轮播，思路:
+        //每播完一张，就把播完的那张放到队伍的最后去，如果用户点的是另外一侧的按钮，就把最后那张再给他拿回去.
+        var $pics = $('.pics');
+        var $c_item = $pics.children();
+        var item_width = $pics.children().width();//获取每个li的宽度
+        var pics_items = $pics.children().length;
+//        if($(element).is(":animated")){}
+
+        $pics.css({
+            'width': pics_items * item_width
+        });//ul下的li个数
+        var $rbtn = $('.r_btn'), $lbtn = $('.l_btn');
+        var curIdx=0;
+        $rbtn.on('click', function () {
+            next()
+        })
+
+        
+        $lbtn.on('click',function () {
+            prev();
+        })
+
+        function next(step) {
+            var step=step||1;
+            curIdx = (curIdx + step) % pics_items;
+            $pics.animate({'left':0-item_width*step},function () {
+                $pics.append($pics.children().first());
+                $pics.css({'left':0});
+                setBullt();
+            })
+        }
+        function prev(step) {
+            var step=step||1;
+            curIdx = (pics_items + curIdx - step) % pics_items;
+            $pics.prepend($pics.children().last());
+            $pics.css({'left': -item_width * step});
+            $pics.stop().animate({left: 0},function () {
+                setBullt();
+            });
+
+        }
+        $('.focus li').on('mouseover',function () {
+
+            var idx = $(this).index();
+            if (idx > curIdx) {
+                next(idx - curIdx);
+            } else if (idx < curIdx) {
+                prev(curIdx - idx);
+            }
+            setBullt();
+        })
+        function setBullt() {
+            $('.focus').find('li').removeClass('active').eq(curIdx).addClass('active');
+
+        }
+        
+    })
+</script>
+</body>
+</html>

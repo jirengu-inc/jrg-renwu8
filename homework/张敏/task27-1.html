@@ -3,8 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        .container
+        {
+            width:480px;
+            height:360px;
+            position: relative;
+            border: 1px solid blue;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        ul,li{
+            padding:0;
+            margin: 0;
+        }
+        .pics{
+            position: relative;
+            left:0;
+            top:0;
+        }
+        .pics li{
+            float: left;
+            position: absolute;
+            display: none;
+        }
+        .pics li:first-child{
+            display: block;
+        }
+        a{
+            display: block;
+            width:30px;
+            height:30px;
+            border-radius: 30px;
+            background:rgba(0,0,0,0.5);
+            text-align: center;
+            line-height:30px;
+            color:white;
+        }
+        .l_btn{
+             position: absolute;
+             left:0;
+             top:150px;
+         }
+        .r_btn{
+            position: absolute;
+            right:0;
+            top:150px;
+        }
+        .focus{
+            position: absolute;
+            left:150px;
+            bottom: 50px;
+        }
+        .focus li{
+            float: left;
+            width:40px;
+            height:5px;
+            margin-right: 10px;
+            background: greenyellow;
+        }
+        .focus .active{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <ul class="pics clearfix">
+        <li><img src="img/23.jpg" alt=""></li>
+        <li><img src="img/24.jpg" alt=""></li>
+        <li><img src="img/25.jpg" alt=""></li>
+        <li><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+    <ul class="focus clearfix">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+$(function () {
+    var index=0;
+    var len=$('.pics li').length;
+    $('.r_btn').on('click',function () {
+        clearInterval(timer);
+        index=index==len-1?0:++index;
+        $('.pics li').eq(index).fadeIn(500).siblings('li').hide();
+        selectFocus(index);
+    }).on('mouseout',function () {
+        clearInterval(timer);
+        timer=setInterval(autoPlay,1000);
+    })
+    $('.l_btn').on('click',function () {
+        clearInterval(timer);
+        index=index!=0?--index:len-1;
+        $('.pics li').eq(index).fadeIn(500).siblings('li').hide();
+        selectFocus(index);
+    }).on('mouseout',function () {
+        clearInterval(timer);
+        timer=setInterval(autoPlay,1000);
+    })
+    function autoPlay() {
+        index=index==len-1?0:++index;
+        $('.pics li').eq(index).fadeIn(500).siblings('li').hide();
+        selectFocus(index);
+    }
+    var timer=setInterval(autoPlay,1000);
 
+    //焦点选择
+    function selectFocus(index) {
+        $('.focus li').eq(index).addClass('active').siblings('li').removeClass('active');
+    }
+    $('.focus li').on('mouseover',function () {
+        clearInterval(timer);
+        var inx=$(this).index();
+        index=inx;
+        $('.pics li').eq(index).fadeIn(500).siblings('li').hide();
+        $('.focus li').eq(index).addClass('active').siblings('li').removeClass('active');
+    }).on('mouseout',function () {
+        timer=setInterval(autoPlay,1000);
+    })
+})
+</script>
 </body>
 </html>
