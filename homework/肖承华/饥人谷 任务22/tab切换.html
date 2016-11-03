@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+</head>
+<style>
+	body,html,ul {
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	.tabs:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.tabs li {
+		width: 300px;
+		text-align: center;
+		padding: 10px 0;
+		border: 1px solid #ccc;
+		float: left;
+		margin: 20px 0 0 0;
+	}
+	.panel {
+		width: 904px;
+		height: 200px;
+		border: 1px solid #ccc;
+		border-top: none;
+		display: none;
+	}
+	.tabs .active {
+		background-color: #ccc;
+	}
+	div.active {
+		display: block;
+	}
+</style>
+<body>
+	<ul class="tabs">
+		<li class="active">tab1</li>
+		<li>tab2</li>
+		<li>tab3</li>
+	</ul>
+	<div class="panel active">内容1</div>
+	<div class="panel">内容2</div>
+	<div class="panel">内容3</div>
+
+	<script>
+	var tools={
+			hasClass:function(el, cls){
+				var pattern=new RegExp('(\\s|^)'+cls+'(\\s|$)','g');
+			    return pattern.test(el.className);
+			},
+
+			addClass:function(el, cls){
+			    if (tools.hasClass(el, cls)) {
+			        return 
+			    }else{
+			        return  el.className+=' '+cls
+			    }
+			},
+			removeClass:function(el,cls){
+			   if (el.length && el.length > 0){ //如果删除对象是个数组 便利整个数组然后一一删除
+			   		for (var i = 0; i < el.length; i++) {
+			   			tools.singleRemoveClass(el[i],cls)
+			   		}
+			   }else{
+			   	tools.singleRemoveClass(el,cls)
+			   }
+			},
+			singleRemoveClass:function(el,cls){
+			    if (tools.hasClass(el, cls)) {
+			        return el.className=el.className.replace(cls,'');
+			    }else{
+			        return 
+			    }
+			},
+			indexOf:function(el){
+				var parent = el.parentElement, //根据传进来的事件元素得到父元素
+					siblings = parent.children; //在父元素身上得到事件元素全部的兄弟元素
+				for (var i = 0; i < siblings.length; i++) {
+					if(el===siblings[i]){return i;}//把事件元素和兄弟元素一一比较，找到自身 return出索引
+				}
+				return -1;
+			}
+		}
+		
+
+		var tabCt = document.querySelector('.tabs') //得到tab父元素
+		tabCt.addEventListener('mouseover',function(e){//利用事件代理监听所有子元素
+			var target = e.target , //得到事件的元素
+				tabs = tabCt.children, //得到tab的全部元素
+				index = tools.indexOf(target), // 得到事件点击元素的位置
+				panels = document.querySelectorAll('.panel'); //得到全部隐藏框
+			if (index>-1) { //当正确点击在tab上时
+				tools.removeClass(tabs,'active'); //把tab上active全部删除
+				tools.addClass(target,'active'); //在事件元素上添加active
+				tools.removeClass(panels,'active'); //把隐藏框的active全部删除
+				tools.addClass(panels[index],'active'); //根据时间元素的索引 在相应位置添加active
+			}
+		})
+
+
+	</script>
+</body>
+</html>
