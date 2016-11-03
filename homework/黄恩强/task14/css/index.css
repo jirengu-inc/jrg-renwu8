@@ -2,7 +2,7 @@
 * @Author: abc02
 * @Date:   2016-11-02 13:43:19
 * @Last Modified by:   abc02
-* @Last Modified time: 2016-11-03 20:02:46
+* @Last Modified time: 2016-11-03 20:28:52
 */
 @font-face {
   font-family: 'iconfont';  /* project id："173249" */
@@ -70,10 +70,13 @@ hr{
 .btn2:hover{
 	background-color:rgba(255,255,255,0.8);
 }
+html,body{
+	height: 100%;
+}
 #header{
 	background: url(../img/bg.jpg) 0 0 no-repeat;
 	background-size: cover;
-	height: 780px;
+	height: 100%;
 }
 .table{
 	display: table;
@@ -89,7 +92,7 @@ hr{
 }
 #header p{
 	font-size: 14px;
-	margin: 14px;
+	margin: 24px;
 }
 #content .about{
 	padding: 50px 0;
@@ -136,13 +139,13 @@ hr{
 #content .work ul li{
     float: left;
     width: 465px;
-    right: 305px;
+    height: 305px;
     margin-right: 15px;
     margin-bottom: 15px;
 }
 #content .work ul img{
 	width: 465px;
-	right: 305px;
+	height: 305px;
 }
 #content .work ul{
 	font-size: 0;
