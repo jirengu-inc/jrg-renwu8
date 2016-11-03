@@ -10,7 +10,7 @@
             height: 360px;
             position: relative;
             border: 1px solid blue;
-            margin-left: 300px;
+            /*margin-left: 300px;*/
             overflow: hidden;
         }
 
@@ -113,36 +113,39 @@
             'width': pics_items * item_width
         });//ul下的li个数
         var $rbtn = $('.r_btn'), $lbtn = $('.l_btn');
-        var curIdx=0;
+        var curIdx = 0;
         $rbtn.on('click', function () {
             next()
         })
 
-        
-        $lbtn.on('click',function () {
+
+        $lbtn.on('click', function () {
             prev();
         })
 
         function next(step) {
-            var step=step||1;
+            var step = step || 1;
             curIdx = (curIdx + step) % pics_items;
-            $pics.animate({'left':0-item_width*step},function () {
+            $pics.animate({'left': 0 - item_width * step}, function () {
                 $pics.append($pics.children().first());
-                $pics.css({'left':0});
+                $pics.css({'left': 0});
                 setBullt();
+                console.log('动画执行了');
             })
         }
+
         function prev(step) {
-            var step=step||1;
+            var step = step || 1;
             curIdx = (pics_items + curIdx - step) % pics_items;
             $pics.prepend($pics.children().last());
             $pics.css({'left': -item_width * step});
-            $pics.stop().animate({left: 0},function () {
+            $pics.stop().animate({left: 0}, function () {
                 setBullt();
             });
 
         }
-        $('.focus li').on('mouseover',function () {
+
+        $('.focus li').on('mouseover', function () {
 
             var idx = $(this).index();
             if (idx > curIdx) {
@@ -156,7 +159,7 @@
             $('.focus').find('li').removeClass('active').eq(curIdx).addClass('active');
 
         }
-        
+
     })
 </script>
 </body>
