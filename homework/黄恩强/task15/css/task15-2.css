@@ -1,0 +1,83 @@
+/*
+* @Author: abc02
+* @Date:   2016-11-04 20:57:58
+* @Last Modified by:   abc02
+* @Last Modified time: 2016-11-04 21:52:13
+*/
+/*reset*/
+html,body,p,h1,h2,h3,h4,h5,h6,div,ul,li{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+
+/*public*/
+.wrap{
+	margin: 0 auto;
+	width: 1000px;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#header,#content,#footer{
+	font-family: "Arial";
+	font-weight: bold;
+	text-align: center;
+}
+/*header*/
+html,body{
+	height: 100%;
+}
+#header{
+	height: 100%;
+	background: url(../img/header-bg.jpg) 0 0 no-repeat;
+	color:white;
+	position: relative;
+}
+#header .logo{
+	color: rgb(254,209,54);
+	font-family: "Freestyle Script";
+	font-size: 34px;
+	line-height:100px;
+	float:left;
+}
+#header .nav{
+	float: right;
+}
+#header .nav>li{
+	float: left;
+}
+#header .nav>li a{
+	color: white;
+	line-height: 100px;
+	padding: 0 20px;
+}
+#header .headline{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#header .headline p{
+	font-style: italic;
+	font-size: 28px;
+	margin: 50px 0;
+}
+#header .headline h1{
+	font-size: 58px;
+	margin: 50px 0;
+}
+#header .headline a{
+	color: white;
+	background-color: rgb(254,209,54);
+	padding: 18px 26px;
+	border-radius: 3px;
+	font-size: 16px;
+}
