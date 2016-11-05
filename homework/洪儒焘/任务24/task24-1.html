@@ -10,12 +10,14 @@
         <label for="input_pass">密码：</label> <input id="input_pass" name="password" type="password" placeholder="输入密码"/>
         <input id="btn" type="submit" value="Submit" />
 	</form>
+	<div class="content"></div>
 <script>
 	function ajax(opts) {
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange=function(){
 			if (xhr.readyState == 4 && xhr.status == 200) {
 					console.log(xhr.responseText);
+					document.getElementsByClassName('content')[0].innerHTML = xhr.responseText;
 			}
 		}
 		xhr.open(opts.type, opts.url, true);
