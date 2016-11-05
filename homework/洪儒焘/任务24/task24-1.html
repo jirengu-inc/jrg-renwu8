@@ -13,7 +13,7 @@
 <script>
 	function ajax(opts) {
 		var xhr = new XMLHttpRequest();
-		xhr.onreadystatechange()=function(){
+		xhr.onreadystatechange=function(){
 			if (xhr.readyState == 4 && xhr.status == 200) {
 					console.log(xhr.responseText);
 			}
@@ -27,8 +27,8 @@
         url: 'task24-1.php',   //接口地址
         type: 'get',               // 类型， post 或者 get,
         data: {
-            username: getElementById('input_username'),
-            password: getElementById('input_pass')
+            username: document.getElementById('input_username'),
+            password: document.getElementById('input_pass')
         },
         success: function(ret){
             console.log(ret);       // {status: 0}
