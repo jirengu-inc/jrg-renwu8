@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax</title>
+</head>
+<body>
+	<form action="xxx.php" method="post">
+        <label for="input_username">用户名：</label> <input id="input_username" name="username" type="text" placeholder="输入用户名" autofocus/>
+        <label for="input_pass">密码：</label> <input id="input_pass" name="password" type="password" placeholder="输入密码"/>
+        <input id="btn" type="submit" value="Submit" />
+	</form>
+<script>
+	function ajax(opts) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange()=function(){
+			if (xhr.readyState == 4 && xhr.status == 200) {
+					console.log(xhr.responseText);
+			}
+		}
+		xhr.open(opts.type, opts.url, true);
+		xhr.send();
+
+	}
+	document.querySelector('#btn').addEventListener('click', function(){
+    ajax({
+        url: 'task24-1.php',   //接口地址
+        type: 'get',               // 类型， post 或者 get,
+        data: {
+            username: getElementById('input_username'),
+            password: getElementById('input_pass')
+        },
+        success: function(ret){
+            console.log(ret);       // {status: 0}
+        },
+        error: function(){
+           console.log('出错了')
+        }
+    })
+});
+</script>
+</body>
+</html>
