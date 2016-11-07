@@ -13,7 +13,7 @@ html,body{
   height: 100%;
 }
 .layout{
-  width: 1400px;
+  width: 1300px;
   margin: 0 auto;
 }
 .text-center{
@@ -54,6 +54,7 @@ html,body{
   color: #777;
 }
 #nav{
+  width: 100%;
   position: fixed;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -64,9 +65,8 @@ html,body{
 }
 #header{
   width: 100%;
-  height: 90%;
+  height: 100%;
   background-image: url(../img/header-bg.jpg);
-  background-position: 0px;
   background-repeat: no-repeat;
 }
 #nav .layout h1{
@@ -117,7 +117,7 @@ html,body{
   margin-bottom: 200px;
 }
 #main .services .services-item{
-  width: 400px;
+  width: 366px;
   text-align: center;
 }
 #main .services .services-item .fa{
@@ -146,11 +146,11 @@ html,body{
   padding-bottom: 200px;
 }
 #main .portfolio ul{
-  margin-left: -100px;
+  margin-left: -50px;
 }
 #main .portfolio li{
   float: left;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 #main .portfolio .portfolio-item{
   margin-bottom: 50px;
@@ -203,10 +203,10 @@ html,body{
   z-index: -1;
 }
 #main .about .about-content .layout{
-  width: 1300px;
+  width: 1100px;
 }
 #main .about .about-content .time-line-content{
-  width: 495px;
+  width: 395px;
   padding-top: 10px;
 }
 #main .about .about-content .time-line-content h2{
@@ -248,7 +248,7 @@ html,body{
   height: 200px;
   border: 5px solid #eee;
   border-radius: 50%;
-  margin-left: 545px;
+  margin-left: 445px;
   line-height: 35px;
   background-color: #fed136;
   text-align: center;
@@ -270,7 +270,7 @@ html,body{
   margin-left: 100px;
 }
 #main .team .team-items .team-item{
-  width: 400px;
+  width: 366px;
 }
 #main .team .team-items .team-item .team-img{
   display: inline-block;
@@ -334,11 +334,11 @@ html,body{
   color: #222;
 }
 #main .contact .form-group{
-  width: 600px;
+  width: 550px;
   height: 100px;
 }
 #main .contact .form-control{
-  width: 600px;
+  width: 550px;
   height: 60px;
   font-size: 24px;
 }
@@ -347,12 +347,12 @@ html,body{
   float: left;
 }
 #main .contact .contact-form .textarea-wrap{
-  width: 600px;
+  width: 550px;
   margin-left: 100px;
   float: left;
 }
 #main .contact .contact-form .textarea-wrap textarea{
-  width: 600px;
+  width: 550px;
   height: 260px;
   font-size: 24px;
 }
@@ -363,14 +363,14 @@ html,body{
   padding: 20px 0;
 }
 #footer .copyright{
-  width: 400px;
+  width: 366px;
   float: left;
   font-size: 24px;
   line-height: 50px;
 }
 #footer .fa-icon{
   float: left;
-  width: 400px;
+  width: 366px;
   font-size: 50px;
   margin-left: 100px;
   margin-right: 100px;
@@ -385,7 +385,7 @@ html,body{
 #footer .other{
   float: left;
   font-size: 24px;
-  width: 400px;
+  width: 366px;
   text-align: right;
   line-height: 50px;
 }

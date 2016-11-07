@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-1-轮播1</title>
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        .container {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .img-list li a img {
+            width: 300px;
+            height: 200px;
+        }
+        .img-list {
+            position: absolute;
+        }
+        .img-list li {
+            position: absolute;
+            display: none;
+        }
+        .container .previous,
+        .container .next{
+            position: absolute;
+            background: #666;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            opacity: 0.7;
+        }
+        .container .previous {
+            top: 50%;
+            margin-top: -15px;
+            margin-left: 5px;
+        }
+        .container .next {
+            top: 50%;
+            left: 100%;
+            margin-left: -35px;
+            margin-top: -15px;
+        }
+        .container .previous a,
+        .container .next a{
+            color: black;
+        }
+        .container .previous:hover,
+        .container .next:hover {
+            opacity: 1;
+        }
+        .container .bottom-list {
+            position: absolute;
+            top: 100%;
+            margin-top: -20px;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+        .container .bottom-list li {
+            width: 15px;
+            height: 5px;
+            background: #666;
+            display: inline-block;
+            border-radius: 2px;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .container .bottom-list li.active {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container container1">
+    <ul class="img-list clear">
+        <li>
+            <a href="#">
+                <img src="1.jpeg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="2.png" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="3.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="9.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+    <div class="previous"><a href="#"> < </a> </div>
+    <div class="next"><a href="#"> > </a> </div>
+    <ul class="bottom-list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="container container2">
+<ul class="img-list clear">
+    <li>
+        <a href="#">
+            <img src="1.jpeg" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="2.png" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="3.jpg" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="9.jpg" alt="">
+        </a>
+    </li>
+</ul>
+<div class="previous"><a href="#"> < </a> </div>
+<div class="next"><a href="#"> > </a> </div>
+<ul class="bottom-list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</div>
+
+<div class="container container3">
+<ul class="img-list clear">
+    <li>
+        <a href="#">
+            <img src="1.jpeg" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="2.png" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="3.jpg" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="9.jpg" alt="">
+        </a>
+    </li>
+</ul>
+<div class="previous"><a href="#"> < </a> </div>
+<div class="next"><a href="#"> > </a> </div>
+<ul class="bottom-list">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</div>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    function doMultiple(container) {
+        var $parent = $(container);
+        var $imgList = $parent.find('.img-list');
+        var $previous = $parent.find('.previous');
+        var $next = $parent.find('.next');
+        var $bottomList = $parent.find('.bottom-list');
+        var imgLength = $imgList.children().length;
+
+        var index = 0;
+        var isAnimate = false;
+
+        function play(idx) {
+            if (isAnimate) return;
+            isAnimate = true;
+            $imgList.children().eq(index).fadeOut(500);
+            $imgList.children().eq(idx).fadeIn(500, function () {
+                isAnimate = false;
+            });
+            setBottom(idx);
+            index = idx;
+        }
+
+        function playNext() {
+            play((index + 1) % imgLength);
+        }
+
+        function playPrevious() {
+            play((index - 1 + imgLength) % imgLength);
+        }
+
+        function autoPlay() {
+            setInterval(function () {
+                playNext();
+            }, 2000);
+        }
+
+        function setBottom(idx) {
+            $bottomList.children().siblings().removeClass('active')
+                    .eq(idx).addClass('active');
+        }
+
+        play(0);
+        autoPlay();
+
+        $next.on('click', function () {
+            playNext();
+        });
+
+        $previous.on('click', function () {
+            playPrevious();
+        });
+
+        $bottomList.on('click', 'li', function () {
+            var idx = $(this).index();
+            play(idx);
+        });
+    }
+
+    doMultiple('.container1');
+    doMultiple('.container2');
+    doMultiple('.container3');
+
+
+</script>
+</body>
+</html>

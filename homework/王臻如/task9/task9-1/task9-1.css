@@ -1,0 +1,21 @@
+.btn{
+    font:24px "微软雅黑";
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #f36e41;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+          
+}
+.btn:hover{
+    background-color: #c14d21;      	  
+}
+.btn:active{
+    background-color: #e25f31;
+}

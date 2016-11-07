@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        .container
+        {
+            width:480px;
+            height:360px;
+            position: relative;
+            border: 1px solid blue;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        ul,li{
+            padding:0;
+            margin: 0;
+        }
+        .pics{
+            position: relative;
+            left:0;
+            top:0;
+        }
+        .pics li{
+            float: left;
+            position: absolute;
+            display: none;
+        }
+        .pics li:first-child{
+            display: block;
+        }
+        a{
+            display: block;
+            width:30px;
+            height:30px;
+            border-radius: 30px;
+            background:rgba(0,0,0,0.5);
+            text-align: center;
+            line-height:30px;
+            color:white;
+        }
+        .l_btn{
+            position: absolute;
+            left:0;
+            top:150px;
+        }
+        .r_btn{
+            position: absolute;
+            right:0;
+            top:150px;
+        }
+        .focus{
+            position: absolute;
+            left:150px;
+            bottom: 50px;
+        }
+        .focus li{
+            float: left;
+            width:40px;
+            height:5px;
+            margin-right: 10px;
+            background: greenyellow;
+        }
+        .focus .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="pics clearfix">
+        <li><img src="img/23.jpg" alt=""></li>
+        <li><img src="img/24.jpg" alt=""></li>
+        <li><img src="img/25.jpg" alt=""></li>
+        <li><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+    <ul class="focus clearfix">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="container">
+    <ul class="pics clearfix">
+        <li><img src="img/23.jpg" alt=""></li>
+        <li><img src="img/24.jpg" alt=""></li>
+        <li><img src="img/25.jpg" alt=""></li>
+        <li><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+    <ul class="focus clearfix">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="container">
+    <ul class="pics clearfix">
+        <li><img src="img/23.jpg" alt=""></li>
+        <li><img src="img/24.jpg" alt=""></li>
+        <li><img src="img/25.jpg" alt=""></li>
+        <li><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+    <ul class="focus clearfix">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        $.fn.runCarousel = function(){
+            var $ct = $(this),
+                    $items = $ct.find('.pics').children(),
+                    $pre = $ct.find('.l_btn'),
+                    $next = $ct.find('.r_btn'),
+                    $bullet = $ct.find('.focus'),
+                    imgWidth = $items.width();  //获取图片宽度
+            imgCount = $ct.children().length; //获取图片数量
+
+            var curIdx = 0; // 当前显示序号
+            var isAnimate = false;
+
+            $next.on('click', function() {
+                playNext();
+            });
+
+            $pre.on('click', function(){
+                playPre();
+            });
+
+            $bullet.find('li').on('click', function(){
+                var idx = $(this).index();
+                play(idx);
+            });
+
+            autoPlay();
+
+            function playNext(){
+                play( (curIdx+1)%imgCount );
+            }
+
+            function playPre(){
+                play( (imgCount+curIdx-1)%imgCount );
+            }
+
+            function play(idx){
+                if(isAnimate){
+                    stopAuto();
+                }
+                isAnimate = true;
+                $items.eq(curIdx).fadeOut(500);
+                $items.eq(idx).fadeIn(500, function(){
+                    isAnimate = false;
+                });
+                curIdx = idx;
+                setBullet();
+            }
+
+            function setBullet(){
+                $bullet.find('li').removeClass('active').eq(curIdx).addClass('active');
+            }
+
+            function stopAuto(){
+                clearInterval(clock);
+            }
+
+            function autoPlay(){
+                clock = setInterval(function(){
+                    playNext();
+                }, 2000);
+            }
+        };
+
+        $('.container').each(function(){
+            $(this).runCarousel();
+        });
+
+    })
+</script>
+</body>
+</html>

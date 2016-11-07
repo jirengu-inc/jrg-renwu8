@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    h1 {
+        padding: 0;
+        margin: 0;
+    }
+    
+    body {
+        padding: 0 10px;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    
+    #header {
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: pink;
+        margin-top: 10px;
+    }
+    
+    .nav {
+        height: 40px;
+        background: #feed97;
+        margin-top: 10px;
+        line-height: 40px;
+        padding-left: 20px;
+    }
+    
+    #content {
+        padding-left: 140px;
+        overflow: hidden;
+    }
+    
+    .aside {
+        position: relative;
+        padding-left: 20px;
+        padding-top: 20px;
+        width: 100px;
+        float: left;
+        margin-left: -100%;
+        left: -140px;
+        background: #99fe99;
+        height: 600px;
+    }
+    
+    .main {
+        width: 100%;
+        float: left;
+        background: #e26f6f;
+        height: 620px;
+    }
+    
+    .new {
+        padding: 20px;
+    }
+    
+    #footer {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #eea4cd;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>鲁西西的淘宝小屋</h1></div>
+    <div class="nav">女装>春款>打底衫针织裙</div>
+    <div id="content">
+        <div class="main">
+            <div class="new">春款上新，欢迎宝宝们选购O(∩_∩)O！</div>
+        </div>
+        <div class="aside">领券更划算！</div>
+    </div>
+    <div class="nav">女装>夏款>热裤连衣裙</div>
+    <div id="content">
+        <div class="main">
+            <div class="new">夏款上新，欢迎宝宝们选购O(∩_∩)O！</div>
+        </div>
+        <div class="aside">猛戳领券！</div>
+    </div>
+    <div class="nav">女装>秋款>风衣风情</div>
+    <div id="content">
+        <div class="main">
+            <div class="new">秋款上新，欢迎宝宝们选购O(∩_∩)O！</div>
+        </div>
+        <div class="aside">衣帽鞋服！</div>
+    </div>
+    <div class="nav">女装>冬款>皮草尝鲜</div>
+    <div id="content">
+        <div class="main">
+            <div class="new">冬款上新，宝宝们不要走呀O(∩_∩)O！</div>
+        </div>
+        <div class="aside">满减更优惠！</div>
+    </div>
+    <div id="footer">联系电话：67678891&nbsp;&nbsp;在线客服:鲁西西,皮皮鲁(24小时在线)</div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var len = $('.nav').length;
+        var realtops = [];
+        $('.nav').each(function(index, item) {
+            realtops[index] = $(this).offset().top;
+        });
+
+        var real_top = $('.nav').eq(0).offset().top;
+        var old_width = $('.nav').width();
+        var old_height = $('.nav').height();
+
+        var setnew = false;
+        var removenew = false;
+
+        function check(tops, height) {
+            for (var i = 0; i < tops.length; i++) {
+                if (height < tops[i]) {
+                    return i;
+                }
+
+            }
+            return tops.length;
+        }
+
+        function resettext(tops, height) {
+            var index = check(tops, height);
+
+            $('.nav').each(function() {
+                if ($(this).data('new') == true) {
+                    $(this).text($('.nav').eq(index - 1).text());
+                }
+            });
+        }
+        $(document).on('scroll', function() {
+            var realheight = $(document).scrollTop();
+            if (realheight > real_top) {
+                resettext(realtops, realheight);
+
+                if (setnew) {
+                    return;
+                }
+                var newnav = $('.nav').eq(0).clone();
+                newnav.data('new', true);
+                newnav.css({
+                    position: 'fixed',
+                    width: old_width,
+                    height: old_height,
+                    left: '10px',
+                    top: '-10px'
+                });
+                $('body').append(newnav);
+                resettext(realtops, realheight);
+                setnew = true;
+                removenew = false;
+            } else {
+                resettext(realtops, realheight);
+                if (removenew) {
+                    return;
+                }
+                $('.nav').each(function() {
+                    if ($(this).data('new') == true) {
+                        $(this).remove();
+                    }
+                });
+                removenew = true;
+                setnew = false;
+            }
+
+
+
+
+        });
+    });
+    </script>
+</body>
+
+</html>

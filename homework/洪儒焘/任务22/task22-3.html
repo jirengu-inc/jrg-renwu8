@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。 -->
+	<ul class="ct">
+	    <li data-img="1.jpg">鼠标放置查看图片1</li>
+	    <li data-img="2.jpg">鼠标放置查看图片2</li>
+	    <li data-img="3.jpg">鼠标放置查看图片3</li>
+	</ul>
+	<div class="img-preview"></div>
+<script>
+	var ct = document.getElementsByClassName('ct')[0],
+		imgDiv =  document.getElementsByClassName('img-preview')[0];
+		var img = document.createElement('img');
+		imgDiv.appendChild(img);
+
+	ct.addEventListener('mouseover',function(e){
+		// img.setAttribute('src',e.target.getAttribute('data-img'));
+		img.src = e.target.getAttribute('data-img');
+	})
+</script>
+
+</body>
+</html>

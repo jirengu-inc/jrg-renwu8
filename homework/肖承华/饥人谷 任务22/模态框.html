@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>模态框</title>
+</head>
+<style>
+	a {
+		color: #333;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	h3,p {
+		padding: 0;
+		margin: 0;
+	}
+	.btn-wrap .btn-modal {
+		padding: 4px 15px;
+		border: 1px solid #ccc;
+		outline: none;
+		border-radius: 4px;
+	}
+	.btn-wrap .btn-modal:active{
+		background-color: #666;
+		color: #fff;
+	}
+	.modal-dialog {
+		position: relative;
+		display: none;
+	}
+
+	.modal-dialog .layer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: #666;
+		opacity: 0.4;
+		z-index: 100;
+	}
+	.modal-dialog .modal-ct {
+		border: 1px solid #ccc;
+		border-radius: 8px;
+		background-color: #fff;
+		width: 30%;
+		height: 32%;
+		position: fixed;
+        margin:auto; 
+		left:0; 
+		right:0; 
+		top:0; 
+		bottom: 0;
+		z-index: 200;
+	}
+	.modal-dialog .modal-head {
+		padding: 10px;
+		border-bottom: 1px solid #ccc;
+	}
+	.modal-dialog .modal-head:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.modal-dialog .modal-head h3 {
+		float: left;
+	}
+	.modal-dialog .colse {
+		float: right;
+	}
+	.modal-dialog .modal-body {
+		padding: 10px 10px;
+	}
+	.modal-dialog .modal-body p {
+		padding: 15px 0;
+	}
+	.modal-dialog .modal-footer {
+		padding: 10px 10px;
+		border-top: 1px solid #ccc;
+		text-align: right;
+	}
+	.modal-dialog .modal-footer a {
+		padding: 0 10px;
+	}
+</style>
+<body>
+	<div class="btn-wrap">
+		<button class="btn-modal">点我</button>
+	</div>
+
+	<div class="modal-dialog">
+		<div class="layer"></div>
+		<div class="modal-ct">
+			<div class="modal-head">
+				<h3>我是标题</h3>
+				<a href="JavaScript:;" class="colse">×</a>
+			</div>
+			<div class="modal-body">
+				<p>我是内容</p>
+				<p>我是内容</p>
+			</div>
+			<div class="modal-footer">
+				<a href="JavaScript:;" class="btn-cancel">取消</a>
+				<a href="JavaScript:;" class="btn-confirm">确定</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var btnModal = document.querySelector('.btn-modal'),
+			modalDialog = document.querySelector('.modal-dialog');
+			colse = document.querySelector('.colse'),
+			layer = document.querySelector('.layer'),
+			cancel = document.querySelector('.btn-cancel'),
+			confirm = document.querySelector('.btn-confirm');
+
+		// btnModal.addEventListener('click',function(){
+		// 	showModa();
+		// });
+		// colse.addEventListener('click',function(){
+		// 	hideModa();
+		// });
+		// cancel.addEventListener('click',function(){
+		// 	hideModa();
+		// });
+		// layer.addEventListener('click',function(){
+		// 	hideModa();
+		// });
+
+		btnModal.addEventListener('click',function(e){
+			//e.stopPropagation(); 如果绑定在body的话需要阻止事件继续冒泡，不然body监听到了之后会直接执行隐藏
+			showModa();
+		})
+		modalDialog.addEventListener('click',function(e){
+			if (hasClass(e.target,'layer')||hasClass(e.target,'btn-cancel')||hasClass(e.target,'colse')) {
+				hideModa();
+			}
+		})
+
+		function showModa(){
+			modalDialog.style.display = 'block';
+		}
+		function hideModa(){
+			modalDialog.style.display = 'none';
+		}
+		function hasClass(el, cls){
+			var pattern=new RegExp('(\\s|^)'+cls+'(\\s|$)','g');
+			    return pattern.test(el.className);
+		}
+	
+	</script>
+</body>
+</html>

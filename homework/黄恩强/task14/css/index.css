@@ -1,0 +1,203 @@
+/*
+* @Author: abc02
+* @Date:   2016-11-02 13:43:19
+* @Last Modified by:   abc02
+* @Last Modified time: 2016-11-03 20:28:52
+*/
+@font-face {
+  font-family: 'iconfont';  /* project id："173249" */
+  src: url('//at.alicdn.com/t/font_1kgw2xd9iq060f6r.eot');
+  src: url('//at.alicdn.com/t/font_1kgw2xd9iq060f6r.eot') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1kgw2xd9iq060f6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1kgw2xd9iq060f6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1kgw2xd9iq060f6r.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:100px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.iconfont-info{
+    font-family:"iconfont" !important;
+    font-size:18px;font-style:normal;
+    vertical-align: sub;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.info-icon{
+    font-family:"iconfont" !important;
+    font-size:40px;font-style:normal;
+    color: rgb(51,122,183);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wrap{
+	margin: 0 auto;
+	width: 960px;
+	text-align: center;
+	font-family:"Lucida Sans";
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+hr{
+	border: 1px solid #eee;
+	max-width: 100px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.btn{
+	color: white;
+	background-color: rgba(155,155,155,0.5);
+	padding: 8px 8px;
+}
+.btn:hover{
+	background-color:rgba(155,155,155,0.8);
+}
+.btn2{
+	color: black;
+	background-color: rgba(255,255,255,1);
+	padding: 8px 8px;
+	font-size: 8px;
+}
+.btn2:hover{
+	background-color:rgba(255,255,255,0.8);
+}
+html,body{
+	height: 100%;
+}
+#header{
+	background: url(../img/bg.jpg) 0 0 no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+.table{
+	display: table;
+	height: 100%;
+}
+.vertical-text-center{
+	display: table-cell;
+	vertical-align: middle;
+}
+#header h1{
+	font-size: 40px;
+	margin: 24px;	
+}
+#header p{
+	font-size: 14px;
+	margin: 24px;
+}
+#content .about{
+	padding: 50px 0;
+}
+#content .about h2{
+	font-size: 22px;
+	margin-bottom: 22px;
+}
+#content .about p span{
+	color: rgb(91,152,197);
+	cursor: pointer;
+}
+#content .services{
+	background-color: rgb(51,122,183);
+	color: white;
+	padding: 50px 0;
+}
+#content .services ul>li{
+	float: left;
+	width:220px;
+	padding:10px;
+}
+#content .services ul>li>h4{
+	font-style: 700;
+	margin: 10px 0;
+}
+#content .services ul>li>p{
+	font-size: 12px;
+	margin: 10px 0;
+}
+#content .paragraph{
+	background: url(../img/callout.jpg) 0 0 no-repeat;
+	background-size: cover;
+	height: 550px;
+}
+#content .paragraph h1{
+	color: white;
+	font-size: 50px;
+}
+#content .work h2{
+	margin-top: 80px;
+	margin-bottom: 20px;
+}
+#content .work ul li{
+    float: left;
+    width: 465px;
+    height: 305px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+#content .work ul img{
+	width: 465px;
+	height: 305px;
+}
+#content .work ul{
+	font-size: 0;
+	margin-bottom: 40px;
+}
+
+#content .paragraph-btn{
+	background-color: rgb(51,122,183);
+	color: white;
+	margin-top: 50px;
+	padding: 50px 0;
+}
+#content .paragraph-btn h2{
+	margin-bottom: 50px;
+	font-size: 20px;
+}
+.par-btn-white{
+	color: black;
+	background-color: rgba(255,255,255,1);
+	padding: 8px 8px;
+	margin: 0 15px;
+}
+.par-btn-white:hover{
+	background-color: rgba(255,255,255,0.5);
+}
+.par-btn-black{
+	color: white;
+	background-color: rgba(0,0,0,0.5);
+	padding: 8px 8px;
+	margin: 0 15px;
+}
+.par-btn-black:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+#footer .contact{
+	margin: 120px 0;
+	font-size: 12px;
+}
+#footer .contact h3{
+	font-size: 15px;
+	margin-bottom: 12px;
+}
+#footer .contact-info{
+	margin-top: 10px;
+}
+#footer .contact-inco{
+	text-align: center;
+}
+#footer .contact-inco>li{
+	display: inline-block;
+	margin: 10px;
+}
+#footer .contact-inco span:hover{
+	color: rgba(51,122,183,0.5);;
+}

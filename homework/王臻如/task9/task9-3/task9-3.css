@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'iconfont';  
+  src: url('http://at.alicdn.com/t/font_nb195xp79rs8m2t9.eot');
+  src: url('http://at.alicdn.com/t/font_nb195xp79rs8m2t9.eot') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_nb195xp79rs8m2t9.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_nb195xp79rs8m2t9.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_nb195xp79rs8m2t9.svg#iconfont') format('svg');
+}
+.iconfont{
+	display: inline-block;
+	height: 40px;
+	font-size: 30px;
+/*    border: 1px solid red;*/
+    font-family: iconfont;
+}
+.iconfont:hover{
+	color: #a663be;
+    cursor: pointer;
+}
