@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>task27-4-全屏无缝轮播</title>
+    <style>
+        html,body,ul,li,p{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        html, body, .container, .container .carousel, .container .img-ct{
+            height: 100%;
+            width: 100%;
+        }
+        .carousel{
+            position: relative;
+            overflow: hidden;
+        }
+        .container .img-ct{
+            position: absolute;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .container .item{
+            position: relative;
+            float: left;
+            height: 100%;
+        }
+        .container .description{
+            position: absolute;
+            width: 600px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container .cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-size: cover;
+            opacity: 0.8;
+        }
+
+        .bottom-list li{
+            width: 15px;
+            height: 5px;
+            background: #666;
+            display: inline-block;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .bottom-list {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            margin-top: -25px;
+        }
+        .bottom-list li.active {
+            background: white;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="carousel">
+        <ul class="img-ct clear">
+            <li class="item">
+                <div class="cover" data-bg-img="10.jpg"></div>
+                <div class="description">
+                    <p>落霞与孤鹜齐飞</p>
+                    <p>秋水共长天一色</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="11.jpg"></div>
+                <div class="description">
+                    <p>孤村落日残霞</p>
+                    <p>轻烟老树寒鸦</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="12.jpg"></div>
+                <div class="description">
+                    <p>君问归期未有期</p>
+                    <p>巴山夜雨涨秋池</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="13.jpg"></div>
+                <div class="description">
+                    <p>孤舟蓑笠翁</p>
+                    <p>独钓寒江雪</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="bottom-list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    var $ct = $('.img-ct');
+    var $items = $ct.children();
+    var $bottomList = $('.bottom-list');
+    var imgWidth = $(window).width();
+    var imgCount = $ct.children().size();
+
+    $ct.prepend($items.last().clone());
+    $ct.append($items.first().clone());
+    $ct.find('.item').css('width', imgWidth);
+    $ct.find('.cover').css('width', imgWidth);
+    imgRealCount = $ct.children().size();
+    $ct.css({left: -imgWidth, width: imgRealCount * imgWidth})
+
+    var curIdx = 0;
+    var isAnimate = false;
+
+    function playNext(idx){
+        var idx = idx || 1;
+
+        if(!isAnimate){
+            isAnimate = true;
+            setBg(curIdx + 2);
+            $ct.animate({left: '-='+(imgWidth * idx)},function(){
+                curIdx = (curIdx + idx) % imgCount;
+                if(curIdx === 0){
+                    $ct.css({left: -imgWidth});;
+                }
+                isAnimate = false;
+                setBullet();
+            });
+        }
+    }
+
+    function playPre(idx){
+        var idx = idx || 1;
+        if(!isAnimate){
+            isAnimate = true;
+            setBg(curIdx);
+            $ct.animate({left: '+='+(imgWidth * idx)}, function(){
+                curIdx = (imgCount + curIdx - idx) % imgCount;
+                if(curIdx === (imgCount - 1)){
+                    $ct.css({left: 0-imgWidth * imgCount});;
+                }
+                isAnimate = false;
+                setBullet();
+            });
+        }
+    }
+
+    function autoPlay(){
+        setInterval(function(){
+            playNext();
+        }, 3000);
+    }
+
+    function setBg(idx){
+        var idx = idx || 0;
+        var $node = $ct.children().eq(idx);
+        var $cover = $node.find('.cover')
+        var imgUrl = $cover.attr('data-bg-img');
+
+        if($node.data('isBgSet')) {
+            return;
+        } else {
+            $cover.css('background-image', 'url(' + imgUrl + ')');
+            $node.data('isBgSet', true);
+        }
+
+    }
+
+    function setBullet(){
+        $bottomList.children().removeClass('active').eq(curIdx).addClass('active');
+    }
+
+    $bottomList.find('li').on('click', function(){
+        var idx = $(this).index();
+        if(idx > curIdx){
+            playNext(idx - curIdx);
+        }else if(idx < curIdx){
+            playPre(curIdx - idx);
+        }
+    });
+
+    setBg(1);
+    autoPlay();
+</script>
+</body>
+</html>
