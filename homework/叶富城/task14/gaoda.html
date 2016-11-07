@@ -1,0 +1,467 @@
+<<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <link rel="stylesheet" type="text/css" href="./iconfont.css">
+  <style>
+        *{
+  padding:0;
+  margin:0;
+  font-family:"微软雅黑";
+}
+#header{
+  height:800px;
+  background-image:url(https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/500fd9f9d72a60590017fd6c2a34349b033bba44.jpg);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+}
+.table{
+  width:950px;
+  margin:0 auto;
+  display:table;
+  height:800px;
+}
+#header .layout{ 
+  display:table-cell;
+  vertical-align:middle;
+}
+#header .cover{
+  text-align:center;
+}
+#header .cover h2{
+  font-size:70px;
+  margin:10px;
+  color:#fff;
+}
+#header .cover p{
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+#header .cover a{
+  text-decoration:none;
+  background-color:#2f4f4f;
+  color:white;
+  opacity:0.7;
+  padding:30px;
+  display:inline-block;
+  border-radius:15px;
+  margin:10px;
+  transition: 0.75s;
+}
+#header .cover a:hover{
+  opacity:1;
+}
+#content .about{
+  padding:40px 0;
+}
+#content  .about .container{
+  width:950px;
+  margin:0 auto;
+}
+.about .container>h2{
+  text-align:center;
+}
+.about .container>h4{
+  text-align:center;
+  font-size:18px;
+}
+.intro{
+  height:400px;
+  background-color:#6b928d;
+}
+#content .intro>h2{
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-bottom: 3px solid white;
+    width: 200px;
+}
+.intro-list:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.intro .intro-list{
+  width:1200px;
+  margin:0 auto;
+}
+.intro .intro-list>li{
+    list-style: none;
+    float: left;
+    margin: 0px 0px 0px 160px;
+    padding-top: 50px;
+}
+.intro-image1{
+    background-image: url(https://file.lnw.co.th/br4yj5.png);
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-size: cover;
+}
+.intro-image2{
+    background-image: url(http://csssprites.com/results/a531d51d17a2f635d1507dd133c36a48/result.png);
+    background-repeat: no-repeat;
+    background-position: 15px 22px;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+.intro-image3{
+        background-image: url(http://csssprites.com/results/a531d51d17a2f635d1507dd133c36a48/result.png);
+    background-repeat: no-repeat;
+    background-position: 15px -65px;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+.intro-image4{
+        background-image: url(http://csssprites.com/results/a531d51d17a2f635d1507dd133c36a48/result.png);
+    background-repeat: no-repeat;
+    background-position: 15px -149px;
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+.intro-list h2{
+    margin: 10px 0px;
+    text-align: center;
+}
+.intro-list p{
+    margin: 10px 0px;
+    text-align: center;
+}
+.intro-list a{
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    margin: 15px 0;
+    display:block;
+    background-color: rgba(20,68,106,0.6);
+    border-radius: 5px;
+    transition: 0.8s;
+    text-align:center;
+}
+.intro-list a:hover{
+  background-color: rgba(20,68,106,0.9);
+}
+.photograph{
+  height:500px;
+  background-image:url(http://wallpapercave.com/wp/gawSVqz.png);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  margin-bottom:20px;
+}
+.photograph .aside{
+  width:250px;
+  height:200px;
+  background:rgba(0,0,0,0.1);
+  border-radius:20px;
+  position:relative;
+  top:130px;
+  float:left;
+  transition:0.8s;
+}
+.aside:hover{
+  background:rgba(0,0,0,0.8);
+  color:white;
+}
+.aside>p{
+  font-size:30px;
+  font-weight:bold;
+  font-family:LiSu;
+  padding:20px;
+}
+.photograph .extra{
+  width:250px;
+  height:200px;
+  background:rgba(0,0,0,0.1);
+  border-radius:20px;
+  position:relative;
+  top:130px;
+  float:right;
+  transition:0.8s;
+}
+.extra:hover{
+  background:rgba(0,0,0,0.8);
+  color:white;
+}
+.extra>p{
+  font-size:30px;
+  font-weight:bold;
+  font-family:LiSu;
+  padding:20px;
+}
+#content .story{
+  height:1050px;
+}
+.layout{
+   width:960px;
+   margin:0 auto;
+}
+.story .layout>h2{
+    width: 300px;
+    border-bottom: 3px solid #000;
+    padding:20px 0px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 80px;
+}
+.story ul{
+  list-style: none;
+    margin-left: 80px;
+    overflow: auto;
+}
+.four-story>li:nth-child(1){
+  margin-top:50px;
+  background-image:url(http://i2.hdslb.com/video/50/50c5372ffddfb2ecbe314cd7744917e7.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.four-story>li:nth-child(2){
+  margin-top:50px;
+  background-image:url(http://img.ivsky.com/img/bizhi/pre/201108/02/gundam_00-157.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.four-story>li:nth-child(3){  
+  margin-top:25px;
+  background-image:url(http://img1.gamersky.com/image2016/03/20160324_yza_301_2/gamersky_03origin_05_20163241540BE0.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.four-story>li:nth-child(4){
+   margin-top:25px;
+  background-image:url(http://ecx.images-amazon.com/images/I/81TuctHvlZL._SL1500_.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.four-story>li{
+  float:left;
+  margin-right:25px;
+  height:360px;
+  width:390px;
+}
+.more{
+  width:900px;
+  margin:0 auto;
+  text-align:center;
+}
+.more>a{
+  display:inline-block;
+  width: 120px;
+  line-height: 40px;
+  height:40px;
+  text-align:center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #596A71;
+  margin-top:40px;
+  opacity: 0.6;
+  transition:0.8s;
+}
+.more>a:hover{
+  opacity:0.9;
+}
+#content .purchase{
+  padding:100px 0px;
+  background-image:url(http://pic.qiantucdn.com/58pic/11/65/58/81i58PICq6e.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+}
+.purchase .layout{
+  text-align:center;
+  font-size:20px;
+  
+}
+.purchase .layout>h3{
+  color:white;
+}
+.purchase .layout>a{
+  text-decoration:none;
+  color:#fff;
+  background-color:black;
+  opacity:0.5;
+  padding:10px;
+  position:relative;
+  top:50px;
+  margin:0 20px;
+  transition:0.8s;
+}
+.purchase .layout>a:hover{
+  opacity:1;
+}
+ #footer{
+   padding: 100px;
+   text-align: center;
+}
+#footer h3{
+   line-height: 70px;
+}
+#footer p:nth-child(3){
+   margin-bottom: 10px;
+}
+#footer .iconfont-1 {
+   font-family:"iconfont" !important;
+   font-size:18px;
+   font-style:normal;
+   -webkit-font-smoothing: antialiased;
+   -webkit-text-stroke-width: 0.2px;
+   -moz-osx-font-smoothing: grayscale;
+   cursor: default;
+}
+#footer a{
+   text-decoration: none;
+   color: #2864A8;
+   margin-left: 10px;
+}
+#footer a:hover{
+   color:#23527c;
+}
+.contact{
+    margin-top: 30px;
+    line-height: 70px;
+    text-align: center;
+}
+@font-face {
+    font-family: 'iconfont';  /* project id："176646" */
+    src: url('//at.alicdn.com/t/font_lm1omk5nr48cl3di.eot');
+    src: url('//at.alicdn.com/t/font_lm1omk5nr48cl3di.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_lm1omk5nr48cl3di.woff') format('woff'),
+    url('//at.alicdn.com/t/font_lm1omk5nr48cl3di.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_lm1omk5nr48cl3di.svg#iconfont') format('svg');
+}
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:70px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;            
+}
+#footer .layout .phone,.letter{
+  font-size:16px;
+}
+#footer .contact .weichat{
+  position:relative;
+  top:13px;
+}
+.line{
+    width: 150px;
+    height: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+
+  </style>
+</head>
+<body>
+<div id="header">
+ <div class="ct table">
+  <div class="layout cover">
+    <h2>Gundam</h2>
+    <p>高达，站立于大地之上</p>
+    <a href="#">点击详解</a>
+  </div>
+ </div>
+</div>
+<div id="content">
+  <div class="about">
+    <div class="container">
+     <h2>战争的意义</h2>
+      <h4>人类存在的根源，即使尽知这些，还是无法改变人心。拥有者不会理解未拥有者的心情，未拥有者则嫉妒拥有者。不同的人，与自己不同的人，但还有本应有爱的人。但炮火无法传达这份感情。<h4>
+    </div>
+  </div>
+      <div class="intro">
+        <h2>游戏介绍</h2>
+        <ul class="intro-list">
+        <li>
+          <div class="intro-image1"></div>
+          <h2>机体</h2>
+          <p>选出你的高达</p>
+           <a href="#">机体介绍</a>
+        </li>
+        <li>
+          <div class="intro-image2"></div>
+          <h2>战斗场景</h2>
+          <p>VR逼真体验</p>
+           <a href="#">场景介绍</a>
+        </li>
+        <li>
+          <div class="intro-image3"></div>
+          <h2>剧情</h2>
+          <p>拯救崩坏的世界</p>
+           <a href="#">剧情介绍</a>
+        </li>
+        <li>
+          <div class="intro-image4"></div>
+          <h2>人物选择</h2>
+          <p>实现你的主角梦</p>
+           <a href="#">人物介绍</a>
+        </li>
+        </ul>
+        </div>
+       <div class="photograph">
+       <div class="aside">
+       <p>地球是人类的摇篮，但人类不可能永远生活在摇篮中</p>
+       </div>
+       <div class="extra">
+       <p>不可以逃避！活下去！活下去也是一种战斗</p>
+       </div>
+       </div>
+      <div class="story">
+        <div class="layout">
+        <h2>游戏版本</h2>
+        </div>
+        <div class="layout">
+           <ul class="four-story">
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+           </ul>
+        </div>
+        <div class="more">
+           <a href="#">查看更多</a>
+        </div>
+        </div>
+      <div class="purchase">
+        <div class="layout">
+         <h3>高达无双（可能性之兽——Unicon）</h3> 
+         <a href="#">下载链接</a>
+          <a href="#">试玩链接</a>
+        </div>
+      </div>
+  </div>
+  <div id="footer">
+            <div class="layout">
+            <h3>联系信息</h3>
+            <p>3481 Melrose Place </p>
+            <p>Beverly Hills, CA 90210</p>
+            <p><i class="iconfont phone">&#xe600;</i>(123) 456-7890</p>
+            <i class="iconfont letter">&#xe664;</i><a href="#">name@example.com</a>
+            <div class="contact">
+                <a href="#"><i class="iconfont facebook">&#xe616;</i></a>
+                <a href="#"><i class="iconfont weichat">&#xe632;</i></a>
+                <a href="#"><i class="iconfont github">&#xe69f;</i></a>
+            </div>
+            <div class="line"></div>
+            <p>Copyright &copy; hunger 2016</p>
+            </div>
+        </div>     
+</body>
+</html>
