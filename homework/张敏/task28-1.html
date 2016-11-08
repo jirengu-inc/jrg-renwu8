@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stickup效果制作</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 1000%;
+        }
+
+        .header {
+            height: 200px;
+            background-color: red;
+        }
+
+        .aside {
+            width: 100px;
+            height: 800px;
+            background-color: greenyellow;
+            border: 1px solid black;
+        }
+
+        .footer {
+            height: 200px;
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">我是头部</div>
+<div class="aside">我是侧边栏</div>
+<div class="footer">我是底部</div>
+<script>
+    $(function () {
+        $.fn.stick = function () {
+            var $cur=this;
+            var cw = $cur.width(),
+                    ch = $cur.height(),
+                    ct = $cur.offset().top,
+                    cl = $cur.offset().left;
+
+            var $odiv = $cur.clone()
+                    .css({'display': 'none', 'visibility': 'hidden'})
+                    .insertBefore($cur);
+
+            $(window).on('scroll', function () {
+                var scrollTop = $(this).scrollTop();
+                if (scrollTop > ct) {
+                    //如果滚动条的滚动距离大于了被选中对象的top值，说明应该吸顶了
+                    if(!isfixed()){
+                        setfixed()
+                    }
+                }else{
+                    if(isfixed()){
+                        unsetfiexed();
+                    }
+                }
+            })
+            //检测是否固定定位
+            function isfixed() {
+                return $cur.data('data-is-fixed');
+            }
+
+            //设置固定定位
+            function setfixed() {
+                $cur.data('data-is-fixed', true)
+                        .css({
+                            'position': 'fixed',
+                            'top': 0,
+                            'left': cl,
+                            'width': cw,
+                            'height': ch,
+                            'z-index': 999
+                        })
+                $odiv.show();
+            }
+
+            //删除固定定位
+            function unsetfiexed() {
+                $cur.data('data-is-fixed', false)
+                        .removeAttr('style');
+                $odiv.hide();
+                console.log('1313131313');
+            }
+        }
+
+        $('.footer').stick();
+
+    })
+</script>
+</body>
+</html>

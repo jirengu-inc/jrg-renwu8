@@ -145,6 +145,7 @@
 
             }
             $pics.stop().animate({'left': index * item_width});
+            console.log('动画执行了额');
             var data_id=$pics.find('li').eq(-index).attr('data-id');
             $('.focus li').eq(data_id).addClass('active').siblings('li').removeClass('active');
         })
@@ -158,6 +159,7 @@
             }
 
             $pics.stop().animate({'left': index * item_width});
+            console.log('动画执行了额');
             var data_id=$pics.find('li').eq(-index).attr('data-id');
             $('.focus li').eq(data_id).addClass('active').siblings('li').removeClass('active');
         })
