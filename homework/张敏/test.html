@@ -27,9 +27,17 @@
 <div>嘎嘎嘎</div>
 <script>
     $(function () {
-        $('div').each(function () {
-            console.log(this);
-        })
+       var obj={
+          init:function () {
+              console.log(this);
+              //this.$aa='fffsfsffsf';
+          },
+           init2:function () {
+               console.log('sfsssfsfsf');
+           }
+       };
+        obj.init();
+
     })
 </script>
 
