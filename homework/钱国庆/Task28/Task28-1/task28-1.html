@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-1-stickup</title>
+    <style>
+        html, body, ul, li, div {
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width: 90%;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        #header {
+            background: red;
+            padding: 30px;
+        }
+        #content {
+            margin-top: 20px;
+        }
+        .nav {
+            background: blue;
+            height: 50px;
+        }
+        .content-div {
+            border: 10px solid #ccc;
+            height: 800px;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .aside {
+            width: 100px;
+            background: green;
+            float: left;
+            height: 250px;
+        }
+        .main {
+            padding: 10px;
+            float: left;
+        }
+        #footer {
+            background: black;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        header
+    </div>
+    <div id="content">
+        <div class="nav">nav</div>
+        <div class="content-div clear">
+            <div class="aside">
+                aside
+            </div>
+            <div class="main">
+                main
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        footer
+    </div>
+</div>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $.fn.stick = function () {
+        var $current = this;
+        var currentWidth = $current.width();
+        var offsetTop = $current.offset().top;
+        var offsetLeft = $current.offset().left;
+
+        var $cloneForFixed = $current.clone().css({opacity: 0})
+                    .insertBefore($current).hide();
+
+        var isFixed = false;
+
+        $(window).on('scroll', function () {
+            var currentTop = $(this).scrollTop();
+            console.log(currentTop);
+            if (currentTop > offsetTop) {
+                if (!isFixed) {
+                    setFixed();
+                    isFixed = true;
+                }
+            } else {
+                if (isFixed) {
+                    unFixed();
+                    isFixed = false;
+                }
+            }
+        });
+
+        function setFixed() {
+            $cloneForFixed.css({
+                position: 'fixed',
+                top: 0,
+                left: offsetLeft,
+                width: currentWidth,
+                opacity: 1
+            });
+            $cloneForFixed.show();
+        }
+
+        function unFixed() {
+            $cloneForFixed.removeAttr('style');
+            $cloneForFixed.hide();
+        }
+    }
+
+    $('.nav').stick();
+</script>
+</body>
+</html>
