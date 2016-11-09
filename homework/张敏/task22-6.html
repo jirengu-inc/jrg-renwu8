@@ -15,7 +15,10 @@
 
         #mask {
             background-color: rgba(0,0,0,0.4);
-            /*opacity: 0.4;*/
+            position: absolute;
+            left:0;
+            top:0;
+            z-index: 2;
         }
 
         #dialog {
@@ -25,6 +28,7 @@
             border: 1px solid black;
             display: none;
             background: white;
+            z-index: 3;
         }
 
         .content {
@@ -91,8 +95,9 @@
         var dialog = document.getElementById('dialog');
         var btn = document.getElementById('btn');
 
+        var mask=null;
         btn.onclick = function (e) {
-            var mask = document.createElement('div');
+            mask = document.createElement('div');
             mask.id = 'mask';
             document.body.appendChild(mask);
             var cw = document.documentElement.clientWidth || document.body.clientWidth;
@@ -109,9 +114,11 @@
 
         close.onclick = function () {
             dialog.style.display='none';
+            document.body.removeChild(mask);
         }
         btncancel.onclick = function () {
             dialog.style.display='none';
+            document.body.removeChild(mask);
         }
     }
 
