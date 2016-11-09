@@ -4,14 +4,16 @@
 function getIntv (str) {
   var nowtime = Date.now();
   var fut = Date.parse(str);
-  var dtime,result;
+  var dtime = Math.abs(fut-nowtime);
+  var day = Math.floor(dtime/(24*3600000));
+  var hour = Math.floor((dtime-day*24*3600000)/3600000);
+  var min = Math.floor((dtime-(day*24+hour)*3600000)/60000);
+  var sec = Math.floor((dtime-(day*24+hour)*3600000-min*60000)/1000);
+  var result;
   if(fut>nowtime){
-     dtime = new Date(fut-nowtime-(16*3600000));
-     result = "距离"+ str +  "还有："+Math.floor((fut-nowtime)/(24*3600000))+"天"+ dtime.getHours()+"时"+dtime.getMinutes()+"分"+dtime.getSeconds()+"秒";
-   }
-     else {
-      dtime = new Date(nowtime-fut-(8*3600000));
-      result = "距离"+ str +  "已过去了："+Math.floor((nowtime-fut)/(24*3600000))+"天"+ dtime.getHours()+"时"+dtime.getMinutes()+"分"+dtime.getSeconds()+"秒";
+      result = "距离"+ str +  "还有："+ day+"天"+ hour+"时"+ min +"分"+ sec +"秒";
+   } else {
+      result = "距离"+ str +  "已过去了："+ day+"天"+ hour+"时"+ min +"分"+ sec +"秒";
      }
     return result;
 }
