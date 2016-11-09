@@ -29,6 +29,9 @@
             margin: 0 auto;
             text-align: center;
         }
+        .focus{
+            background: deepskyblue;
+        }
     </style>
 </head>
 <body>
@@ -83,6 +86,9 @@
                 $('li').each(function () {
                     //如果符合出现条件的
                     $(this).html($(this).index());
+                    $(this).on('mouseover',function () {
+                        $(this).addClass('focus').siblings('li').removeClass('focus');
+                    })
                 })
                 if (_this.isVisible($('.more'))) {
                     _this.send();
