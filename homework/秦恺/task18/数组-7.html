@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组-7</title>
+</head>
+<body>
+	<script>
+arr = ["a", "b"]; //设置一个数组
+arr.push( function() { alert(console.log('hello hunger valley')) } ); //将这个函数添加到数组arr尾部
+arr[arr.length-1]() //()前为查看最后一项元素，加上()后使函数执行。
+//因为alert只能输出字符串，而现在alert里的内容是一条命令。
+//弹窗显示undefined，console中显示'hello hunger valley'
+
+	</script>
+</body>
+</html>

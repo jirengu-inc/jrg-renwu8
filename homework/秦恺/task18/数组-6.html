@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task18-6</title>
+</head>
+<body>
+	<script>
+
+function camelize (str) {
+	var arr = str.split('');
+	for(var i=0;i<arr.length;i++){
+		if(arr[i] === '-'){
+			arr.splice(i+2,0,arr[i+1].toUpperCase());
+			arr.splice(i,2);
+		}
+	}
+	return str = arr.join('');
+}
+
+	</script>
+</body>
+</html>
