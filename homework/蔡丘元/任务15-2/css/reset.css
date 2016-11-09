@@ -1,0 +1,17 @@
+html, body, ul, li, h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font: 16px/1.5 Arial, "Microsoft YaHei", sans-serif;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
