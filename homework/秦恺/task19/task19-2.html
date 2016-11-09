@@ -1,0 +1,29 @@
+<script>
+//楼梯有20级，每次走1级或是2级，从底走到顶一共有多少种走法？用代码（递归）实现  
+  function methodNum (n){
+    if (n==1) {return 1;}
+    if (n==2) {return 2;}
+    else {
+        return methodNum(n-1)+methodNum(n-2);
+    }
+ }
+
+
+ //写一个json对象深拷贝的方法，json对象可以多层嵌套，值可以是字符串、数字、布尔、json对象中的任意项
+
+
+	function deepCopy (obj1) {
+		var obj2 ={};
+		for (var k in obj1){
+			if (typeof obj1[k] === "object"){
+				obj2[k] = deepCopy(obj1[k]);
+			}
+			else{
+				obj2[k] = obj1[k];
+			}
+		}
+
+		return obj2;
+	}
+
+</script>
