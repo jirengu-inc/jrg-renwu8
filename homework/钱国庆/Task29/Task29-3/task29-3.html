@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>task29-3-ajax和懒加载</title>
+    <style>
+        ul, li, body, html {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .item-list li {
+            padding: 10px;
+            border: 1px solid #666;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .item-list li.active {
+            background: green;
+        }
+        .add-load {
+            width: 80px;
+            height: 30px;
+            border: 1px solid red;
+            border-radius: 2px;
+            line-height: 30px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .add-load a {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="item-list clear">
+        <li>内容1</li>
+        <li>内容2</li>
+    </ul>
+    <div class="add-load">
+        <a href="#">点击加载</a>
+    </div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<script>
+
+    var current = 2;
+    var $itemList = $('.item-list');
+
+    $('.item-list').on('mouseover', 'li', function () {
+        $(this).addClass('active');
+    }).on('mouseout', 'li', function () {
+        $(this).removeClass('active');
+    });
+
+    function isVisible($node) {
+        var windowH = $(window).height();
+        var currentOffsetTop = $(window).scrollTop();
+        var nodeOffsetTop = $node.offset().top;
+
+        if (windowH + currentOffsetTop > nodeOffsetTop) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function loadAjax() {
+        $.ajax({
+            type: 'get',
+            url: 'getData.php',
+            dataType: 'json',
+            data: {
+                start: current,
+                length: 15
+            },
+            success: function (json) {
+                for (var i = 0; i < json.data.length; i++) {
+                    $itemList.append($('<li>内容' + json.data[i] + '</li>'));
+                }
+                current += json.data.length;
+            },
+            error: function () {
+                console.log('load fail...');
+            }
+        });
+    }
+
+    function init() {
+        if (isVisible($('.add-load'))) {
+            loadAjax();
+        }
+    }
+
+    init();
+
+    $(window).on('scroll', function () {
+        if (isVisible($('.add-load'))) {
+            loadAjax();
+        }
+    });
+</script>
+</html>
