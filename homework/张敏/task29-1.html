@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 500%;
+        }
+
+        li {
+            height: 100px;
+            width: 100%;
+            background-color: yellow;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 30px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    $(function () {
+        $('li').each(function () {
+            $(this).html($(this).index());
+            //0==还未加载，1加载过了
+            $(this).attr('issee', 0);
+        })
+        $(window).on('scroll', function () {
+            //监听滚动事件，每次滚动之后就遍历所有li,这里只是做例子，如果真的有很多图片，这里需要做性能方面的处理，
+            show();
+        })
+        //如何判断一个元素在窗口范围内可见,只需要当整个页面的滚动距离+元素到视窗的高度>元素到页面顶部的距离,
+        function isVisible(ele) {
+            var $cur = ele;
+            //视窗高度
+            var clienth = $(window).height();
+            //元素到页面顶部的距离
+            var eleh = $cur.offset().top;
+            //页面的滚动距离
+            var scrolltop = $(window).scrollTop();
+            //当滚动距离+视窗高度>元素到页面顶部的高度,说明元素已经出现在页面中(可见),否则反之(不可见)
+            var res = (scrolltop + clienth > eleh) ? true : false;
+            return res;
+        }
+
+        function show() {
+            $('li').each(function () {
+                //第一次加载输出true,下次再加载就不输出了
+                if (isVisible($(this))) {
+                    if ($(this).attr('issee')==0) {
+                        //如果符合出现的条件,将出现的li的issee值设为true
+                        $(this).attr('issee', 1);
+                        console.log('第一次加载:',true);
+                    }
+                }
+            })
+        }
+
+
+    })
+</script>
+</body>
+</html>
