@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模态框</title>
+    <style>
+        html,body,h3{
+            margin:0;
+            padding:0;
+        }
+        .mod-box{
+            display: none;
+        }
+        .mod-box .box-ct {
+            position:fixed;
+            top:27%;
+            left:38%;
+            border:1px solid red;
+            border-radius:10px;
+            width:300px;
+            background-color: white;
+            z-index: 100;
+
+        }
+        .mod-box .cover{
+            position: fixed;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background-color: #8e8e8e;
+            opacity: 0.3;
+            z-index: 1 ;
+        }
+
+        .box-ct .header {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        .header .close {
+            position: absolute;
+            top:10px;
+            right:10px;
+            text-decoration: none;
+            color:#0f2436;
+            font-size: 25px;
+            line-height: 0.5;
+        }
+        .box-ct .content{
+            padding:8px 8px;
+            font-size:15px;
+        }
+        .box-ct .footer{
+            border-top: 1px solid #cccccc;
+            text-align: right;
+
+        }
+        .btn{
+            display:inline-block;
+            text-decoration: none;
+            padding:8px;
+            font-size:13px;
+            color:#1d496b;
+        }
+
+
+    </style>
+</head>
+<body>
+<button class="btn-mod">click me!</button>
+
+<div class = "mod-box" id="modal">
+    <div class="cover"></div>  <!--灰色蒙版-->
+    <div class = "box-ct">
+        <div class = "header">
+            <h3>Hello！</h3>
+            <a class = "close" href="#">x</a>
+        </div>
+        <div class="content">
+            <p>恭喜你中奖了！</p>
+            <p>请拨打10086获取你的奖励！</p>
+        </div>
+        <div class="footer">
+            <a class="btn btn-noclose" href="#">确定</a>
+            <a class="btn btn-close" href="#">取消</a>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var button = document.querySelector('.btn-mod'),
+        close = document.querySelector('.close'),
+        cancel = document.querySelector('.btn-close'),
+        cover = document.querySelector('.cover'),
+        mod = document.querySelector('#modal'),
+        test = document.querySelector('.mod-box'); //这个用于测试阻止事件冒泡
+
+    //显示模态框
+    function showMod(modal){
+        modal.style.display = 'block';
+    }
+    //取消模态框
+    function closeMod(modal){
+        modal.style.display = 'none';
+    }
+    //测试stopPropagation() 阻止事件冒泡
+    test.addEventListener('click',function(e){
+        alert('1');
+    })
+    //点击按钮显示模态框
+    button.addEventListener('click',function(e){
+        console.log(e);
+        e.stopPropagation();
+        showMod(modal);
+
+
+    })
+    //点击X关闭模态框
+    close.addEventListener('click',function(e){
+        console.log(e);
+        e.stopPropagation();
+        closeMod(modal);
+
+    })
+    //点击模板关闭模态框
+    cover.addEventListener('click',function(e){
+        console.log(e);
+        e.stopPropagation();
+        closeMod(modal);
+
+    })
+    //点击取消关闭模态框
+    cancel.addEventListener('click',function(e){
+        e.stopPropagation();
+        closeMod(modal);
+
+    })
+
+</script>
+</html>

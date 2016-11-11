@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="ct">
+    <li>这里是</li>
+    <li>饥人谷</li>
+    <li>前端6班</li>
+</ul>
+<input class="ipt-add-content" placeholder="添加内容"/>
+<button id="btn-add-start">开头添加</button>
+<button id="btn-add-end">结尾添加</button>
+</body>
+<script>
+    var ct = document.querySelector('.ct');
+    var btn1 = document.querySelector('#btn-add-start');
+    var btn2 = document.querySelector('#btn-add-end');
+    var ipt = document.querySelector('.ipt-add-content');
+    //开头添加元素
+    btn1.addEventListener('click',function(){
+        var node = document.createElement('li');
+        node.innerHTML = ipt.value;//输入框的内容就是要添加的内容
+        ct.insertBefore(node,ct.firstChild);
+    });
+    //结尾添加元素
+    btn2.addEventListener('click',function(){
+        var node = document.createElement('li');
+        node.innerHTML = ipt.value; //输入框的内容就是要添加的内容
+        ct.appendChild(node);
+    })
+    //控制台打印元素文本内容
+    ct.addEventListener('click',function(e){
+        console.log(e.target.innerText);
+    })
+</script>
+</html>
