@@ -8,8 +8,6 @@ $status1 = array('status'=>1);
 
 $status2 = array('status'=>0);
 
-$jsdata1=json_encode($status1);
-
 $res =json_encode($status1);
 
 for ($i=0; $i <$length ; $i++) {  //循环数组，得到与GET参数相同的值 
