@@ -1,0 +1,577 @@
+/*公共样式*/
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+.layout {
+    width: 1250px;
+    margin: 0 auto;
+}
+
+.m-btn {
+    display: inline-block;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    background: #ccc;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+
+.m-btn:hover {
+    background: rgba(0, 0, 0, .5);
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*字体图标*/
+@font-face {
+    font-family: 'iconfont';  /* project id："172670" */
+    src: url('https://at.alicdn.com/t/font_ixqjqzpav5u680k9.eot');
+    src: url('https://at.alicdn.com/t/font_ixqjqzpav5u680k9.eot') format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_ixqjqzpav5u680k9.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_ixqjqzpav5u680k9.ttf') format('truetype'),
+    url('https://at.alicdn.com/t/font_ixqjqzpav5u680k9.svg#iconfont') format('svg');
+}
+
+/*导航*/
+#nav {
+    position: fixed;
+    background: rgba(0, 0, 0, .5);
+    height: 80px;
+    line-height: 80px;
+    width: 100%;
+    z-index: 100;
+}
+
+#nav ul {
+    float: right;
+}
+
+#nav .layout > a.m-logo {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-right: 5px;
+    margin-top: 15px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #eee;
+    overflow: hidden;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    -o-transition: transform 1s;
+    transition: transform 1s;
+}
+
+#nav .layout > a.m-logo:hover {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#nav .layout > a:nth-child(2) {
+    color: rgba(255, 255, 255, .8);
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+
+#nav .layout > a, #nav ul > li {
+    float: left;
+}
+
+#nav .m-logo > img {
+    width: 46px;
+    height: 46px;
+}
+
+#nav li:after {
+    content: '\/';
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    color: #000;
+}
+
+#nav li {
+    margin-right: 10px;
+}
+
+#nav li > a {
+    font-size: 1em;
+    color: rgba(255, 255, 255, .8);
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+#nav li > a:hover {
+    color: #ccc445;
+}
+
+/*头部*/
+#header {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 980px;
+    background: url(../img/main_banner_bg.jpg) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+#header img {
+    position: absolute;
+    z-index: 2;
+}
+
+#header img:nth-child(1) {
+    top: 150px;
+    left: 150px;
+}
+
+#header img:nth-child(2) {
+    top: 180px;
+    left: 600px;
+}
+
+#header .header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -85px;
+    margin-top: -50px;
+    text-align: center;
+    z-index: 3;
+}
+
+.header-content h1, .header-content p {
+    text-shadow: 2px 2px 1px #eee;
+}
+
+.header-content h1 {
+    font-size: 5em;
+}
+
+.header-content p {
+    font-size: 1.5em;
+}
+
+/*内容部分*/
+#content h1 {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 10px solid #ee8d22;
+}
+
+/*阴阳师介绍*/
+#m-game-character {
+    padding: 50px 0;
+}
+
+#m-game-character li {
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+#m-game-character li a {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: transform .5s;
+}
+
+#m-game-character li a:hover {
+    -webkit-transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 5px #ccc;
+}
+
+#m-game-character li a > img {
+    width: 200px;
+    height: 200px;
+}
+
+#m-game-character h3 {
+    position: relative;
+    margin: 20px 80px 0;
+    padding: 20px 0;
+    border-bottom: 5px solid #000;
+    font-size: 2em;
+}
+
+#m-game-character p {
+    border-top: 2px solid #000;
+    margin: 5px 80px 0;
+    padding: 20px 0;
+}
+
+/*同人画廊区域*/
+
+#m-artist, #m-game-guides {
+    padding: 50px 0;
+    background: rgba(238, 238, 238, .5);
+}
+
+#m-artist li {
+
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 0 20px;
+
+}
+
+#m-artist li > a {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+}
+
+#m-artist li img {
+    width: 100%;
+}
+
+#m-artist li p {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#m-artist li .cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    transition: background .5s;
+}
+
+#m-artist li .cover > em {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-top: -46.5px;
+    margin-left: -39.5px;
+    width: 79px;
+    height: 93px;
+    font-style: normal;
+    transition: background .5s .5s;
+}
+
+#m-artist li > a:hover .cover {
+    background: rgba(0, 0, 0, .5);
+
+}
+
+#m-artist li > a:hover .cover > em {
+    background: url(../img/cover_hover.png) no-repeat;
+}
+
+/*式神介绍*/
+
+#m-game-pets {
+    position: relative;
+    padding: 50px 0;
+}
+
+#m-game-pets .line {
+    position: relative;
+}
+
+#m-game-pets .m-pets-about:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -2px;
+    top: 20px;
+    width: 4px;
+    height: 100%;
+    background: #eee;
+    z-index: -1;
+
+}
+
+#m-game-pets .m-pets-about:nth-child(6):after {
+    content: '';
+    display: none;
+}
+
+#m-game-pets .m-pets-about {
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#m-game-pets .m-pets-content-L {
+    position: absolute;
+    text-align: right;
+    top: 50%;
+    right: 745px;
+    margin-top: -6%;
+}
+
+#m-game-pets .m-pets-content-R {
+    position: absolute;
+    text-align: left;
+    top: 50%;
+    margin-top: -6%;
+    left: 745px;
+}
+
+#m-game-pets .m-pets-about > img {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #eee;
+    border-radius: 50%;
+}
+
+/*guides part*/
+#m-game-guides ul {
+    margin-left: -20px;
+}
+
+#m-game-guides li {
+    float: left;
+    box-sizing: border-box;
+    width: 297px;
+    padding: 0 20px;
+    margin-left: 20px;
+}
+
+#m-game-guides li:first-of-type {
+    text-align: center;
+}
+
+#m-game-guides li > .qcode-text, #m-game-guides li > .customer-text {
+    position: relative;
+    height: 246px;
+    font-size: 24px;
+    background: rgba(238, 238, 238, 1);
+}
+
+#m-game-guides .qcode-text > p {
+    width: 27px;
+    line-height: 27px;
+}
+
+#m-game-guides .qcode-text > p:nth-child(1) {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#m-game-guides .qcode-text > p:nth-child(2) {
+    position: absolute;
+    left: 40px;
+    top: 10px;
+}
+
+#m-game-guides .qcode-text > h3 {
+    position: absolute;
+    width: 27px;
+    line-height: 27px;
+    top: 10px;
+    left: 80px;
+}
+
+#m-game-guides .line {
+    display: block;
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    background: #ccc;
+    bottom: 40px;
+    left: 10px;
+}
+
+#m-game-guides .qcode-text > a, #m-game-guides .customer-text > a {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #000;
+}
+
+#m-game-guides .qcode-text a > span, #m-game-guides .customer-text a > span {
+    color: #ee8d22;
+}
+
+#m-game-guides .qcode-text > .qr-img {
+    position: absolute;
+    right: -40px;
+    top: -20px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+#m-game-guides .qcode-text .qr-img > img {
+    width: 120px;
+    height: 120px;
+}
+
+#m-game-guides .customer-text > .icon-telephone {
+    font-family: 'iconfont';
+    font-size: 48px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+}
+
+#m-game-guides .customer-text {
+    padding: 0 0 0 10px;
+}
+
+#m-game-guides .customer-text h3 {
+    padding: 20px 0;
+    font-size: 18px;
+}
+
+#m-game-guides .customer-text p {
+    font-size: 18px;
+}
+
+#m-game-guides .customer-text a {
+    font-size: 16px;
+}
+
+/*contact part*/
+#m-contact {
+    background: url(../img/contact-bg.jpg) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 300px 0;
+    text-align: center;
+    color: #fff;
+}
+
+#m-contact h2 {
+    font: 48px/60px "宋体";
+    letter-spacing: 40px;
+}
+
+#m-contact p {
+    font: 24px/30px "宋体";
+    letter-spacing: 16px;
+}
+
+#m-contact form {
+    padding: 40px 0;
+}
+
+#m-contact input, #m-contact textarea {
+    outline: none;
+    border: none;
+    resize: none;
+}
+
+#m-contact li {
+    float: left;
+    width: 50%;
+}
+
+#m-contact li:first-of-type input {
+    position: relative;
+    display: block;
+    left: 15%;
+    width: 75%;
+    height: 60px;
+    padding-left: 10px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    font-size: 16px;
+    color: rgba(204, 204, 204, .6);
+    margin-bottom: 20px;
+}
+
+#m-contact li:first-of-type input:focus {
+    border-color: rgba(238, 141, 34, .8);
+}
+
+#m-contact li:last-of-type textarea {
+    position: relative;
+    left: -15%;
+    width: 75%;
+    height: 225px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    font-size: 16px;
+    color: rgba(204, 204, 204, .6);
+}
+
+#m-contact li:last-of-type textarea:focus {
+    border-color: rgba(238, 141, 34, .8);
+}
+
+#m-contact .m-btn {
+    width: 200px;
+    font: 36px/48px "宋体";
+}
+
+/*footer part*/
+#footer {
+    padding: 10px 0;
+    background: rgba(238, 238, 238, 1);
+}
+
+#footer li {
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+#footer li:first-of-type {
+    text-align: left;
+    font-size: 16px;
+    line-height: 36px;
+}
+
+#footer li:last-of-type {
+    text-align: right;
+    font-size: 16px;
+    line-height: 36px;
+}
+
+#footer .icon-weibo, #footer .icon-twitter, #footer .icon-facebook {
+    font-family: "iconfont";
+    font-style: normal;
+    font-size: 36px;
+    line-height: 36px;
+    color: rgba(45, 133, 255, .8);
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+}
+
+#footer a:hover {
+    color: rgba(45, 133, 255, .3);
+}
+
+#footer .pos-modify {
+    position: relative;
+    top: 2px;
+}
+
+#footer li:last-of-type a {
+    color: #000;
+}
+
+#footer li:last-of-type a:hover {
+    text-decoration: underline;
+}

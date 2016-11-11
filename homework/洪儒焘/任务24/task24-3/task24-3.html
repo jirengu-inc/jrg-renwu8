@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div{
+		padding: 20px;
+		font-family: 'microsoft yahei';
+	}
+	dt{
+		float: left;
+	}
+	dd{
+		margin-bottom: 20px;
+		padding-left: 50px;
+		color: #a9a9a9;
+	}
+	input{
+		height: 25px;
+		width: 200px;
+		line-height: 25px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding-left: 5px;
+	}
+	#btn-register{
+		display: inline-block;
+		padding: 5px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		color: #000;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	.warning{
+		border-color: red;
+	}
+</style>
+<body>
+	<div>
+		<h3>注册</h3>
+		<form id="register-form" action="">
+			<dl class="register-ct">
+				<dt>用户名:</dt>
+				<dd>
+					<input id="username" type="text" placeholder="用户名(hunger被注册过)">
+					<span class="username-inform"></span>
+				</dd>
+				<dd class="msg msg-un">只能是字母、数字、下划线，3-10个字符</dd>
+
+				<dt>密码:</dt>
+				<dd>
+					<input type="password" id="password1" 
+					placeholder="密码">
+					<span class="password1-inform"></span>
+				</dd>
+				<dd class="msg msg-pwd1">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+
+				<dt> 再输一次:</dt>
+				<dd>
+					<input type="password" id="password2" placeholder="再输入一次密码"> 
+					<span class="password2-inform"></span>
+				</dd>
+				<dd class="msg msg-pwd2"></dd>
+				<dd><a id="btn-register" href="javascript:;">注册</a></dd>
+			</dl>		
+		</form>
+	</div>
+<script>
+	var username = document.getElementById('username'),
+		password1 = document.getElementById('password1'),
+		password2 = document.getElementById('password2'),
+		usernameInform = document.getElementsByClassName('username-inform')[0],
+		password1Inform = document.getElementsByClassName('password1-inform')[0],
+		password2Inform = document.getElementsByClassName('password2-inform')[0];
+	var usernamePass = false,password1Pass = false,password2Pass = false;
+
+	document.getElementsByClassName('register-ct')[0].addEventListener('change',function(e){
+		if(e.target === username && e.target.value != ''){
+			ajax({
+				url:'/register',
+				type:'post',
+				data:{
+					username: e.target.value
+				},
+				success: function(res){
+					if(res.status == 0){
+						e.target.setAttribute('class','');
+						usernameInform.innerText = '用户名可用';
+						usernamePass = true;
+					}
+					else if(res.status == 1 && res.msg == '用户名错误'){
+						usernameInform.innerText = '用户名格式不正确'
+						e.target.setAttribute('class','warning');
+						usernamePass = false;
+					}
+					else{
+						usernameInform.innerText = '用户名已存在'
+						e.target.setAttribute('class','warning');
+						usernamePass = false;
+					}
+				},
+				error: function(){
+					console.log('出错了');
+				}
+			});
+		}
+		if(e.target === password1){
+			if(isPassword(e.target.value)){
+				e.target.setAttribute('class','');
+				password1Inform.innerText = '密码可用';
+				password1Pass = true;
+			}else{
+				password1Inform.innerText = '密码格式不正确'
+				e.target.setAttribute('class','warning');
+				password1Pass = false;
+			}
+			if(password2.value != ''){
+				if (e.target.value != password2.value) {
+					password2Inform.innerText = '两次密码格式不相符'
+					password2.setAttribute('class','warning');
+					password2Pass = false;
+				}else{
+					password2.setAttribute('class','');
+					password2Inform.innerText = '';
+					password2Pass = true;
+				}
+			}
+		}
+		if(e.target === password2){
+			if(e.target.value == password1.value){
+				e.target.setAttribute('class','');
+				password2Inform.innerText = '';
+				password2Pass = true;
+			}else{
+				password2Inform.innerText = '两次密码格式不相符'
+				e.target.setAttribute('class','warning');
+				password2Pass = false;
+			}
+		}
+	})
+	function isPassword(str) {
+		var count = 0;
+		if((/^\w{6,15}$/).test(str)){
+			if((/^[\d]+$/).test(str)){
+				count++;
+			}
+			if((/^[a-z]+$/).test(str)){
+				count++;
+			}
+			if((/^[A-Z]+$/).test(str)){
+				count++;
+			}
+			if((/^[_]+$/).test(str)){
+				count++;
+			}
+			count++;
+		}
+		if(count == 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	function ajax(opts) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if (xhr.readyState == 4 && xhr.status == 200) {
+					var json = JSON.parse(xhr.responseText);
+					opts.success(json);
+			}
+			 if(xhr.readyState===4&&xhr.status == 404){
+		         opts.error();
+		     }
+		}
+		var dataString = '';
+		for(var key in opts.data){
+			dataString += key+'='+opts.data[key]+'&';
+		}
+		dataString = dataString.substring(0, dataString.length-1);
+		if(opts.type.toLowerCase() === 'get'){
+			xhr.open('get', opts.url+'?'+dataString, true);
+			xhr.send();
+		}
+		if(opts.type.toLowerCase() === 'post'){
+			xhr.open('post', opts.url, true);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send(dataString);
+		}
+	}
+
+	// {status: 0} 代表用户名可用
+	// {status: 1}  代表用户名重复
+
+
+	document.getElementById('btn-register').addEventListener('click',function(){
+		if(usernamePass && password1Pass && password2Pass){
+			alert('注册中...');
+		}else{
+			alert('请填写正确信息!');
+		}
+	})
+</script>
+</body>
+</html>

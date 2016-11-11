@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        li {
+            list-style: none;
+            height: 30px;
+            width: 200px;
+            border: 1px solid black;
+        }
+
+        .btn {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            position: fixed;
+            right: 20px;
+            bottom: 0;
+            border-radius: 50%;
+            background-color: yellow;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<script>
+    $(function () {
+        var goTop = {
+            //封装成两步，1、产生这个btn对象，2、给产生的对象加事件
+            init: function () {
+                //这种情况说明页面上已经产生过这个对象了
+                if ($('.btn').length > 0) {
+                    return;
+                }
+                var $btn = $("<div class='btn'>回到顶部</div>");
+                $('body').append($btn);
+                this.$gotop = $btn;
+                this.bind();
+            },
+            bind: function () {
+                //保存this指针，否则当进入on函数之后，this指向会变为window,但是属性是保存在goTop这个对象上的，
+                var _this = this;
+                $(window).on('scroll', function () {
+                    var scrolltop = $('body').scrollTop();
+                    if (scrolltop > 200) {
+                        _this.$gotop.show();
+                    } else {
+                        _this.$gotop.hide();
+                    }
+                })
+                _this.$gotop.on('click', function () {
+                    $('body').scrollTop(0);
+                })
+            }
+
+        }
+
+        goTop.init();
+
+    })
+
+</script>
+</body>
+</html>

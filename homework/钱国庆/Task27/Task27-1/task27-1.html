@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-1-轮播1</title>
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        .container {
+            width: 300px;
+            height: 200px;
+            position: relative;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .img-list li a img {
+            width: 300px;
+            height: 200px;
+        }
+        .img-list {
+            position: absolute;
+        }
+        .img-list li {
+            position: absolute;
+            display: none;
+        }
+        .container .previous,
+        .container .next{
+            position: absolute;
+            background: #666;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            opacity: 0.7;
+        }
+        .container .previous {
+            top: 50%;
+            margin-top: -15px;
+            margin-left: 5px;
+        }
+        .container .next {
+            top: 50%;
+            left: 100%;
+            margin-left: -35px;
+            margin-top: -15px;
+        }
+        .container .previous a,
+        .container .next a{
+            color: black;
+        }
+        .container .previous:hover,
+        .container .next:hover {
+            opacity: 1;
+        }
+        .container .bottom-list {
+            position: absolute;
+            top: 100%;
+            margin-top: -20px;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+        .container .bottom-list li {
+            width: 15px;
+            height: 5px;
+            background: #666;
+            display: inline-block;
+            border-radius: 2px;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+        .container .bottom-list li.active {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<ul class="img-list clear">
+    <li>
+        <a href="#">
+            <img src="1.jpeg" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="2.png" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="3.jpg" alt="">
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <img src="9.jpg" alt="">
+        </a>
+    </li>
+</ul>
+    <div class="previous"><a href="#"> < </a> </div>
+    <div class="next"><a href="#"> > </a> </div>
+    <ul class="bottom-list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        var index = 0;
+        var isAnimate = false;
+        var imgLength = $('.img-list').children().length;
+
+        $('.img-list li').eq(0).css('display', 'block');
+        $('.bottom-list li').eq(0).addClass('active');
+
+        autoPlay();
+
+        $(".container .next").on('click', function () {
+            playNext();
+        });
+
+        $('.container .previous').on('click', function () {
+            playPrevious();
+        });
+
+        $('.bottom-list li').on('click', function () {
+            var idx = $(this).index();
+            if (isAnimate) return;
+            isAnimate = true;
+            $('.img-list li').eq(index).fadeOut(500);
+            $('.img-list li').eq(idx).fadeIn(500, function () {
+                isAnimate = false;
+            });
+            index = idx;
+            bottomList(idx);
+        });
+
+        function playNext() {
+            var idx = index;
+            if (isAnimate) return;
+            index = (index + 1) % imgLength;
+            isAnimate = true;
+            $('.img-list li').eq(idx).fadeOut(500);
+            $('.img-list li').eq(index).fadeIn(500, function () {
+                isAnimate = false;
+            });
+
+            bottomList(index);
+        }
+
+        function playPrevious() {
+            var idx = index;
+            if (isAnimate) return;
+            index = (index - 1 + imgLength) % imgLength;
+            isAnimate = true;
+            $('.img-list li').eq(idx).fadeOut(500);
+            $('.img-list li').eq(index).fadeIn(500, function () {
+                isAnimate = false;
+            });
+
+            bottomList(index);
+        }
+
+        function bottomList(index) {
+            $('.bottom-list li').siblings().removeClass('active')
+                    .eq(index).addClass('active');
+        }
+
+        function autoPlay() {
+            setInterval(function () {
+                playNext();
+            }, 2000);
+        }
+    });
+</script>
+</body>
+</html>

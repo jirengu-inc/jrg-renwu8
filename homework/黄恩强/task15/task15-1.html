@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	/*reset*/
+        	html,body,h1,h2,h3,h4,h5,h6,ul,li,p{margin:0;padding:0;}
+        	li{list-style: none;}
+        	a{text-decoration: none;}
+			
+			/*public*/
+			#header,#banner,#main,#footer{
+				font-family: "微软雅黑";
+			}
+			.wrap{
+				margin: 0 auto;
+				width: 1000px;
+			}
+			.clearfix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			/*logo*/
+			@font-face {
+			  font-family: 'logo';  /* project id："174870" */
+			  src: url('//at.alicdn.com/t/font_g4vuyhu2bq2dquxr.eot');
+			  src: url('//at.alicdn.com/t/font_g4vuyhu2bq2dquxr.eot') format('embedded-opentype'),
+			  url('//at.alicdn.com/t/font_g4vuyhu2bq2dquxr.woff') format('woff'),
+			  url('//at.alicdn.com/t/font_g4vuyhu2bq2dquxr.ttf') format('truetype'),
+			  url('//at.alicdn.com/t/font_g4vuyhu2bq2dquxr.svg#iconfont') format('svg');
+			}
+			.logo{
+				float: left;
+			    font-family:"logo" !important;
+			    font-size:30px;
+			    font-style:normal;
+			    line-height: 50px;
+			    width:30px;
+			}
+			.logo a{
+				color: #333;
+			}
+			.logo a:hover{
+				color: gray;
+			}
+			.logo a:before {
+				content:"\e67d";
+			}
+        	/*header*/
+        	#header .nav{
+        		float: left;
+        		margin-left: 20px;
+        		font-size: 0;
+        	}
+        	#header .nav>li{
+				float:left;
+				position: relative;
+				font-size: 14px;
+				padding: 0px 10px;
+				line-height: 50px;
+        	}
+        	#header .nav a {
+        		color: #333;
+        	}
+			#header .nav li:hover{
+				background-color: #eee;
+			}
+			#header .nav .tip{
+				margin-left: 3px;
+				display: inline-block;
+        		width: 0;
+        		height: 0;
+        		border-top: solid 5px #333;
+        		border-left: solid 5px rgba(0,0,0,0);
+        		border-right: solid 5px rgba(0,0,0,0);
+        		vertical-align: baseline;
+			}
+
+			#header .nav .subnav{
+				display: none;
+				position: absolute;
+				left:0;
+				top:100%;
+				width:100%;
+				text-align: center;
+				background-color: white;
+				border: 1px solid #eee;
+			}
+			#header .nav li:hover .subnav{
+				display: block;
+			}
+
+			/*banner*/
+			#banner{
+				background-color: RGB(184,77,69);
+				color: white;
+				padding: 80px 0;
+			}
+			#banner h1{
+				font-size: 50px;
+				margin: 10px 0;
+			}
+			#banner p{
+				font-size: 18px;
+				line-height: 1.8;
+
+			}
+
+			/*main subnav*/
+			#main .subnav{
+				background-color: rgb(240,240,240);
+				margin-top: 40px;
+				margin-bottom: 20px;
+			}
+			#main .subnav>li:first-child{
+				margin-left: 10px;
+			}
+			#main .subnav>li{
+				float: left;
+				padding: 8px 6px;
+				font-size: 15px;
+			}
+			#main .subnav > li > a{
+				color: #333;
+			}
+			#main .subnav > li:first-child > a{
+				color: RGB(184,77,69);
+			}
+			#main .subnav > li > a:hover{
+				color: gray;
+			}
+
+			/*main work*/
+			#main .works{
+				margin-left: -30px;
+			}
+			#main .works>li{
+				float:left;
+				margin-left: 30px;
+				margin-bottom: 30px;
+			}
+			#main .work{
+				box-sizing: border-box;
+				width: 313px;
+				border: 1px solid rgb(220,220,220);
+				border-radius: 5px;
+				padding: 5px 5px;
+				text-align: center;
+			}
+			#main .work>li{
+				margin-bottom: 10px;
+			}
+			#main .work>li:last-child{
+				margin: 20px 0;
+			}
+			#main .work-img img{
+				width: 300px;
+				height: 200px;
+			} 
+			#main .work-title{
+				font-size: 18px;
+			}
+			#main .work-describe{
+				font-size: 14px;
+			}
+			#main .work-btn a{
+				color: #333;
+				padding: 5px 12px;
+				border: 1px solid rgb(220,220,220);
+				border-radius: 5px;
+			}
+			#main .work-btn a:hover{
+				background-color: #eee
+			}
+
+			/*footer*/
+			#footer .contact{
+				background-color: RGB(184,77,69);
+				text-align: center;
+			}
+			#footer .contact ul{
+				padding: 50px; 0;
+				color: white;
+			}
+			#footer .contact li{
+				margin: 10px 0;
+			}
+			#footer .copyright{
+				text-align: center;
+				margin: 35px 0;
+			}
+			#footer hr{
+				margin-top: 25px;
+				border-top: 1px solid #eee;
+			}
+			#footer .copyright span{
+				cursor: pointer;
+				color: gray;
+			}
+        </style>
+    </head>
+    <body>
+    	<div id="header">
+    		<div class="wrap clearfix ">
+    			<span class="logo"><a href="javascript:;" ></a></span>
+    			<ul class="nav">
+    				<li>
+    					<a href="javascript:;">
+    					我的作品
+    						<span class="tip"></span>
+    					</a>
+    					<ul class="subnav">
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    					</ul>
+    				</li>
+    				<li>
+    					<a href="javascript:;">博客</a>
+    					<ul class="subnav">
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    					</ul>
+    				</li>
+    				<li>
+    					<a href="javascript:;">项目</a>
+    					<ul class="subnav">
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    					</ul>
+    				</li>
+    				<li>
+    					<a href="javascript:;">关于我</a>
+    					<ul class="subnav">
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    						<li><a href="javascript:;">作品1</a></li>
+    					</ul>
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+    	<div id="banner">
+    		<div class="wrap">
+    			<h1>页面特征</h1>
+    			<p>不需要处理响应式，不要使用Bootstrap，不需要js。
+				<br>
+				图标使用font-aawesome,页面中心内容固定宽度1000px
+    			</p>
+    		</div>
+    	</div>
+
+    	<div id="main">
+    		<div class="wrap">
+    			<ul class="subnav clearfix">
+    				<li>
+    					<a href="javascript:;">首页</a>
+    				</li>
+					<li class="line">/</li>
+    				<li>
+    					<a href="javascript:;">我的作品</a>
+    				</li>
+    			</ul>
+    			<ul class="works clearfix">
+    				<li>
+    					<ul class="work">
+    						<li class="work-img">
+    							<img src="./img/1.jpg" alt="图像">
+    						</li>
+    						<li class="work-title">
+    							<h2>Creative</h2>
+    						</li>
+    						<li class="work-describe">
+    							<p>A one page creartive theme</p>
+    						</li>
+    						<li class="work-btn">
+    							<a href="javascript:;">查看</a>
+    						</li>
+    					</ul>
+    				</li>
+    				<li>
+    					<ul class="work">
+    						<li class="work-img">
+    							<img src="./img/1.jpg" alt="图像">
+    						</li>
+    						<li class="work-title">
+    							<h2>Creative</h2>
+    						</li>
+    						<li class="work-describe">
+    							<p>A one page creartive theme</p>
+    						</li>
+    						<li class="work-btn">
+    							<a href="javascript:;">查看</a>
+    						</li>
+    					</ul>
+    				</li>
+    				<li>
+    					<ul class="work">
+    						<li class="work-img">
+    							<img src="./img/1.jpg" alt="图像">
+    						</li>
+    						<li class="work-title">
+    							<h2>Creative</h2>
+    						</li>
+    						<li class="work-describe">
+    							<p>A one page creartive theme</p>
+    						</li>
+    						<li class="work-btn">
+    							<a href="javascript:;">查看</a>
+    						</li>
+    					</ul>
+    				</li>
+    				<li>
+    					<ul class="work">
+    						<li class="work-img">
+    							<img src="./img/1.jpg" alt="图像">
+    						</li>
+    						<li class="work-title">
+    							<h2>Creative</h2>
+    						</li>
+    						<li class="work-describe">
+    							<p>A one page creartive theme</p>
+    						</li>
+    						<li class="work-btn">
+    							<a href="javascript:;">查看</a>
+    						</li>
+    					</ul>
+    				</li>
+    				<li>
+    					<ul class="work">
+    						<li class="work-img">
+    							<img src="./img/1.jpg" alt="图像">
+    						</li>
+    						<li class="work-title">
+    							<h2>Creative</h2>
+    						</li>
+    						<li class="work-describe">
+    							<p>A one page creartive theme</p>
+    						</li>
+    						<li class="work-btn">
+    							<a href="javascript:;">查看</a>
+    						</li>
+    					</ul>
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+
+    	<div id="footer">
+    		<div class="contact">
+	    		<div class="wrap">
+	    			<ul>
+	    				<li><h1>想更详细的了解我？</h1></li>
+	    				<li>下载简历，打我电话找我吧</li>
+	    			</ul>
+	    		</div>
+	    	</div>
+	    		<div class="wrap">
+	    			<hr>
+	    			<p class="copyright">Copyright © <span>abc02</span> 2016</p>
+	    		</div>
+    	</div>
+    </body>
+</html>

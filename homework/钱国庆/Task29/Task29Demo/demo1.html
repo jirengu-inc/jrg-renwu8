@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <style>
+        div {
+            padding: 20px;
+        }
+        .show-div {
+            color: red;
+            font-weight: bold;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div class="show-div">内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $.fn.elementShow = function () {
+        var $current = this;
+
+        function isVisible($node) {
+            var windowH = $(window).height();
+            var nodeOffsetTop = $node.offset().top;
+            var currentScrollTop = $(window).scrollTop();
+
+            if (currentScrollTop + windowH > nodeOffsetTop) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $(window).on('scroll', function () {
+            if (isVisible($current)) {
+                console.log('true');
+            }
+        });
+    }
+
+    $('.show-div').elementShow();
+</script>
+</body>
+</html>

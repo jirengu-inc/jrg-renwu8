@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	*{
+  margin:0;
+  padding:0;
+  font-family:"Arial","Microsoft YaHei",sans-serif;
+}
+.ct{
+  width:1000px;
+  margin:0 auto;
+}
+a{
+  text-decoration:none;
+  color:#000;
+}
+li{
+  list-style:none;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'),
+  url('iconfont.ttf') format('truetype'),
+  url('iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+   font-family:"iconfont" !important;
+   font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ct .iconfont{
+  font-family:"iconfont";!important;
+  font-size:36px;
+  transition:0.9s;
+}
+.ct .iconfont:hover{
+  color:#ff0000;
+}
+.ct .more{
+  font-size:18px;
+  position:relative;
+  top:3px;
+  right:5px;
+}
+#header .nav li{
+  float:left;
+}
+#header .nav:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+#header .nav>li{
+  margin: 0 8px;
+  padding: 5px;
+  line-height: 40px;
+  height: 40px
+}
+.droplist{
+  width:75px;
+  position:absolute;
+  display:none;
+  background-color:#fff;
+  top:50px;
+}
+.droplist>li{
+  line-height:40px;
+  width:75px;
+  border-top:1px solid #b6bfc9;
+  text-align:center;
+}
+.nav .touch:hover .droplist{
+  display:block;
+}
+#header .introduce{
+  color:#fff;
+  background:#b45050;
+}
+#header .introduce .ct{
+  padding:50px;
+}
+#header .introduce .ct>h1{
+  margin:10px 0;
+}
+#main .subnav{
+  background:#f0f0f0;
+  margin-top:30px;
+  margin-bottom:40px;
+  padding:7px;
+}
+#main .subnav>a,.subnav>p{
+   float:left;
+   padding:5px;
+}
+#main .subnav>a:nth-child(1){
+  color:#b45050;
+}
+#main .subnav>a:nth-child(1):hover{
+  color:#707070;
+}
+#main .subnav>p{
+  position:relative;
+  top:3px;
+}
+#main .subnav:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.project>li{
+  list-style:none;
+  width:310px;
+  height:370px;
+  border:1px solid #dcdcdc;
+  border-radius:10px;
+  text-align:center;
+  float:left;
+  margin:10px;
+}
+.project>li>img{
+  width:300px;
+  height:200px;
+  margin-top:5px;
+}
+.project>li>h2{
+  margin:20px 0;
+}
+.project>li>p{
+  margin:20px 0;
+}
+.project>li>a{
+  padding:10px;
+  border:1px solid #cdcdcd;
+  border-radius:5px;
+}
+.project>li>a:hover{
+  background-color:#b45050;
+  color:white;
+}
+.project:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+#footer{
+  background-color:#b45050;
+  margin-top:30px;
+  text-align:center;
+}
+#footer .ct .contact,.contact>a{
+  color:#fff;
+}
+#footer .ct .contact{
+  padding:50px;
+}
+#footer .ct .contact>a{
+  padding:10px;
+  border:1px solid #fff;
+  border-radius:10px;
+  position:relative;
+  top:20px;
+  transition:0.9s;
+}
+#footer .ct .contact>a:hover{
+  background:#b48470;
+  color:#000;
+  border:1px solid #b48470;
+}
+#copyright{
+  text-align:center;
+  padding:50px;
+}
+#copyright .ct{
+  border-top:1px solid #c5cdd6;
+}
+#copyright .ct>p{
+  position:relative;
+  top:20px;
+}
+</style>
+</head>
+<body>
+    <div id="header">
+    	<div class="ct">   	        
+    		<ul class="nav">
+                <li><a class="iconfont" href="#">&#xe6a0;</a></li>
+    			<li><a href="">我的作品</a></li>
+    			<li><a href="#">博客</a></li>
+    			<li><a href="#">项目</a></li>
+    			<li class="touch"><a href="#">更多</a>
+                <a class="iconfont more" href="#">&#xe653;</a>
+                <ul class="droplist">
+                  <li><a href="#">微博</a></li>
+                  <li><a href="#">知乎</a></li>
+                  <li><a href="#">简书</a></li>
+                </ul>
+               </li>           
+           </ul>
+       </div>
+      <div class="introduce">
+        <div class="ct">
+        <h1>about me:</h1>
+        <p>朋友眼中公认"段子手"</p>
+        <p>爱好：蹦极，极限运动，健身</p>
+        <p>只有永远无尽的长路，走着一代代不肯绝望的人。</p>
+        </div>
+      </div>
+    </div>
+  <div id="main">
+    <div class="ct">
+      <div class="subnav clearfix">
+        <a href="#">首页</a>
+        <p>/</p>
+        <a href="#">我的作品</a>
+      </div>
+      <ul class="project">
+        <li><img src="http://himg2.huanqiu.com/attachment2010/120525/3386bcdf21.jpg" alt="maco bungee jumping">
+        <h2>Bungee Jumping</h2>
+        <p>超越生死，达到第七感的过程</p>
+        <a href="#">check</a>
+        </li>
+        <li>
+          <img src="http://www.molecularecologist.com/wp-content/uploads/2013/11/github-logo.jpg" alt="github厂库">
+        <h2>Github Repositories</h2>
+        <p>个人项目厂库</p>
+        <a href="#">check</a>
+        </li>
+        <li>
+          <img src="http://images.china.cn/attachement/png/site1000/20140505/e89a8ffb139314d18bfa0b.png" alt="知乎">
+        <h2>知乎</h2>
+        <p>段子手的执着</p>
+        <a href="#">check</a>
+        </li>
+        <li>
+          <img src="http://upload.chinaz.com/2015/1214/1450056187485.jpg" alt="简书">
+        <h2> 简书</h2>
+        <p>日常博客聚集地</p>
+        <a href="#">check</a>
+        </li>
+        <li>
+          <img src="http://www.uimaker.com/uploads/allimg/130925/1_130925101204_1.png" alt="微博">
+        <h2> WeiBo</h2>
+        <p>屁孩我的作死趣事记录</p>
+        <a href="#">check</a>
+        </li>
+        <li>
+          <img src="http://www.jirou.com/uploads/allimg/150303/235J0GM-0.jpg" alt="健身">
+        <h2>Body Building</h2>
+        <p>曾经弱鸡，所以坚持</p>
+        <a href="#">check</a>
+        </li>
+        <li>
+          <img src="http://img.taopic.com/uploads/allimg/120404/9125-12040419400841.jpg" alt="音乐">
+        <h2>写代码音乐</h2>
+        <p>无音乐，不代码</p>
+        <a href="#">check</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+ <div id="footer">
+   <div class="ct">
+     <div class="contact">
+       <h1>想更详细的了解我？</h1>
+       <p>下载简历，打我电话找我吧</p>
+       <a href="#">简历下载</a>
+     </div>
+   </div>
+ </div>
+  <div id="copyright">
+   <div class="ct">
+    <p>Copyright © YeeC2016</p>
+   </div>
+  </div>
+</body>
+</html>

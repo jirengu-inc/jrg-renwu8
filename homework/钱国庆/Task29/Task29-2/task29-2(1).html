@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task29-2-懒加载图片-无性能优化</title>
+    <style>
+        body, html, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            clear: both;
+            display: block;
+            content: '';
+        }
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .container .img-list li {
+            float: left;
+            margin: 0px 10px 10px 0px;
+            border: 1px solid black;
+        }
+        .container .img-list li img {
+            width: 270px;
+            height: 320px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="img-list clear">
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+        <li>
+            <a href="#"><img src="" alt="" img-data="2.png"></a>
+        </li>
+    </ul>
+</div>
+<script src="jquery-1.11.1.js"></script>
+<script>
+
+    checkImage();
+    $(window).on('scroll', function () {
+        checkImage();
+    })
+
+    function checkImage() {
+        $('.container .img-list li img').each(function () {
+            var $current = $(this);
+
+            if ($current.attr('isLoaded')) {
+                return;
+            }
+
+            if (isShown($current)) {
+                showImage($current);
+            }
+        });
+    }
+
+    function isShown($node) {
+        var windowH = $(window).height();
+        var offsetTop = $(window).scrollTop();
+        var nodeOffsetTop = $node.offset().top;
+
+        if (windowH + offsetTop > nodeOffsetTop) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function showImage($node) {
+        $node.attr('src', $node.attr('img-data'));
+        $node.attr('isLoaded', true);
+    }
+
+</script>
+</body>
+</html>

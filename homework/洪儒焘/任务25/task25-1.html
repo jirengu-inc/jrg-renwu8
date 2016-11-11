@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-family: 'microsoft yahei';
+	}
+	.title-wrap{
+		margin: 10px;
+	}
+	.title-bar{
+		position: relative;
+		background: #c7171e;
+		width: 200px;	
+		color: #fff;	
+	}
+	.content-title{
+		margin: 0 10px;
+		padding: 10px 0;
+		display: block;
+		text-decoration: none;
+		color: #fff;
+		border-bottom: 1px solid #d7212e;
+	}
+	span{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		cursor: pointer;
+	}
+	.hover{
+		display: none;
+		position: absolute;
+		left: 100%;
+		top: 0;
+		width: 200px;
+		background: #fff;
+		border: 1px solid #ccc;
+	}
+	.hover li{
+		width: 50%;
+		float: left;
+		text-align: center;
+	}
+	.hover li a{
+		display: inline-block;
+		padding: 10px;
+		text-decoration: none;
+		color: #000;
+	}
+</style>
+<body>
+	<div id="content">
+		<ul class="title-wrap">
+			<li class="title-bar">
+				<a class="content-title" href="javascript:;">珠宝玉器</a>
+				<span>></span>
+				<ul class="hover">
+					<li><a href="javascript:;">翡翠</a></li>
+					<li><a href="javascript:;">玉石</a></li>
+					<li><a href="javascript:;">宝石</a></li>
+					<li><a href="javascript:;">水晶</a></li>
+				</ul>
+			</li>
+			<li class="title-bar">
+				<a class="content-title" href="javascript:;">珠宝玉器</a>
+				<span>></span>
+				<ul class="hover">
+					<li><a href="javascript:;">翡翠</a></li>
+					<li><a href="javascript:;">玉石</a></li>
+					<li><a href="javascript:;">宝石</a></li>
+					<li><a href="javascript:;">水晶</a></li>
+				</ul>
+			</li>
+			<li class="title-bar">
+				<a class="content-title" href="javascript:;">珠宝玉器</a>
+				<span>></span>
+				<ul class="hover">
+					<li><a href="javascript:;">翡翠</a></li>
+					<li><a href="javascript:;">玉石</a></li>
+					<li><a href="javascript:;">宝石</a></li>
+					<li><a href="javascript:;">水晶</a></li>
+				</ul>
+			</li>
+			<li class="title-bar">
+				<a class="content-title" href="javascript:;">珠宝玉器</a>
+				<span>></span>
+				<ul class="hover">
+					<li><a href="javascript:;">翡翠</a></li>
+					<li><a href="javascript:;">玉石</a></li>
+					<li><a href="javascript:;">宝石</a></li>
+					<li><a href="javascript:;">水晶</a></li>
+				</ul>
+			</li>
+			<li class="title-bar">
+				<a class="content-title" href="javascript:;">珠宝玉器</a>
+				<span>></span>
+				<ul class="hover">
+					<li><a href="javascript:;">翡翠</a></li>
+					<li><a href="javascript:;">玉石</a></li>
+					<li><a href="javascript:;">宝石</a></li>
+					<li><a href="javascript:;">水晶</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+	$('.title-wrap').on('mouseover','.title-bar',function(){
+		if($(this).find('.hover').css('display') == 'none'){
+			$(this).find('.hover').css('display','block');
+		}
+			
+	})
+	$('.title-wrap').on('mouseout','.title-bar',function(){
+		if($(this).find('.hover').css('display') == 'block'){
+			$(this).find('.hover').css('display','none');
+		}	
+	})
+</script>
+</body>
+</html>

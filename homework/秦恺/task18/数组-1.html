@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task18-1</title>
+</head>
+<body>
+	<script>
+function push (arr,val) {
+	arr.splice(arr.length,0,val);
+	return arr.length;
+}
+function pop (arr) {
+	return arr.splice(arr.length-1,1)[0];
+}
+function shift (arr) {
+	return arr.splice(0,1)[0];
+}
+function unshift (arr,val) {
+	arr.splice(0,0,val);
+	return arr.length;
+}
+	</script>
+</body>
+</html>
