@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab切换</title>
+    <style>
+        body,html,ul{
+            margin:0;
+            padding:0;
+        }
+        .tabs:after {
+            content:'';
+            display:block;
+            clear:both;
+        }
+        .tabs{
+            list-style: none;
+        }
+        .tabs>li{
+            width:200px;
+            padding:10px 0;
+            border:1px solid #ccc;
+            float:left;
+            cursor: pointer;
+        }
+        .content{
+            width:604px;
+            height:200px;
+            border:1px solid #ccc;
+            border-top:none;
+            display:none;
+        }
+        .tabs .active{
+            background-color:#eee;
+            display:block;
+        }
+        .content.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul class = "tabs">
+    <li class="active">tab1</li>
+    <li>tab2</li>
+    <li>tab3</li>
+</ul>
+<div class = "content active">内容1</div>
+<div class = "content">内容2</div>
+<div class = "content">内容3</div>
+</body>
+<script>
+    var tools = {
+        hasClass:function(el,cls){
+            var patt = new RegExp('（\\s|^）'+cls+'(\\s|$)','g');
+            return patt.test(el.className)
+        },
+        singleAddClass:function(el,cls){
+            if(!tools.hasClass(el,cls)){
+                return el.className = el.className + ' '+cls
+            }
+        },
+        addClass:function(el,cls){
+            if(el.length && el.length>0){
+                for(var i=0; i<el.length;i++){
+                    tools.singleAddClass(el[i],cls);
+                }
+            }
+            else{
+                tools.singleAddClass(el,cls);
+            }
+        },
+        singleRemoveClass:function(el,cls){
+            return el.className = el.className.replace(new RegExp('\\b'+cls+'\\b','g'),'')
+//            if(tools.hasClass(el,cls)){
+//                return el.className =el.className.replace(cls,''); //为什么这样写不行
+//            }
+
+        },
+        removeClass:function(el,cls){
+            if(el.length && el.length > 0){ //如果对象是个数组，全部删除
+                for (var i =0; i<el.length;i++){ //遍历数组
+                    tools.singleRemoveClass(el[i],cls)
+                }
+            }else{
+                tools.singleRemoveClass(el,cls)
+            }
+
+        },
+        indexOf:function(el){
+            var parent = el.parentNode; //得到父元素节点
+            var child = parent.children; //在父元素得到它的子元素
+            for(var i = 0;i<child.length;i++){ //遍历数组
+                if(el === child[i]){ //如果事件和子元素一样
+                    return i; //返回这个事件元素的位置
+                }
+            }
+            return -1;
+        }
+    }
+
+    //事件代理
+    var tabCt = document.querySelector('.tabs'); //获取到所有tab的父元素
+    tabCt.addEventListener('click',function(e){ //监听所有子元素
+        var target = e.target; //获取事件的元素
+        var tabs = tabCt.children; //获取到事件的所有子元素
+        var index = tools.indexOf(target); //查找到点击事件元素的位置
+        var contents = document.querySelectorAll('.content'); //获取所有的content元素
+        if(index > -1){
+            tools.removeClass(tabs,'active'); //把active去掉
+            tools.addClass(target,'active');
+            tools.removeClass(contents,'active');
+            tools.addClass(contents[index],'active');
+        }
+    })
+
+</script>
+</html>
