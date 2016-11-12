@@ -86,7 +86,7 @@ function ajax(obj){
 var ctLi = document.querySelector('.ct-li'),
 	flag=true;
 document.querySelector('.btn').addEventListener('click', function() {
-	var li=ctLi.childNodes;
+	var li=ctLi.children;
 	    if(!flag){
         return;
     }else{
@@ -110,9 +110,9 @@ document.querySelector('.btn').addEventListener('click', function() {
     
 });
  function addContent(ret){
-	 for (var i = 0; i < ret.length; i++) {
+	 for (var i = 0; i < ret.data.length; i++) {
     		var newLi = document.createElement('li');
-            newLi.innerText=ret[i];
+            newLi.innerText=ret.data[i];
             ctLi.appendChild(newLi);
     	}
  }
