@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饥人谷两栏布局</title>
+	<style>
+		html,body,ul{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 16px/1.5 "Microsoft YaHei","微软雅黑",sans-serif;
+			color:#656565;
+		}
+		#header{
+			height:50px;
+			background: #333;
+		}
+		.wraper{
+			width:900px;
+			margin: 0 auto;
+		}
+		a > img{
+			height:40px;
+			float: left;
+		}
+		#header ul{
+			float:right;
+			margin: 0;
+		}
+		#header li{
+			list-style-type: none;
+			display: inline-block;
+			margin-right:8px;
+		}
+		#header li a{
+			display: inline-block;
+			color:#fff;
+			height:50px;
+			font-size: 18px;
+			line-height: 50px;
+			text-decoration: none;
+			padding:0 8px;
+		}
+		#header li a:hover{
+			color:#000;
+			background:#fff ;
+		}
+		#content{
+			margin-top: 10px;
+		}
+		#content:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		#content .aside{
+			float: left;
+			width:200px;
+			min-height: 500px;
+			background: #eee;
+
+		}
+		#content .main{
+			margin-left: 210px;
+			background: #eee;
+			height:250px;
+			padding: 10px;
+		}
+		#footer{
+			height:40px;
+			background: #333;
+		}
+		#footer li{
+			list-style-type: none;
+			display: inline-block;
+			margin-right:5px;
+		}
+		#footer li a{
+			display: inline-block;
+			color:#fff;
+			height:40px;
+			font-size: 14px;
+			line-height: 40px;
+			text-decoration: none;
+			padding:0 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="wraper">
+			<a href="#" class="logo">
+				<img src="image/logo.png" alt="logo">
+			</a>
+			<ul>
+				<li><a href="#">技能</a></li>
+				<li><a href="#">经历</a></li>
+				<li><a href="#">作品</a></li>
+				<li><a href="#">关于</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div class="wraper">
+			<div class="aside"></div>
+			<div class="main">
+				<h1>我的作品</h1>
+				<p>今天是星期三</p>
+				<p>今天是阴天</p>
+				<p>今天吃饺子</p>
+			</div>
+		</div>
+
+	</div>
+	<div id="footer">
+		<div class="wraper">
+			<ul>
+				<li><a href="#">饥人谷</a></li>
+				<li><a href="#">JSCODE</a></li>
+				<li><a href="#">JSBIN</a></li>
+			</ul>
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css sprite</title>
+	<style>
+		body{
+			background:#fff;
+		}
+		.common{
+			background:url(http://csssprites.com/results/bdac4e56697375954f0e0560d1dee5a7/result.png) no-repeat;
+			width:60px;
+			height:40px;
+			border:1px solid;
+			display:inline-block;
+			padding-left:30px;
+			font-size:24px;
+
+		}
+		.box1{
+			background-position: 0px -5px;
+		}
+		.box1:hover{
+			color:#9370DB;
+			background-position: -1px -140px;
+		}
+		.box2{
+			background-position: 0px -48px;
+		}
+		.box2:hover{
+			color:#9370DB;
+			background-position: -5px -189px;
+		}
+		.box3{
+			background-position: -4px -95px;
+		}
+		.box3:hover{
+			color:#9370DB;
+			background-position: 0px -233px;
+		}
+	</style>
+</head>
+<body>
+<div class="common box1">前进</div>
+<div class="common box2">开始</div>
+<div class="common box3">停止</div>
+</body>
+</html>

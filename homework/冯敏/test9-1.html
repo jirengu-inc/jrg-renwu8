@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.triangle{
+			width:0px;
+			height:0px;
+			border-top:100px solid green;
+			border-right:100px solid transparent;
+			border-bottom:100px solid transparent;
+			border-left:100px solid transparent;
+		}
+		.tooltip1,.tooltip2,.tooltip3,.tooltip4{
+			width:200px;
+			height:80px;
+			border:1px solid green;
+			border-radius:3px;
+			margin: 40px;
+			position: relative;
+		}
+		.tooltip1:before{
+			display: block;
+			content: "";
+			position: absolute;
+			width:0px;
+			height:0px;
+			left:-21px;
+			top:25px;
+			border-top:10px solid transparent;
+			border-right:10px solid green;
+			border-bottom:10px solid transparent;
+			border-left:10px solid transparent;
+		}
+		.tooltip2:before{
+			content: "";
+			display: block;
+			position: absolute;
+			right:0px;
+			border-top:10px solid green;
+			border-right:10px solid green;
+			border-bottom:10px solid transparent;
+			border-left:10px solid transparent;
+		}
+		.tooltip3:before{
+			content: "";
+			display: block;
+			position: absolute;
+			left:20px;
+			top:-20px;
+			border-top:10px solid transparent;
+			border-right:10px solid transparent;
+			border-bottom:10px solid green;
+			border-left:10px solid transparent;
+		}
+		.tooltip3:after{
+			content: "";
+			display: block;
+			position: absolute;
+			left:20px;
+			top:-19px;
+			border-top:10px solid transparent;
+			border-right:10px solid transparent;
+			border-bottom:10px solid #fff;
+			border-left:10px solid transparent;
+		}
+		.tooltip4:before{
+			content: "";
+			display: block;
+			position:absolute;
+			top:-8px;
+			left:30px;
+			width:13px;
+			height:13px;
+			background-color: #fff;
+			border-top:1px solid green;
+			border-left:1px solid green;
+			transform: rotate(45deg);
+		}
+		.taiji{
+			position: relative;
+		}
+		.circle1{
+			position: absolute;
+			top:0;
+			left:0;
+			width:100px;
+			height:200px;
+			border-radius: 100px 0 0 100px;
+			background-color: #f00;
+		}
+		.circle2{
+			position: absolute;
+			top:0;
+			left:100px;
+			width:100px;
+			height:200px;
+			border-radius:0 100px 100px 0;
+			background-color: #000;
+		}
+		.circle3{
+			position: absolute;
+			top:0;
+			left:50px;
+			width:50px;
+			height:100px;
+			border-radius: 500px 0 0 500px;
+			background-color: #000;
+		}
+		.circle4{
+			position: absolute;
+			top:100px;
+			left:100px;
+			width:50px;
+			height:100px;
+			border-radius:0 50px 50px 0;
+			background-color: #f00;
+		}
+		.circle5{
+			position: absolute;
+			top:45px;
+			left:90px;
+			width:20px;
+			height:20px;
+			border-radius: 10px;
+			background-color: #f00;
+		}
+		.circle6{
+			position: absolute;
+			top:150px;
+			left:90px;
+			width:20px;
+			height:20px;
+			border-radius:10px;
+			background-color: #000;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="triangle"></div>
+	<div class="tooltip1"></div>
+	<div class="tooltip2"></div>
+	<div class="tooltip3"></div>
+	<div class="tooltip4"></div>
+	<div class="taiji">
+		<div class="circle1"></div>
+		<div class="circle2"></div>
+		<div class="circle3"></div>
+		<div class="circle4"></div>
+		<div class="circle5"></div>
+		<div class="circle6"></div>
+	</div>
+</body>
+</html>
