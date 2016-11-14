@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    .online {
+        width: 300px;
+        height: 220px;
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .imgs {
+        width: 1200px;
+        height: 220px;
+    }
+    
+    .imgs li {
+       position: absolute;
+        width: 300px;
+        height: 220px;
+        display: none;
+    }
+    
+    .imgs img {
+        width: 300px;
+        height: 220px;
+    }
+    
+    .arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        display: block;
+        background: #4e443c;
+        opacity: 0.5;
+        position: absolute;
+        text-align: center;
+        line-height: 30px;
+    }
+    
+    .left {
+        left: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .right {
+        right: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .arrow:hover {
+        opacity: 1;
+    }
+    
+    .icons {
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+    
+    .icons li {
+        cursor: pointer;
+        width: 20px;
+        height: 4px;
+        display: inline-block;
+        background: #fff;
+        border-radius: 3px;
+    }
+    
+    .bg {
+        background: #ccc !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="online">
+        <ul class="imgs">
+            <li style="display: block">
+                <a href="#"><img src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/4.jpg" alt=""></a>
+            </li>
+        </ul>
+        <a class="arrow left" href="javascript:void(0)">
+            <</a>
+                <a class="arrow right" href="javascript:void(0)">></a>
+                <ul class="icons">
+                    <li class="bg">
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+    </div>
+    <div class="online">
+        <ul class="imgs">
+            <li style="display: block">
+                <a href="#"><img src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/4.jpg" alt=""></a>
+            </li>
+        </ul>
+        <a class="arrow left" href="javascript:void(0)">
+            <</a>
+                <a class="arrow right" href="javascript:void(0)">></a>
+                <ul class="icons">
+                    <li class="bg">
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+    </div>
+    <div class="online">
+        <ul class="imgs">
+            <li style="display: block">
+                <a href="#"><img src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/4.jpg" alt=""></a>
+            </li>
+        </ul>
+        <a class="arrow left" href="javascript:void(0)">
+            <</a>
+                <a class="arrow right" href="javascript:void(0)">></a>
+                <ul class="icons">
+                    <li class="bg">
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var clocks = [];
+        var setTime = [];
+        var now_clock;
+        var rolls = $('.online');
+        rolls.each(function(index, item) {
+            var $item = $(item);
+            var imgsli = $item.find('.imgs').find('li');
+            var nowli = $item.find('.icons').find('li');
+            var li_len = nowli.length;
+            clocks[index] = {
+                imgsli: imgsli,
+                nowli: nowli,
+                li_len: li_len,
+                rollFlag: false,
+                now_index: 0,
+                new_index: 0,
+                setTime: 0
+            };
+
+             rollStart(index);
+
+        });
+
+
+        function rollStart(index) {
+
+             clocks[index].setTime = setInterval(function() {
+                   gotonext(1, index);
+               }, 5000);
+        }
+
+
+        function gotonext(len, index) {
+
+            var now_clock = clocks[index];
+            now_clock.new_index = (now_clock.now_index + len) % clocks[index].li_len;
+            now_clock.nowli.eq(now_clock.new_index).addClass('bg').siblings().removeClass('bg');
+            now_clock.imgsli.eq(now_clock.now_index).fadeOut(500);
+                now_clock.imgsli.eq(now_clock.new_index).fadeIn(500, function() {
+                    now_clock.now_index = now_clock.new_index;
+                    now_clock.rollFlag = false;
+                    if (now_clock.setTime<=0) {
+                     rollStart(index);}
+                });
+            
+
+        }
+
+        function goback(len, index) {
+            var now_clock = clocks[index];
+            now_clock.new_index = (now_clock.now_index - len) % now_clock.li_len;
+            now_clock.nowli.eq(now_clock.new_index).addClass('bg').siblings().removeClass('bg');
+            now_clock.imgsli.eq(now_clock.now_index).fadeOut(500);
+                now_clock.imgsli.eq(now_clock.new_index).fadeIn(500, function() {
+                    now_clock.now_index = now_clock.new_index;
+                    now_clock.rollFlag = false;
+                     if (now_clock.setTime<=0) {
+                     rollStart(index);}
+                    
+                });
+          
+
+
+        }
+        $('.right').on('click', function() {
+            var p_index = $(this).parent().index();
+            if (clocks[p_index].rollFlag) {
+                return;
+            }
+            clocks[p_index].rollFlag = true;
+            clearInterval(clocks[p_index].setTime);
+             clocks[p_index].setTime=0;
+            gotonext(1, p_index);
+
+         
+
+
+        });
+        $('.left').on('click', function() {
+            var p_index = $(this).parent().index();
+            if (clocks[p_index].rollFlag) {
+                return;
+            }
+            clocks[p_index].rollFlag = true;
+            clearInterval(clocks[p_index].setTime);
+             clocks[p_index].setTime=0;
+
+            goback(1, p_index);
+
+            
+        });
+
+        $('.icons li').on('click', function() {
+            var $this = $(this);
+            var $index = $this.index();
+            var p_index = $this.parent().parent().index();
+            if (clocks[p_index].rollFlag) {
+                return;
+            }
+            clearInterval(clocks[p_index].setTime);
+            clocks[p_index].rollFlag = true;
+             clocks[p_index].setTime=0;
+            if ($index > clocks[p_index].now_index) {
+                gotonext($index - clocks[p_index].now_index, p_index);
+            }
+            if ($index < clocks[p_index].now_index) {
+                goback(clocks[p_index].now_index - $index, p_index);
+            }
+           
+        });
+    });
+    </script>
+</body>
+
+</html>

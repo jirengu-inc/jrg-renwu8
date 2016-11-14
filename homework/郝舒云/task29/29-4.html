@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,li
+    {
+        padding:0;
+        margin:0;
+        list-style: none;
+    }
+   .imgs
+   {
+    width:930px;
+    margin:0 auto;
+   }
+   .imgs ul
+   {
+    overflow: hidden;
+   }
+   .imgs ul li
+   {
+    float: left;
+    display: block;
+    width:300px;
+    height: 300px;
+    margin-left: 10px;
+    margin-top: 10px;
+   }
+   .imgs img
+   {
+width: 300px;
+height: 300px;
+   }
+    </style>
+</head>
+
+<body>
+    <div class="imgs">
+        <ul>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg"
+                data-src="imgs/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/5.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/4.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><img src="imgs/loading.jpg" data-src="imgs/3.jpeg" alt=""></a>
+            </li>
+        </ul>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    $('.imgs').find('img').attr('flag',0);
+     loadimgs();
+     function isVisible($node) {
+        var nodeheight = $node.height();
+        var top = $(document).scrollTop();
+        var tall = $node.offset().top;
+        var windowheight = $(window).height();
+        if (windowheight + top > tall && top < tall + nodeheight) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    $(document).on('scroll', function() {
+
+      loadimgs();
+    });
+  
+  function loadimgs(){
+    $('.imgs').find('img[flag=0]').each(function(){
+var $img_node=$(this);
+        if (isVisible($img_node)) {
+$img_node.attr('src',$img_node.attr('data-src'));
+$img_node.attr('flag',1);
+        }
+       });
+  }
+    </script>
+</body>
+
+</html>

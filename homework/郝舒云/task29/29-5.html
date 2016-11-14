@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    div li {
+        border: 1px solid #ccc;
+        display: block;
+        height: 40px;
+        margin-top: 10px;
+        line-height: 40px;
+        padding-left: 10px;
+        border-radius: 5px;
+    }
+    
+    li:hover {
+        background: green;
+        color: #fff;
+    }
+    
+    a {
+        text-decoration: none;
+        display: block;
+        margin: 10px auto;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid #e27272;
+        border-radius: 5px;
+        color: #e27272;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="mylist">
+        <ul>
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容1</li>
+          
+        </ul>
+    </div><a id="addmore" href="javascript:void(0)">加载更多</a>
+</body>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+addmore();
+function isVisible($node) {
+    var nodeheight = $node.height();
+    var top = $(document).scrollTop();
+    var tall = $node.offset().top;
+    var windowheight = $(window).height();
+    if (windowheight + top > tall && top < tall + nodeheight) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+var loadingdata=false;
+function addmore() {
+    var $add = $('#addmore');
+    if (loadingdata) {return;}
+    if (isVisible($add)) {
+        loadingdata=true;
+        setTimeout(function() {
+            $add.click();
+        }, 2000);
+    }
+}
+
+function addcontent(con) {
+    var div = $('#mylist ul');
+
+
+    for (var item in con) {
+
+        div.append($('<li>' + con[item] + '</li>'));
+    }
+    loadingdata=false;
+}
+$(document).on('scroll', function() {
+    addmore();
+
+});
+$('#addmore').on('click', function() {
+    var con_li = $("#mylist").find('li');
+    $.ajax({
+        url: '29-5.php', //接口地址
+        type: 'get', // 类型， post 或者 get,
+        data: {
+            start: con_li.length,
+            len: 10
+        },
+        success: function(data) {
+            addcontent(JSON.parse(data));
+
+        },
+        error: function() {
+            console.log('出错了')
+        }
+    });
+});
+</script>
+
+</html>
