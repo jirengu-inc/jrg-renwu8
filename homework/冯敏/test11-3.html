@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>居中布局</title>
+	<style>
+		#header{
+			height:100px;
+			background: darkkhaki;
+			border-bottom: 1px solid black;
+		}
+		#main{
+			height:500px;
+			background: lightpink;
+		}
+		#footer{
+			height: 100px;
+			background: forestgreen;
+		}
+		#header>.content,
+		#main>.content,
+		#footer>.content{
+			width:800px;
+			margin: 0 auto;
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="content">头部</div>
+	</div>
+	<div id="main">
+		<div class="content">主体</div>
+	</div>
+	<div id="footer">
+		<div class="content">尾部</div>
+	</div>
+</body>
+</html>

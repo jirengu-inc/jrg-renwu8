@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>question 5  modal</title>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+		.close{
+			position: absolute;
+			top: 15px;
+			right: 15px;
+		}
+		a{
+			color: #000;
+		}
+		.btn{
+			position: relative;
+			left: 150px;
+		}
+		.btn>a{
+			padding: 0 5px;
+		}
+		.cover{
+			background-color: #ccc;
+			opacity: 0.5;
+			z-index: 99;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: fixed;
+		}
+		#modal{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -150px;
+			margin-top: -98px;
+		}
+		.modal{
+			display: none;
+		}
+		.modal-ct{
+			width: 300px;
+			border: 1px solid #000;
+			position: relative;
+			background-color: #fff;
+			z-index: 100;
+		}
+	</style>
+</head>
+<body>
+	<button>Click Me!</button>
+	<div id='modal' class="modal">
+		<div class="cover"></div>
+		<div class="modal-ct">
+			<h1>title 1</h1>
+			<a href='#' class="close">X</a>
+			<p>content 1</p>
+			<p>content 2</p>
+			<div class='btn'>
+				<a href="#" class='btn-cancel'>cancel</a>
+				<a href="#" class='btn-confirm'>confirm</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function $$(name){
+			var length = name.length - 1;
+			if(name[0] === "."){
+				return document.getElementsByClassName(name.substr(1,length));
+			}else if(name[0] === "#"){
+				return document.getElementById(name.substr(1,length));
+			}else{
+				return document.getElementsByTagName(name);
+			}
+		}
+
+		function removeClass(ele,clas){
+			ele.className = ele.className.replace(clas,'');
+		}
+
+		function addClass(ele,clas){
+			ele.className += clas;
+		}
+
+		$$('button')[0].addEventListener('click',function(){
+			removeClass($$('#modal'),'modal');
+		});
+		$$('#modal').addEventListener('click',function(e){
+			if(e.target.className === 'cover' || e.target.className === 'close' || e.target.className === 'btn-cancel'){
+				addClass($$('#modal'),'modal');
+			}
+		});
+	</script>
+</body>
+</html>

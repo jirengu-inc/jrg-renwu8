@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位</title>
+	<style>
+		.ct{
+			width:400px;
+			height:500px;
+			background:#ccc;
+		}
+		.item{
+			width:100px;
+			height:100px;
+			border:1px solid;
+		}
+		.item:nth-child(2){
+			position:absolute;
+			background:red;
+			top:20px;
+			left:50px
+		}
+		.item:last-child{
+			background:green;
+			position:relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BFC</title>
+	<style>
+		body{
+			margin:0;
+			padding: 0;
+		}
+		.ct1 .box{
+			width:50px;
+			height:50px;
+			margin: 20px;
+			background: red;
+		}
+		.ct2{
+			border:2px solid green;
+		}
+		.ct2:after{
+			content: "";
+			display: block;
+			clear:both;
+		}
+		.ct2 .box{
+			float:left;
+			width:50px;
+			height:50px;
+			margin: 20px;
+			background: red;
+		}
+		.ct3{
+			border: 2px solid green;
+			width:500px;
+		}
+		.ct3 img{
+			float: left;
+		}
+		.ct3 p{
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct1">
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+	</div>
+	<div class="ct2">
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+	</div>
+	<div class="ct3">
+		<img src="http://cdn.jirengu.com/public/logo-tiny.png" alt="">
+		<p>文字文字文字文字文字文字文字文字文字文字文字文字
+			文字文字文字文字文字文字文字文字文字文字文字文字
+			文字文字文字文字文字文字文字文字文字文字文字文字
+		</p>
+	</div>
+</body>
+</html>
