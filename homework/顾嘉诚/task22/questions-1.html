@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>question 1</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!--
+		有如下代码，要求当点击每一个元素li时控制台展示该元素的文本内容。不考虑兼容
+	-->	
+	<ul class="ct">
+	    <li>这里是</li>
+	    <li>饥人谷</li>
+	    <li>前端8班</li>
+	</ul>
+	<script>
+		function $$(name){
+			var length = name.length - 1;
+			if(name[0] === '.'){
+				return document.getElementsByClassName(name.substr(1,length));
+			}
+			else if(name[0] === '#'){
+				return document.getElementById(name);
+			}
+			else return document.getElementsByTagName(name);
+		}
+/*		
+		var list = $$('li');
+		for(var i = 0;i < list.length;i ++){
+			list[i].addEventListener('click',function(){
+				console.log(this.innerText);
+			});
+		}
+*/
+		var ct = $$('.ct');
+		ct[0].addEventListener('click',function(e){
+				console.log(e.target.innerText);
+			});
+	</script>	
+</body>
+</html>

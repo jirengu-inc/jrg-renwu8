@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>questions 3</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!--
+		补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。
+	-->
+	<ul class="ct">
+	    <li data-img="1.png">鼠标放置查看图片1</li>
+	    <li data-img="2.png">鼠标放置查看图片2</li>
+	    <li data-img="3.png">鼠标放置查看图片3</li>
+	</ul>
+	<div class="img-preview"></div>
+
+	<script>
+		var imgSrc = ['./pic/1.jpg','./pic/2.jpg','./pic/3.jpg'];
+		function $$(name){
+			var length = name.length - 1;
+			if(name[0] === '.'){
+				return document.getElementsByClassName(name.substr(1,length));
+			}
+			else if(name[0] === '#'){
+				return document.getElementById(name.substr(1,length));
+			}
+			else return document.getElementsByTagName(name);
+		}
+
+		function indexOfNum(target){
+			var li = $$('.ct')[0].children;
+			var num;
+			for(var i = 0;i < li.length;i ++){
+				if(li[i] === target){
+					num = i;
+				}	
+			}
+			return num;
+		}
+
+		function createImg(num){
+			var img = document.createElement('img');
+			img.setAttribute('src',imgSrc[num]);
+			$$('.img-preview')[0].appendChild(img);
+		}
+
+		$$('.ct')[0].addEventListener('mouseover',function(e){
+			if($$('.img-preview')[0].children[0] !== undefined){
+				$$('.img-preview')[0].removeChild($$('.img-preview')[0].children[0]);
+			}
+			var num = indexOfNum(e.target);
+			if(num !== undefined){
+				createImg(num);
+			}
+		});
+	</script>	
+</body>
+</html>
