@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>tab切换</title>
+</head>
+<style>
+	body,html,ul {
+		padding: 0;
+		margin: 0;
+		font-size: 12px;
+		color: #666;
+	}
+	ul {
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+		color: #666;
+	}
+	.clearfixed:after {
+		content: ''; 
+		display:block; 
+		clear:both ; 
+	}
+
+	div.active {
+		display: block;
+	}
+	.main {
+		overflow:auto;
+		display:table;
+		 margin:auto;
+	}
+	.jewel-item {
+		margin-bottom: 25px;
+	}
+	.jewel-ct {
+		width: 732px;
+		margin-left: -20px;
+		margin-top: -20px;
+	}
+	.jewel-ct .jewel{
+		border: 1px solid #eee;
+		float: left;
+		width: 200px;
+		height: 200px;
+		margin-left:20px; 
+		margin-top: 20px;
+		position: relative;
+	}
+	.jewel-ct .item-details>li{
+		padding: 5px 15px;
+	}
+	.jewel-ct .item-details>li:first-child{
+		text-align: center;
+	}
+	.jewel-ct .item-details .price {
+		color: #c7171e;
+	}
+	.jewel-item .hover-wrap {
+		width: 100%;
+		height: 100%;
+		background-color: #333;
+		opacity: 0.3;
+		position: absolute;
+		display: none;
+	}
+	.jewel-item .buy{
+		width: 40%;
+		height: 40px;
+		line-height: 40px; 
+		text-align: center;
+		border: 1px solid #c7171e;
+		color: #c7171e;
+		border-radius: 5px;
+		background-color: #fff;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		display: none;
+	}
+	.active{
+		display: block !important;
+	}
+	.add-btn{
+		padding: 12px 18px;
+		border: 1px solid #c7171e;
+		border-radius: 4px;
+		background-color: #fff;
+		color: #c7171e;
+	}
+</style>
+<body>
+<div class="main">
+
+	<h1>珠宝首饰</h1>
+	<div class="jewel-item">
+		<ul class="jewel-ct clearfixed">
+			<li class="jewel">
+				<div class="hover-wrap"></div>
+				<a href="JavaScript:;" class="buy">立即抢购</a>
+				<ul class="item-details">
+					<li><img src="1.jpg" alt=""></li>
+					<li>藏美千足金和田玉金镶玉路路通吊坠</li>
+					<li class="price">￥1699.00</li>
+				</ul>
+			</li>
+			<li class="jewel">
+				<div class="hover-wrap"></div>
+				<a href="JavaScript:;" class="buy">立即抢购</a>
+				<ul class="item-details">
+					<li><img src="1.jpg" alt=""></li>
+					<li>藏美千足金和田玉金镶玉路路通吊坠</li>
+					<li class="price">￥1699.00</li>
+				</ul>
+			</li>
+			<li class="jewel">
+				<div class="hover-wrap"></div>
+				<a href="JavaScript:;" class="buy ">立即抢购</a>
+				<ul class="item-details">
+					<li><img src="1.jpg" alt=""></li>
+					<li>藏美千足金和田玉金镶玉路路通吊坠</li>
+					<li class="price">￥1699.00</li>
+				</ul>
+			</li>
+			<li class="jewel">
+				<div class="hover-wrap"></div>
+				<a href="JavaScript:;" class="buy">立即抢购</a>
+				<ul class="item-details">
+					<li><img src="1.jpg" alt=""></li>
+					<li>藏美千足金和田玉金镶玉路路通吊坠</li>
+					<li class="price">￥1699.00</li>
+				</ul>
+			</li>
+			<li class="jewel">
+				<div class="hover-wrap"></div>
+				<a href="JavaScript:;" class="buy">立即抢购</a>
+				<ul class="item-details">
+					<li><img src="1.jpg" alt=""></li>
+					<li>藏美千足金和田玉金镶玉路路通吊坠</li>
+					<li class="price">￥1699.00</li>
+				</ul>
+			</li>
+			<li class="jewel">
+				<div class="hover-wrap"></div>
+				<a href="JavaScript:;" class="buy">立即抢购</a>
+				<ul class="item-details">
+					<li><img src="1.jpg" alt=""></li>
+					<li class="name">藏美千足金和田玉金镶玉路路通吊坠</li>
+					<li class="price">￥1699.00</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<a href="JavaScript:;" class="add-btn">添加</a>
+</div>
+
+	
+
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+	<script>
+		var products = [
+		    {
+		        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+		        name: '珂兰 黄金手 猴哥款',
+		        price: '￥405.00'
+		    },{
+		        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+		        name: '珂兰 黄金转运珠 猴哥款',
+		        price: '￥100.00'
+		    },{
+		        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+		        name: '珂兰 黄金手链 3D猴哥款',
+		        price: '￥45.00'
+		    }
+		];
+
+	function getProd(prod){
+		var  html='';
+		html+='<li class="jewel">',
+		html+='<div class="hover-wrap"></div>',
+		html+='<a href="JavaScript:;" class="buy">立即抢购</a>',
+		html+='<ul class="item-details">',
+		html+='<li><img src="'+prod.img+'" alt=""></li>',
+		html+='<li class="name">'+prod.name+'</li>',
+		html+='<li class="price">'+prod.price+'</li>',
+		html+='</ul></li>';
+		return html;
+	}
+
+	$('.add-btn').on('click',function(){
+		$.each(products,function(k,v){
+			var html=getProd(v)
+			$('.jewel-ct').append(html);
+		})	 	
+	})
+	
+	$('.jewel-ct').on('mouseenter','.jewel',function(){
+		$(this).find('.hover-wrap').addClass('active');
+		$(this).find('.buy').addClass('active');
+	});
+	$('.jewel-ct').on('mouseleave','.jewel',function(){
+		$(this).find('.hover-wrap').removeClass('active');
+		$(this).find('.buy').removeClass('active');
+	});
+
+	
+
+
+	</script>
+</body>
+</html>
