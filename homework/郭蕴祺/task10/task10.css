@@ -23,12 +23,21 @@ a{
 	float: right;
 }
 
-.nav>li{
+.nav li{
 	list-style-type: none;
 	float: left;
-	margin-left: 50px;
-	line-height: 55px;
 }
+.nav a{
+	display: block;
+	line-height: 55px;
+	padding:0 15px;
+}
+.nav a:hover{
+	background: white;
+	cursor: pointer;
+	color: black;
+}
+
 #content{
 	margin-top: 10px;
 }
@@ -54,7 +63,7 @@ h1{
 	width: 100%;
 	clear: both;
 }
-.link>li{
+.link li{
 	list-style-type: none;
 	float: left;
 	line-height: 45px;

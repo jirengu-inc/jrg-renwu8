@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>task12-2</title>
+	<style>
+	*{
+		padding: 0;
+		margin:0;
+	}
+	#header,#footer{
+		height: 40px;
+		background: #CCC;
+      	width: 100%;
+	}
+    .container{
+        padding:0 200px;
+        overflow:hidden;
+    }
+	.main{
+		float: left;
+        background:green; 
+	}
+	.side{
+		float: left;
+		width: 200px;
+        height:100px;
+        position:relative;
+	}
+	.right{
+		background: yellow;
+        left:200px;
+        margin-left:-200px;
+	}
+	.left{
+		background: red;
+        right:200px;
+        margin-left:-100%;
+        
+	}
+	</style>
+</head>
+<body>
+	<div id="header">头部</div>
+     <div class="container">
+		<div class="main">
+		主区块
+      </div>
+		<div class="side left">左侧边栏</div>
+		<div class="side right">右侧边栏</div>
+  </div>
+	<div id="footer">尾部</div>
+</body>
+</html>
