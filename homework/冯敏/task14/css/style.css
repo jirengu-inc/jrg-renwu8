@@ -1,0 +1,167 @@
+/*reset informaition*/
+html,body,ul,li{
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+body{
+    font-family: "Microsoft YaHei", sans-serif;
+}
+.layout{
+    width:960px;
+    margin: 0 auto;
+}
+#header{
+    height:100%;
+    background: #ccc url(../image/background8.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.header-wrapper{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+#header img{
+    width:200px;
+    height:200px;
+    border:5px solid green;
+    border-radius: 50%;
+}
+#header img:hover{
+    border-radius:30%;
+}
+.btn{
+    display: inline-block;
+    margin-top: 15px;
+    width:150px;
+    height:50px;
+    line-height: 50px;
+    border-radius: 8px;
+    background-color: rgba(0,128,0,0.6);
+    color: white;
+}
+.btn:hover{
+    background-color: rgba(0,128,0,1);
+}
+#content .intro-wrapper,
+#content .skill-wrapper,
+#content .production-wrapper,
+#content .personality-wrapper,
+#footer .contact{
+    text-align: center;
+    padding:50px 0;
+}
+#content .intro-wrapper{
+    background-color: #fff;
+}
+#content .intro{
+    font-size: 20px;
+}
+#content .intro a{
+    color:green;
+}
+#content .skill-wrapper{
+    background-color: #f0ddd7;
+}
+#content .skill h2{
+    display: inline-block;
+    font-size: 30px;
+}
+#content .skill hr{
+    width:100px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+#content .skill ul:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#content .skill li{
+    width:220px;
+    float: left;
+    margin-right: 20px;
+}
+#content .education-wrapper{
+    background: #ccc url(../image/education2.jpg) no-repeat;
+    background-size: cover;
+}
+#content .education{
+    padding :200px 0;
+    text-align: center;
+}
+#content .education h1{
+    font-size: 64px;
+}
+#content .production img{
+    width:460px;
+    height:320px;
+}
+#content .production hr{
+    width:150px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+#content .production a{
+    margin-top: 25px;
+}
+#content .production ul:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#content .production li{
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+#content .personality-wrapper{
+    background-color: #f0ddd7;
+}
+#content .personality a:first-of-type{
+    display: inline-block;
+    width:150px;
+    height:50px;
+    line-height:50px;
+    color:white;
+    font-size: 24px;
+    background-color:green ;
+
+}
+#content .personality a:last-of-type{
+    display: inline-block;
+    width:150px;
+    height:50px;
+    line-height:50px;
+    color:green;
+    font-size: 24px;
+    background-color:white ;
+}
+#footer .contact a{
+    color:green;
+}
+#footer .contact a:hover{
+    text-decoration: underline;
+}
+#footer .contact hr{
+    width:300px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+#footer .contact .small-iconfont{
+    margin-right: 5px;
+}
+#footer .contact .big-iconfont{
+    margin-right: 20px;
+}
