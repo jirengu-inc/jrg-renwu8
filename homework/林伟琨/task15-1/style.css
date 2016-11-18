@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'myiconfont';
+  src: url('./icon/iconfont.eot');
+  src: url('./icon/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('./icon/iconfont.woff') format('woff'),
+  url('./icon/iconfont.ttf') format('truetype'),
+  url('./icon/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"myiconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*通用样式*/
+body,html,ul,dl{
+	margin:0;
+	padding: 0
+}
+body{
+	background: #CCE8CF;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.level-align{
+	width: 1000px;
+	margin: 0 auto;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both
+}
+/*导航条*/
+.nav>li{
+	float: left;
+	margin: 0 8px;
+	padding: 10px 0;
+}
+.nav>li a{
+	color: #666;
+}
+.nav>.iconfont:first-child{
+	font-size: 26px;
+	padding-bottom: 0;
+	margin-bottom: 
+	margin-left: 0;
+	margin-right: 5px;
+	position: relative;
+	top:-8px;
+}
+.nav>li:hover>a{
+	color: #333;
+}
+.nav .more{
+	position: relative;
+}
+.nav .more:hover .child-nav{
+	display: block;
+}
+.child-nav{
+	position: absolute;
+	top:39px;
+	left: -8px;
+	text-align: center;
+	display: none;
+}
+.child-nav li{
+	background:#fff;
+	border-bottom: 1px dashed #ccc;
+	padding:5px 5px;
+}
+.child-nav li:last-child{
+	border-bottom: none;
+}
+.child-nav li:hover{
+	background: #ccc;
+}
+/*主体=bg+topic+works；3部分组成*/
+.bg{
+	background: #B84D45;
+	margin-bottom: 30px;
+}
+.title{
+	background: #B84D45;
+	padding: 50px;
+	color: #fff;
+}
+.topic{
+	background: #eee;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #666;
+	padding-left: 8px;
+}
+.topic>a{
+	color:#B84D45;
+}
+.works{
+	width:1075px;
+}
+.works li{
+	height: 314px;
+	width: 300px;
+	float: left;
+	margin:30px 0 30px 40px;
+	padding: 2px 2px 30px 2px;
+	border:1px solid #ccc;
+	text-align: center;
+}
+.works li img{
+	width: 300px;
+	height: 200px;
+}
+.works li a:nth-child(4){
+	display: inline-block;
+	color:#666;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+.works li a:nth-child(4):hover{
+	color: #333;
+}
+#footer{
+	text-align: center;
+}
+.download{
+	color:#fff;
+	background: #B84D45;
+	padding: 50px 0;
+	
+}
+.download a{
+	display: inline-block;
+	color:#fff;
+	padding: 5px;
+	border: 1px solid #ccc;
+}
+.download a:hover{
+	color: #09f;
+}
+#footer p{
+	line-height: 14px;
+	height: 14px;
+}
