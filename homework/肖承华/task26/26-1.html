@@ -102,19 +102,20 @@
 <br><br>
 <fieldset>
 	<legend>当选择 select 后，获取用户选择的内容</legend>	
-	<div class="content">
-		<p>我是段落1</p>
-		<p>我是段落2</p>
-		<p>我是段落3</p>
-		<p>我是段落4</p>
-		<p>我是段落5</p>
-		<p>我是段落6</p>
-	</div>
+	<select class="content">
+		<option class="val">我是段落1</option>
+		<option class="val">我是段落2</option>
+		<option class="val">我是段落3</option>
+		<option class="val">我是段落4</option>
+		<option class="val">我是段落5</option>
+		<option class="val">我是段落6</option>
+	</select>
 
 	<div class="view-content"></div>
 	<script>
-		$('.content p').on('click',function(){
-			$('.view-content').text($(this).text())
+		$('.content').on('change',function(){
+			console.log(1);
+			$('.view-content').text($('.content').val())
 
 		})
 	</script>
