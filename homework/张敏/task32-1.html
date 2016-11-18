@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,ul,li,p,div{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li{
+            list-style: none;
+        }
+
+        .wrap{
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #pic-ct{
+            position: relative;
+        }
+        #pic-ct .item{
+            position: absolute;
+            padding: 0 0 10px 0;
+            width: 280px;
+            margin: 10px;
+            border: 1px solid #DFDFDF;
+            background: #FFF;
+            opacity: 0;
+            transition: all .8s;
+        }
+        #pic-ct .item img{
+            margin: 10px;
+            width: 260px;
+        }
+        #pic-ct .item .header{
+            height: 25px;
+            margin: 0 12px;
+            border-bottom: 1px solid #DBDBDB;
+        }
+        #pic-ct .desp{
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 10px 15px 0;
+            color: #777371;
+        }
+        #load{
+            visibility: hidden;
+            height: 20px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--1.获取数据-->
+<!--2.把数据封装成DOM放到页面-->
+<!--3.使用瀑布流去摆放DOM位置-->
+<!--4.page++-->
+<!--当lead出现的时候-->
+<!--1.获取page的10条数据-->
+<!--2.把10条数据封装成DOM放到页面-->
+<!--3.使用瀑布流去摆放DOM位置-->
+<!--4.page++-->
+<div class="wrap">
+    <div class="ct-waterfall">
+        <ul id="pic-ct" class="clearfix" style="height: 1194px;">
+            <!--<li class="item">
+                <a href="#" class="link">
+                    <img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">
+                </a>
+                <h4 class="header">标题</h4>
+                <p class="desp">
+                    当地时间2016年3月1日，在东部与亲俄武装作战中受伤的乌克兰士兵接受海豚治疗。
+                </p>
+            </li>-->
+
+            <!-- 用于计算 item 宽度和列数，但不展示出来-->
+            <li class="item hide"></li>
+            <li class="item" style="left: 0px; top: 0px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72812.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82907_155709.jpg" alt=""></a> <h4 class="header">航天员返回第一餐吃什么？</h4><p class="desp">航天员安全返回后进入医监医保直升机，换下航天服。</p></li><li class="item" style="left: 300px; top: 0px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72794.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82903_224533.jpg" alt=""></a> <h4 class="header">黑猩猩相爱32年 互撩秀恩爱</h4><p class="desp">捷克Dvur Kralove动物园内黑猩猩Babeta和Dingo享受它们的甜蜜时刻。</p></li><li class="item" style="left: 600px; top: 0px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72793.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82899_359758.jpg" alt=""></a> <h4 class="header">村民误会蟒蛇 杀死后发现蛇卵</h4><p class="desp">这令人震惊的一幕发生在尼日利亚的一个村庄。</p></li><li class="item" style="left: 300px; top: 307px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72792.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82895_577405.jpg" alt=""></a> <h4 class="header">天冷了:英国小狮子拥抱取暖</h4><p class="desp">英国德文郡，两只濒危的亚洲狮幼崽Yali和Arya本来在佩恩顿动物园嬉戏打闹。</p></li><li class="item" style="left: 0px; top: 356px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72771.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82884_550605.jpg" alt=""></a> <h4 class="header">搞笑的野生动物:狐狸扎雪地</h4><p class="desp">2016奇趣野生动物摄影大赛获奖作品公布。</p></li><li class="item" style="left: 600px; top: 525px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72769.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82876_292193.jpg" alt=""></a> <h4 class="header">土星北极现神秘六边形风暴</h4><p class="desp">在土星北极出现一个巨大的六边形旋涡状风暴。</p></li><li class="item" style="left: 300px; top: 614px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72768.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82872_692816.jpg" alt=""></a> <h4 class="header">水獭捕食团扇鳐罕见画面</h4><p class="desp">只见这只水獭躲在礁石后，冲过水洼，捕住团扇鳐，用嘴把它咬伤。</p></li><li class="item" style="left: 0px; top: 653px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72742.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82866_112679.jpg" alt=""></a> <h4 class="header">埃及发现千年保存完好木乃伊</h4><p class="desp">西班牙考古学家在埃及南部城镇卢克索发现了一具的千年木乃伊。</p></li><li class="item" style="left: 600px; top: 825px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72741.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82863_101876.jpg" alt=""></a> <h4 class="header">世界最大被遗弃机械锈迹斑斑</h4><p class="desp">世界上被遗弃的最大机械——“蓝色奇迹”的身影，它静静地在那里待了近13年。</p></li><li class="item" style="left: 300px; top: 887px; opacity: 1;"> <a href="http://slide.tech.sina.com.cn/d/slide_5_453_72739.html/d/2" class="link"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_46/453_82858_492747.jpg" alt=""></a> <h4 class="header">老鹰为护小鸟与胡狼殊死搏斗</h4><p class="desp">一只愤怒的老鹰为了保护地上的小鸟，与一匹胡狼展开了殊死搏斗。</p></li></ul>
+        <div id="load">我是看不见的</div>
+    </div>
+</div>
+</body>
+</html>
