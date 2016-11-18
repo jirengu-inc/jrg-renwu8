@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+ <html lang="zh-CN">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ </head>
+ <style>
+ 	a{
+ 		text-decoration: none;
+ 		color: #FF3300;
+ 	}
+ 	.content{
+ 		padding: 10px 5px;
+ 		margin: 10px 5px;
+ 		border: 1px solid #ccc;
+ 	}
+ 	.wrap-btn {
+		text-align: center;
+		margin-top: 30px;
+ 	}
+ 	.content.hover:hover{
+ 		background-color: #99CCFF;
+ 	}
+ 	.more-btn{
+ 		display: inline-block;
+ 		width: 80px;
+ 		height: 40px;
+ 		line-height: 40px;
+ 		border: 1px solid #FF3300;
+ 		border-radius: 4px;
+ 	}
+ 	.more-btn img{
+ 		width: 40px;
+ 		height: 40px;
+ 	}
+ </style>
+ <body>
+ 	<div class="content">内容1</div>
+ 	<div class="content">内容2</div>
+ 	<div class="wrap-btn">
+ 		<a href="JavaScript:;" class="more-btn">加载更多</a>
+ 	</div>
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+ 	<script>
+
+ 		$('body').on('mouseenter','.content',function(){
+ 			$(this).addClass('hover');
+ 		})
+ 		$('body').on('mouseleave','.content',function(){
+ 			$(this).removeClass('hover');
+ 		})
+ 		var flag=true; //设置锁
+ 		$('.more-btn').on('click',function(){
+ 			var index=$('.wrap-btn').index();
+ 			$('.more-btn').html('<img src="loading.gif">');
+ 			if (!flag) {
+ 				return 
+ 			}else{
+ 				flag=false;
+ 				$.ajax({
+	 			  method:'GET',
+				  dataType: "json",
+				  url: 'task26-2.php',
+				  data: {
+				  	start:index,
+				  	len:6
+				  },
+				  success:function(data){
+				  	success(data)
+				  }
+				}).done(function(){ 
+					$('.more-btn').text('加载更多')
+					flag=true 
+				});
+ 			}	
+ 		})
+
+		function success(data){
+			if (data.status==1) {
+				$.each(data.data,function(k,v){
+			 	console.log(v)
+			 	$('.wrap-btn').before('<div class="content">'+v+'</div>')
+			 })
+			}else{
+				alert('数据加载失败')
+			}
+		 }
+
+ 	</script>
+ </body>
+ </html>
