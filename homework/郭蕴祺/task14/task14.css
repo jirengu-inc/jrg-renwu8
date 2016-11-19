@@ -9,13 +9,16 @@
 html,body,ul,li,img{
 	margin: 0;
 	padding: 0;
-	font-family: Arial;
+	font-family: Arial,"微软雅黑";
 }
 a{
 	text-decoration: none;
 }
 ul li{
 	list-style-type: none;
+}
+hr{
+	width: 150px;
 }
 .iconfont{
 	font-family: "iconfont";
@@ -24,20 +27,24 @@ ul li{
 	width: 1000px;
 	margin:0 auto;
 }
+html,body{
+	height: 100%;
+}
 #header{
+	color: black;
 	text-align:center;
 	background: url(img/bg.jpg) no-repeat;
 	background-size: cover;
-	height: 650px;
-	font-size: 14px;
-}
-#header h1{
-	font-size: 25px;
+	height: 100%;
+	width: 100%;
+	display: table;
+	font-size: 14px;	
 }
 #header .wrap{
-	padding: 250px 0;
+	display: table-cell;
+	vertical-align: middle;
 }
-#header .wrap a{
+.btn{
 	display: inline-block;
 	height: 45px;
 	width: 120px;
@@ -51,62 +58,54 @@ ul li{
 	font-size: 20px;
 }
 #intro h1{
-	text-decoration: none;
 	font-weight: normal;
 	font-size: 30px;
 }
 #skill{
-	height: 400px;
 	background: rgb(51,122,183);
 	text-align: center;
 	color: white;
 	font-size: 14px;
+	padding: 20px 0;
+}
+#skill .wrap{
+	margin: 30px 0;
 }
 #skill li{
 	float: left;
-	width: 225px;
+	width: 235px;
+	margin-left: 20px;
 }
-#skill h1{
-	padding-top: 50px;
+#skill ul{
+	overflow: hidden;
+	width: 1020px;
+	margin-left: -20px;
 }
-#skill a{
+#skill .btn{
 	background: white;
 	color: black;
-	padding: 5px 20px;
-	display: inline-block;
-}
-.wrap{
-	overflow: hidden;
-	padding: 0px;
-}
-.line{
-	border: 1px solid white;
-	width: 100px;
-	margin:0 auto;
 }
 #skill .iconfont{
 	font-size: 80px;
 }
 #picture{
-	height: 450px;
 	background: url(img/callout.jpg) no-repeat;
 	background-size: cover;
 	text-align: center;
 	color: white;
-	font-size: 30px;
+	font-size: 25px;
+	padding: 180px 0;
 }
-
 #picture h1{
-	line-height: 450px;
-	margin:0;
 	font-weight: normal;
 }
 #work{
 	text-align: center;
 	font-size: 13px;
+	padding: 10px 0;
 }
-#work .line{
-	border: 1px solid #CCC;
+#work .wrap{
+	margin:30px 0;
 }
 #work img{
 	width: 490px;
@@ -119,41 +118,44 @@ ul li{
 #work ul{
 	overflow: hidden;
 	margin-left: -20px;
+	width: 1020px;
 }
-#work>div>a{
+#work .btn{
 	background: #999;
 	color: white;
-	display: inline-block;
-	margin:25px 0;
-	padding: 5px 35px;
-	font-size: 15px;
+	margin-top: 20px;
+}
+#work hr{
+	border-top: 1px solid #CCC;
+}
+#work h1{
+	font-weight: normal;
 }
 #link{
 	background: rgb(51,122,183);
 	text-align: center;
-	padding-top: 50px;
+	padding: 10px;
 	color: white;
 }
-#link a{
-	display: inline-block;
+#link .wrap{
+	margin: 50px 0;
+}
+#link .btn{
 	width: 150px;
-	height: 50px;
-	line-height: 50px;
 	background: white;
-	margin-bottom: 60px;
 	font-size: 14px;
 }
-#link a:first-of-type{
+#link .btn:first-of-type{
 	color: black;
 }
-#link a:last-of-type{
+#link .btn:last-of-type{
 	color: white;
 	background: rgb(31,73,110);
 }
-#link a:first-of-type:hover{
+#link .btn:first-of-type:hover{
 	background: #EEE;
 }
-#link a:last-of-type:hover{
+#link .btn:last-of-type:hover{
 	background: rgb(15,36,54);
 }
 #footer{
@@ -161,7 +163,7 @@ ul li{
 	padding: 100px 0;
 }
 #footer .address{
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 5px;
 }
 #footer .contact{
@@ -180,15 +182,13 @@ ul li{
 }
 #footer li{
 	float: left;
+	padding:10px;
 }
 #footer ul{
 	overflow: hidden;
 	display: inline-block;
 	margin:0 auto;
 }
-#footer .line{
-	border: 1px solid #EEE;
-}
-.copyright{
-	font-size: 13px;
+#footer hr{
+	border-top: 1px solid #EEE;
 }
