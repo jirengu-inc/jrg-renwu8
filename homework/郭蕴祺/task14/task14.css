@@ -25,7 +25,7 @@ hr{
 	font-family: "iconfont";
 }
 .layout{
-	width: 1000px;
+	width: 960px;
 	margin:0 auto;
 }
 html,body{
@@ -75,12 +75,12 @@ html,body{
 }
 #skill li{
 	float: left;
-	width: 235px;
+	width: 225px;
 	margin-left: 20px;
 }
 #skill ul{
 	overflow: hidden;
-	width: 1020px;
+	width: 980px;
 	margin-left: -20px;
 	margin-top: 20px;
 }
@@ -111,7 +111,7 @@ html,body{
 	margin:30px 0;
 }
 #work img{
-	width: 490px;
+	width: 470px;
 }
 #work li{
 	float: left;
@@ -121,7 +121,7 @@ html,body{
 #work ul{
 	overflow: hidden;
 	margin-left: -20px;
-	width: 1020px;
+	width: 980px;
 }
 #work .btn{
 	background: #999;
