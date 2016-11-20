@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.carousel{
+	position: relative;
+	width: 340px;
+	height: 200px;
+}
+
+.img{
+	position: absolute;
+	display: none;
+}
+.screen>img>a{
+	display: inline-block;
+}
+.screen>.img>a>img{
+	width: 340px;
+	height: 200px;
+}
+.show{
+	display: block;
+}
+
+.label-left{
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	left: 10px;
+	margin-top: -15px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;	
+}
+.label-right{
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	right: 10px;
+	margin-top: -15px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;	
+}
+
+.label-left>a{
+	position: relative;
+	left: -1px;
+}
+.label-left>a,.label-right>a{
+	color: #ddd;
+	font-weight: bold;
+	font-size: 200%;
+}
+.label-left>a:hover,.label-right>a:hover{
+	color: #fff;
+}
+
+.label-wrap{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20px;
+	margin-left: -6px;
+}
+.label-wrap:after{
+	display: block;
+	content: '';
+	clear:both;
+}
+.label{
+	float: left;
+	width: 16px;
+	height: 4px;
+	background: #ddd;
+	cursor: pointer;
+	border-radius: 2px;
+	margin-left: 6px;
+	display: inline-block;
+}
+.active{
+	background: #666;
+}
+</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="screen">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+			<li class="label-left">
+				<a><</a>
+			</li>
+			<li class="label-right">
+				<a>></a>
+			</li>
+		</ul>
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div>
+	<!-- <div class="carousel">
+		<ul class="screen">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+			<li class="label-left">
+				<a><</a>
+			</li>
+			<li class="label-right">
+				<a>></a>
+			</li>
+		</ul>
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div>
+	<div class="carousel">
+		<ul class="screen">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+			<li class="label-left">
+				<a><</a>
+			</li>
+			<li class="label-right">
+				<a>></a>
+			</li>
+		</ul>
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div> -->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var index = 0;
+	var isAnimating = false;
+	var label = $('.label'),carousel = $('.carousel');
+	// carousel.each(function(ind,element){
+
+	// })
+	// function (ind)
+	var timer = setInterval(function(){
+				turn();
+		},2000);
+	
+	
+	$('.label-left').on('click',function(){
+		if(isAnimating){return;}
+		isAnimating = true;
+		clearShow();
+		if(index == 0){
+			$('[data-id="'+(--$('.img').length).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				index = $('.img').length-1;
+				isAnimating = false;
+			});
+			label.eq(--$('.img').length).addClass('active');
+		}else{
+			$('[data-id="'+(--index).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+			label.eq(index).addClass('active');
+		}	
+	})
+	$('.label-right').on('click',function(){
+		if(isAnimating){return;}
+		isAnimating = true;
+		clearShow();
+		if(index == $('.img').length-1){
+			$('[data-id="0"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				index = 0;
+				isAnimating = false;
+			});
+			label.eq(0).addClass('active');
+		}else{
+			$('[data-id="'+(++index).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+			label.eq(index).addClass('active');
+		}
+		
+	})
+
+	$('.label').on('click',function(){
+		if($(this).index() == $('.show').index()){
+			return;
+		}
+		if(isAnimating){return;}
+		isAnimating = true;
+		clearShow();
+		$('[data-id="'+$(this).index()+'"]').fadeIn('slow',function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+		$('.label').eq($(this).index()).addClass('active');
+	})
+
+	$('.carousel').on('mouseenter',function(){
+		clearInterval(timer);
+	})
+	$('.carousel').on('mouseleave',function(){
+		timer = setInterval(function(){
+				turn();
+		},2000);
+	})
+
+	function turn() {
+		index = +$('.show').attr('data-id');
+		clearShow();
+		if(index == $('.img').length-1){
+			$('[data-id="0"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				index = 0;
+			});
+			label.eq(0).addClass('active');	
+		}
+		else{
+			$('[data-id="'+(++index).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+			});
+			label.eq(index).addClass('active');			
+		}
+	}
+	function clearShow(){
+		$('.show').fadeOut('slow', function() {
+			$(this).removeClass('show');
+		});
+		$('.active').removeClass('active');
+	}
+})
+</script>
+</body>
+</html>

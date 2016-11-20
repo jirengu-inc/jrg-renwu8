@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.carousel{
+		position: relative;
+		width: 340px;
+		height: 200px;
+		overflow: hidden;
+	}
+	.imgBar{
+		position: absolute;
+	}
+	.imgBar:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.img{
+		float: left;
+	}
+	.img>a>img{
+		width: 340px;
+		height: 200px;
+	}
+	.label-left{
+		position: absolute;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		top: 50%;
+		left: 10px;
+		margin-top: -15px;
+		text-align: center;
+		line-height: 30px;
+		color: #ddd;
+		font-weight: bold;
+		font-size: 200%;
+		cursor: pointer;	
+	}
+	.label-right{
+		position: absolute;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		top: 50%;
+		right: 10px;
+		margin-top: -15px;
+		text-align: center;
+		line-height: 30px;
+		color: #ddd;
+		font-weight: bold;
+		font-size: 200%;
+		cursor: pointer;	
+	}
+
+	.label-wrap{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20px;
+	margin-left: -6px;
+}
+.label-wrap:after{
+	display: block;
+	content: '';
+	clear:both;
+}
+.label{
+	float: left;
+	width: 16px;
+	height: 4px;
+	background: #ddd;
+	cursor: pointer;
+	border-radius: 2px;
+	margin-left: 6px;
+	display: inline-block;
+}
+.active{
+	background: #666;
+}
+</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="imgBar">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+		
+		
+		<a class="label-left" href="javascript:;"><</a>
+		<a class="label-right" href="javascript:;">></a>
+		
+		
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var $imgs = $('.img'),
+		$imgBar = $('.imgBar'),
+		$carousel = $('.carousel'),
+		$next = $('.label-right'),
+		$pre = $('.label-left'),
+		$label = $('.label'),
+		imgWidth = $imgBar.children().width(),
+		imgCount = $imgBar.children().size(),//4
+		index = 0;
+
+	var isAnimating = false;
+
+	$imgBar.prepend($imgs.last().clone());
+	$imgBar.append($imgs.first().clone());
+
+	imgLength = $imgBar.children().size();//6
+	
+	$imgBar.width(imgWidth*imgLength);
+	$imgBar.css('left',0-imgWidth+'px');
+
+
+	autoPlay();
+
+	$next.on('click',function(){
+		playNext();
+	})
+	$pre.on('click',function(){
+		playPre();
+	})
+
+	$label.on('click',function(){
+		var ind = $(this).index();// 点击的label的index
+		skip(ind);
+	})
+
+	$carousel.on('mouseenter',function(){
+		stopAuto();
+		isAnimating = false;
+	})
+	$carousel.on('mouseleave',function(){
+		autoPlay();
+	})
+
+	function skip(ind){
+		if(index > ind){
+			playPre(index-ind);
+		}
+		else if(index < ind){
+			playNext(ind - index);
+		}
+		else{
+			return;
+		}
+	}
+
+	function playNext(times){
+		if(isAnimating) return;
+		isAnimating = true;
+		times = times || 1;
+		$imgBar.animate({
+	        left: '-='+imgWidth*times
+	  	},function(){
+	  		index = index + times;
+	  		if(index == imgCount){
+	  			$imgBar.css('left',0-imgWidth+'px');
+	  			index = 0;
+	  		}
+	  		$label.removeClass('active')
+	  							.eq(index).addClass('active');
+	  		isAnimating = false;
+		})
+	}
+
+	function playPre(times){
+		if(isAnimating) return;
+		isAnimating = true;
+		var times = times || 1;
+	    $imgBar.animate({
+	        left: '+='+imgWidth*times
+	  	},function(){
+	  		index = index - times;
+	  		if(index < 0){
+	  			$imgBar.css('left',0-imgWidth*(imgLength-2)+'px');
+	  			index = imgCount-1;
+	  		}
+	  		$label.removeClass('active')
+	  							.eq(index).addClass('active');
+	  		isAnimating = false;		
+		})
+	}
+
+
+	function autoPlay(){
+		timer = setInterval(function(){
+			playNext()
+		},2000);
+	}
+
+	function stopAuto(){
+		clearInterval(timer);
+	}
+
+})
+</script>
+</html>
