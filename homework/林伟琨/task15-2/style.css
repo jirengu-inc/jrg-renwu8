@@ -179,7 +179,6 @@ p{
 }
 .about li{
 	position: relative;
-	z-index: 1/*解决:after直线的覆盖问题*/
 }
 .text{
 	width: 33.3%;
@@ -203,6 +202,7 @@ p{
 	border-radius: 85px;
 	border: 6px solid #f1f1f1;
 	position: absolute;
+	z-index: 2;
 	top:50%;
 	left: 50%;
 	margin-top:-80px;
@@ -218,8 +218,8 @@ p{
 	width: 0px;
 	height: 900px;
 	border: 2px solid #f1f1f1;
-	z-index: 0;
 	position: absolute;
+	z-index: 1;/*解决:after直线的覆盖问题*/
 	top:30px;
 	left: 50%;
 	margin-left: 5px;
