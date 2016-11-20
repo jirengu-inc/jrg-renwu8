@@ -17,6 +17,9 @@ body{
     width:960px;
     margin: 0 auto;
 }
+#header,#content,#footer{
+    min-width: 960px;
+}
 #header{
     height:100%;
     background: #ccc url(../image/background8.jpg) no-repeat;
