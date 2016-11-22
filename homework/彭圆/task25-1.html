@@ -37,16 +37,21 @@
             position: absolute;
             top: 0;
             left: 200px;
-            background: #fff;
             border: 1px solid #ccc;
             width: 210px;
             font-size: 12px;
-            /*display: none;*/
+            display: none;
         }
         .nav-aside .prds li {
-            width: 55px;
+            width: 50px;
             float: left;
-            padding: 10px 20px;
+            padding: 10px;
+        }
+        .nav-li.hover {
+            background: #b91820;
+        }
+        .nav-li.hover .prds {
+            display: block;
         }
     </style>
 </head>
@@ -116,10 +121,10 @@
 <script src="jquery-3.1.1.min.js"></script>
 <script>
     $('.nav-li').on('mouseenter',function () {
-        $(this).find('.prds').show();
+        $(this).addClass('hover');
     });
     $('.nav-li').on('mouseleave',function () {
-        $(this).find('.prds').hide();
+        $(this).removeClass('hover');
     });
 </script>
 </body>
