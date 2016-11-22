@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代理</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+        color: #666;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        color: #666;
+        text-decoration: none;
+    }
+    .clear:after {
+        content:'';
+        display: block;
+        clear: both;
+    }
+    .btn {
+        border: 1px solid #c81623;
+        color: #c81623;
+        padding: 10px 15px;
+        border-radius: 3px;
+        text-align: center;
+        background: #fff;
+    }
+    .mod-add {
+        width: 702px;
+        margin: 10px auto;
+    }
+    .title {
+        margin: 20px 0;
+    }
+    .panel-ct .prds {
+        position: relative;
+        float: left;
+        width: 220px;
+        padding: 10px 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        text-align: center;
+        border: 1px solid #eee;
+        background: #fff;
+    }
+    .panel-ct .prds-ct {
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+    .panel-ct .prd-name {
+        text-align: left;
+    }
+    .panel-ct .prd-price {
+        text-align: left;
+        color: #c81623;
+    }
+    .panel-ct .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.3);
+        transition: all 0.3s;
+        opacity: 0;
+    }
+    .panel-ct .prds.hover .cover {
+        opacity: 1;
+    }
+    .panel-ct .cover .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .add-btn {
+        margin: 30px 0;
+    }
+</style>
+<body>
+<div class="mod-add">
+    <div class="title">
+        <h1>珠宝首饰</h1>
+    </div>
+    <ul class="panel-ct clear">
+        <li class="panel">
+            <ul class="prds-ct">
+                <li class="prds">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="prd-info">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                        <p class="prd-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="prd-price">￥1699.00</p>
+                    </div>
+                </li>
+                <li class="prds">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="prd-info">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                        <p class="prd-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="prd-price">￥1699.00</p>
+                    </div>
+                </li>
+                <li class="prds">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="prd-info">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                        <p class="prd-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="prd-price">￥1699.00</p>
+                    </div>
+                </li>
+                <li class="prds">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="prd-info">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                        <p class="prd-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="prd-price">￥1699.00</p>
+                    </div>
+                </li>
+                <li class="prds">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="prd-info">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                        <p class="prd-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="prd-price">￥1699.00</p>
+                    </div>
+                </li>
+                <li class="prds">
+                    <div class="cover">
+                        <a class="btn" href="">立即抢购</a>
+                    </div>
+                    <div class="prd-info">
+                        <img src="http://img10.360buyimg.com/N3/jfs/t1360/330/897475737/123557/23624706/55b05e25N13d4ec5e.jpg" alt="">
+                        <p class="prd-name">藏美千足金和田玉金镶玉路路通吊坠</p>
+                        <p class="prd-price">￥1699.00</p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="add-btn">
+        <a class="btn" href="javascript:void (0)">添加</a>
+    </div>
+</div>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    var products = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+    function addNewPrd(prd) {
+        var cover = '';
+        cover += '<div class="cover">';
+        cover += '    <a class="btn" href="">立即抢购</a>';
+        cover += '</div>';
+        var infor = '';
+        infor += '<img src="'+prd.img+'" alt="">';
+        infor += '<p class="prd-name">'+prd.name+'</p>';
+        infor += '<p class="prd-price">'+prd.price+'</p>';
+        var newPrd = '';
+        newPrd += '<li class="prds">';
+        newPrd += '    '+cover;
+        newPrd += '    '+infor;
+        newPrd += '</li>';
+        return newPrd;
+    }
+    $('.add-btn .btn').on('click',function () {
+        $.each(products,function (idx,prd) {
+            var html = addNewPrd(prd);
+            $('.prds-ct').append(html);
+        })
+    })
+    $('.prds-ct').on('mouseenter','.prds', function(){
+        $(this).addClass('hover');
+    });
+    $('.prds-ct').on('mouseleave','.prds', function(){
+        $(this).removeClass('hover');
+    });
+</script>
+</body>
+</html>
