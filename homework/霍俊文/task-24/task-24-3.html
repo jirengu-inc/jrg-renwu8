@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册验证</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+        }
+        #wrap{
+            margin:20px;
+        }
+        .ct{
+            list-style: none;
+        }
+        .call-word{
+            font-size: 12px;
+            color:#ccc;
+            margin-left:93px;
+        }
+        .username{
+            padding-left:5px;
+            height:25px;
+            border:1px solid #ccc;
+            border-radius:7px;
+            margin-left:28px;
+        }
+        .password{
+            padding-left:5px;
+            height:25px;
+            border:1px solid #ccc;
+            border-radius:7px;
+            margin-left:44px;
+        }
+        .password-again{
+            padding-left:5px;
+            height:25px;
+            border:1px solid #ccc;
+            border-radius:7px;
+            margin-left:20px;
+        }
+        .btn{
+            margin-left:131px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <h3>饥人谷注册</h3>
+    <ul class="ct">
+        <li>
+            用户名: <input class="username" type="text" placeholder="用户名(huo已经被注册)">
+            <p class="call-word">只能是字母、数字、下划线，3-10个字符</p>
+        </li>
+        <li>
+            密码: <input class="password" type="password" placeholder="密码">
+            <p class="call-word">大写字母、小写、数字、下划线最少两种，6-15个字符</p>
+        </li>
+        <li>
+            再次输入:<input class="password-again" type="password" placeholder="再输入一次">
+            <p class="call-word"></p>
+        </li>
+    </ul>
+    <button class="btn">注册！</button>
+</div>
+</body>
+<script>
+    //基础变量
+    var username = document.querySelector('.username');
+    var password = document.querySelector('.password');
+    var pwd_Again = document.querySelector('.password-again');
+    var button = document.querySelector('.btn');
+    var callWord1 = document.getElementsByClassName('call-word')[0];
+    var callWord2 = document.getElementsByClassName('call-word')[1];
+    var callWord3 = document.getElementsByClassName('call-word')[2];
+
+    //用于button的判断，如果true就可以注册成功
+    var unpass = {
+        'user':false,
+        'pwd1':false,
+        'pwd2':false
+    };
+
+    //封装AJAX函数
+    function ajax(opts){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                var json = JSON.parse(xmlhttp.responseText)
+                opts.success(json);
+            }
+            if(xmlhttp.status == 404){
+                opts.error();
+            }
+        }
+        var dataStr = "";
+        for(var key in opts.data){
+            dataStr += key + '=' + opts.data[key] + '&';
+        }
+        dataStr = dataStr.substr(0,dataStr.length-1);
+        if(opts.type.toLowerCase() === 'get'){
+            xmlhttp.open(opts.type,opts.url+'?'+dataStr,true);
+            xmlhttp.send();
+        }
+        if(opts.type.toLowerCase() === 'post'){
+            xmlhttp.open(opts.type,opts.url,true);
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlhttp.send(dataStr);
+        }
+    }
+    //1.用户名格式
+    function usernameStyleError(str){
+        var reg = /^\w{3,10}$/;
+        return reg.test(str)
+    }
+    //检查用户名是否能注册
+    username.addEventListener('change',function(){
+        ajax({
+            url:'/testUserName',
+            type:'post',
+            data:{
+                username:username.value
+            },
+            success:function(res){
+                dealWith(res)
+            },
+            error:function(){
+                alert('AJAX出现错误...')
+            }
+        })
+
+        //2.判断用户名格式，是否存在
+        function dealWith (res){
+            //假如用户名已经存在
+            if(res.status == 1){
+                callWord1.innerText = '该用户名已存在！'
+                username.style.border = '1px solid red';
+                unpass['user'] = false;
+            }
+            //用户名不存在，符合要求
+            if(res.status == 0){
+                callWord1.innerText = '该用户名可以使用！'
+                username.style.border = '1px solid #ccc';
+                unpass['user'] = true;
+            }
+            //用户名格式错误
+            if(!usernameStyleError(username.value)){
+                callWord1.innerText = '该用户名格式错误！'
+                username.style.border = '1px solid red';
+                unpass['user'] = false
+            }
+        }
+
+
+    })
+    //检测密码
+    //1.密码格式
+    function checkPassword(str) {
+        var reg = /^\w{6,15}$/;
+        if (!reg.test(str)) {
+            return false;
+        }
+        else if (/^[a-z]+$|(^[A-Z]+$)|(^_+$)|(^[0-9]+$)/g.test(str)) {
+            return false;
+        }
+        return true;
+
+    }
+    //2.验证密码
+    password.addEventListener('change',function(){
+        var pwd = password.value;
+        if(!checkPassword(pwd)){
+            password.style.border = '1px solid red';
+            callWord2.innerText = '密码格式错误!'
+            unpass['pwd1'] = false;
+        }
+        if(checkPassword(pwd)){
+            callWord2.innerText = '密码正确!'
+            password.style.border = '1px solid #ccc';
+            unpass['pwd1'] = true;
+        }
+        if(pwd == ''){
+            password.style.border = '1px solid red';
+            callWord2.innerText = '密码不能为空!'
+            unpass['pwd1'] = false;
+        }
+    });
+
+    //再次确认函数是否一致
+    pwd_Again.addEventListener('change',function(){
+        var pwd = password.value;
+        var pwdAgain = pwd_Again.value;
+        if(pwdAgain == ''){
+            pwd_Again.style.border = '1px solid red';
+            callWord3.innerText = '密码不能为空!'
+            unpass['pwd2'] = false;
+        }
+        if(pwd !== pwdAgain){
+            pwd_Again.style.border = '1px solid red';
+            callWord3.innerText = '密码不一致!'
+            unpass['pwd2'] = false;
+        }
+        else{
+            pwd_Again.style.border = '1px solid #ccc';
+            callWord3.innerText = '密码一致!'
+            unpass['pwd2'] = true;
+        }
+    })
+
+    //按钮注册
+    button.addEventListener('click', function(){
+        if( unpass['user'] && unpass['pwd1'] && unpass['pwd2']){
+            alert('正在注册中...请稍等')
+        }
+        else{
+            alert('信息不符合，请重新输入！')
+        }
+    })
+
+</script>
+</html>
