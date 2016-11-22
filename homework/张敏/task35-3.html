@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用构造函数创建对象的方式实现 Tab 切换功能</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        .content {
+            width: 508px;
+            height: 500px;
+            border: 1px solid black;
+            position: absolute;
+            top: 30px;
+            text-align: center;
+            line-height: 500px;
+            font-size: 40px;
+        }
+
+        .focus {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="ct">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div class="content" id="con">1</div>
+</div>
+
+<script>
+    $(function () {
+        function Tab(ct, ele1, ele2) {
+            this.$ct = ct;//指定父级容器
+            this.$oli = ele1;
+            this.$con = ele2;
+
+            this.init = function () {
+                this.bindEvent();
+            }
+        }
+
+        Tab.prototype.bindEvent = function () {
+            var _this=this;
+            for (var i = 0; i < this.$oli.length; i++) {
+                this.$oli[i].onmouseover = function () {
+                    _this.mouseover(this);
+                };
+            }
+        }
+        Tab.prototype.mouseover = function (obj) {
+            var self=obj;
+            for (var j = 0; j < this.$oli.length; j++) {
+                this.$oli[j].className = '';
+
+            }
+            self.className = 'focus';
+            console.log(typeof  this.$con);
+            this.$con[0].innerHTML = self.innerHTML;
+
+        }
+
+
+        var tab1=new Tab($('#ct'),$('li'),$('.content'));
+        tab1.init();
+    })
+
+</script>
+
+</body>
+</html>

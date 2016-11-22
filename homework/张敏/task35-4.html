@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 480px;
+            height: 360px;
+            position: relative;
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        ul, li {
+            padding: 0;
+            margin: 0;
+        }
+
+        .pics {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+        }
+
+        a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .l_btn {
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+
+        .r_btn {
+            position: absolute;
+            right: 0;
+            top: 150px;
+        }
+
+        .focus {
+            position: absolute;
+            left: 150px;
+            bottom: 50px;
+        }
+
+        .focus li {
+            float: left;
+            width: 40px;
+            height: 20px;
+            margin-right: 10px;
+            background: greenyellow;
+        }
+
+        .focus .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container num1">
+    <ul class="pics clearfix">
+        <li data-id="0"><img src="img/23.jpg" alt=""></li>
+        <li data-id="1"><img src="img/24.jpg" alt=""></li>
+        <li data-id="2"><img src="img/25.jpg" alt=""></li>
+        <li data-id="3"><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+
+</div>
+<div class="container num1">
+    <ul class="pics clearfix">
+        <li data-id="0"><img src="img/23.jpg" alt=""></li>
+        <li data-id="1"><img src="img/24.jpg" alt=""></li>
+        <li data-id="2"><img src="img/25.jpg" alt=""></li>
+        <li data-id="3"><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+
+</div>
+<script>
+    $(function () {
+        //应为用了和老师不一样的图，我的图比较大，所以发现了使用width()方法的时候有时候会出现width为0的情况，
+        //原因就是应为img图片还没有加载进来，所以这里需要监听img的加载情况，以防止出现这个bug
+        //curtarget('.num2');
+
+        function Carousel($node) {
+            this.$node = $node;
+            this.$pics = $node.find('.pics');
+
+            this.$c_item = this.$pics.children();
+            this.item_width = this.$pics.children().width();//获取每个li的宽度
+
+            this.index = -1;
+            this.$rbtn = $('.r_btn');
+            this.$lbtn = $('.l_btn');
+
+            this.init = function () {
+                this.$pics.append(this.$c_item.first().clone().attr('data-id', 0));
+                this.$pics.prepend(this.$c_item.last().clone().attr('data-id', 3));
+                this.pics_items = this.$pics.children().length;
+                this.rel_pos = this.item_width * (this.pics_items - 2);
+
+                this.$pics.css({
+                    'width': this.pics_items * this.item_width,
+                    'left': 0 - this.item_width
+                });//ul下的li个数
+                this.bindEvent();
+            }
+            this.init();
+        }
+
+        Carousel.prototype = {
+            constructor: Carousel,
+            bindEvent: function () {
+                var _this = this;
+                this.$node.find('.r_btn').on('click', function () {
+                    _this.index--;
+                    //console.log(index);极限是==$c_item-1
+                    if (_this.index < -5) {
+                        _this.index = -1;
+                        _this.$pics.css({'left': _this.index * _this.item_width});
+                        _this.index--;
+
+                    }
+                    _this.$pics.stop().animate({'left': _this.index * _this.item_width});
+                    console.log('动画执行了额');
+                })
+                this.$node.find('.l_btn').on('click', function () {
+                    _this.index++;
+                    if (_this.index == 1) {
+                        _this.$pics.css({'left': -_this.rel_pos});
+                        _this.index = -(_this.pics_items - 2);
+                        _this.index++;
+                    }
+                    _this.$pics.stop().animate({'left': _this.index * _this.item_width});
+                })
+            }
+        }
+
+
+        $('.container').each(function () {
+            new Carousel($(this));
+
+        })
+    })
+</script>
+</body>
+</html>
