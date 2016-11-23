@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    username: <input type="text" name="username" id="username"/> <br/>
+    password: <input type="password" name="password" id="password"/> <br/>
+    <input type="button" value="login" id="btn"/>
+</form>
+ <dl id="ct">
+
+ </dl>
+</body>
+<script>
+    //封装ajax函数
+    function ajax(opts) {
+        var xmlhttp = new XMLHttpRequest(); //创建ajax对象
+        //对ajax进行监听
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                //将服务器返回的文本(responseText)转换为（JSON格式的字符串)
+                         var json = JSON.parse(xmlhttp.responseText);
+                //使用success方法
+                opts.success(json); //数据来的时候就可以使用了
+
+            }
+            if(xmlhttp.status === 404){
+                opts.error();
+            }
+        };
+
+
+    //创建发送到服务器的数据
+        var dataStr = "";
+        for (var key in opts.data){ //遍历对象
+            dataStr += key + "=" + opts.data[key]+ "&" ;
+        }
+        dataStr = dataStr.substr(0,dataStr.length-1);
+
+        //判断请求方式
+        if(opts.type.toLowerCase() === 'get'){
+            xmlhttp.open('GET',opts.url+'?'+dataStr,true); //拼装
+            xmlhttp.send();
+        }
+        if(opts.type.toLowerCase() === 'post'){
+            xmlhttp.open('POST',opts.url,true);
+            //为了使post请求与提交web表单相同，将 Content-Type 头部信息设置为 application/x-www-form-urlencoded来模仿表单提交功能（post必须的)
+            xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xmlhttp.send(dataStr);
+        }
+    }
+    //ajax对象
+    document.querySelector('#btn').addEventListener('click', function(){
+        ajax({
+            url: 'getData.php',   //接口地址
+            type: 'get',               // 类型， post 或者 get,
+            data: {
+                username: 'xiaoming',
+                password: 'abcd1234'
+            },
+            success: function(ret){
+                console.log(ret);       // {status: 0}
+            },
+            error: function(){
+                console.log('出错了')
+            }
+        })
+    });
+
+</script>
+</html>

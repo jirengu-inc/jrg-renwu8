@@ -1,0 +1,363 @@
+/*通用样式*/
+body,html{
+	padding: 0;
+	margin:0;
+	font-family: Arial;
+
+}
+ul{
+	padding: 0;
+	margin:0;
+}
+a{
+	text-decoration: none;
+}
+.btn{
+	display: inline-block;
+	padding: 5px;
+}
+li{
+	list-style: none;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.center{
+	width: 1140px;
+	margin:0 auto;
+}
+p{
+	font-family: 'Times';
+	color: #777784;
+	margin-top: 0;
+}
+/*字体样式*/
+.title-font{
+	font-family: Helvetica;
+}
+/*header=logo+nav+(header-title)*/
+#header{
+	background: url(./images/header-bg.jpg) 0 -200px no-repeat;
+	padding: 1px;
+}
+.nav{
+	margin-top: 25px;
+}
+.nav li{
+	float: right;
+	padding: 15px;
+}
+.nav li a{
+	color:#fff;
+}
+.nav li:hover a{
+	color: #FEC504;
+}
+.header-bg{
+	position: relative;
+}
+.logo a{
+	color:#FEC504;
+	display: inline-block;
+	height: 30px;
+	padding: 15px;
+	font-size: 30px;
+	position: absolute;
+	left: 0;
+    top: -11px;
+    font-family: Comic;
+    font-weight: bold;
+    font-style: italic;
+}
+.header-title{
+	text-align: center;
+	padding: 200px 0;
+	color: #fff;
+	font-size: 36px;
+}
+.header-title>h3{
+	font-style: italic;
+}
+.header-title>a{
+	font-size: 20px;
+	color: #fff;
+	background: #FEC504;
+	padding: 15px;
+	border-radius: 5px;
+}
+/*主体main=service+portfolio+about+team+help+contact*/
+
+/*main通用样式*/
+.service li,.portfolio li{
+	float: left;
+}
+#main ul{
+	margin-top: 75px;
+}
+#main>div:nth-child(odd){
+	background: #CCE8CF;
+}
+/*service*/
+
+.service{
+	padding: 150px 0;
+	text-align: center;
+}
+.title{
+	text-align: center;
+}
+.title>h2{
+	font-size: 35px;
+}
+.title>p{
+	font-style: italic;
+	font-size: 20px;
+}
+.service li{
+	width: 33.3%;
+	box-sizing: border-box;
+	padding: 0 10px;
+}
+.service li>h5{
+	font-size: 16px;
+}
+.service i{
+	display: inline-block;/*i是内联元素要并且需要padding*/
+	padding: 8px;
+	font-size: 60px;
+	background: #FED136;
+	padding: 20px;
+	border-radius: 60px;
+	color: #fff;
+}
+
+/*portfolio*/
+
+.portfolio{
+	padding: 150px 0;
+	text-align: center;
+}
+.portfolio li{
+	margin: 9px 9px 20px 9px;
+	border:1px solid #ccc;
+	position: relative;
+}
+.portfolio .clearfix a{
+	display: inline-block;
+}
+.portfolio .clearfix img{
+	width: 360px;
+}
+/*鼠标移动上去的一个变化遮盖*/
+.portfolio .clearfix a:hover .mask{
+	transition:  0.8s;
+	opacity: 0.8;
+}
+.mask{
+	width: 360px;
+	height: 260px;
+	background: #F6D032;
+	position: absolute;
+	top:0;
+	left: 0;
+	opacity: 0;
+}
+.mask i{
+	line-height: 262px;
+	font-size: 50px;
+	font-weight: bold;
+	color: #fff;
+}
+.portfolio ul li h2{
+	margin-bottom:2px;
+}
+/*ABOUT*/
+.about{
+	padding: 150px 0;
+}
+.about li{
+	position: relative;
+}
+.text{
+	width: 33.3%;
+	text-align: right;
+	font-size: 18px;
+	margin-left: 50px;
+}
+/*解决偶数类的文本是右浮动*/
+.about ul li:nth-child(even) .text{
+	text-align: left;
+	float: right;
+	margin-right: 50px;
+}
+.about ul li:nth-child(even){
+	overflow: hidden;
+}
+/*img使用absolute垂直水平绝对定位*/
+.about li img{
+	width: 160px;
+	height: 160px;
+	border-radius: 85px;
+	border: 6px solid #f1f1f1;
+	position: absolute;
+	z-index: 2;
+	top:50%;
+	left: 50%;
+	margin-top:-80px;
+	margin-left: -80px;
+}
+/*设计出一条贯穿整个ul的线*/
+.about ul{
+	position: relative;
+}
+.about .center:after{
+	content: '';
+	display: block;
+	width: 0px;
+	height: 900px;
+	border: 2px solid #f1f1f1;
+	position: absolute;
+	z-index: 1;/*解决:after直线的覆盖问题*/
+	top:30px;
+	left: 50%;
+	margin-left: 5px;
+}
+/*因为继承的关系，ul里面太杂乱，把最后一个圆放在外面也就是last*/
+.last{
+	margin:0 auto;
+}
+.last p{
+	margin:0 auto;
+	width: 80px;
+	padding: 40px;
+	height: 80px;
+	border-radius: 85px;
+	border: 6px solid #f1f1f1;
+	text-align: center;
+	background: #F6D032;
+	color: #fff;
+	font-size:18px;
+	position: relative;
+	top:30px;
+	left: 8px;
+}
+/*team部分*/
+.team{
+	padding: 150px;
+	text-align: center;
+}
+.team li{
+	float: left;
+	width: 33.3%
+}
+.team li p{
+	margin-bottom: 24px;
+}
+.team img{
+	width: 225px;
+	height: 225px;
+	border-radius: 120px;
+}
+.team h3{
+	margin-bottom: 8px;
+}
+/*图标*/
+.team i,#footer i{
+	font-size: 28px;
+	padding: 8px;
+	border-radius: 40px;
+	color: #fff;
+	background: #000;
+	margin-left: 10px;
+}
+.team i:hover,#footer i:hover{
+	transition: 0.8s;
+	background: #FED136;
+}
+/*最后一段的文字表述*/
+.team p:last-child{
+	margin:80px auto 0 auto;
+	width: 750px;
+	font-size: 20px;
+}
+/*sup*/
+.sup{
+	padding: 30px;
+}
+#main .sup ul{
+	margin-top: 0;
+}
+.sup li{
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+/*contact*/
+.contact{
+	padding: 100px 0;
+	background: url(./images/bd-contact.png);
+	background-color: #222; 
+}
+.contact h2{
+	color: #fff;
+}
+.info{
+	width: 570px;
+	float: left;
+	font-size: 18px;
+}
+.contact .info input{
+	width: 550px;
+	height: 60px;
+
+	margin-bottom: 20px;
+	border-radius: 5px;
+}
+.contact form textarea{
+	border-radius: 5px;
+	width: 540px;
+	height: 234px;
+	float: right;
+}
+.contact form{
+	padding: 50px;
+}
+.send{
+	font-weight: bold;
+	font-size: 18px;
+	color: #fff;
+	padding: 20px;
+	border: none;
+	background-color: #FED136;
+	border-radius: 5px;
+	cursor: pointer;    
+	position: relative;
+    top: 40px;
+    left: -90px;
+}
+.send:hover{
+	background-color: #FEC503;
+}
+/*footer的图表效果已经在前面设置过*/
+#footer{
+	padding: 40px 0 30px 0;
+	text-align: center;
+}
+#footer ul li{
+	float: left;
+	width: 33.3%
+}
+#footer p{
+	margin-bottom: 0;
+	line-height:32px;
+}
+#footer ul li a{
+	margin-left: 10px;
+	color: #07f;
+	line-height:32px;
+}
+#footer ul li a:hover{
+	color:green;
+}

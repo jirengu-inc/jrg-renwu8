@@ -1,0 +1,149 @@
+/*重置样式和布局*/
+html,body,ul,li,img,h1,h2,h4,p{
+	margin: 0;
+	padding: 0;
+	font-family: Arial,"微软雅黑";
+}
+a{
+	text-decoration: none;
+}
+ul li{
+	list-style-type: none;
+}
+li .fa{
+	font-size: 17px;
+	display: inline-block;
+	width: 10px;
+}
+.layout{
+	width: 1000px;
+	margin:0 auto;
+}
+/*写header*/
+#header{
+	overflow: hidden;
+	font-size: 14px;
+	height: 40px;
+}
+.navbar>li{
+	line-height: 40px;
+	float: left;
+	padding: 0 10px;
+}
+.list{
+	display: none;
+	border: 1px solid #CCC;
+	position: absolute;
+	top: 40px;
+}
+.list>li{
+	border-top: 1px dashed #CCC;
+	text-align: center;
+	line-height: 30px;
+	padding: 0 5px;
+	border-collapse: collapse;
+}
+.list>li:first-of-type{
+	border-top: none;
+}
+.navbar>li:hover .list{
+	display: block;
+	background: white;
+}
+#header a{
+	color: #555;
+}
+.triangle {
+    border: 5px solid;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-color: #555 transparent transparent transparent;
+    position: relative;
+    left: 4px;
+    top: 3px;
+}
+/*主体部分*/
+.content{
+	margin: 30px 0;
+}
+#mheader{
+	background: #B84c46;
+	padding: 30px 0;
+	color: white;
+}
+#mheader h1{
+	font-weight: normal;
+}
+.nav{
+	background: #EEE;
+	padding: 10px;
+	margin-top:20px;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #555;
+}
+.nav a{
+	color: #B84c46;
+}
+.mywork ul{
+	overflow: hidden;
+	width: 1030px;
+	margin-left: -30px;
+}
+.mywork li{
+	float: left;
+	border:1px solid #CCC;
+	border-radius: 3px;
+	padding: 4px;
+	margin-left: 30px;
+	margin-top: 20px;
+	text-align: center;
+	color: #333;
+}
+.mywork img{
+	width: 300px;
+	height: 200px;
+	border: 1px solid #CCC;
+}
+.mywork p{
+	font-size: 14px;
+	margin: 10px 0;
+}
+.mywork h4{
+	margin:15px 0;
+}
+.mywork a{
+	color: #666;
+}
+.btn{
+	font-size: 13px;
+	padding:5px 10px;
+	border-radius: 6px;
+	border: 1px solid #CCC;
+	margin: 10px;
+	display: inline-block;
+}
+#mfooter{
+	background: #B84c46;
+	padding: 10px 0;
+	color: white;
+	text-align: center;
+}
+#mfooter a{
+	color:white;
+}
+#mfooter h2{
+	font-weight: normal;
+	padding:10px;
+}
+#footer{
+	font-size: 13px;
+	margin:50px 0;
+	text-align: center;
+	color: #555;
+}
+hr{
+	border-top: 1px solid #DDD;
+	margin: 20px 0;
+}

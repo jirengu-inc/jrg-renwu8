@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#header{
+		background: red;
+		padding: 40px;
+		margin: 10px;
+		text-align: center;
+	}
+	.nav{
+		background: blue;
+		padding: 20px;
+		margin: 10px;
+		text-align: center;
+	}
+	.content{
+		background: #ccc;
+		padding: 20px;
+		margin: 10px;
+	}
+	.content:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.content .aside{
+		background: green;
+		float: left;
+		width: 100px;
+		height: 300px;
+	}
+	.content .main{
+		background: #fff;
+		height: 800px;
+		overflow: auto;
+	}
+	#footer{
+		background: red;
+		margin: 10px;
+		padding: 20px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<div id="header">header</div>
+	<div class="wrap1">
+		<div class="nav">nav1</div>
+		<div class="content">
+		  	<div class="aside">aside1</div>
+		  	<div class="main">main1</div>
+		</div>
+	</div>
+	<div class="wrap2">
+		<div class="nav">nav2</div>
+		<div class="content">
+		  	<div class="aside">aside2</div>
+		  	<div class="main">main2</div>
+		</div>
+	</div>
+	<div class="wrap3">
+		<div class="nav">nav3</div>
+		<div class="content">
+		  	<div class="aside">aside3</div>
+		  	<div class="main">main3</div>
+		</div>
+	</div>
+	<div id="footer">footer</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+$(function(){
+	// var nav = [],
+	// 	clone = [];
+	// $('.nav').each(function(index){
+	// 	var $now = $(this),
+	// 		width = $now.width(),
+	// 		height = $now.height(),
+	// 		left = $now.offset().left,
+	// 		top = $now.offset().top;
+	// 	clone[index] = $now.clone().css({
+	// 		'width': width,
+	// 		'height': height,
+	// 		'left': left,
+	// 		'top': 0,
+	// 		'margin': 0,
+	// 		'position':'fixed'
+	// 	});
+
+	// 	nav[index] = {
+	// 		top: top,
+	// 		isStick: false,
+	// 		now: $now
+	// 	}; 
+	// 	clone[index].css('display','none').insertBefore($now);
+	// })
+	// 	$(document).on('scroll',function(){
+	// 		var scrollTop = $(this).scrollTop();
+	// 		for (var i = 0; i < nav.length; i++) {
+	// 			if(scrollTop >= nav[i].top){
+	// 				if(!nav[i].isStick){
+	// 					nav[i].isStick = true;
+	// 					nav[i].now.css('opacity',0);
+	// 					clone[i].css('display','block');
+	// 				}
+	// 			}
+	// 			else{
+	// 				if(nav[i].isStick){
+	// 					nav[i].isStick = false;
+	// 					nav[i].now.css('opacity',1);
+	// 					clone[i].css('display','none');
+	// 				}
+	// 			}
+	// 		}	
+	// 	})
+	
+	$('.nav').each(function(index){
+		var $now = $(this),
+			width = $now.width(),
+			height = $now.height(),
+			left = $now.offset().left,
+			top = $now.offset().top,
+		$clone = $now.clone();
+		$clone.css({ display: 'none'});
+		$clone.insertBefore($now);
+		$(window).on('scroll',function(){
+			var scrollTop = $(this).scrollTop();
+				if(scrollTop >= top){
+					if(!isFixed()){
+						setFixed();
+					}
+				}
+				else{
+					if(isFixed()){
+						unsetFixed();
+					}
+				}		
+		})
+
+		function isFixed(){
+			return $now.data('data-fixed')
+		}
+		function setFixed(){
+			$now.data('data-fixed',true)
+					.css({
+						'width':width,
+						'height':height,
+						'position':'fixed',
+						'left':left,
+						'top': 0,
+						'margin':0,
+					});
+			$clone.show();
+		}
+		function unsetFixed(){
+			 $now.data('data-fixed',false).removeAttr('style');
+			 $clone.hide();
+		}
+
+	})
+})
+</script>
+</html>

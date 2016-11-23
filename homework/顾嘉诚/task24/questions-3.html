@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 24 questions 3</title>
+	<style type="text/css">
+		dt{
+			float: left;
+		}
+		dt:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		dd{
+			margin-left: 200px;
+		}
+		#username-holder,#password-holder,#pwd-comfirm{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			color: #666;
+			font-size: 12px;
+		}
+		button{
+			margin-left: 200px;
+		}
+		.blank{
+			visibility: hidden;
+		}
+		.error{
+			border-color: red;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		3.实现注册表单验证功能
+	-->
+	<h1>注册</h1>
+	<dl>
+		<dt>用户名:</dt>
+		<dd>
+			<input type="text" name="username" id="username">
+		</dd>
+		<dd id="username-holder">只能是字母、数字、下划线，3-10个字符</dd>
+		<dt>密码:</dt>
+		<dd>
+			<input type="password" name="password" id="password">
+		</dd>
+		<dd id="password-holder">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+		<dt>再输一次:</dt>
+		<dd>
+			<input type="password" name="comfirm" id="comfirm" placeholder="再输入一次密码">
+		</dd>
+		<dd id="pwd-comfirm" class="blank">4</dd>
+	</dl>
+	<button id='btn-register'>注册</button>
+
+	<script type="text/javascript">
+		var MSGNAME = ["只能是字母、数字、下划线，3-10个字符","用户名格式不正确","用户名可用","用户名已经存在"];
+		var MSGPWD	= ["大写字母、小写、数字、下划线最少两种，6-15个字符","密码格式不正确","两次密码输入不一致"];
+		var lock = false;
+		$$('#username-holder').innerText = MSGNAME[0];
+		$$('#password-holder').innerText = MSGPWD[0];
+
+		$$('#username').addEventListener('change',function(e){
+			filterName(e.target.value);
+			ajax({
+				type: 'get',
+				url: 'register.php',
+				data: {
+					'username': e.target.value
+				},
+				success: function(json){
+					dealWith(json);
+				},
+				error: function(){
+					console.log('error');
+				}
+			});
+		});
+		$$('#password').addEventListener('change',function(e){
+			if($$('#comfirm') !== ''){
+				comparePwd();
+			}
+			filterPwd(e.target.value);
+		});
+		$$('#comfirm').addEventListener('change',function(e){
+			comparePwd();
+		});
+
+		$$('#btn-register').addEventListener('click',function(){
+			if(readyAction() && judgeStatus()){
+				if(!lock){
+					lock = true;
+					registerIng();
+					ajax({
+						type: 'post',
+						url: 'pwd.php',
+						data: {
+							'username': $$('#username').value,
+							'pwd': $$('#comfirm').value
+						},
+						success: function(json){
+							registerOver(json);
+						},
+						error: function(){
+							console.log('no file');
+						}
+					});
+					lock = false;
+				}
+			}
+		});
+
+		function $$(ele){
+			var length = ele.length - 1;
+			if(ele[0] === '.'){
+				return document.getElementsByClassName(ele.substr(1,length));
+			}else if(ele[0] === '#'){
+				return document.getElementById(ele.substr(1,length));
+			}else{
+				return document.getElementsByTagName(ele);
+			}
+		}
+		function addClass(ele,className){
+			if($$(ele).className === ''){
+				$$(ele).className += className;
+			}else{
+				$$(ele).className += ' ' + className;
+			}
+		}
+		function removeClass(ele,className){
+			if($$(ele).className > className){
+				$$(ele).className = $$(ele).className.replace(' '+className,'');
+			}else{
+				$$(ele).className = $$(ele).className.replace(className,'');
+			}
+		}
+		function ajax(pots){
+			var xmlhttp = new XMLHttpRequest();
+			var str = '';
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+					pots.success(JSON.parse(xmlhttp.responseText));
+				}else if(xmlhttp.readyState === 4 && xmlhttp.status !== 200){
+					pots.error();
+				}
+			};
+			for(var prop in pots.data){
+				str += prop + '=' + pots.data[prop] + '&';
+			}
+			str = str.substr(0,str.length - 1);
+			if(pots.type.toLowerCase() === 'get'){
+				xmlhttp.open('GET',pots.url + '?' + str,true);
+				xmlhttp.send();
+			}else if(pots.type.toLowerCase() === 'post'){
+				xmlhttp.open('POST',pots.url,true);
+				xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				xmlhttp.send(str);
+			}
+		}
+		function filterName(name){
+			var patt = /^\w{3,10}$/;
+			if(!patt.test(name)){
+				addClass('#username','error');
+				$$('#username-holder').innerText = MSGNAME[1];
+			}
+		}
+		function filterPwd(pwd){
+			var patt = /^\w{6,15}$/;//6-15个字符
+			if(patt.test(pwd)){
+				if(pwd.match(/^[A-Z]{6,15}$/) || pwd.match(/^[a-z]{6,15}$/) || pwd.match(/^[0-9]{6,15}$/) || pwd.match(/^[_]{6,15}$/)){
+					addClass('#password','error');
+					$$('#password-holder').innerText = MSGPWD[1];
+					removeClass('#password-holder','blank');
+				}else{
+					removeClass('#password','error');
+					addClass('#password-holder','blank');
+				}
+			}else{
+				addClass('#password','error');
+				$$('#password-holder').innerText = MSGPWD[1];
+				removeClass('#password-holder','blank');
+			}
+		}
+		function dealWith(json){
+			if(json[0] === 'true'){
+				removeClass('#username','error');
+				$$('#username-holder').innerText = MSGNAME[2];
+			}else if(json[0] === 'false'){
+				addClass('#password','error');
+				$$('#username-holder').innerText = MSGNAME[3];
+			}
+		}
+		function comparePwd(){
+			if($$('#password').value !== $$('#comfirm').value){
+				addClass('#comfirm','error');
+				$$('#pwd-comfirm').innerText = MSGPWD[2];
+				removeClass('#pwd-comfirm','blank');
+			}else{
+				removeClass('#comfirm','error');
+				addClass('#pwd-comfirm','blank');
+			}
+		}
+		function registerIng(){
+			var span = document.createElement('span');
+			var text = document.createTextNode('注册中...');
+			span.appendChild(text);
+			$$('body')[0].appendChild(span);
+		}
+		function registerSuccess(){
+			$$('body')[0].removeChild($$('span')[0]);
+		}
+		function registerOver(json){
+			if(json[0] === 'true'){
+				registerSuccess();
+			}else{
+				addClass('#password','error');
+				$$('#username-holder').innerText = MSGNAME[3];
+				
+			}
+		}
+		function readyAction(){
+			if($$('#username').value === ''){
+				addClass('#username','error');
+				$$('#username-holder').innerText = MSGNAME[1];
+				return false;
+			}
+			if($$('#password').value === ''){
+				addClass('#password','error');
+				$$('#password-holder').innerText = MSGPWD[1];
+				return false;
+			}
+			if($$('#comfirm').value === ''){
+				addClass('#comfirm','error');
+				$$('#pwd-comfirm').innerText = MSGPWD[1];
+				removeClass('#pwd-comfirm','blank');
+				return false;
+			}
+			return true;
+		}
+		function judgeStatus(){
+			if($$('#username').className.search('error') !== -1){
+				return false;
+			}
+			if($$('#password').className.search('error') !== -1){
+				return false;
+			}
+			if($$('#comfirm').className.search('error') !== -1){
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
+</html>
