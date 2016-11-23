@@ -5,7 +5,6 @@ html, body, ul, li, h1, h2, h3, h4, p {
 
 html, body {
     font: 16px/1.5 Arial, "Microsoft YaHei", sans-serif;
-    overflow-x: hidden;
 }
 
 ul {
@@ -13,5 +12,9 @@ ul {
 }
 
 a {
+    text-decoration: none;
+}
+
+a:hover {
     text-decoration: none;
 }

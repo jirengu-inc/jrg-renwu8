@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task6</title>
+</head>
+
+<body>
+    <div>
+        console.log(a); <br>
+        var a = 1; <br> 
+        console.log(a); <br>
+        console.log(b);
+    </div>
+    <div>
+    	上面一层代码可以看成如下的样子，因为变量声明会提升 <br>
+    	var a; <br>
+    	console.log(a); //undefined<br>
+        var a = 1; <br> 
+        console.log(a); // 1<br>
+        console.log(b); //报错，因为变量B没有定义
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task5</title>
+</head>
+
+<body>
+    <div>打印JSON的值,var obj = { name: 'hunger', sex: 'male', age: 28 }
+    </div>
+    <div id="result"></div>
+    <script>
+    var obj = {
+        name: 'hunger',
+        sex: 'male',
+        age: 28
+    }
+    for (var k in obj) {
+        document.getElementById('result').innerHTML += k + ":" + obj[k] + "<br>";
+    }
+    </script>
+</body>
+
+</html>
