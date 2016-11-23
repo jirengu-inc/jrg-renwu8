@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>淡入淡出</title>
+</head>
+<style>
+	html,body,ul{
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.carousel{
+		position: relative;
+		width: 550px;
+		height: 406px;
+		overflow: hidden;
+		margin: 20px auto;
+	}
+	.img-ct {
+		position: relative;
+	}
+	.img-ct li{
+		position: absolute;
+		display: none;
+	}
+	.img-ct li img{
+		width: 550px;
+		height: 406px;
+	}
+	.arrow {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 30px;
+		text-align: center;
+		color: #fff;
+		background-color: #333;
+		position: absolute;
+		top: 50%;
+		margin-top:-15px;
+		opacity: 0.6;
+	}
+	.arrow:hover{
+		opacity: 1;
+	}
+	.arrow.left{
+		left: 10px;
+	}
+	.arrow.right{
+		right:10px;
+	}
+	.crsl-icon{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform:translateX(-50%);
+	}
+
+	.crsl-icon>li{
+		display: inline-block;
+		width: 16px;
+		height: 4px;
+		border-radius: 4px;
+		background-color: #eee;
+		cursor: pointer;
+	}
+	.crsl-icon>li.active{
+		background-color: #666;
+	}
+</style>
+<body>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li><a href="JavaScript:;"><img src="1.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="2.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="3.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="4.jpg" alt=""></a></li>
+		</ul>
+		<a href="JavaScript:;" class="arrow left"><</a>
+		<a href="JavaScript:;" class="arrow right">></a>
+		<ul class="crsl-icon">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>	
+
+
+<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+<script>
+
+	$.fn.extend({carousel:function(){
+		var $this=$(this);
+		var imgCt=$this.find('.img-ct'),
+			imgLi=imgCt.children(),
+			leftArrow=$this.find('.left'),
+			imgCount=imgLi.length,
+			rightArrow=$this.find('.right'),
+			crslIcon=$this.find('.crsl-icon');
+
+		var curIdx=0;
+		var flag=true;
+			play(0);
+			autoPlay();
+			
+			
+		leftArrow.on('click',function(){
+			play((curIdx-1)%imgCount)
+		})
+
+		rightArrow.on('click',function(){
+			play((curIdx+1)%imgCount)
+		})
+
+		crslIcon.on('click','li',function(){
+			var idxIcon=$(this).index();
+			play(idxIcon)
+		})
+		function play(idx){
+			if (!flag) {
+				return;
+			}
+			flag=false;
+			imgLi.eq(curIdx).fadeOut(500);
+			imgLi.eq(idx).fadeIn(500,function(){
+				flag=true;
+			});
+			playCrslIcon(idx,curIdx)
+			curIdx = idx;
+		}
+		function playCrslIcon(idx,curIdx){
+			if (idx===curIdx) {
+				crslIcon.children().eq(idx).addClass('active');
+			}else{
+				crslIcon.children().eq(idx).addClass('active')
+							 .end().eq(curIdx).removeClass('active');
+			}
+		}
+
+		function autoPlay(){
+			clock=setInterval(function(){
+				play((curIdx+1)%imgCount)
+			},2000);
+		}
+
+		function stopAtuoPlay(){
+			clearInterval(clock)
+		}
+	}})
+
+	$('.carousel').carousel();
+
+	
+</script>
+
+</body>
+</html>

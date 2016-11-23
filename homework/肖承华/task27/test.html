@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>无限轮播</title>
+</head>
+<style>
+	html,body,ul{
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.clearfixed:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.carousel{
+		position: relative;
+		width: 550px;
+		height: 406px;
+		overflow: hidden;
+	}
+	.img-ct {
+		position: absolute;
+
+	}
+	.img-ct li{
+		float: left;
+		
+	}
+	.img-ct li img{
+		width: 550px;
+		height: 406px;
+	}
+	.arrow {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 30px;
+		text-align: center;
+		color: #fff;
+		background-color: #333;
+		position: absolute;
+		top: 50%;
+		margin-top:-15px;
+		opacity: 0.6;
+	}
+	.arrow:hover{
+		opacity: 1;
+	}
+	.arrow.left{
+		left: 10px;
+	}
+	.arrow.right{
+		right:10px;
+	}
+	.bullet{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform:translateX(-50%);
+	}
+
+	.bullet>li{
+		display: inline-block;
+		width: 16px;
+		height: 4px;
+		border-radius: 4px;
+		background-color: #eee;
+		cursor: pointer;
+	}
+	.bullet>li.active{
+		background-color: #666;
+	}
+</style>
+<body>
+	<div class="carousel">
+		<ul class="img-ct clearfixed">
+			<li><a href="JavaScript:;"><img src="1.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="2.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="3.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="4.jpg" alt=""></a></li>
+		</ul>
+		<a href="JavaScript:;" class="arrow left"><</a>
+		<a href="JavaScript:;" class="arrow right">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<div class="carousel">
+		<ul class="img-ct clearfixed">
+			<li><a href="JavaScript:;"><img src="1.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="2.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="3.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="4.jpg" alt=""></a></li>
+		</ul>
+		<a href="JavaScript:;" class="arrow left"><</a>
+		<a href="JavaScript:;" class="arrow right">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+
+<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+<script>
+	$.fn.extend({Carousel:function(){
+
+		var $this=$(this),
+		    $ct=$this.find('.img-ct'),
+			$items=$ct.children(),
+			$left=$this.find('.left'),
+			$right=$this.find('.right'),
+			$bullet=$this.find('.bullet'),
+			imgWidth=$items.children().width(),
+			imgCount=$items.children().size();
+
+			$ct.append($items.first().clone());
+			$ct.prepend($items.last().clone());
+			imgRealCount=$ct.children().size();
+			$ct.css({left:0-imgWidth,width:imgRealCount*imgWidth});
+
+			$right.on('click',function(){
+				playNext();
+			})
+			$left.on('click',function(){
+				playPre();
+			})
+			$bullet.on('click','li',function(){
+				var idx=$(this).index();
+				if (idx > curIdx) {
+					playNext(idx - curIdx)
+				}
+				if (idx<curIdx) {
+					playPre(curIdx-idx)
+				}
+			})
+			var curIdx=0,
+				lock=false;
+				autoPlay();
+
+			function playNext(idx){
+				if (!lock) {
+					lock = true;
+					var idx = idx || 1;
+					$ct.animate({left:'-='+(idx*imgWidth)},function(){
+						curIdx = (curIdx+idx)%imgCount;
+						if (curIdx === 0) {
+							$ct.css({left:0-imgWidth});
+						}
+						setBullet();
+						lock = false;
+					})
+				}
+			
+			}	
+
+			function playPre(idx){
+				if (!lock) {
+					lock = true;
+					var idx = idx || 1;
+					$ct.animate({left:'+='+(idx*imgWidth)},function(){
+						curIdx = (imgCount+curIdx-idx)%imgCount;
+						if (curIdx === (imgCount-1)) {
+							$ct.css({left:0-imgCount*imgWidth});
+						}
+						setBullet();
+						lock = false;
+					})
+				}
+			}
+
+			function setBullet(){
+				$bullet.children().removeClass('active')
+								  .eq(curIdx).addClass('active');
+			}
+
+			function autoPlay(){
+				clock=setInterval(function(){
+					playNext();
+				},3000)
+			}
+			function stopPlay(){
+				clearInterval(clock)
+			}
+	}})
+
+	$('.carousel').each(function(){
+		$(this).Carousel()
+	})
+</script>
+
+</body>
+</html>
