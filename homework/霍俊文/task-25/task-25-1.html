@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+
+        .ct>ul{
+            margin:0px;
+            padding:0px;
+            width:200px;
+            list-style: none;
+        }
+        .item{
+
+            height:50px;
+            background-color: #c7171e;
+            border-bottom:1px dotted #de272e;
+            padding-left: 10px;
+            line-height:50px;
+            position: relative;
+        }
+        .item>a{
+            text-decoration: none;
+            color:white;
+            font-size: 13px;
+        }
+        .item>.span-right{
+            color:white;
+            font-size: 13px;
+            padding-right: 10px;
+            float: right;
+            cursor: pointer;
+        }
+
+        .child-item{
+            padding:0px;
+            border:1px solid #ccc;
+            position: absolute;
+            top:0px;
+            left:200px;
+            display:none;
+            width:250px;
+
+        }
+        .child-item:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .child-item>li{
+            padding-left:20px;
+            float: left;
+            width:100px;
+            background-color: white;
+            list-style: none;
+
+
+        }
+        .child-item>li>a{
+
+            text-decoration: none;
+            color:black;
+            font-size: 10px;
+        }
+        .hover-show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <ul>
+        <li class="item">
+            <a href="#">休斯顿火箭</a>
+            <span class="span-right"> > </span>
+            <ul class="child-item">
+                <li>
+                    <a href="#">詹姆斯哈登</a>
+                </li>
+                <li>
+                    <a href="#">埃里克戈登</a>
+                </li>
+                <li>
+                    <a href="#">莱恩安德森</a>
+                </li>
+                <li>
+                    <a href="#">特雷沃阿里扎</a>
+                </li>
+                <li>
+                    <a href="#">克林特卡佩拉</a>
+                </li>
+                <li>
+                    <a href="#">萨姆德克尔</a>
+                </li>
+            </ul>
+        </li>
+        <li class="item">
+            <a href="#">迈阿密热火</a>
+            <span class="span-right">></span>
+            <ul class="child-item">
+                <li>
+                    <a href="#">德维恩韦德</a>
+                </li>
+                <li>
+                    <a href="#">克里斯波什</a>
+                </li>
+                <li>
+                    <a href="#">哈桑怀特塞德</a>
+                </li>
+                <li>
+                    <a href="#">戈蓝德拉季奇</a>
+                </li>
+                <li>
+                    <a href="#">泰勒约翰逊</a>
+                </li>
+                <li>
+                    <a href="#">约什理查德森</a>
+                </li>
+            </ul>
+        </li>
+        <li class="item">
+            <a href="#">洛杉矶快船</a>
+            <span class="span-right">></span>
+            <ul class="child-item">
+                <li>
+                    <a href="#">克里斯保罗</a>
+                </li>
+                <li>
+                    <a href="#">布雷克格里芬</a>
+                </li>
+                <li>
+                    <a href="#">贾马尔克劳福特</a>
+                </li>
+                <li>
+                    <a href="#">德安德鲁乔丹</a>
+                </li>
+                <li>
+                    <a href="#">JJ雷迪克</a>
+                </li>
+                <li>
+                    <a href="#">保罗皮尔斯</a>
+                </li>
+            </ul>
+        </li>
+        <li class="item">
+            <a href="#">多伦多猛龙</a>
+            <span class="span-right">></span>
+            <ul class="child-item">
+                <li>
+                    <a href="#">洛瑞</a>
+                </li>
+                <li>
+                    <a href="#">德罗赞</a>
+                </li>
+                <li>
+                    <a href="#">帕得森</a>
+                </li>
+                <li>
+                    <a href="#">卡罗尔</a>
+                </li>
+                <li>
+                    <a href="#">瓦兰丘纳斯</a>
+                </li>
+                <li>
+                    <a href="#">罗斯</a>
+                </li>
+            </ul>
+        </li>
+        <li class="item">
+            <a href="#">华盛顿奇才</a>
+            <span class="span-right">></span>
+            <ul class="child-item">
+                <li>
+                    <a href="#">沃尔</a>
+                </li>
+                <li>
+                    <a href="#">比尔</a>
+                </li>
+                <li>
+                    <a href="#">波特</a>
+                </li>
+                <li>
+                    <a href="#">戈塔特</a>
+                </li>
+                <li>
+                    <a href="#">马辛米</a>
+                </li>
+                <li>
+                    <a href="#">莫里斯</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    var item = $('.item')
+    item.on('mouseenter',function(){
+        $(this).find('.child-item').addClass('hover-show')
+    })
+    item.on('mouseleave',function(){
+        $(this).find('.child-item').removeClass('hover-show')
+    })
+</script>
+</html>
