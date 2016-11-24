@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0
+	}
+	p{
+		padding: 20px;
+		font-family: 'microsoft yahei';
+		font-size: 20px;
+	}
+	#go-top{
+		position: fixed;
+		padding: 10px;
+		right: 10px;
+		bottom: 10px;
+		cursor: pointer;
+		display: none;
+		border: 1px solid red;
+	}
+</style>
+<body>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+	<p>内容</p>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+	var $goTop = $('<a id="go-top">回到顶部</a>');
+	$('body').append($goTop);
+	$(window).on('scroll',function(){
+		var scrollTop = $(this).scrollTop();
+		if(scrollTop > 100){
+			$goTop.show();
+		}	
+	})
+	$goTop.on('click',function(){
+		$('body').scrollTop(0);
+		$goTop.hide();
+	})
+</script>
+</html>
