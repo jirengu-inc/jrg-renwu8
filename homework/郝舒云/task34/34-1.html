@@ -87,8 +87,14 @@
         var index = 0;
         var page=0;
         loaddata();
+        var clock;
         $(document).on('scroll', function() {
-              loaddata();
+        	
+        	if (clock) {
+        		clearTimeout(clock);
+        	}
+clock=setTimeout(loaddata,500);
+              
 
           });
 
