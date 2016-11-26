@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加</title>
+    <script src="jquery-3.1.1.js"> </script>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+        }
+        .main-ct{
+            width:1100px;
+        }
+        .main-ct>ul{
+            list-style: none;
+
+        }
+        .main-ct>ul:after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .main-ct .item{
+            text-align: center;
+            width:250px;
+            float:left;
+            border:1px solid #ccc;
+            margin-bottom:20px;
+            margin-right: 20px;
+
+            font-size:13px;
+            position: relative;
+        }
+        .item>p:nth-child(4){
+            margin-left: 10px;
+            color:darkred;
+            text-align: left;
+        }
+        .item>p:nth-child(5){
+            margin-left: 10px;
+            text-align: left;
+        }
+        .btn{
+            margin: 0 auto;
+            display: block;
+            border: 1px solid darkred;
+            border-radius: 5px;
+            color:darkred;
+            width:70px;
+            height:40px;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .masking{
+            width:100%;
+            height: 100%;
+            position: absolute;
+            background: #333;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .buy-btn{
+            transition: all 0.3s;
+            display: block;
+            width:30%;
+            height:40px;
+            line-height:40px;
+            text-align: center;
+            border: 1px solid darkred;
+            border-radius: 5px;
+            background: #ffffff;
+            text-decoration: none;
+            position: absolute;
+            top:40%;
+            left: 0;
+            bottom:0;
+            right: 0;
+            margin: 0 auto;
+            opacity: 0;
+        }
+        .masking-hover{
+            opacity: 0.3;
+        }
+        .buy-btn-hover{
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <h2>珠宝首饰</h2>
+    <div class="main-ct">
+        <ul class="item-wrap">
+            <li class="item">
+                <div class="masking"></div>
+                <a href="###" class="buy-btn">立即购买</a>
+                <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                <p>精致商品</p>
+                <p>$1699.00</p>
+            </li>
+            <li class="item">
+                <div class="masking"></div>
+                <a href="###" class="buy-btn">立即购买</a>
+                <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                <p>精致商品</p>
+                <p>$1699.00</p>
+            </li>
+            <li class="item">
+                <div class="masking"></div>
+                <a href="###" class="buy-btn">立即购买</a>
+                <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                <p>精致商品</p>
+                <p>$1699.00</p>
+            </li>
+            <li class="item">
+                <div class="masking"></div>
+                <a href="###" class="buy-btn">立即购买</a>
+                <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                <p>精致商品</p>
+                <p>$1699.00</p>
+            </li>
+            <li class="item">
+                <div class="masking"></div>
+                <a href="###" class="buy-btn">立即购买</a>
+                <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                <p>精致商品</p>
+                <p>$1699.00</p>
+            </li>
+            <li class="item">
+                <div class="masking"></div>
+                <a href="###" class="buy-btn">立即购买</a>
+                <img src="http://img12.360buyimg.com/N3/jfs/t2302/181/1562193880/220016/88a978ef/56cbbc11Nd6d3b04b.jpg" alt="">
+                <p>精致商品</p>
+                <p>$1699.00</p>
+            </li>
+        </ul>
+        <a href="###" class="btn">添加</a>
+    </div>
+</div>
+</body>
+<script>
+    var products = [
+        {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        },{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }
+    ];
+
+    function addItem(item){
+        var html = '';
+        html += '<li class="item">'
+        html += '<div class="masking"></div>'
+        html += '<a href="###" class="buy-btn">立即购买</a>'
+        html += '<img src ="'+item.img+'" alt="">'
+        html += '<p>' +item.name+'</p>'
+        html += '<p>'+ item.price+'</p>'
+        html += '</li>'
+        return html;
+    }
+
+
+    $('.btn').on('click',function(){
+        $.each(products,function(idx,item){
+            var html = addItem(item);
+            $('.item-wrap').append(html);
+        })
+    })
+
+    $('.main-ct').on('mouseenter','.item',function(){ //事件代理
+        $(this).find('.masking').addClass('masking-hover')
+        $(this).find('.buy-btn').addClass('buy-btn-hover')
+    })
+    $('.main-ct').on('mouseleave','.item',function(){
+        $(this).find('.masking').removeClass('masking-hover')
+        $(this).find('.buy-btn').removeClass('buy-btn-hover')
+    })
+
+</script>
+</html>

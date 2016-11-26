@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,
+    li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    
+    a {
+        text-decoration: none;
+        text-align: center;
+        color: #000;
+    }
+    
+    .new {
+        overflow: hidden;
+    }
+    
+    .tab {
+        overflow: hidden;
+    }
+    
+    .tab ul {
+        float: left;
+        border: 1px solid #ccc;
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
+    }
+    
+    .tab ul li {
+        display: block;
+        float: left;
+        padding: 10px 0px;
+    }
+    
+    .tab ul li a {
+        display: block;
+        border-left: 1px solid #ccc;
+        padding: 0 10px;
+    }
+    
+    .con {
+        width: 834px;
+        border: 1px solid #ccc;
+    }
+    
+    .con ul {
+        width: 846px;
+        margin-left: -10px;
+        margin-top: -10px;
+        overflow: hidden;
+    }
+    
+    .con ul li {
+        display: block;
+        width: 250px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        float: left;
+        padding: 10px;
+        padding-bottom: 0;
+        text-align: center;
+        position: relative;
+    }
+    
+    .fold {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0.6;
+        background: #ccc;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    .fold a {
+        position: absolute;
+        background: #fff;
+        color: red;
+        height: 30px;
+        left：50%;
+        top: 50%;
+        margin-left: -35px;
+        margin-top: -15px;
+        line-height: 30px;
+        width: 70px;
+        text-align: center;
+        border-radius: 5px;
+        border: 1px solid red;
+    }
+    
+    .con ul li img {
+        width: 230px;
+        height: 200px;
+    }
+    
+    .con ul li p {
+        line-height: 14px;
+        text-align: left;
+    }
+    
+    .pri {
+        color: #cc2a32;
+    }
+    
+    .bg {
+        background: #ccc;
+    }
+    
+    .bg a {
+        color: #cc2a32;
+    }
+    
+    .add {
+        margin-top: 10px;
+        width: 70px;
+        height: 30px;
+        display: block;
+        border-radius: 5px;
+        border: 1px solid #cc2a32;
+        line-height: 30px;
+        text-align: center;
+        color: #cc2a32;
+        ;
+        font-family: "微软雅黑";
+    }
+    </style>
+</head>
+
+<body>
+    <div class="new">
+        <div class="tab">
+            <ul>
+                <li class="first"><a style="border-left: 0" href="javascript:void(0)">热门</a></li>
+                <li><a href="javascript:void(0)">珠宝首饰</a></li>
+                <li><a href="javascript:void(0)">奢侈品</a></li>
+            </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="4.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+            </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <a href="#"><img src="4.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+            </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="4.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="new" style="margin-top:10px;">
+        <div class="tab">
+            <ul>
+                <li class="first"><a style="border-left: 0" href="javascript:void(0)">热门</a></li>
+                <li><a href="javascript:void(0)">畅销品牌</a></li>
+                <li><a href="javascript:void(0)">大洋专柜</a></li>
+            </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="4.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+            </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <a href="#"><img src="4.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+            </ul>
+        </div>
+        <div class="con">
+            <ul>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="3.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="4.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="1.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+                <li>
+                    <a href="#"><img src="2.jpg" alt=""></a>
+                    <p>施华洛世奇吊坠</p>
+                    <p class="pri">$5188</p>
+                    <div class="fold"><a href="#">立即抢购</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+    $(function() {
+
+        function ChangeTabs($item) {
+
+            var itemul = $item.find('.con>ul');
+            var itemlis = $item.find('.tab>ul>li');
+            this.itemul = itemul;
+            this.itemlis = itemlis;
+
+            this.bindEvent = function() {
+                this.itemul.on('mouseover', 'li', function() {
+                    $(this).find(".fold").css('display', 'block');
+
+
+                }).on('mouseout', function() {
+                    $(this).find(".fold").css('display', 'none');
+
+                });
+                this.itemlis.on('click', function() {
+                    var item = $(this).index();
+                    $(this).addClass("bg").siblings().removeClass("bg").parent().parent().parent().find('.con').css('display', 'none').eq(item).css('display', 'block');
+
+                });
+                this.itemlis.eq(0).click();
+
+            }
+            this.bindEvent();
+        }
+        var tab1 = new ChangeTabs($('.new').eq(0));
+        var tab2 = new ChangeTabs($('.new').eq(1));
+      
+    });
+    </script>
+</body>
+
+</html>

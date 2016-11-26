@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,
+    li,
+    h3,
+    p {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    #content {
+        width: 1000px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    #content ul {
+        overflow: hidden;
+    }
+    
+    #content ul li {
+        display: block;
+        position: absolute;
+        width: 280px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-right: 30px;
+        margin-top:20px;
+    }
+    
+    #content ul li img {
+        width: 280px;
+    }
+    
+    h3 {
+        height: 34px;
+        line-height: 34px;
+        font-size: 16px;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    p {
+        margin-top: 6px;
+        line-height: 20px;
+        font-size: 12px;
+    }
+    
+    #loadmore {
+        display: block;
+        width: 100px;
+        height: 30px;
+        border: 1px solid #ccc;
+        visibility: hidden;
+    }
+    </style>
+</head>
+<script src='http://libs.baidu.com/jquery/1.9.1/jquery.min.js'></script>
+
+<body>
+    <div id="content">
+        <ul>
+            <li style="display: none">
+                <a href="#"><img src="http://www.sinaimg.cn/dy/slidenews/5_t160/2016_47/453_83035_910740.jpg" alt=""></a>
+                <h3>呆萌小斑马首次见下雨兴奋起舞</h3>
+                <p>南非克鲁格国家公园，小斑马第一次见到雨是什么反应？跳舞！用力跳舞。</p>
+            </li>
+        </ul>
+        <a href="#" id="loadmore">loadmore</a>
+    </div>
+    <script>
+    $(function() {
+        var $con = $('#content ul');
+        var verwidth = $('li').outerWidth(true);
+        var mainwidth = $(window).width();
+        var len = Math.floor(mainwidth / verwidth);
+        var imgs = [];
+        var index = 0;
+        var page=0;
+        loaddata();
+        var clock;
+        $(document).on('scroll', function() {
+        	
+        	if (clock) {
+        		clearTimeout(clock);
+        	}
+clock=setTimeout(loaddata,500);
+              
+
+          });
+
+        function imgsort($items) {
+            if (imgs.length <= 0) {
+                for (var i = 0; i < len; i++) {
+                    imgs[i] = 0;
+                }
+            }
+            $items.each(function() {
+                $item = $(this);
+                index = findmin(imgs);
+                $item.css({
+                    left: index * verwidth,
+                    top: imgs[index]
+                });
+                imgs[index] += $item.outerHeight(true);
+                $con.height(imgs[index]);
+            });
+        }
+
+        function isVisible($node) {
+            var nodeheight = $node.height();
+            var top = $(document).scrollTop();
+            var tall = $node.offset().top;
+            var windowheight = $(window).height();
+            if (windowheight + top > tall && top < tall + nodeheight) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        function getdataquery() {
+            $.ajax({
+                type: "get",
+                async: false,
+                url: "http://platform.sina.com.cn/slide/album_tech?jsoncallback=?&app_key=1271687855&num=6&page="+page+"",
+                dataType: "jsonp", //数据类型为jsonp  
+                jsonp: "jsonpcallback", //服务端用于接收callback调用的function名的参数  
+                success: function(data) {
+                    appenddata(data);
+                },
+                error: function() {
+                    alert('fail');
+                }
+            });
+
+        }
+
+        function appenddata(objson) {
+            var objs = objson.data;
+            var div = $('#content ul');
+            var lis = "";
+            for (var item in objs) {
+                lis += '<li><a href="' + objs[item].url + '"><img src="' + objs[item].img_url + '" alt=""></a><h3>' + objs[item].short_name + '</h3><p>' + objs[item].name + '</p></li>';
+
+
+
+            }
+            var $lis = $(lis);
+            var diferreds = [];
+
+            div.append($lis);
+
+            $lis.find('img').each(function() {
+                var delay = $.Deferred();
+                diferreds.push(delay);
+                var $this = $(this);
+                $this.load(function() {
+                
+                    delay.resolve();
+                });
+
+            });
+           $.when.apply(null, diferreds).done(function() {
+          	
+                   imgsort($lis);
+               
+           });
+
+
+
+
+
+    }
+
+    function loaddata() {
+
+        var $loadbtn = $('#loadmore');
+
+
+        if (isVisible($loadbtn)) {
+        	page++;
+            getdataquery();
+        }
+
+
+
+
+
+
+    }
+
+    function findmin(arr) {
+        var min = arr[0];
+        var minindex = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+                minindex = i;
+            }
+        }
+        return minindex;
+    }
+
+    });
+    </script>
+</body>
+
+</html>

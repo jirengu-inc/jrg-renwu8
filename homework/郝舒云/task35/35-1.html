@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .n1 {
+        width: 100px;
+        height: 500px;
+        border: 1px solid #ccc;
+    }
+    
+    .n2 {
+        width: 100px;
+        height: 200px;
+        border: 1px solid #ccc;
+        background: red;
+    }
+    
+    .n3 {
+        width: 100px;
+        height: 700px;
+        border: 1px solid #ccc;
+    }
+    /* .backtip {
+        display: block;
+        width: 80px;
+        height: 30px;
+        border: 1px solid red;
+        line-height: 30px;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        display: none;
+    }*/
+    </style>
+</head>
+
+<body>
+    <div class="n1">
+    </div>
+    <div class="n2">
+    </div>
+    <div class="n3">
+    </div>
+    <div class="n2">
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    function GoTop($contain) {
+        this.ct = (!!$contain) ? $contain : $('body');
+
+        this.createNode = function() {
+            var $node = $('<a href="javascript:void(0)">回到顶部</a>');
+            $node.css({
+                "display": "block",
+                "width": "80px",
+                "height": "30px",
+                "border": "1px solid red",
+                "line-height": "30px",
+                "position": "fixed",
+                "bottom": "10px",
+                "right": "10px",
+                "text-align": "center",
+                "text-decoration": "none",
+                "color": "#000",
+                "display": "none"
+            });
+
+            this.ct.append($node);
+            return $node;
+
+        };
+        this.target = this.createNode();
+        this.bindEvent =
+            function() {
+                var $this = this;
+
+                $(document).on('scroll', function() {
+                    if ($(document).scrollTop() > 200) {
+                        $this.target.show();
+                    } else {
+                        $this.target.hide();
+                    }
+
+                });
+                $this.target.on('click', function() {
+
+                    $(document).scrollTop(0);
+                });
+            }
+    }
+
+    var top1 = new GoTop();
+    top1.bindEvent();
+    </script>
+</body>
+
+</html>
