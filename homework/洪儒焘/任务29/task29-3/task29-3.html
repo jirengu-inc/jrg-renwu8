@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+</head>
+<style>
+  	ul,li{
+	  margin: 0;
+	  padding: 0
+	}
+	#ct li{
+	  list-style:none;
+	  border: 1px solid #ccc;
+	  padding: 10px;
+	  margin-top: 10px;
+	  cursor:pointer;
+	}
+	#load-more{
+	  display: block;
+	  margin: 10px auto;
+	  text-align: center;
+	  cursor: pointer;
+	}
+	#load-more img{
+	  width: 40px;
+	  height: 40px;
+	}
+	.btn{
+	  display: inline-block;
+	  height: 40px;
+	  line-height: 40px;
+	  width: 80px;
+	  border: 1px solid #E27272;
+	  border-radius: 3px;
+	  text-align: center;
+	  text-decoration: none;
+	  color: #E27272;
+	}
+	.hover{
+	  background: green;
+	  color: #fff;
+	}
+</style>
+<body>
+	<ul id="ct">
+	  <li>内容1</li>
+	  <li>内容2</li>
+	</ul>
+	  <a id="load-more" class="btn" href="#">加载更多</a>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+	var windowHeight = $(window).height(),
+		$ct = $('#ct');
+	loadmore();
+
+	var clock;
+	$ct.on('mouseenter','li',function(){
+		$(this).addClass('hover');
+	})
+	$ct.on('mouseleave','li',function(){
+		$(this).removeClass('hover');
+	})
+	$(window).on('scroll',function(){
+		if(clock){
+			clearTimeout(clock);
+		}
+		clock = setTimeout(
+			function(){
+				console.log('!');
+				loadmore();
+			},300
+		);
+			
+	})
+
+	function loadmore(){
+		var btnTop = $('#load-more').offset().top,
+			scrollTop = $(window).scrollTop(),
+			start = $ct.find('li').size()+1;
+		if(btnTop < windowHeight+scrollTop){
+			$.ajax({
+				url: '/loadmore',
+				type: 'get',
+				data: {
+					length: 12,
+					start: start
+				},
+				datatype: 'json',
+				success: function(res){
+					if(res.status == 0){
+						for (var i = 0; i < res.data.length; i++) {
+							$ct.append($('<li>内容'+res.data[i]+'</li>'));
+						}
+					}
+					
+				},
+				error: function(){
+					alert('出错啦!');
+				}
+			})
+		}
+	}
+</script>
+</html>
