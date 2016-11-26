@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 25 questions 2</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		a.btn{
+			display: inline-block;
+			border: 1px solid red;
+			border-radius: 3px;
+			padding: 10px;
+			color: red;
+		}
+
+		.cover{
+			position: absolute;
+			background-color: #ccc;
+			width: 100%;
+			height: 100%;
+			opacity: 0.7;
+		}
+		.modal-ct{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -43px;
+			margin-top: -19px;
+		}
+
+		body>div{
+			margin-top: 50px;
+		}
+		.tab>li{
+			float: left;
+			padding: 10px 0;
+		}
+		.tab a{
+			display: inline-block;
+			padding: 0 10px;
+			border-right: 1px solid #ccc;
+			color: #999;
+		}
+		.tab>li:last-child a{
+			border-right: 0;
+		}
+		ul.tab{
+			width: 206px;
+			border: 1px solid #999;
+			margin-left: 80px;
+			border-top-right-radius: 5px;
+			border-top-left-radius: 5px;
+		}
+		ul.tab:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.content li{
+			border: 1px solid #ccc;
+			position: relative;
+			float: left;
+			margin-left: 20px;
+			margin-bottom: 20px;
+			width: 270px;
+			height: 200px;
+		}
+		.content ul{
+			margin-left: -20px;
+		}
+		.content{
+			width: 856px;
+			height: 424px;
+			border: 1px solid #777; 
+			margin-left: 80px;
+			display: none;
+		}
+		.content ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.info{
+			padding: 10px 20px;
+			width: 230px;
+		}
+		.info .pic{
+			text-align: center;
+		}
+		.info a{
+			color: #777;
+		}
+
+		.modal{
+			display: none;
+		}
+		.active{
+			background-color: #ccc;
+		}
+		.active>a{
+			color: red;
+		}
+		.tab-content{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="tab">
+			<li class="active"><a href="javascript:void(0)">热门</a></li>
+			<li><a href="javascript:void(0)">珠宝首饰</a></li>
+			<li><a href="javascript:void(0)">奢侈品</a></li>
+		</ul>
+		<div class="content  tab-content">
+			<ul>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+	</div>	
+
+	<div>
+		<ul class="tab">
+			<li class="active"><a href="javascript:void(0)">热门</a></li>
+			<li><a href="javascript:void(0)">珠宝首饰</a></li>
+			<li><a href="javascript:void(0)">奢侈品</a></li>
+		</ul>
+		<div class="content  tab-content">
+			<ul>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/1.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉金镶玉路路通吊坠</a>
+						</div>
+						<p>￥1699.00</p>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/2.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">藏美千足金和田玉</a>
+						</div>
+						<p>￥699.00</p>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				<li>
+					<div class='modal'>
+						<div class="cover"></div>
+						<div class="modal-ct">
+							<a href="javascript:void(0)" class="btn">立即抢购</a>
+						</div>
+					</div>
+					<div class="info">
+						<div class="pic">
+							<a>
+								<img src="./pic/3.jpg">
+							</a>
+						</div>
+						<div>
+							<a href="javascript:void(0)">金镶玉路路通吊坠</a>
+						</div>
+						<p>￥99.00</p>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$('.tab>li>a').on('click',function(){
+			var idx = $(this).parent().index();
+			$(this).parents('.tab').find('li').each(function(){
+				$(this).removeClass('active');
+			});
+			$(this).parent().addClass('active');
+			$(this).parents('div').find('.content').removeClass('tab-content');
+			$(this).parents('div').find('.content').eq(idx).addClass('tab-content');
+		});
+
+		$('.content li').on('mouseenter',function(){
+			$(this).find('.modal').removeClass('modal');
+		});
+		$('.content li').on('mouseleave',function(){
+			$(this).find('.cover').parent().addClass('modal');
+		});
+	</script>
+</body>
+</html>
