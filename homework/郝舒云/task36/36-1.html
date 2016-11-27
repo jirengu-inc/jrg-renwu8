@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+//todo....
+
+
+String.prototype.getMostOften = function() {
+    var str = this;
+    var arr = str.split('');
+    var newarr = [];
+    var newarr1 = [];
+    for (i in arr) {
+        if (newarr.indexOf(arr[i]) == -1) {
+            newarr.push(arr[i]);
+            newarr1[newarr.length - 1] = 0;
+
+        } else {
+            newarr1[newarr.indexOf(arr[i])]++;
+        }
+    }
+    var max = 0;
+    index = 0;
+    for (j in newarr1) {
+        if (newarr1[j] > max) {
+            max = newarr1[j];
+            index = j;
+        }
+    }
+    return newarr[index];
+
+}
+var str = 'ahbbccdeddddfg';
+var ch = str.getMostOften();
+console.log(ch); //d , 因为d 出现了5次
+</script>
+
+</html>
