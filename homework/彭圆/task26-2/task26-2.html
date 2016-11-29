@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载更多</title>
+    <style>
+        ul,li {
+            margin: 0;
+            padding: 0;
+        }
+        .ct li {
+            list-style: none;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .hover {
+            color: #fff;
+            background: #b4b4b4;
+            transition: 0.3s;
+        }
+        .btn {
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            height: 40px;
+            width: 80px;
+            line-height: 40px;
+            text-decoration: none;
+            border-radius: 3px;
+            border: 1px solid #E27272;
+            color: #E27272;
+        }
+    </style>
+</head>
+<body>
+<ul class="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+</ul>
+<a class="btn" href="#">加载更多</a>
+
+<script src="../jquery-3.1.1.min.js"></script>
+<script>
+    $('.ct').on('mouseenter','li',function(){
+        $(this).addClass('hover');
+    }).on('mouseleave','li',function(){
+        $(this).removeClass('hover');
+    });
+
+    var cur = 3,
+        len = 6,
+        ready = true,
+        $btn = $('.btn');
+    $btn.on('click',function (e) {
+        e.preventDefault();
+        if(!ready) {
+            return;
+        }
+        ready = false;
+        $(this).text('加载中...');
+        $.ajax({
+            url: 'task26-2.php',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                start: cur,
+                len: len
+            },
+            success: function (json) {
+                onSuccess(json);
+            },
+            error: function(){
+                alert('系统异常');
+            }
+        })
+    });
+    function onSuccess(json) {
+        ready = true;
+        $btn.text('加载更多');
+        if (json.status == 1) {
+            var arr = json.data;
+            console.log (arr);
+            for (var i=0;i<arr.length;i++) {
+                $('.ct').append('<li>'+arr[i]+'</li>');
+            }
+            cur += 6;
+        } else {
+            alert('加载失败');
+        }
+    }
+</script>
+</body>
+</html>
