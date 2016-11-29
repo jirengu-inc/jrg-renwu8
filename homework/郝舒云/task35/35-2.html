@@ -175,6 +175,7 @@
                 right: right
 
             };
+            this.bindEvent();
         }
         Carousel.prototype = {
             gotonext: function(len) {
@@ -256,8 +257,7 @@
         var $node2 = $('.online').eq(1);
         var carousel1 = new Carousel($node1);
         var carousel2 = new Carousel($node2);
-        carousel1.bindEvent();
-        carousel2.bindEvent();
+       
     });
     </script>
 </body>
