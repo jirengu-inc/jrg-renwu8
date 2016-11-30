@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 26 questions 2</title>
+    <script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		body>div{
+			border: 1px solid #ccc;
+			height: 300px;
+			line-height: 300px;
+			margin: 100px;
+			padding-left: 100px;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		div:nth-of-type(2){
+			position: fixed;
+			top: 50%;
+			right: 0;
+			background-color: #ccc;
+			border: 1px solid #333;
+			height: 100px;
+			margin: 0;
+			margin-top: -50px;
+			padding:0;
+			width: 100px;
+			line-height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<a href="#" class="btn">点击</a>
+	</div>
+	<div>
+		<div class="distance">垂直滚动距离为：0</div>
+	</div>
+	<div class="div">
+		<div></div>
+	</div>
+	<div>
+		<input type="text" name="username">
+	</div>
+	<div>
+		<select>
+			<option>1</option>
+			<option selected="">2</option>
+			<option>3</option>
+		</select>
+	</div>
+
+	<script type="text/javascript">
+		var $btn = $('.btn');
+		var $div = $('.div');
+		/* 当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色 */
+		$btn.on('click',function(){
+			$btn.finish();
+			$btn.css("background-color","red");
+			$btn.animate({"background-color":"red"},1000,function(){
+				$btn.css("background-color","blue");
+			});
+		});
+		/* 当窗口滚动时，获取垂直滚动距离 */
+		$(window).on('scroll',function(){
+			$('.distance').text('垂直滚动距离为：'+$(window).scrollTop());
+		});
+		/* 当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色 */
+		$div.on('mouseenter',function(){
+			$(this).css('background-color','red');
+		});
+		$div.on('mouseleave',function(){
+			$(this).css('background-color','white');
+		});
+		/* 当鼠标激活 input 输入框时让输入框边框变为蓝色， 当输入框内容改变时把输入框里的文字小写变为大写， 当输入框失去焦点时去掉边框蓝色， 控制台展示输入框里的文字 */
+		$('input').on('focus',function(){
+			$(this).css({
+				"border": "1px solid blue"
+			});
+		});
+		$('input').on('blur',function(){
+			$(this).css({
+				"border": "1px solid #ccc"
+			});
+			console.log($(this).val());
+		});
+		$('input').on('keyup',function(){
+			$(this).val($(this).val().toUpperCase());
+		});
+		/* 当选择 select 后，获取用户选择的内容 */
+		$('select').on('change',function(){
+			console.log($(this).val());
+		});
+	</script>
+</body>
+</html>
