@@ -1,0 +1,221 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-11-26 16:27:31
+ * @version $Id$
+ */
+html,body,h1,h2,h3,h4,h5,p,ul,li,div{
+	margin: 0;
+	padding: 0;
+	box-sizing:border-box;
+	font-family: "微软雅黑","宋体";
+}
+a{
+	text-decoration: none;
+}
+ul li{
+	list-style: none;
+}
+@font-face {
+  font-family: 'fontello';
+  src: url('./font/fontello.eot?42952822');
+  src: url('./font/fontello.eot?42952822#iefix') format('embedded-opentype'),
+       url('./font/fontello.woff2?42952822') format('woff2'),
+       url('./font/fontello.woff?42952822') format('woff'),
+       url('./font/fontello.ttf?42952822') format('truetype'),
+       url('./font/fontello.svg?42952822#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fontello{
+	font-family:'fontello';
+	color:#666;
+}
+.fontello>span{
+	padding-right:10px;
+	font-family: "微软雅黑","宋体";
+}
+#header{
+	color:#666;
+}
+.nav{
+	width:1000px;
+	margin:0 auto;
+}
+.nav .title>li{
+	height:50px;
+	line-height: 50px;  /*有文字的时候，注意文字需要居中line-height=height*/
+	float:left;
+	margin-right:22px;
+	position:relative;    /*相对定位 为什么没有专指某个li而是ul>li就可以呢？*/
+}
+.nav>.title:after{
+	content:'';
+	display:block;
+	clear:both;
+}
+.nav>.title a{
+	color: #666;
+	transition:color .5s;
+}
+.title>li a:hover{
+	color:#000;
+}
+.title>li:hover .title-child{
+	display:block;
+}
+.title .max{
+	line-height: 50px;
+	font-size:30px;
+	padding-right:10px;
+}
+
+.title-child{
+	display:none;
+	border:1px solid #eee;
+	position:absolute;
+	top:100%;
+	left:0;
+}
+.title-child>li{
+	border-bottom:1px dashed #eee;
+	line-height:1; /*line-height设置成1是什么意思*/
+	padding:10px;
+	background:#fff;
+}
+.title-child>li:hover{
+	background:#eee;
+}
+.title-child>li:last-child{
+	border:none;
+}
+#content .info{
+	color:#fff;
+	background:#b84d45;
+	padding-top:40px;
+	padding-bottom:35px;
+}
+.info .con-info{
+	width:1000px;
+	margin:0 auto;
+}
+.con-info h2{
+	font-size: 27px;
+	padding-bottom:10px;
+}
+.con-info p{
+	font-size:14px;
+
+}
+.first-p{
+	width:1000px;
+	margin:0 auto;
+	margin-top:40px;
+	background:#eee;
+}
+.first-p:after{
+	content: '';
+	display:block;
+	clear:both;
+}
+.first-child li{
+	font-size:14px;
+	float:left;
+	padding-top:14px;
+	padding-bottom:16px;
+	padding-left:12px;
+}
+.first-child a{
+	color:#000;
+	transition:color 0.5s;
+}
+.first-child a:hover{
+	color:#b84d45;
+}
+.works{
+	width:1000px;
+	margin:0 auto;
+}
+.works-child{
+	margin-left:-45px;
+}
+.works-child>li{
+	border:1px solid #eee;
+	float:left;
+	margin-left:45px;
+	margin-top:30px;
+	text-align: center;
+}
+.works-child:after{
+	content:'';
+	display:block;
+	clear: both;
+}
+.works-child>li img{
+	width:300px;
+}
+.works-child>li p{
+	font-size:16px;
+	padding-top: 16px;
+	padding-bottom:9px;
+}
+.works-child>li h2{
+	font-size:18px;
+	padding-top:16px;
+}
+.works-child .btn{
+	display: inline-block;
+	border:1px solid #eee;
+	border-radius: 5px;
+	padding:10px;
+	margin-bottom:12px;
+	color:#000;
+	transition: color 0.5s;
+}
+.works-child .btn:hover{
+	color:#b84d45;
+}
+.contact{
+	background:#b84d45;
+	color:#fff;
+	padding-top:28px;
+	padding-bottom:20px;
+	margin-top:30px;
+}
+.contact-detail{
+	width:1000px;
+	font-size:16px;
+	text-align:center;
+	margin:0 auto;
+}
+.contact-detail h2{
+	font-size:28px;
+	padding-bottom:12px;
+} 
+.contact-detail p{
+	padding-bottom:14px;
+}
+.contact-detail a{
+	display:inline-block;
+	color:#fff;
+	padding:8px;
+	border:1px solid #eee;
+	border-radius:5px;
+	transition:color .5s;
+}
+.contact-detail a:hover{
+	color:#873832;
+}
+#footer{
+	margin-top:32px;
+}
+.footer-info{
+	width:1000px;
+	margin:0 auto;
+	text-align:center;
+}
+.footer-info p{
+	border-top:1px solid #ccc;
+	padding:30px 0;
+}

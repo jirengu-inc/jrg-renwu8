@@ -1,0 +1,288 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-11-24 21:24:42
+ * @version $Id$
+ */
+@font-face {
+  font-family: 'fontello';
+  src: url('./font/fontello.eot?80489179');
+  src: url('./font/fontello.eot?80489179#iefix') format('embedded-opentype'),
+       url('./font/fontello.woff2?80489179') format('woff2'),
+       url('./font/fontello.woff?80489179') format('woff'),
+       url('./font/fontello.ttf?80489179') format('truetype'),
+       url('./font/fontello.svg?80489179#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.child .fontello{
+	font-family: 'fontello';
+	font-style: normal;
+	font-size:110px;
+}
+.contact .fontello{
+	font-family: 'fontello';
+	font-style: normal;
+
+}
+.contact-link .fontello{
+	font-family: 'fontello';
+	font-style: normal;
+	color: #337ab7;
+}
+html,body,ul,li,p,h1,h2,h3,h4{
+	margin:0;
+	padding:0;
+}
+html,body{
+	height:100%;/*为什么设置height100%就可以显示图片了？*/
+}
+ul li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+
+#header,#container,#footer{
+	font-family: "Source Sans Pro", "sans-serif";
+}
+#header{
+	display:table;/*一般div display:table是让table内的文字垂直水平居中*/
+	width: 100%;
+	height: 100%;
+	background:url('bg.jpg') no-repeat;
+	background-size: 100%;
+	min-width: 1200px;	
+}
+.content{
+	display:table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.content h1{
+	font-size:63px;
+	color:#333;
+	font-weight:bold;
+}
+.content p{
+	font-size:24px;
+	color:#333;
+	margin-top:20px;
+	margin-bottom:46px;
+}
+.content a{
+	color:#fff;
+	padding: 16px 16px;
+	background:#6d7e84;
+	border:1px solid #6e7d84;
+	transition:background-color 0.5s;
+}
+.content a:hover{
+	background:#333;
+}
+.project{
+	padding:50px 0;
+}
+.box{
+	margin:20px 15px;
+	text-align:center;
+}
+.project h1{
+	font-size: 30px;
+	font-weight:400;
+	color: #333;
+}
+.project p{
+	font-size: 21px;
+	font-weight: 300;
+	color: #333;
+}
+.project a{
+	color: #3f9fd8;
+}
+.services{
+	background:#337ab7;
+	color:white;
+	padding: 50px 0;
+}
+.center>p{
+	font-size: 30px;
+	font-weight: 400;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.center{
+	text-align: center;
+	margin:0 auto;
+	width: 960px;
+}
+.center hr{
+	margin:20px auto;
+	width: 100px;
+}
+.child a{
+	color: #000;
+	padding:10px;
+	background:#fff;
+
+}
+.child:after{
+	content:'';
+	display: block;
+	clear: both;
+}
+.child li{
+	padding:10px 0;
+	float: left;
+	width:25%;
+	margin-bottom: 20px;
+}
+.child>h3{
+	font-size: 18px;
+}
+.child>p{
+	font-size: 13px;
+}
+.center-pic{
+	padding: 200px 0; /*为什么设置padiing图片就出来了？*/
+	background:url('callout.jpg') center no-repeat;
+}
+.center-pic .callout{
+	width: 960px;
+	margin:0 auto; /*一般文字在div里面居中是在文字外面包裹一层div*/
+}
+.callout>h1{
+	color: #fff;
+	text-align: center;
+	font-size:4.5rem;
+}
+.mywork{
+	margin:50px 0;  /*注意div的包裹*/
+}
+.work-preview{
+	width: 960px;
+	margin:0 auto;
+	text-align: center;
+}
+.work-preview h2{
+	text-align: center;
+	margin-top:20px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	color:#333;
+}
+.work-preview hr{
+	width: 100px;
+	text-align: center;
+	margin-bottom:20px;
+}
+.work-preview>a{
+	display:inline-block;
+	text-align:center;
+	width: 132px;
+	height:36px;
+	line-height: 36px;
+	background:#4c4c4c;
+	color:#fff;
+	transition:background-color 0.5s;
+}
+.work-preview>a:hover{
+	background:#333;
+}
+.work-child{
+	margin-left: -30px;
+}
+.work-child li{
+	width: 465px;
+	height: 305px;
+	float:left;
+	margin-bottom: 30px;
+	margin-left: 30px;
+}
+.work-child{
+	content: '';
+	display:block;
+	clear: both;
+}
+.work-child img{
+	width: 465px;
+	height:305px;
+}
+.pre-footer{
+	background:#337ab7;
+	padding-bottom: 50px;
+}
+.pre-button{
+	width: 960px;
+	text-align: center;
+	margin:0 auto;
+}
+.pre-button>p{
+	padding-top: 75px;
+	padding-bottom:20px;
+	color: #fff;
+	font-size: 24px;
+}
+.pre-button a{
+	display: inline-block;
+	width: 122px;
+	height:47px;
+	font-size: 18px;
+	line-height: 47px;
+
+}
+.pre-button .btn1{
+	background:#fff;
+	color:#000;
+	transition: background-color 0.5s;
+}
+.pre-button .btn2{
+	background:#1f496e;
+	color:#fff;
+	margin-left: 24px;
+	transition: background-color 0.5s;
+}
+.pre-button .btn2:hover{
+	background:#0f2436;
+}
+.pre-button .btn1:hover{
+	background:#d6e4f0;
+}
+#footer{
+	padding: 100px 0;
+}
+.info{
+	text-align: center;
+}
+.info>p{
+	margin:10px 0;
+	font-size: 18px;
+}
+.info .p1{
+	font-size:14px;
+}
+.contact-link li{
+	display: inline-block;
+	text-align: center;
+	padding: 0 10px ;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+.contact-link>li a{
+	font-size:45px;
+}
+.contact-link>li i:hover{
+	color:#0f2436;
+}
+.info hr{
+	text-align: center;
+	width: 100px;
+	margin: 20px auto;
+	color:#eee;
+}
+.info .text{
+	font-size:14px;
+	color:#ccc;
+}
