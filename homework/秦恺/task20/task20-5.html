@@ -1,0 +1,15 @@
+<script>
+
+// 代码输出：1，3，2
+var a = 1;             
+setTimeout(function(){  // setTimeout 0 使函数等所有语句执行完后再执行
+    a = 2;              // 两次输出执行后，开始执行setTimeout 0，此时a赋值为2
+    console.log(a);      // 输出2
+}, 0);                  
+var a ;
+console.log(a);       // 第一次输出，此时a=1，所以输出1
+a = 3;                // 此时a赋值为3
+console.log(a);	      // 第二次输出，输出3
+
+
+</script>
