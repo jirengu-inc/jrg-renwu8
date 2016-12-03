@@ -1,0 +1,11 @@
+<script>
+var str = '<> <a href="/"> <input type="radio" checked> <b>'
+//非贪婪模式	
+var re = /<[\w].*?>/g;
+str.match(re);
+
+//贪婪模式
+var reg = /<[\w][^>]*>/g;
+str.match(reg);
+
+</script>
