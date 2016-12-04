@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function Person(name, sex) {
+    	this.name=name;
+    	this.sex=sex;
+        // todo ...
+    }
+    Person.prototype.getName = function() {
+return this.name;
+
+        // todo ...
+    };
+
+    function Male(name, sex, age) { //todo ...
+    	this.age=age;
+    	Person.call(this,name,sex);
+    } //todo ...
+    Male.prototype=Object.create(Person.prototype);
+    Male.prototype.getAge = function() {
+    	return this.age;
+        //todo ...
+    };
+    Male.prototype.printName=function(){
+    	console.log('我的名字叫'+this.getName());
+    }
+    Male.prototype.constructor=Male;
+    var ruoyu = new Male('若愚', '男', 27);
+    ruoyu.printName();
+    </script>
+</body>
+
+</html>
