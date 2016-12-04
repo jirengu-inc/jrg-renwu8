@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝轮播</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        body,html,ul,li{
+            margin:0;
+            padding:0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        .carousel{
+            width:500px;
+            height:300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-ct{
+            position:absolute;
+        }
+        .img-ct:after{
+            content:'';
+            display: block;
+            clear:both;
+        }
+        .img-ct li{
+           float:left;
+        }
+        .img-ct li img{
+            width:500px;
+            height:300px;
+        }
+        .btn{
+            position: absolute;
+            top:50%;
+            margin-top:-10px;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            text-align: center;
+            border-radius:30px;
+            background: #4E443C;
+            color: #ffffff;
+            opacity:0.7;
+        }
+        .btn:hover{
+            opacity:1;
+        }
+        .left{
+            left:10px;
+        }
+        .right{
+            right:10px;
+        }
+        .nav{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            transform: translateX(-50%); /* css3的方法 */
+        }
+        .nav:after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        .nav li{
+            margin-left:9px;
+            width:30px;
+            height:10px;
+            border-radius:5px;
+            background:#fff;
+            float:left;
+            cursor: pointer;
+        }
+        .nav li.active{
+                background-color: #4E443C;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <!--轮播图片-->
+    <ul class="img-ct">
+        <li><a href="#"><img src="img1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img4.jpg" alt="" title="???"></a></li>
+    </ul>
+    <!--左右按钮-->
+    <a href="#" class="btn left"> < </a>
+    <a href="#" class="btn right"> > </a>
+    <!--图片选取按钮-->
+    <ul class="nav">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+    //各种变量声明
+    var $ct = $('.img-ct'),
+        $left = $('.left'),
+        $right = $('.right'),
+        $nav = $('.nav'),
+        $items = $ct.children(),
+        imgWidth = $items.width(), //获取每张图片的宽度，因为不一定每次都是那个宽度
+        imgCount = $items.length; //获取有多少张图片
+
+    $ct.prepend($items.last().clone());
+    $ct.append($items.first().clone());
+    newImgCount = $ct.children().length; //获取克隆后的长度
+    $ct.css({
+        left:0 - imgWidth, //因为clone了前后元素，因此需要向左退一格
+        width:imgWidth*newImgCount //这是计算整个相框的长度，让他们可以排列一起
+    })
+
+    //点击右换图片
+    var curIdx = 0;
+    var lock = false; //状态锁
+
+
+    function playNext(idx){
+        var idx = idx || 1;  //如果没有特别说明是第几个，就只动1个
+        if(!lock){
+            lock = true;
+            $ct.animate({left : '-='+(imgWidth*idx)},function(){ //偏移及到clone的元素跳转
+                curIdx = (curIdx + idx) % imgCount; //利用求余的方式，当接触到clone的元素时，立即跳转
+                if(curIdx === 0 ){
+                    $ct.css({left:0-imgWidth}) //第一张图的位置
+                    curIdx = 0;
+                }
+                lock = false;
+                setItem();
+            })
+        }
+    }
+    function playPre(idx){
+        var idx = idx||1   //idx为数量
+        if(!lock){
+            lock = true;
+            $ct.animate({left:'+='+(imgWidth*idx)},function(){
+                console.log(imgCount);
+                console.log(curIdx);
+                console.log(idx);
+                curIdx = (imgCount + curIdx - idx) % imgCount;
+                console.log(curIdx);
+                if(curIdx === imgCount-1){
+                    $ct.css({left:0 - imgWidth * imgCount});
+                }
+                lock = false;
+                setItem();
+            })
+        }
+    }
+    autoPlay()
+
+    function autoPlay(){
+        clock = setInterval(function(){
+            playNext();
+        },3000)
+    }
+    function stopPlay(){
+        clearInterval(clock);
+    }
+    $right.on('click',function(){
+        playNext();
+    })
+    $left.on('click',function(){
+        playPre();
+    })
+    function setItem(){
+        $nav.find('li').removeClass('active').eq(curIdx).addClass('active')
+    }
+    //下面的导航栏按钮
+    $nav.find('li').on('click',function(){    //按第几个就去第几个
+        var idx = $(this).index();
+        if(idx > curIdx){
+            playNext(idx-curIdx);
+        }
+        else if(idx < curIdx) {
+            playPre(curIdx-idx);
+        }
+    })
+</script>
+</html>

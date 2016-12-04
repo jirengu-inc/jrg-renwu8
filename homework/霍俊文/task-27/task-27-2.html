@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个渐变轮播</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        body,html,ul,li{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            width:500px;
+            height:300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .img-ct{
+            position:relative;
+        }
+
+        .img-ct li{
+            position: absolute;
+            display: none;
+        }
+        .img-ct li img{
+            width:500px;
+            height:300px;
+        }
+        .btn{
+            position: absolute;
+            top:50%;
+            margin-top:-10px;
+            width:30px;
+            height:30px;
+            line-height:30px;
+            border-radius: 30px;
+            text-align: center;
+            background: #4E443C;
+            color:#fff;
+            opacity:0.7;
+        }
+        .btn:hover{
+            opacity: 1;
+        }
+        .left{
+            left:10px;
+        }
+        .right{
+            right:10px;
+        }
+        .bottom-nav{
+            position: absolute;
+            bottom: 10px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .bottom-nav:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .bottom-nav li{
+            width:40px;
+            height:10px;
+            float:left;
+            border-radius:7px;
+            background-color: #fff;
+            margin-left:10px;
+            cursor: pointer;
+        }
+        .bottom-nav .active{
+            background: #8e8e8e;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel c1">
+    <ul class="img-ct">
+        <li><a href="#"><img src="img1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img4.jpg" alt=""></a></li>
+    </ul>
+    <a class = "btn left"href="###"> < </a>
+    <a class="btn right" href="###"> > </a>
+    <ul class="bottom-nav">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="carousel c2">
+    <ul class="img-ct">
+        <li><a href="#"><img src="img1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img4.jpg" alt=""></a></li>
+    </ul>
+    <a class = "btn left"href="###"> < </a>
+    <a class="btn right" href="###"> > </a>
+    <ul class="bottom-nav">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="carousel c3">
+    <ul class="img-ct">
+        <li><a href="#"><img src="img1.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img2.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img3.jpg" alt=""></a></li>
+        <li><a href="#"><img src="img4.jpg" alt=""></a></li>
+    </ul>
+    <a class = "btn left"href="###"> < </a>
+    <a class="btn right" href="###"> > </a>
+    <ul class="bottom-nav">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+    //目前想到的思路就是封装一个函数，给每个轮播一个不同的class名字
+    function carousel(container) {
+        var  $parent = $(container),
+                $ct = $parent.find('.img-ct'), //轮播框
+                $left = $parent.find('.left'), //左按钮
+                $right = $parent.find('.right'), //右按钮
+                $bottomNav = $parent.find('.bottom-nav'), //底部四个选择按钮
+                $items = $ct.children(),
+                imgCount = $items.length; //总共有多少张图片
+
+
+        var lock = false;// 状态锁
+        var curIdx = 0; //当前被选择的图片，从0开始
+        //轮播淡入淡出
+        function fadeimg(idx) {
+            if (lock) {
+                return
+            }
+            lock = true;
+            $items.eq(curIdx).fadeOut(500) //把图片淡出走
+            $items.eq(idx).fadeIn(500, function () { //把图片淡入
+                lock = false;
+            }) //图片淡入
+            curIdx = idx //让curIdx更新，不然淡出的时候会出错
+            setItem();
+
+        }
+
+
+        fadeimg(0); //初始化，不然第一次进去会白屏
+        autoPlay();
+
+        function playNext() {    //idx
+            fadeimg((curIdx + 1) % imgCount) //利用求余的方式，倘若超出第四张，肯定会回到第一张
+        }
+
+        function playPre() {
+            fadeimg((imgCount + curIdx - 1) % imgCount) //只要是负数就会到最后一张
+        }
+
+        function setItem() {  //设置底部选择栏
+            $bottomNav.find('li').removeClass('active').eq(curIdx).addClass('active'
+            )
+        }
+
+        $right.on('click', function () {
+            playNext()
+        })
+        $left.on('click', function () {
+            playPre()
+        })
+        $bottomNav.find('li').on('click', function () {
+            var idx = $(this).index()
+            fadeimg(idx);
+        })
+        function autoPlay() {//自动播放的函数
+            clock = setInterval(function () {
+                playNext()
+            }, 3000)
+        }
+    }
+        carousel('.c1');
+        carousel('.c2');
+        carousel('.c3')
+</script>
+
+</html>
