@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 28 questipons 1</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			padding: 10px;
+		}
+		#header{
+			height: 100px;
+			background-color: red;
+			text-align: center;
+			line-height: 100px;
+		}
+		#nav{
+			height: 80px;
+			background-color: blue;
+			text-align: center;
+			line-height: 80px;
+			margin-top: 30px
+		}
+		#main{
+			background-color: #ccc;
+			padding: 10px;
+		}
+		.sidebar{
+			float: left;
+			background-color: green;
+			width: 100px;
+			height: 500px;
+		}
+		.content{
+			margin-left: 100px;
+			background-color: #fff;
+			height: 1000px;
+		}
+		#main:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		#footer{
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+	<div id='header'>header</div>
+	<div id="nav">nav</div>
+	<div id='main'>
+		<div class="sidebar">sidebar</div>
+		<div class="content">main</div>
+	</div>
+	<div id='footer'>footer</div>
+
+	<script type="text/javascript">
+		$.fn.stick = function(){
+			var $cur = this;
+			var curW = $cur.width(),
+				offsetTop = $cur.offset().top,
+				offsetLeft = $cur.offset().left;
+			
+			$div = $cur.clone()
+						.css('opacity',0)
+						.insertBefore($cur)
+						.hide();
+
+			$(window).on('scroll',function(){
+				var scrollTop = $(window).scrollTop();
+				if(scrollTop >= offsetTop){
+					if(!isFixed()){
+						setFixed();
+					}
+				}else{
+					if(isFixed()){
+						unsetFixed();
+					}
+				}
+			});
+
+			function isFixed(){
+				return !!$cur.data('fixed');
+			}
+			function setFixed(){
+				$cur.data('fixed',true)
+					.css({
+						'position': 'fixed',
+						'top': 0,
+						'left': offsetLeft,
+						'width': curW,
+						'margin': 0,
+					});
+				$div.show();
+			}
+			function unsetFixed(){
+				$cur.removeAttr('style')
+					.data('fixed',false);
+				$div.hide();
+			}
+		};
+		$('#nav').stick();
+	</script>
+</body>
+</html>
