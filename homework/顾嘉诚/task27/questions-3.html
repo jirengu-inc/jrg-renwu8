@@ -118,25 +118,39 @@
 
 		var curIdx = 0,
 			isAnimate = false;
-		var clock;
+		var clock,time;
 
 		autoPlay();
-		stopAuto();
+		
 
 		$('.next').on('click',function(){
+			stopAuto();
+			clearTimeout(time);
 			playNext();
+			time = setTimeout(function(){
+				autoPlay();
+			},3000);
 		});
 		$('.pre').on('click',function(){
+			stopAuto();
+			clearTimeout(time);
 			playPre();
+			time = setTimeout(function(){
+				autoPlay();
+			},3000);
 		});
 		$('.bullet li').on('click',function(){
 			var idx = $(this).index();
-			console.log(idx);
+			stopAuto();
+			clearTimeout(time);
 			if(idx > curIdx){
 				playNext(idx - curIdx);
 			}else{
 				playPre(curIdx - idx);
 			}
+			time = setTimeout(function(){
+				autoPlay();
+			},3000);
 		});
 
 		function playNext(idx){

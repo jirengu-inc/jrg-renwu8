@@ -142,7 +142,6 @@
 			
 			$('.bullet li').on('click',function(){
 				var idx = $(this).index();
-				console.log(idx);
 				if(curIdx > idx){
 					playPre(curIdx - idx);
 				}else if(curIdx < idx){
@@ -184,7 +183,6 @@
 						'left': '+=' + (idx * imgW)
 					},function(){
 						curIdx = (imgCount + curIdx - idx) % imgCount;
-						console.log(curIdx);
 						if(curIdx === (imgCount - 1)){
 							$ct.css({
 								'left': -imgCount*imgW
