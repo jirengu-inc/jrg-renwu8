@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 27 questions 1</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.carousel{
+			position: relative;
+			width: 300px;
+			height: 200px;
+		}
+		.img-ct>li{
+			position: absolute;
+			display: none;
+		}
+		img{
+			width: 300px;
+			height: 200px;
+		}
+		.arrow{
+			position: absolute;
+			top: 50%;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: #333;
+			text-align: center;
+			line-height: 30px;
+			margin-top: -15px;
+			color: #fff;
+			font-size: 20px;
+		}
+		.pre{
+			left: 10px;
+		}
+		.next{
+			right: 10px;
+		}
+		.bullet{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.bullet li{
+			cursor: pointer;
+			width: 16px;
+			height: 4px;
+			background-color: #fff;
+			display: inline-block;
+		}
+		.bullet li.active{
+			background-color: #777;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/1.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/2.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/3.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/4.jpg"></a>
+			</li>
+		</ul>
+		<a href="javascript:void(0)" class="arrow pre"><</a>
+		<a href="javascript:void(0)" class="arrow next">></a>
+		<ul class="bullet">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li class="active"></li>
+		</ul>
+	</div>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/1.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/2.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/3.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/4.jpg"></a>
+			</li>
+		</ul>
+		<a href="javascript:void(0)" class="arrow pre"><</a>
+		<a href="javascript:void(0)" class="arrow next">></a>
+		<ul class="bullet">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li class="active"></li>
+		</ul>
+	</div>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/1.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/2.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/3.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/4.jpg"></a>
+			</li>
+		</ul>
+		<a href="javascript:void(0)" class="arrow pre"><</a>
+		<a href="javascript:void(0)" class="arrow next">></a>
+		<ul class="bullet">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li class="active"></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		$.fn.carPlay = function(){
+			var $cur = this;
+			var imgCount = $cur.find('img').size();
+			var curIdx = 0,
+				clock;
+			
+			initPlay();
+
+			$cur.on('click','.pre',function(){
+				playPre();
+			});
+
+			$cur.on('click','.next',function(){
+				playNext();
+			});
+
+			$cur.on('click','.bullet li',function(){
+				var idx = $(this).index();
+				if(curIdx > idx){
+					playPre(curIdx - idx);
+				}else if(curIdx < idx){
+					playNext(idx - curIdx);
+				}
+			});
+
+			function playNext(idx){
+				var idx = idx || 1;
+				$cur.find('.img-ct li').fadeOut(500);
+				$cur.find('.img-ct li').eq(curIdx).fadeIn(500);
+				addSty(curIdx);	
+				curIdx = (curIdx + idx) % imgCount;
+			}
+			function playPre(idx){
+				var idx = idx || 1;
+				$cur.find('.img-ct li').fadeOut(500);
+				$cur.find('.img-ct li').eq(curIdx).fadeIn(500);
+				addSty(curIdx);
+				curIdx = (imgCount + curIdx - idx) % imgCount;
+			}
+			function autoPlay(){
+				clock = setInterval(function(){
+					playNext();
+				},3000);
+			}
+			function stopAuto(){
+				clearInterval(clock);
+			}
+			function addSty(idx){
+				$cur.find('.bullet li').removeClass('active');
+				$cur.find('.bullet li').eq(idx).addClass('active');
+			}
+			function initPlay(){
+				playNext(0);
+				autoPlay();
+			}
+		};
+
+		$('.carousel').each(function(){
+			$(this).carPlay();
+		});
+	</script>
+</body>
+</html>
