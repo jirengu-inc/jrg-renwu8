@@ -15,8 +15,8 @@
 			list-style-type: none;
 		}
 		.waterfall-ct{
-			width: 960px;
-			margin: 0 auto;	
+			max-width: 1200px;
+			margin: 0 auto; 	
 		}
 		.pic-ct{
 			position: relative;
@@ -86,12 +86,15 @@
 			}
 			
 		})
-		
-	
+
 		$(window).on('resize',function(){
-			onrsizeWaterfall.init(".item");
+			var nodes = $('li').not('.hide')
+			onrsizeWaterfall.init(nodes);
+			
 		})
+
 		//工具函数
+
 		//判断元素是否出现
 		function checkShow(){
 			if(isShow($('#load'))){
@@ -147,10 +150,11 @@
 			});
 			$.when.apply(null,defereds).done(function() { 
 				waterfall($nodes)
+
 			});
 		}
 
-		//瀑布流
+		//下拉瀑布流
 		var colSumH = [],//创建一个空数组，存储每列的高度
 			nodeWidth = $(".item").outerWidth(true), //得到每个元素固定的宽度
 			colNum = parseInt($('.pic-ct').width()/nodeWidth);//得到每列能放几个元素
@@ -180,7 +184,6 @@
 				$('.pic-ct').height(Math.max.apply(null,colSumH));
 			});
 		}	
-
 		//模板，拼接HTML
 		function renderData(data){
 			var tpl = '',
@@ -198,16 +201,16 @@
  			$('.pic-ct').append($node);
  			return $node;  //把组装好的数据再return出去，方便瀑布流方法的调用 
 		}
-		//当窗口变化了调整位置
+		//窗口变化时瀑布流
 		var onrsizeWaterfall=(function(){
 			function render(nodes){
 				var nodeWidth = $(nodes).outerWidth(true), 
-					colNum = parseInt($(window).width()/nodeWidth),
+					colNum = parseInt($('.pic-ct').width()/nodeWidth),//为了随窗口大小改变宽度 元素宽度不能设死
 					colSumH = [];
 				for (var i = 0; i < colNum; i++) {
 					colSumH[i] = 0;
 				}
-			$(nodes).each(function(){ 
+				$(nodes).each(function(){ 
 					var $cur = $(this),
 						idx = 0,
 						minColHight = colSumH[0];
@@ -219,8 +222,7 @@
 					}					
 					$cur.css({
 						left: nodeWidth * idx, 
-						top: minColHight,
-						opacity:1 
+						top: minColHight  
 					})
 					colSumH[idx] = colSumH[idx]+$cur.outerHeight(true); 
 				});
