@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 29 questions 1</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.btn{
+			width: 80px;
+			margin: 0 auto;
+			border: 1px solid red;
+			padding: 10px;
+			display: block;
+			text-align: center;
+			color: red;
+		}
+		li{
+			border: 1px solid #000;
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+		}
+		li:hover{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>content1</li>
+		<li>content2</li>
+	</ul>
+	<a href="javascript:void(0)" class="btn">加载更多</a>
+
+	<script type="text/javascript">
+		var cur = 2; 
+
+		load();
+
+		$(window).on('scroll',function(){
+			var $loadMore = $('.btn');
+			var time;
+			clearTimeout(time);
+			time = setTimeout(function(){
+				if(isVisible($loadMore)){
+					load();
+				}
+			},500);
+		});
+
+		function load(){
+			$.ajax({
+				url: 'loadmore.php',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					len: 20,
+					start: cur
+				},
+				success: function(json){
+					onSuccess(json);
+				},
+				error: function(){
+					onError();
+				}
+			});
+		}
+		function onSuccess(json){
+			if(json.status === 1){
+				addEle(json.data);
+			}else{
+				console.log('获取数据错误');
+			}
+		}
+		function onError(){
+			console.log('系统异常');
+		}
+		function addEle(arr){
+			for(var i=0;i<arr.length;i++){
+				cur += 1;
+				$('ul').append('<li>content'+arr[i]+'</li>');
+			}
+		}
+		function isVisible($ele){
+			var offsetTop = $ele.offset().top,
+				winH = $(window).height(),
+				scrollTop = $(window).scrollTop();
+
+			if((scrollTop + winH) > offsetTop){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>

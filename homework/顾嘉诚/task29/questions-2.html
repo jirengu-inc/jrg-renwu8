@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 29 questions 2</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.layout{
+			width: 700px;
+			margin: 0 auto;
+		}
+		ul{
+			margin-left: -20px;
+		}
+		li{
+			float: left;
+			width: 220px;
+			height: 400px;
+			margin-left: 20px;
+		}
+		img{
+			height: 400px;
+			width: 220px;
+		}
+		ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="layout">
+		<ul>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/blank.jpg"></a>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+
+		var winH = $(window).height();
+		$('img').data('src','./pic/girl.jpg');
+		
+		checkShow();
+
+		$(window).on('scroll',function(){
+			var clock;
+			clearTimeout(clock);
+			clock = setTimeout(function(){
+				checkShow();
+			},500);
+		});
+
+		function checkShow(){
+			$('img').each(function(){
+				var offsetTop = $(this).offset().top;
+				var $cur = $(this);
+				var scrollTop = $(window).scrollTop();
+				if(offsetTop < (winH + scrollTop)){
+					showImg($cur);
+				}
+			});
+
+		}
+		function showImg($ele){
+			if(isShow($ele)){
+				return ;
+			}else{
+				$ele.attr('src',$ele.data('src'));
+				$ele.data('isLoaded',true);
+			}
+		}
+		function isShow($ele){
+			if(!!$ele.data('isLoaded')){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
