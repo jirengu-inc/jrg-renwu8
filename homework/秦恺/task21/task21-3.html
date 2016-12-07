@@ -1,0 +1,33 @@
+<script>
+
+// 写一个函数isEmail(str)，判断用户输入的是不是邮箱
+function isEmail (str) {
+    var reg = /^[\w][\w\.\-]+@[\w][\w\-]+\.[A-z]{2,}$/;
+    return reg.test(str);
+}
+
+// 写一个函数isPhoneNum(str)，判断用户输入的是不是手机号
+function isPhoneNum (str) {
+	var reg = /^1[345789]\d{9}$/;
+	return reg.test(str);
+}
+
+//写一个函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）
+function isValidUsername (str) {
+	var reg = /^[\w]{6,20}$/;
+	return reg.test(str);
+}
+
+// 写一个函数isValidPassword(str), 判断用户输入的是不是合法密码
+function isValidPassword (str) {
+	if ( str.length >5 && str.length < 21) {
+		if (/(^[a-z]+$)|(^[A-Z]+$)|(^_+$)|(^[0-9]+$)/.test(str)) {
+			return false;
+		}else{
+			return /^\w+$/.test(str);
+		};
+	}else{
+		return false
+	};
+}
+</script>

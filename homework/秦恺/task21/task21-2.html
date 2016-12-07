@@ -1,0 +1,29 @@
+<script>
+var el = {
+	className:"abcd"
+}
+
+function hasClass(el, cls) {
+    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    return reg.test(el.className);
+}
+
+function addClass (el,cls) {
+	if ( hasClass(el,cls) ) {
+		return "已存在" + cls;
+	}else{
+		el.className += ' ' + cls;
+		return el.className;
+	}
+}
+
+function removeClass (el,cls) {
+	var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+	if (hasClass(el,cls)) {
+      el.className = el.className.replace(reg,' ');
+      return el.className;
+    }else{
+    	return "不存在" + cls;
+    }
+}
+</script>

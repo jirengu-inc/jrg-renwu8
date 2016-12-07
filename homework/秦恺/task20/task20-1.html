@@ -1,0 +1,48 @@
+<script>
+	  var fnArr = [];
+    for (var i = 0; i < 10; i ++) {
+        fnArr[i] =  function(){
+            return i;
+        };
+    }
+    console.log( fnArr[3]() );  // 输出10
+
+//方法一
+
+  var fnArr1 = [];
+    for (var i = 0; i < 10; i ++) {
+    	(function(n){
+    		fnArr1[i] =  function(){
+            return n;
+        };
+    	})(i);
+   }
+    console.log( fnArr1[3]() );
+
+ // 方法二
+
+   var fnArr2 = [];
+    for (var i = 0; i < 10; i ++) {
+    	(function(){
+    		var n = i;
+    		fnArr2[i] =  function(){
+            return n;
+        };
+    	})();
+   }
+    console.log( fnArr2[4]() ); 
+
+//方法三
+
+ var fnArr3 = [];
+    for (var i = 0; i < 10; i ++) {
+       
+            fnArr3[i] =  (function(){
+            var n = i;
+            return function(){
+            return n;
+        }
+        })();
+ }
+    console.log( fnArr3[5]() ); 
+</script>

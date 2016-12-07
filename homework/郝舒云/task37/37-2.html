@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    body,
+    html,
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .dia {
+        width: 300px;
+        min-height: 100px;
+        background: #eee;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px #888888;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        border-radius: 10px;
+        overflow: hidden;
+        display: none;
+    }
+    
+    .tit {
+        padding-left: 10px;
+        height: 40px;
+        line-height: 40px;
+        background: #676666;
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .iconfont {
+        cursor: pointer;
+        text-align: right;
+        float: right;
+        padding-right: 20px;
+        width: 10px;
+        font-weight: normal;
+        height: 40px;
+        line-height: 40px;
+    }
+    
+    .btns a {
+        display: inline-block;
+        width: 50px;
+        height: 25px;
+        background: red;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        line-height: 25px;
+    }
+    
+    .cansel {
+        margin-left: 10px;
+    }
+    
+    .btns {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+    }
+    
+    .tit>div {
+        width: 260px;
+        float: left;
+    }
+    
+    .con {
+        padding: 20px;
+        padding-bottom: 50px;
+        overflow: hidden;
+    }
+    
+    .open {
+        margin-top: 10px;
+        display: inline-block;
+        text-align: center;
+        width: 50px;
+        height: 25px;
+        background: pink;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        line-height: 25px;
+        margin-left: 10px;
+    }
+    </style>
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_daocp69jevkro1or.css">
+</head>
+
+<body>
+    <a id='open1' class="open" href="#">打开1</a>
+    <a id='open2' class="open" href="#">打开2</a>
+    <a id='open3' class="open" href="#">打开3</a>
+    <a id='open4' class="open" href="#">打开4</a>
+    <a id='open5' class="open" href="#">打开5</a>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    var drag = function($dia) {
+        var downflag = false;
+        var init_x = 0;
+        var init_y = 0;
+        var dia_top = 0;
+        var dia_left = 0;
+        var item_height = $dia.outerHeight() / 2;
+        var item_width = $dia.outerWidth() / 2;
+        var fullheight = $(document).height();
+        var fullwidth = $(document).width();
+        $dia.on('mousedown', function(e) {
+
+            dia_top = $dia.position().top;
+            dia_left = $dia.position().left;
+            init_x = e.pageX;
+            init_y = e.pageY;
+            downflag = true;
+        });
+        $dia.on('mousemove', function(e) {
+            if (downflag) {
+
+                var realheight = dia_top + e.pageY - init_y;
+                var realwidth = dia_left + e.pageX - init_x;
+                if (realheight < fullheight - item_height && realheight > item_height)
+                    $dia.css({
+                        "top": realheight + "px"
+                    });
+                if (realwidth < fullwidth - item_width && realwidth > item_width)
+                    $dia.css({
+
+                        "left": realwidth + "px"
+                    });
+            }
+
+        });
+        $dia.on('mouseup', function() {
+
+            downflag = false;
+        });
+    }
+
+    var setposition = function($dia) {
+        var item_height = $dia.outerHeight() / 2;
+        var item_width = $dia.outerWidth() / 2;
+        $dia.css({
+
+            "margin-left": -item_width + "px",
+            "margin-top": -item_height + "px"
+        });
+    }
+
+    function initDialog() {
+        this.createDialog = function() {
+            var $dia = $('<div class="dia"><div class="btns"><a class="sure" href="javascript:void(0)">确定</a><a class="cansel" href="javascript:void(0)">取消</a></div></div>');
+            $('body').append($dia);
+            this.content = $dia;
+        };
+        this.createDialog();
+        
+        this.setposition = setposition;
+    }
+
+    initDialog.prototype.open = function(obj) {
+        var $dia = this.content;
+
+        $dia.show();
+        var $diasure = $dia.find('.sure');
+        var $diacansel = $dia.find('.cansel');
+        if (obj.message) {
+            var mes = '<div class="con">' + obj.message + '</div>';
+            $dia.prepend($(mes));
+        }
+        if (obj.title) {
+            var tit = '<div class="tit"><div>' + obj.title + '</div><span class="iconfont">&#xe6b0;</span></div>';
+            $dia.prepend($(tit));
+            var $icon = $dia.find('.iconfont');
+            $icon.on('click', function() {
+                $dia.hide();
+            });
+        }
+        if (!obj.isShowCloseBtn) {
+            $diacansel.hide();
+        }
+        if (!obj.isShowConfirmBtn) {
+            $diasure.hide();
+        }
+        if (obj.onClose) {
+            $diacansel.on('click', function() {
+                obj.onClose();
+                $dia.hide();
+            });
+            $icon.on('click', function() {
+                obj.onClose();
+                $dia.hide();
+            });
+        } else {
+            $diacansel.on('click', function() {
+                $dia.hide();
+            });
+        }
+        if (obj.onConfirm) {
+            $diasure.on('click', function() {
+                obj.onConfirm();
+            });
+        }
+        this.setposition($dia);
+       
+
+    }
+
+    //继承initDialog并实现拖拽功能
+    function Dialog()
+    {
+    	initDialog.call(this);
+    	this.drag(this.content);
+    }
+    Dialog.prototype=Object.create(initDialog.prototype);
+    Dialog.prototype.drag=drag;
+
+
+
+
+//示例
+    var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+
+    $('#open5').on('click', function() {
+        var dialog5 = new Dialog();
+        dialog5.open({
+            title: '数鸭子',
+            message: '数不清到底多少鸭',
+            isShowCloseBtn: false,
+            isShowConfirmBtn: false,
+            onClose: function() {
+                alert('close')
+            },
+            onConfirm: function() {
+                alert('确定');
+            }
+        });
+    });
+    $('#open1').on('click', function() {
+        var dialog1 = new Dialog();
+        dialog1.open({
+            message: '门前大桥下',
+            isShowCloseBtn: true,
+
+        });
+    });
+    $('#open2').on('click', function() {
+        var dialog1 = new Dialog();
+        dialog1.open({
+            message: '<a href="#">油锅一群鸭</a>',
+            isShowCloseBtn: true,
+
+        });
+    });
+    $('#open3').on('click', function() {
+        var dialog1 = new Dialog();
+        dialog1.open({
+            title: '数鸭子',
+            message: '快来快来数一数',
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true
+
+        });
+    });
+    $('#open4').on('click', function() {
+        var dialog4 = new Dialog();
+        dialog4.open({
+            title: '数鸭子',
+            message: tpl,
+            isShowCloseBtn: true,
+            isShowConfirmBtn: true,
+            onClose: function() {
+                alert('close')
+            },
+            onConfirm: function() {
+                alert('确定');
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

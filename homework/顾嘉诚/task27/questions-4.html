@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 27 questions 4</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.img-ct{
+			height: 100%;
+			position: absolute;
+		}
+		.img-ct li{
+			float: left;
+			height: 100%;
+		}
+		.img-ct:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.img-ct li>div{
+			position: relative;
+			height: 100%;
+			background-repeat: no-repeat; 
+			background-size: cover;
+			text-align: center;
+		}
+		.main{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.main h1{
+			margin-top: -30px;
+			margin-bottom: 30px;
+		}
+		.carousel{
+			height: 100%;
+		}
+		body,html{
+			height: 100%;
+		}
+		.bullet{
+			position: absolute;
+			bottom: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.bullet li{
+			background-color: #fff;
+			cursor: pointer;
+			width: 30px;
+			height: 10px;
+			display: inline-block;
+		}
+		.bullet .active{
+			background-color: #777;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li>
+				<div class="imgCt">
+					<div class="main">
+						<h1>夜空中最亮的星</h1>
+						<p>是否在意</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="imgCt">
+					<div class="main">
+						<h1>往城市边缘开</h1>
+						<p>把车窗都咬下来</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="imgCt">
+					<div class="main">
+						<h1>只是因为在人群中看了你一眼</h1>
+						<p>再也</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="imgCt">
+					<div class="main">
+						<h1>星星点灯</h1>
+						<p>照亮</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+		<script type="text/javascript">
+			var imgArr = ['./pic/12.jpg','./pic/9.jpg','./pic/10.jpg','./pic/11.jpg','./pic/12.jpg','./pic/9.jpg'];
+
+			var $ct = $('.img-ct'),
+				$items = $ct.children(),
+				imgW = $(window).width(),
+				imgCount = $ct.children().size();
+
+			$ct.append($items.first().clone());
+			$ct.prepend($items.last().clone());
+			var imgRealCount = $ct.children().size();
+
+			$ct.find('li').width(imgW);
+			$ct.css({
+				'width': imgRealCount * imgW,
+				'left': -imgW
+			}); 
+
+			var $imgCt = $('.imgCt');
+
+			$imgCt.each(function(idx,ele){
+				$(this).data('src',imgArr[idx]);
+			});
+
+			var curIdx = 0,
+				isAnimate = false;
+			var clock;
+
+			autoPlay();
+			loadImg(0);
+			
+			$('.bullet li').on('click',function(){
+				var idx = $(this).index();
+				if(curIdx > idx){
+					playPre(curIdx - idx);
+				}else if(curIdx < idx){
+					playNext(idx - curIdx);
+				}
+			});
+
+			function playNext(idx){
+				var idx = idx || 1;
+				var num = (curIdx + idx) % imgCount;
+				if(isAnimate){
+					return ;
+				}else{
+					isAnimate = true;
+					loadImg(num);
+					$ct.animate({
+						left: '-=' + (idx * imgW)
+					},function(){
+						curIdx = (curIdx + idx) % imgCount;
+						if(curIdx === 0){
+							$ct.css({
+								'left': -imgW
+							});
+						}
+						addSty(curIdx);
+						isAnimate = false;
+					});
+				}
+			}
+			function playPre(idx){
+				var idx = idx || 1;
+				var num = (imgCount + curIdx - idx) % imgCount;
+				if(isAnimate){
+					return ;
+				}else{
+					isAnimate = true;
+					loadImg(num);
+					$ct.animate({
+						'left': '+=' + (idx * imgW)
+					},function(){
+						curIdx = (imgCount + curIdx - idx) % imgCount;
+						if(curIdx === (imgCount - 1)){
+							$ct.css({
+								'left': -imgCount*imgW
+							});
+						}
+						addSty(curIdx);
+						isAnimate = false;
+					});
+				}
+			}
+			function autoPlay(){
+				clock = setInterval(function(){
+					playNext();
+				},3000);
+			}
+			function stopAuto(){
+				clearInterval(clock);
+			}
+			function loadImg(idx){
+				var idx = idx + 1;
+				if($imgCt.eq(idx).css('background-image') === 'none'){
+					$imgCt.eq(idx).css('background-image','url(' + $imgCt.eq(idx).data('src') + ')');
+				}else{
+					return ;
+				}
+			}
+			function addSty(idx){
+				$('.bullet li').removeClass('active');
+				$('.bullet li').eq(idx).addClass('active');
+			}
+		</script>
+	</div>
+</body>
+</html>

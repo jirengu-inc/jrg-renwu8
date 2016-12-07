@@ -60,43 +60,40 @@
 	
 
 var waterfall=(function(){
-	 	function render(){
-			var nodeWidth = $('.item').outerWidth(true), //得到每个元素固定的宽度
-				colNum = parseInt($(window).width()/nodeWidth),//得到每列能放几个元素
-				colSumH = [];//创建一个空数组，存储每列的高度
-
-			for (var i = 0; i < colNum; i++) {
-				colSumH[i] = 0;//数组每项为0，长度就是每列放置元素的个数
-			}
-
-			$('.item').each(function(){ //循环遍历每个元素
-				var $cur = $(this),
-					idx = 0,
-					minColHight = colSumH[0];
-
-				for(var i = 0; i<colSumH.length; i++) { //得到最矮的元素以及它的位置
-					if (minColHight > colSumH[i] ) {
-						idx = i;
-						minColHight = colSumH[i];
-					}
-				}
-				console.log(colSumH)
-				
-				$cur.css({
-					left: nodeWidth * idx, //元素的宽度乘以要插入当前最矮元素的索引
-					top: minColHight  // 最矮元素的高度
-				})
-				colSumH[idx] = colSumH[idx]+$cur.outerHeight(true); //数组每项的数值就是在每列插入元素高度之和
-			});
+	function render(){
+		var nodeWidth = $('.item').outerWidth(true), //得到每个元素固定的宽度
+			colNum = parseInt($(window).width()/nodeWidth),//得到每列能放几个元素
+			colSumH = [];//创建一个空数组，存储每列的高度
+		
+		for (var i = 0; i < colNum; i++) {
+			colSumH[i] = 0;//数组每项为0，长度就是每列放置元素的个数
 		}
-		 $(window).on('resize',function(){
-		 	render();
-		 })
 
-	 	return {
-	 		init: render
-	 	}
-	 })();
+		$('.item').each(function(){ //循环遍历每个元素
+			var $cur = $(this),
+				idx = 0,
+				minColHight = colSumH[0];
+			for(var i = 0; i<colSumH.length; i++) { //得到最矮的元素以及它的位置
+				if (minColHight > colSumH[i] ) {
+					idx = i;
+					minColHight = colSumH[i];
+				}
+			};
+			console.log(colSumH)
+			$cur.css({
+				left: nodeWidth * idx, //元素的宽度乘以要插入当前最矮元素的索引
+				top: minColHight  // 最矮元素的高度
+			})
+			colSumH[idx] = colSumH[idx]+$cur.outerHeight(true); //数组每项的数值就是在每列插入元素高度之和
+		});
+	}
+	 $(window).on('resize',function(){
+		render();
+	 })
+	return {
+		init: render
+	}
+})();
 
 	waterfall.init();
 	</script>

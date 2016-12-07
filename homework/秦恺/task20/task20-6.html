@@ -1,0 +1,12 @@
+<script>
+var flag = true;
+setTimeout(function(){
+    flag = false;
+},0)
+while(flag){}
+console.log(flag);	
+
+
+// while语句无限循环，因为setTimeout 0方法，会使函数执行置后，所以，while语句一直满足条件，一直执行
+//而while语句不停下来，setTimeout 0就不会执行，所以无限循环while语句。
+</script>

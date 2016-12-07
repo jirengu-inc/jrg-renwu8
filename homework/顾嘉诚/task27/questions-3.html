@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 27 questions 3</title>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+
+		.carousel{
+			position: relative;
+			width: 300px;
+			height: 200px;
+			overflow: hidden;
+		}
+		.img-ct{
+			position: absolute;
+		}
+		.img-ct li{
+			float: left;
+		}
+		.img-ct:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		img{
+			width: 300px;
+			height: 200px;
+		}
+		.arrow{
+			position: absolute;
+			top: 50%;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			margin-top: -15px;
+			background-color: #aaa;
+			border-radius: 50%;
+			text-align: center;
+			color: #fff;
+		}
+		.arrow:hover{
+			background-color: #333;
+		}
+		.next{
+			right: 10px;
+		}
+		.pre{
+			left: 10px;
+		}
+		.bullet{
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.bullet li{
+			display: inline-block;
+			cursor: pointer;
+			width: 16px;
+			height: 4px;
+			background-color: #fff;
+		}
+		.bullet .active{
+			background-color: #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/5.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/6.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/7.jpg"></a>
+			</li>
+			<li>
+				<a href="javascript:void(0)"><img src="./pic/8.jpg"></a>
+			</li>
+		</ul>
+		<a href="javascript:void(0)" class="arrow pre"><</a>
+		<a href="javascript:void(0)" class="arrow next">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		var $ct = $('.img-ct'),
+			$items = $ct.children(),
+			imgW = $items.width(),
+			imgCount = $items.size();
+		
+		$ct.prepend($items.last().clone());
+		$ct.append($items.first().clone());
+		var imgRealCount = $ct.children().length;
+		$ct.css({
+			'width': imgW*imgRealCount,
+			'left': -imgW
+		});
+
+		var curIdx = 0,
+			isAnimate = false;
+		var clock,time;
+
+		autoPlay();
+		
+
+		$('.next').on('click',function(){
+			stopAuto();
+			clearTimeout(time);
+			playNext();
+			time = setTimeout(function(){
+				autoPlay();
+			},3000);
+		});
+		$('.pre').on('click',function(){
+			stopAuto();
+			clearTimeout(time);
+			playPre();
+			time = setTimeout(function(){
+				autoPlay();
+			},3000);
+		});
+		$('.bullet li').on('click',function(){
+			var idx = $(this).index();
+			stopAuto();
+			clearTimeout(time);
+			if(idx > curIdx){
+				playNext(idx - curIdx);
+			}else{
+				playPre(curIdx - idx);
+			}
+			time = setTimeout(function(){
+				autoPlay();
+			},3000);
+		});
+
+		function playNext(idx){
+			var idx = idx || 1;
+			if(isAnimate){
+				return;
+			}else{
+				isAnimate = true;
+				$ct.animate({
+					'left': '-='+(idx*imgW)
+				},function(){
+					curIdx = (curIdx + idx) % imgCount;
+					if(curIdx === 0){
+						$ct.css('left',-imgW);
+					}
+					setSty(curIdx);
+					isAnimate = false;
+				});
+			}
+		}
+		function playPre(idx){
+			var idx = idx || 1;
+			if(isAnimate){
+				return;
+			}else{
+				isAnimate = true;
+				$ct.animate({
+					'left': "+="+(idx*imgW)
+				},function(){
+					curIdx = (imgCount + curIdx - idx) % imgCount;
+					if(curIdx === (imgCount -1)){
+						$ct.css('left',-imgCount*imgW);
+					}
+					isAnimate = false;
+					setSty(curIdx);		
+				});
+			}
+		}
+		function setSty(idx){
+			$('.bullet li').removeClass('active');
+			$('.bullet li').eq(idx).addClass('active');
+		}
+		function autoPlay(){
+			clock = setInterval(function(){
+				playNext();
+			},2000);
+		}
+		function stopAuto(){
+			clearInterval(clock);
+		}
+	</script>
+</body>
+</html>
