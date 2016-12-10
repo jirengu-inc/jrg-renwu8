@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 32 question 1</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		.ct{
+			position: relative;
+		}
+		.item{
+			width: 200px;
+			position: absolute;
+			margin-top: 10px;
+			margin-left: 10px;
+			transition: all 1s;
+		}
+		.h1{
+			background-color: yellow;
+			height: 100px;
+		}
+		.h2{
+			background-color: green;
+			height: 200px;
+		}
+		.h3{
+			background-color: blue;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<div class="item h1">1</div>
+		<div class="item h3">2</div>
+		<div class="item h2">3</div>
+		<div class="item h3">4</div>
+		<div class="item h2">5</div>
+		<div class="item h1">6</div>
+		<div class="item h1">7</div>
+		<div class="item h2">8</div>
+		<div class="item h2">9</div>
+		<div class="item h3">10</div>
+		<div class="item h2">11</div>
+		<div class="item h1">12</div>
+		<div class="item h1">13</div>
+		<div class="item h2">14</div>
+		<div class="item h2">15</div>
+		<div class="item h3">16</div>
+		<div class="item h2">17</div>
+		<div class="item h1">18</div>
+		<div class="item h1">19</div>
+		<div class="item h2">20</div>
+	</div>
+	<script type="text/javascript">
+
+			
+
+		var waterFalls = (function(){
+			function realSty($ele){
+				var ColTolHeight = [];
+				var winWidth = $(window).width(),
+					eleWidth = $('.item').eq(0).outerWidth(true),
+					colNum = Math.floor(winWidth / eleWidth);
+				for(var i = 0;i < colNum;i ++){
+					ColTolHeight.push(0);
+				}
+				$ele.each(function(id,el){
+					var $cur = $(el);
+					var colHeightMin = ColTolHeight[0],
+					idx = 0;
+					ColTolHeight.forEach(function(e,i,array){
+						if(e < colHeightMin){
+							colHeightMin = e;
+							idx = i;
+						}
+					});
+					$cur.css({
+						top: ColTolHeight[idx],
+						left: idx * eleWidth
+					});
+					ColTolHeight[idx] += $cur.outerHeight(true);
+				});
+			}	
+
+			$(window).on('resize',function(){
+				realSty($('.item'));
+			});
+
+
+			realSty($('.item'));
+
+			return {
+				realize: realSty
+			};
+		})();
+		waterFalls.realize($('.item'));
+	</script>
+</body>
+</html>
