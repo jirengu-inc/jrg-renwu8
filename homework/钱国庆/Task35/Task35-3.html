@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task35-3</title>
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .container {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .img-list {
+            position: absolute;
+        }
+        .img-list li {
+            float: left;
+        }
+        .img-list li a img {
+            width: 300px;
+            height: 200px;
+        }
+        .container .previous a,
+        .container .next a {
+            color: black;
+        }
+        .container .previous,
+        .container .next {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #666;
+            opacity: 0.7;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+        }
+        .container .previous {
+            top: 50%;
+            margin-top: -15px;
+            margin-left: 5px;
+        }
+        .container .next {
+            top: 50%;
+            margin-top: -15px;
+            left: 100%;
+            margin-left: -35px;
+        }
+        .container .previous:hover,
+        .container .next:hover {
+            opacity: 1;
+        }
+        .bottom-list li{
+            width: 15px;
+            height: 5px;
+            background: #666;
+            opacity: 0.7;
+            display: inline-block;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .bottom-list {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            margin-top: -25px;
+        }
+        .bottom-list li.active {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div id="c1" class="container">
+    <ul class="img-list clear">
+        <li>
+            <a href="#"><img src="1.jpeg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="2.png" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="3.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="9.jpg" alt=""></a>
+        </li>
+    </ul>
+    <div class="previous">
+        <a href="#"> < </a>
+    </div>
+    <div class="next">
+        <a href="#"> > </a>
+    </div>
+
+</div>
+
+<div id="c2" class="container">
+    <ul class="img-list clear">
+        <li>
+            <a href="#"><img src="1.jpeg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="2.png" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="3.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="9.jpg" alt=""></a>
+        </li>
+    </ul>
+    <div class="previous">
+        <a href="#"> < </a>
+    </div>
+    <div class="next">
+        <a href="#"> > </a>
+    </div>
+
+</div>
+
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+
+    function Carousel($carousel) {
+        this.$carousel = $carousel;
+        var $imgList = this.$imgList = $carousel.find('.img-list');
+        this.$previous = $carousel.find('.previous');
+        this.$next = $carousel.find('.next');
+        this.imgCount = $imgList.children().length;
+        this.imgWidth = $imgList.children().width();
+
+        $imgList.css({
+            width: this.imgWidth * this.imgCount
+        });
+
+        this.bind();
+    }
+
+    Carousel.prototype = {
+        bind: function () {
+            var that = this;
+            this.$previous.on('click', function () {
+                that.playPrevious();
+            });
+            this.$next.on('click', function () {
+                that.playNext();
+            })
+        },
+
+        playPrevious: function () {
+            this.$imgList.prepend(this.$imgList.children().last());
+            this.$imgList.css('left', 0-this.imgWidth);
+            this.$imgList.animate({'left': 0});
+        },
+
+        playNext: function () {
+            var $imglist = this.$imgList;
+            $imglist.animate({'left': 0-this.imgWidth}, function () {
+                $imglist.append($imglist.children().first());
+                $imglist.css('left', 0);
+            })
+        }
+    };
+
+    var $carousel1 = new Carousel($('#c1'));
+    var $carousel2 = new Carousel($('#c2'));
+</script>
+</body>
+</html>

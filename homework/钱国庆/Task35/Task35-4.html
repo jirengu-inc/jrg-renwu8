@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task35-4</title>
+    <style>
+        ul, li, body, html {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        li {
+            list-style: none;
+            float: left;
+            border: 1px solid #ccc;
+            width: 33.33%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        li.active {
+            background: #ccc;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <ul class="tab-list clear">
+            <li class="active"><a href="#">tab1</a></li>
+            <li><a href="#">tab2</a></li>
+            <li><a href="#">tab3</a></li>
+        </ul>
+    </div>
+    <div class="content active">内容1</div>
+    <div class="content">内容2</div>
+    <div class="content">内容3</div>
+</div>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    function TabSwitcher($tabNode) {
+        this.$tabNode = $tabNode;
+        this.doEvent();
+    }
+    TabSwitcher.prototype.doEvent = function () {
+        this.$tabNode.on('click', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            var idx = $(this).index();
+            $(this).parents('.container').find('.content').eq(idx).addClass('active')
+                    .siblings().removeClass('active');
+        });
+    }
+
+    var tab = new TabSwitcher($('.tab-list li'));
+
+</script>
+</body>
+</html>
