@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isObjectInstanceOfFunction(obj, Func) {
+        var __proto__ = obj.__proto__;
+
+        do {
+            if (__proto__ === Func.prototype) return true;
+            if (!__proto__) return false;
+         } while (__proto__ = __proto__.__proto__);
+
+        return false;
+    }
+
+
+</script>
+</body>
+</html>

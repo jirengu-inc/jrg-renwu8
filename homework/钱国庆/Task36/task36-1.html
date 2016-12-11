@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task36-1</title>
+</head>
+<body>
+<script>
+    String.prototype.getMostOften = function () {
+        var freqencyArray = {};
+        var mostFreqencyChar = '';
+        for (var i = 0; i < str.length; i++) {
+            var char = str[i];
+            if (!freqencyArray[char]) {
+                freqencyArray[char] = 0;
+            }
+            freqencyArray[char] ++;
+            if (mostFreqencyChar == '' ||
+                    freqencyArray[char] > freqencyArray[mostFreqencyChar]) {
+                mostFreqencyChar = char;
+            }
+        }
+        return mostFreqencyChar;
+    }
+
+    var str = 'ahbbccdeddddfg';
+    var ch = str.getMostOften();
+    console.log(ch);
+</script>
+</body>
+</html>
