@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task35-1</title>
+</head>
+<body>
+<script>
+    function Car(name, color, status) {
+        this.name = name;
+        this.color = color;
+        this.status = status;
+    }
+    Car.prototype.run = function () {
+        this.status = 'running';
+        console.log('Car: ' + this.name + ' with color' + this.color + ' is running');
+    }
+    Car.prototype.stop = function () {
+        this.status = 'stopping';
+        console.log('Car: ' + this.name + ' with color ' + this.color + ' is stopping');
+    }
+    Car.prototype.getStatus = function () {
+        return this.status;
+    }
+
+    var car = new Car('Benz', 'white', 'running');
+    car.run();
+    car.stop();
+    console.log(car.getStatus());
+</script>
+</body>
+</html>

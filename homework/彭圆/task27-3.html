@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限循环轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .carousel{
+            position: relative;
+            width: 310px;
+            height: 206px;
+            overflow: hidden;
+        }
+        .carousel .img-ct{
+            position: absolute;
+        }
+        .carousel .img-ct img{
+            width: 310px;
+            height: 206px;
+        }
+        .carousel .img-ct:after{
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+        .carousel .img-ct li{
+            float: left;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            opacity: 0.6;
+            transition: 0.4s;
+        }
+        .arrow:hover {
+            opacity: 0.9;
+        }
+        .pre {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .bullet {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .bullet li {
+            display: inline-block;
+            width: 16px;
+            height: 4px;
+            background: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .bullet li.active {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/1.jpg"></a></li>
+        <li data-id=1><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/2.jpg"></a></li>
+        <li data-id=2><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/5.jpg"></a></li>
+        <li data-id=3><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/3.jpg"></a></li>
+    </ul>
+    <a class="arrow pre" href="#"><</a>
+    <a class="arrow next" href="#">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    var $ct = $('.img-ct'),
+            $items = $ct.children(),
+            $pre = $('.pre'),
+            $next = $('.next'),
+            $bullet = $('.bullet'),
+            imgWidth = $items.width(),
+            imgCount = $ct.children().length;
+    $ct.prepend($items.last().clone());
+    $ct.append($items.first().clone());
+    imgRealCount = $ct.children().length;
+    $ct.css({left: 0-imgWidth, width: imgRealCount*imgWidth});
+
+    var curIdx = 0,
+            animation = false;
+    $pre.on('click',function () {
+        playPre();
+    });
+    $next.on('click',function () {
+        playNext();
+    });
+    $bullet.find('li').on('click',function () {
+        var idx = $(this).index();
+        if (idx > curIdx) {
+            playNext(idx - curIdx);
+        } else if (idx < curIdx) {
+            playPre(curIdx - idx);
+        }
+    });
+    autoPlay();
+
+    function playPre(idx) {
+        var idx = idx || 1;
+        if (!animation) {
+            animation = true;
+            $ct.animate({left: '+='+(imgWidth*idx)},function () {
+                curIdx = (curIdx + idx)%imgCount;
+                if (curIdx === (imgCount - 1)) {
+                    $ct.css({left: 0-imgWidth*imgCount});
+                }
+                animation = false;
+                setBullet();
+            })
+        }
+    }
+    function playNext(idx) {
+        var idx = idx || 1;
+        if (!animation) {
+            animation = true;
+            $ct.animate({left: '-='+(imgWidth*idx)},function () {
+                curIdx = (curIdx + idx)%imgCount;
+                if (curIdx === 0) {
+                    $ct.css({left: 0-imgWidth});
+                }
+                animation = false;
+                setBullet();
+            })
+        }
+    }
+    function autoPlay(){
+        setInterval(function(){
+            playNext();
+        }, 3000);
+    }
+    function setBullet() {
+        $bullet.children().removeClass('active').eq(curIdx).addClass('active');
+    }
+</script>
+</body>
+</html>

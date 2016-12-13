@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task35-2</title>
+    <style>
+        li {
+            list-style: none;
+            padding: 20px;
+            background: black;
+            color: white;
+            margin: 20px;
+            width: 200px;
+        }
+        #go-to-top {
+            position: fixed;
+            width: 100px;
+            height: 40px;
+            border: 1px solid black;
+            color: white;
+            background: red;
+            right: 10px;
+            bottom: 10px;
+            display: none;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+    <li>内容4</li>
+    <li>内容5</li>
+    <li>内容6</li>
+    <li>内容7</li>
+    <li>内容8</li>
+    <li>内容9</li>
+    <li>内容10</li>
+    <li>内容11</li>
+    <li>内容12</li>
+    <li>内容13</li>
+    <li>内容14</li>
+    <li>内容</li>
+    <li>内容</li>
+    <li>内容</li>
+    <li>内容</li>
+    <li>内容</li>
+    <li>内容</li>
+    <li>内容</li>
+    <li>内容</li>
+</ul>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+
+   function GoTop($ct, $target) {
+       this.$ct = $ct;
+       this.$target = $target;
+   }
+   GoTop.prototype.bindEvent = function () {
+       var that = this;
+       $(window).on('scroll', function () {
+            var currentOffsetTop = that.$ct.scrollTop();
+
+           if (currentOffsetTop > 150) {
+               that.$target.show();
+           } else {
+               that.$target.hide();
+           }
+       });
+
+       this.$target.on('click', function () {
+           $(window).scrollTop(0);
+       })
+   }
+   GoTop.prototype.createNode = function () {
+       this.$ct.append(this.$target);
+   }
+
+   var gotop = new GoTop($('body'), $('<div id="go-to-top">回到顶部</div>'));
+   gotop.createNode();
+   gotop.bindEvent();
+
+</script>
+</body>
+</html>

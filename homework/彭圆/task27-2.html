@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .carousel {
+            position: relative;
+            width: 303px;
+            height: 189px;
+            overflow: hidden;
+        }
+        .img-ct {
+            position: relative;
+        }
+        .img-ct li {
+            position: absolute;
+            display: none;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4E443C;
+            color: #fff;
+            border-radius: 30px;
+            opacity: 0.6;
+            transition: 0.4s;
+        }
+        .arrow:hover {
+            opacity: 0.9;
+        }
+        .pre {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+        .bullet {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .bullet li {
+            display: inline-block;
+            width: 16px;
+            height: 4px;
+            background: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .bullet li.active {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+<div id="carousel1" class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/1.jpg"></a></li>
+        <li data-id=1><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/2.jpg"></a></li>
+        <li data-id=2><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/5.jpg"></a></li>
+        <li data-id=3><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/3.jpg"></a></li>
+    </ul>
+    <a class="arrow pre" href="#"><</a>
+    <a class="arrow next" href="#">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div id="carousel2" class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/1.jpg"></a></li>
+        <li data-id=1><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/2.jpg"></a></li>
+        <li data-id=2><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/5.jpg"></a></li>
+        <li data-id=3><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/3.jpg"></a></li>
+    </ul>
+    <a class="arrow pre" href="#"><</a>
+    <a class="arrow next" href="#">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div id="carousel3" class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/1.jpg"></a></li>
+        <li data-id=1><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/2.jpg"></a></li>
+        <li data-id=2><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/5.jpg"></a></li>
+        <li data-id=3><a href="#"><img src="http://img16.3lian.com/gif2016/q35/10/3.jpg"></a></li>
+    </ul>
+    <a class="arrow pre" href="#"><</a>
+    <a class="arrow next" href="#">></a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    function action(carousel) {
+
+        var $parent = $(carousel),
+                $ct = $parent.find('.img-ct'),
+                $items = $ct.children(),
+                $pre = $parent.find('.pre'),
+                $next = $parent.find('.next'),
+                $bullet = $parent.find('.bullet'),
+                imgCount = $ct.children().length;
+        $next.on('click',function () {
+            playNext();
+        });
+        $pre.on('click',function () {
+            playPre();
+        });
+        $bullet.find('li').on('click', function(){
+            var idx = $(this).index();
+            play(idx);
+        });
+        play(0);
+        autoPlay();
+
+        var curIdx = 0,
+                animation = false;
+        function play(idx) {
+            if (animation) return;
+            animation = true;
+            $items.eq(curIdx).fadeOut(500);
+            $items.eq(idx).fadeIn(500,function () {
+                animation = false;
+            });
+            curIdx = idx;
+            setBullet();
+        }
+        function setBullet() {
+            $bullet.children().removeClass('active').eq(curIdx).addClass('active');
+        }
+        function playNext() {
+            play((curIdx+1)%imgCount);
+        }
+        function playPre() {
+            play((imgCount+curIdx-1)%imgCount)
+        }
+        function autoPlay() {
+            setInterval(function () {
+                playNext();
+            },2000);
+        }
+
+    }
+    action('#carousel1');
+    action('#carousel2');
+    action('#carousel3');
+</script>
+</body>
+</html>

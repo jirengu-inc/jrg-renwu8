@@ -1,0 +1,96 @@
+ html,body
+    {
+        width: 100%;
+        height: 100%;
+    }
+    
+    
+   
+    
+    #header-bg {
+        width:100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .imgs {
+       
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .imgs a
+    { width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: #fff;}
+    
+    .imgs li {
+        display: block;
+        height: 100%;
+        float: left;
+       
+        
+    }
+    
+   .imgs img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        display: block;
+        background: #4e443c;
+        opacity: 0.5;
+        position: absolute;
+        text-align: center;
+        line-height: 30px;
+          text-decoration: none;
+        color: #fff;
+        z-index: 1;
+    }
+    
+    .left {
+        left: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .right {
+        right: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .arrow:hover {
+        opacity: 1;
+    }
+    
+    .icons {
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        z-index: 1;
+    }
+    
+    .icons li {
+        cursor: pointer;
+        width: 20px;
+        height: 4px;
+        display: inline-block;
+        background: #fff;
+        border-radius: 3px;
+
+    }
+    
+    .bg {
+        background: #ccc !important;
+    }
