@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //单例模式范例
+    var Car = (function() {
+        var instance;
+
+        function init() {
+            //私有的变量和函数
+            var speed = 0;
+            return {
+                //定义公共的属性和方法 
+                getSpeed: function() {
+                    return speed;
+                },
+                setSpeed: function(s) {
+                    speed = s;
+                }
+            };
+        }
+        return {
+            getInstance: function() {
+                if (!instance) {
+                    instance = init();
+                }
+                return instance;
+            }
+        };
+    }());
+    var car = Car.getInstance();
+    var car2 = Car.getInstance();
+    car === car2;
+//构造函数模式
+    function car_GZ(speed) {
+        this.speed = speed;
+        this.setSpeed = function(s) {
+            speed = s;
+        };
+        this.getSpeed = function() {
+            return speed;
+        }
+    }
+//混合模式
+    function car_HH(speed) {
+        this.speed = speed;
+        this.setSpeed = function(s) {
+            speed = s;
+        };
+        this.getSpeed = function() {
+            return speed;
+        }
+    }
+
+    car_HH.prototype = {
+        getSpeed: function() {
+            return speed;
+        },
+        setSpeed: function(s) {
+            speed = s;
+        }
+    }
+//工厂模式
+    function Car_GC(speed) {
+        var obj1 = {
+            speed: speed,
+            getSpeed: function() {
+                return speed;
+            },
+            setSpeed: function(s) {
+                speed = s;
+            }
+
+        }
+        return obj1;
+
+    }
+    //模块模式
+    var car_MK = (function() {
+        var speed = 0;
+
+        function getSpeed() {
+            return speed;
+        }
+
+        function setSpeed(s) {
+            speed = s;
+        }
+        return {
+            setSpeed: setSpeed,
+            getSpeed: getSpeed
+        }
+    })();
+    car_MK.setSpeed(5);
+    car_MK.getSpeed();
+    //发布订阅模式
+    var eventCenter = (function() {
+        var evtsque = {};
+
+        function on(evt, handle) {
+            evtsque.evt = evtsque.evt || [];
+            evtsque.evt.push(handle);
+        }
+
+        function fire(evt, args) {
+            if (evtsque.evt) {
+                for (var func in evtsque.evt) {
+                    evtsque.evt[func](args);
+                }
+
+            }
+        }
+        return {
+            on: on,
+            fire: fire
+        }
+    })();
+    eventCenter.on('f1', function() {
+        console.log('你好')
+    });
+    eventCenter.fire('f1')
+    </script>
+</body>
+
+</html>
