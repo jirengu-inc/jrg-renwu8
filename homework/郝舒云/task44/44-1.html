@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+		width:120px;
+		height:120px;
+		background: pink;
+		
+		text-align: center;
+		line-height: 120px;
+		margin-left:10px;
+		margin-top: 10px;
+		display: inline-block;
+	}
+		.d1
+		{
+			border-radius: 10px;
+		}
+		.d2
+		{
+			border-radius: 60px;
+		}
+		.d3
+		{
+			box-shadow: 10px 10px 5px pink;
+
+		}
+		.d4
+		{ 
+			margin:0 40px;
+		transform: scale(1.5,1.5); }
+		.d5
+		{ transform: scale(0.5,0.6); }
+		.d6
+		{
+			transform: translate(10px);
+		}
+		.d7
+		{
+			transform: rotate(30deg);
+		}
+		.d8
+		{
+transform: translateX(10px);
+		}
+		.d9
+		{
+			
+background: #fff;
+-webkit-perspective: 200;
+border:1px solid #ccc;
+		}
+		.d9 div
+		{
+			margin-top:0;
+			margin-left: 0;
+		}
+		.d10
+		{width:120px;
+		height:120px;
+			background: pink;
+transform: rotateX(30deg);
+		}
+			.d11
+		{width:120px;
+		height:120px;
+			background: pink;
+transform: rotateY(30deg);
+		}
+.d12
+		{width:120px;
+		height:120px;
+			background: pink;
+transform: rotateZ(30deg);
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="d1">圆角</div>
+	<div class="d2">圆形</div>
+	<div class="d3">阴影</div>
+	<div class="d4">放大</div>
+	<div class="d5">缩小</div>
+	<div class="d6">偏移</div>
+	<div class="d7">旋转</div>
+	<div class="d8">3D移动</div>
+	<div class="d9"><div class='d10'>3D旋转X</div></div>
+	<div class="d9"><div class='d11'>3D旋转Y</div></div>
+	<div class="d9"><div class='d12'>3D旋转Z</div></div>
+</body>
+</html>
