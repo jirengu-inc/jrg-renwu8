@@ -17,7 +17,7 @@
         color: #fff;
     }
     
-    .online {
+    .carousel {
         width: 300px;
         height: 220px;
         margin-top: 20px;
@@ -94,7 +94,7 @@
 </head>
 
 <body>
-    <div class="online">
+    <div class="carousel">
         <ul class="imgs">
             <li style="display: block">
                 <a href="#"><img src="imgs/1.jpg" alt=""></a>
@@ -123,7 +123,7 @@
                     </li>
                 </ul>
     </div>
-    <div class="online">
+    <div class="carousel">
         <ul class="imgs">
             <li style="display: block">
                 <a href="#"><img src="imgs/1.jpg" alt=""></a>
@@ -157,6 +157,12 @@
     $(function() {
 
 
+
+
+        // 要求：html 里有多个carousel，当调用时启动全部的 carousel
+
+        //方式2
+        //通过创建对象的方式启动所有轮播
         function Carousel($item) {
 
             var imgsli = $item.find('.imgs').find('li');
@@ -267,11 +273,9 @@
             }
         };
 
-        var $node1 = $('.online').eq(0);
-        var $node2 = $('.online').eq(1);
-        var carousel1 = new Carousel($node1);
-        var carousel2 = new Carousel($node2);
-
+        $('.carousel').each(function() {
+            new Carousel($(this));
+        });
     });
     </script>
 </body>

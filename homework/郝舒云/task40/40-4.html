@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        height: 800px;
+        width: 400px;
+        background: #d4e43d;
+        margin-top: 20px;
+    }
+    
+    .d2 {
+        height: 200px;
+        background: pink;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="d1"></div>
+    <div class="d2"></div>
+    <div class="d3"></div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+
+    var Expourse = (function() {
+        var firsttime = true;
+        function isVisible($node) {
+            var nodeheight = $node.height();
+            var top = $(document).scrollTop();
+            var tall = $node.offset().top;
+            var windowheight = $(window).height();
+            if (windowheight + top > tall && top < tall + nodeheight) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        function bind($node, handle) {
+            
+            $(document).on('scroll', function() {
+                if (isVisible($node)) {
+                    handle.call($node);
+
+                }
+            });
+        }
+
+        function one($node, handle) {
+         
+            $(document).on('scroll', function() {
+                if (isVisible($node) &&firsttime == true) {
+                    handle.call($node);
+
+                    firsttime = false;
+                }
+            });
+        }
+
+
+        return {
+            one: one,
+            bind: bind
+        };
+    })();
+        var $target = $('.d2');
+    //$target 是 jquery 对象
+    // 当窗口滚动时，如果$target 出现在可见区域，执行回调函数里面的代码，且在回调函数内，$(this)代表$target
+  //  Expourse.bind($target, function() {
+    //    console.log($(this));
+        // $target
+
+    //});
+    // 当窗口滚动时，如果$target 出现在可见区域，执行回调函数里面的代码，且在回调函数内，$(this)代表$target。 仅执行一次回调函数，下次$target 曝光不再执行
+   Expourse.one($target, function() {
+   console.log($(this));
+
+    })
+    </script>
+</body>
+
+</html>
