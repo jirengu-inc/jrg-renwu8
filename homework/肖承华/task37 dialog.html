@@ -104,11 +104,12 @@
 
 
 	function Dialog(){
-		this.createDialog();
-		this.bindEvent();
+		this.createDialog(); //创建dialog
+		this.bindEvent();//给弹窗绑定时间
 	}
 
 	Dialog.prototype = {
+		//创建dialog 添加到页面
 		createDialog:function(){
 			var tpl = "";
 			tpl +='<div class="dialog" style="display:">',
@@ -125,34 +126,34 @@
 			this.dialog = $(tpl);
 			$('body').append(this.dialog);
 		},
+		//绑定时间
 		bindEvent:function () {
-			var _this = this;
-			var _move = false;
-			var _x,_y;
+			var _this = this,
+			 	_move = false,//上锁,在鼠标未放开之前一直执行
+				_x,_y;
 			_this.dialog.on("mousedown",function (e) {
 				_move = true;
 				if (_move ){
-					_x = e.pageX - _this.dialog.offset().left;
+					_x = e.pageX - _this.dialog.offset().left; //得到事件点到到弹窗内边界的坐标
 					_y = e.pageY - _this.dialog.offset().top;
 					_this.dialog.addClass("draggable");
 				}
 			})
-			$(document).on("mousemove",function (e) {
-				if(_move){
+			$(document).on("mousemove",function (e) {//绑定在文档中监听更流畅
+				if( _move ){
 					_this.dialog.offset({
-						left: e.pageX - _x,
+						left: e.pageX - _x, //把移动后的事件坐标点减去到内边界位置，得到弹窗的绝对位置
 						top:e.pageY - _y
 					})
 				}
 			}).on("mouseup",function (e) {
-				console.log(2)
 				_move=false;
 				if ($(".draggable").length){
-					_this.dialog.removeClass("draggable");
+					_this.dialog.removeClass("draggable"); //额外效果
 				}
 			})
 			_this.dialog.find(".btn-close").on("click",function (e) {
-				e.preventDefault();
+				e.preventDefault(); //阻止事件冒泡
 				_this.opts.onClose();
 				_this.hideDialog();
 			})
@@ -162,13 +163,14 @@
 				_this.hideDialog();
 			})
 		},
+		//传参的接口
 		open:function(opts){
-			this.setOpts(opts);
-			this.setDialog();
-			this.showDialog();
+			this.setOpts(opts); // 把参数和参数模板合并下
+			this.setDialog(); //根据参数设置窗口
+			this.showDialog(); //显示窗口
 		},
-
-		defaultOpts:{
+		//默认的参数模板
+		defaultOpts:{ 
 			title: '',
 			message: '',
 			isShowCloseBtn: '',
@@ -176,7 +178,7 @@
 			onClose: function(){},
 			onConfirm: function(){}
 		},
-
+		//具体合并参数
 		setOpts:function(opts){
 			if (typeof opts === 'object') {
 				this.opts = $.extend({},this.defaultOpts,opts)
@@ -187,7 +189,7 @@
 				})
 			}
 		},
-
+		//具体设置dialog过程
 		setDialog:function(){
 			var dialog = this.dialog;
 			if ( this.opts.title === ""){
@@ -206,15 +208,13 @@
 			dialog.find(".dialog-header h3").text(this.opts.title);
 			dialog.find(".dialog-body").html(this.opts.message);
 		},
-
+		//这部分参考老师做的，单独把显示隐藏给拿出来定义方法，显得工整点
 		showDialog: function() {
 			this.dialog.show();
 		},
-
 		hideDialog: function() {
 			this.dialog.hide();
 		},
-
 		distoryDialog: function() {
 			this.dialog.remove();
 		}
