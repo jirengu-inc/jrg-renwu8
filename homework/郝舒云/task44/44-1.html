@@ -76,7 +76,44 @@ transform: rotateY(30deg);
 			background: pink;
 transform: rotateZ(30deg);
 		}
-
+.d13
+{
+	margin-top: 40px;
+	background: linear-gradient(to bottom right,pink,black);
+}
+.d14
+{
+	margin-top: 40px;
+	background: linear-gradient(to bottom right,rgba(255,192,203,0),rgba(255,192,203,1));
+}
+.d15
+{
+	
+	transition:background 2s,transform 2s;
+}
+.d15:hover
+{
+	background: linear-gradient(to bottom right,rgba(255,192,203,0),rgba(255,192,203,1));
+	transform: rotate(150deg);
+}
+.d16
+{
+	animation: youlike 5s infinite ;
+}
+@keyframes youlike
+{
+	0% {background: yellow;
+		margin-left:10px;
+	}
+	50% {background: pink;
+		margin-left:80px;
+		transform: rotate(180deg);
+	}
+	100% {background: yellow;
+		margin-left:10px;
+		transform:rotate(0deg);
+	}
+}
 		
 	</style>
 </head>
@@ -92,5 +129,9 @@ transform: rotateZ(30deg);
 	<div class="d9"><div class='d10'>3D旋转X</div></div>
 	<div class="d9"><div class='d11'>3D旋转Y</div></div>
 	<div class="d9"><div class='d12'>3D旋转Z</div></div>
+	<div class="d13">渐变粉转黑</div>
+	<div class="d14">渐变透明转粉</div>
+	<div class="d15">旋转过渡</div>
+	<div class="d16">渐变透明转粉</div>
 </body>
 </html>
