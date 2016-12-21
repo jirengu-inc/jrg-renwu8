@@ -1,0 +1,108 @@
+<html>
+<meta http-equiv="content-Type" content="text/html;charset=utf-8"/>
+
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'>
+    </script>
+    <style>
+    fieldset{
+        margin: 20px;
+    }
+       .example{
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        margin: 10px;
+               
+       }
+       .two{
+       	background-color:grey;
+       	color:#6fc;
+       }
+       .four{
+       	margin:20px;
+       }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>
+            1.当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+        </legend>
+            <div class="one example"></div>
+            <button class="one-add">add</button>        
+    </fieldset>
+    <fieldset>
+        <legend>
+            2.当窗口滚动时，获取垂直滚动距离
+        </legend>
+        		<div class="two example"></div>
+            <button class="two-add">add</button>        
+    </fieldset>
+    <fieldset>
+        <legend>
+            3.当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+        </legend>
+        		<div class="three example"></div>
+            <button class="three-show">show</button>        
+    </fieldset>
+    <fieldset>
+        <legend>
+            4.当鼠标激活 input 输入框时让输入框边框变为蓝色，<br>
+            当输入框内容改变时把输入框里的文字小写变为大写，<br>
+            当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+        </legend>
+        		<input class='four'></input>       
+    </fieldset>
+    <fieldset>
+        <legend>
+            5.当选择 select 后，获取用户选择的内容
+        </legend>
+        		<select class='five-sl'>
+        			<option>1</option>
+        			<option>2</option>
+        			<option>3</option>
+        			<option>4</option>
+        		</select>
+        		show:
+        		<div class='five-show'></div>       
+    </fieldset>
+    <script>
+    	//1
+    		$('.one-add').on('click', function(){
+    			$('.one').css({backgroundColor:'red'});
+    			setTimeout(function(){$('.one').css({backgroundColor:'blue'})},1000)			
+    		})
+    	//2
+    		$('.two-add').on('click', function(){
+    			setInterval(function(){$('.two').text($(window).scrollTop())},100);
+    		})
+    	//3
+    		$('.three').on('mouseenter', function(){
+    			$('.three').css({'background-color':'red'});
+    		})
+    		$('.three').on('mouseleave', function(){
+    			$('.three').css({'background-color':'#fff'});
+    		})
+    	//4
+    		$('.four').on('focusin', function(){
+    			$(this).css({border: '1px solid blue'})
+    		})
+    		$('.four').on('focusout', function(){
+    			$(this).css({border: '1px solid grey'})
+    		})
+    		$('.four').on('keyup', function(){
+    			$('.four').val($('.four').val().toUpperCase());
+    		})
+    	//5
+    		$('.five-sl').on('change',function(){
+      		$('.five-show').text($('.five-sl').val())
+    		})
+		</script>
+</body>
+</html>
+
+
+
+
+
+
