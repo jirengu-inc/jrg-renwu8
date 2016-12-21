@@ -1,0 +1,264 @@
+<html>
+<meta http-equiv="content-Type" content="text/html;charset=utf-8"/>
+
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js'>
+    </script>
+    <style>
+    fieldset{
+        margin: 20px;
+    }
+       .example{
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        margin: 10px;        
+       }
+       .one{
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        margin: 10px;
+       }
+       .color_blue{
+        background-color: #6fc;
+       }
+       .eleven{
+       	position:absolute;
+       	right:100px;
+       	background-color:grey;
+       }
+
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>
+            1.给元素 $node 添加 class active，给元素 $noed 删除 class active<br>
+            2.展示元素$node, 隐藏元素$node
+        </legend>
+            <div class="one"></div>
+            <button class="add">add</button>
+            <button class="remove">remove</button>
+            <button class="none">none</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            3.获取元素$node 的 属性: id、src、title， 修改以上属性
+        </legend>
+            <div class="three example" id='three' src='zhang xuan' title="yan jia jia"></div>
+            show:
+            <div class="show-three"></div>
+            <button class="get-three">get</button>
+            <button class="change-three">change</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            4.给$node 添加自定义属性data-src
+        </legend>
+            <div class="four example"></div>
+            show:
+            <div class="show-four"></div>
+            <button class="add-four">add</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            5.在$ct 内部最开头添加元素$node<br>
+            6.在$ct 内部最末尾添加元素$node<br>
+            7.删除$node<br>
+            8.把$ct里内容清空
+        </legend>
+            <div class="five example"></div>
+            <button class="add-five">add</button>
+            <button class="delete-five">delete</button>
+            <button class="clear-five">clear</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            9.在$ct 里设置 html //<div class="btn"></div>
+        </legend>
+            <div class="nine example"></div>
+            <button class="set-nine">set</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            10.获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)
+        </legend>
+            <div class="ten example"></div>
+            show:
+            <div class="show-ten"></div>
+            <button class="get-ten">get</button>
+            <button class="set-ten">set</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            11.获取窗口滚动条垂直滚动距离
+        </legend>
+            show:
+            <div class="show-eleven"></div>
+            <button class="get-eleven">get</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            12.获取$node 到根节点水平、垂直偏移距离
+        </legend>
+        		<div class="twelves example"></div>
+            show:
+            <div class="show-twelves"></div>
+            <button class="get-twelves">get</button>
+    </fieldset>
+     <fieldset>
+        <legend>
+            13.修改$node 的样式，字体颜色设置红色，字体大小设置14px
+        </legend>
+            <div class="thirteen example">13</div>
+            <button class="get-thirteen">get</button>
+    </fieldset>
+    <fieldset class="ct">
+        <legend>
+            14.遍历节点，把每个节点里面的文本内容重复一遍<br>
+            15.从$ct 里查找 class 为 .item的子元素<br>
+            16.获取$ct 里面的所有孩子<br>
+            17.对于$node，向上找到 class 为’.ct’的父亲，在从该父亲找到’.panel’的孩子
+        </legend>
+            <div class="fourteen example">
+                14
+                <div class="fourteen-1 item panel">
+                    14-1
+                    <div class="fourteen-2 item">
+                        14-2
+                    </div>
+                </div>
+            </div>
+            show:
+            <div class="show-fourteen"></div>
+            show:
+            <div class="show-fifteen"></div>
+            show:
+            <div class="show-seventeen"></div>
+            <button class="get-fourteen">get</button>
+            <button class="get-fifteen">get-items</button>
+            <button class="get-seventeen">get-pa</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+            18.获取选择元素的数量<br>
+            19.获取当前元素在兄弟中的排行
+        </legend>
+            <div class="eighteen example">18</div>
+            <div class="eighteen example">18</div>
+            <div class="eighteen example whoami">whoami</div>
+            <div class="eighteen example">18</div>
+            show:
+            <div class="show-eighteen"></div>
+            show:
+            <div class="show-nineteen"></div>
+            <button class="get-eighteen">get</button>
+            <button class="get-nineteen">whoami</button>
+    </fieldset>
+    <script>
+    	//1,2
+        var $one=$('.one');
+            $add=$('.add'),
+            $remove=$('.remove'),
+            $none=$('.none'),
+        $add.on('click', function(){
+            $one.addClass('color_blue');
+        })
+        $remove.on('click', function(){
+            $one.removeClass('color_blue');
+        })
+        $none.on('click', function(){
+            $one.toggle('slow');
+        })
+			//3
+        $('.get-three').on('click', function(){
+            var $title=$('.three').attr('title'),
+                $src=$('.three').attr('src'),
+                $id=$('.three').attr('id');
+            var all='tilte:'+$title+'src:'+$src+'&#10 id:'+$id;
+            $('.show-three').text(all);
+        })
+        $('.change-three').on('click', function(){
+            		$('.three').attr('title','123');
+            		$('.three').attr('src','xuan zhang');
+            		$('.three').attr('id','three-changed');
+        })
+      //4
+      	$('.add-four').on('click', function(){
+      			$('.four').attr('data-src','zhang xuan');
+      			$('.show-four').text('data-src:'+$('.four').attr('data-src'));
+      	})
+      //5
+      	$('.add-five').on('click', function(){
+      			$('.five:first').before('<div class="five example"></div>');
+      			$('.five:last').after('<div class="five example"></div>');   			
+      	})
+				$('.delete-five').on('click', function(){
+						$('.five:first').remove();
+				})
+				$('.clear-five').on('click', function(){
+						$('.five').remove();
+				})
+			//9
+      	$('.set-nine').on('click', function(){
+      		$('.nine').append('<div class="btn example"></div>')
+      	})
+      //10
+      	$('.get-ten').on('click', function(){
+					var text='';
+      		text+='宽度：'+$('.ten').width();
+      		text+='<br>高度：'+ $('.ten').height();
+      		text+='<br>包括内边距宽度：'+$('.ten').innerWidth();
+      		text+='<br>包括内边距高度：'+$('.ten').innerHeight();
+      		text+='<br>包括内边距和边框宽度：'+$('.ten').outerWidth();
+      		text+='<br>包括内边距和边框高度：'+$('.ten').outerHeight();
+      		text+='<br>包括内边距、边框和外边距宽度：'+$('.ten').outerWidth(true);
+      		text+='<br>包括内边距、边框和外边距高度：'+$('.ten').outerHeight(true);
+      		$('.show-ten').html(text);
+      	})
+      	$('.set-ten').on('click', function(){
+      		$('.ten').width('200');
+      		$('.ten').height('200');
+      	})
+      //11
+      	$('.get-eleven').on('click', function(){
+      		$('.show-eleven').text($(window).scrollTop());   		
+      	})
+      //12
+      	$('.get-twelves').on('click', function(){
+      		var all=$('.twelves').offset().left+' '+$('.twelves').offset().top;
+      		$('.show-twelves').text(all);
+      	})
+      	//13
+        $('.get-thirteen').on('click', function(){
+            $('.thirteen').css({'color':'red','font-size':'14px'});
+        })
+       //14,15,16,17
+        $('.get-fourteen').on('click', function(){
+            $('.show-fourteen').text($('.fourteen').parent().children().text());
+        })
+        $('.get-fifteen').on('click', function(){
+            $('.show-fifteen').text($('.fourteen').children().find('item'));   
+        })
+        $('.get-seventeen').on('click', function(){
+            if($('.fourteen').parent().hasClass('ct') && $('.fourteen').children().hasClass('panel')){
+                $('.show-seventeen').text(true);
+            };
+        })
+       //18,19
+        $('.get-eighteen').on('click', function(){
+            $('.show-eighteen').text($('.eighteen').length);
+        })
+        $('.get-nineteen').on('click', function(){
+            $('.show-nineteen').text($('.whoami').index());
+        })
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
