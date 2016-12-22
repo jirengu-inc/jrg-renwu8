@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task44-1</title>
+    <style>
+        .arc-rectangle {
+            border: 1px solid black;
+            width: 200px;
+            height: 100px;
+            border-radius: 10px;
+        }
+        .circle {
+            border: 1px solid red;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .div-shadow {
+            border: 1px solid black;
+            width: 200px;
+            height: 100px;
+            box-shadow: 5px 5px 5px red;
+        }
+        .third div {
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+        .enlarge {
+            transform: scale(1.2, 1.2);
+        }
+        .shirk {
+            transform: scale(0.8, 0.8);
+        }
+        .div-offset {
+            transform: translate(20px);
+        }
+        .div-rotate {
+            transform: rotate(45deg);
+        }
+        .bg-change {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            background: linear-gradient(red, yellow);
+        }
+        .div-transition {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            transition: all 2s;
+        }
+        .div-transition:hover {
+            background: red;
+            color: white;
+        }
+        @keyframes myAnimate {
+            25% { background: red; }
+            50% { border-radius: 50%; transform: translate(100px); }
+            100% { transform: rotate(180deg); }
+        }
+        .div-animate {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            animation: myAnimate 5s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+<h3>圆角、圆形</h3>
+<div class="first">
+    <div class="arc-rectangle"></div>
+    <div class="circle"></div>
+</div>
+<h3>div阴影</h3>
+<div class="second">
+    <div class="div-shadow"></div>
+</div>
+<h3>2D 转换：放大、缩小、偏移、旋转</h3>
+<div class="third">
+    <div class="enlarge">放大</div>
+    <div class="shirk">缩小</div>
+    <div class="div-offset">偏移</div>
+    <div class="div-rotate">旋转</div>
+</div>
+<h3>背景渐变</h3>
+<div class="forth">
+    <div class="bg-change"></div>
+</div>
+<h4>过渡效果</h4>
+<div class="div-transition">过渡效果</div>
+<h5>动画</h5>
+<div class="div-animate">动画</div>
+</body>
+</html>
