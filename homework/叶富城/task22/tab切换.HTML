@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tab切换</title>
+  <style>
+    *{
+  text-decoration:none;
+  list-style:none;
+  font-family:"微软雅黑";
+}
+.warp{
+  border:1px solid;
+}
+.tab{
+  padding:0px;
+  margin:0px;
+
+}
+.warp:after{
+  display:block;
+  clear:both;
+  content:'';
+}
+.tab:after{
+  display:block;
+  clear:both;
+  content:'';
+}
+.tab>li{
+  float:left;
+  width:33.333%;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-align:center;
+  height:40px;
+  line-height:40px;
+  cursor:pointer;
+  box-sizing: border-box;
+}
+.content{
+  height:400px;
+  display:none;
+}
+.tab>.active{
+  background:#ededed;
+}
+.active{
+  display:block;
+}
+  </style>
+</head>
+<body>
+  <div class="warp">
+    <ul class="tab">
+      <li class="active">Tab1</li>
+      <li class=''>Tab2</li>
+      <li class=''>Tab3</li>
+    </ul>
+    <div class="content active">内容1</div>
+    <div class="content">内容2</div>
+    <div class="content">内容3</div>
+  </div>
+  <script>
+  //工具函数
+ var tools = {
+      hasClass: function(ele ,cls){
+        var reg = /\b'+cls+'\b/g;
+        return reg.test(ele.className);
+      },
+
+      singleAddClass: function(ele,cls){
+        if(tools.hasClass(ele,cls)){
+          return;
+        }else{
+        ele.className = ele.className + ' '+cls;
+      }
+     },
+
+     singleRemoteClass: function(ele, cls){
+        ele.className = ele.className.replace(new RegExp('\\b'+cls+'\\b', 'g'), '');
+    },
+     addClass : function(ele,cls){
+      if(ele.length && ele.length>1){
+        for(var i =0;i<ele.length;i++){
+          tools.singleAddClass(ele[i],cls);
+        }
+      }else{
+        tools.singleAddClass(ele,cls);
+      }
+     },
+
+     removeClass : function(ele,cls){
+      if(ele.length && ele.length>1){
+        for(var i =0;i<ele.length;i++){
+          tools.singleRemoteClass(ele[i],cls);
+        }
+      }else{
+          tools.singleRemoteClass(ele,cls);
+      }
+     },
+     indexOf : function(ele){
+      var parent = ele.parentElement;
+      var subling = parent.children;
+      for(var i =0 ; i<subling.length;i++){
+        if(subling[i] === ele) return i;
+      }
+      return -1;
+     }
+};
+  var tab = document.querySelector('.tab');
+  tab.addEventListener('click',function(e){
+    var list = document.querySelectorAll('li');
+    var content = document.querySelectorAll('.content');
+    var target = e.target;
+    var index = tools.indexOf(target);
+    if(index > -1){
+      tools.removeClass(list,'active');
+      tools.addClass(e.target,'active');
+      tools.removeClass(content,'active');
+      tools.addClass(content[index],'active');
+    }
+  })
+  </script>
+</body>
+</html>
