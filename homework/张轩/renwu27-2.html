@@ -1,0 +1,171 @@
+<html>
+<meta http-equiv="content-Type" content="text/html;charset=utf-8"/>
+<script src='//apps.bdimg.com/libs/jquery/2.1.4/jquery.js'>
+</script>
+<style>
+		*{
+			padding:0px;
+			margin:0px;
+		}
+    li{
+    	list-style:none;
+    }
+    .ul{
+    	width:2880px;
+    	position:relative;
+    }
+    .ul li{
+    	position:absolute;
+    	float:left;
+    	display:none;
+    }
+    .ul li:first-child{
+    	display:block;
+    }
+    .clearfloat::after{
+    	content: ' ';
+    	display: block;
+    	clear: both;
+    }
+    .clearfloat::before{
+    	content: ' ';
+    	display: block;
+    	clear: both;
+    }
+    .wrap{
+    	width:480px;
+    	height:360px;
+    	position:absolute; 
+    	overflow:hidden;
+    	margin:20px;
+    }
+    .wrap>a{
+    	text-decoration:none;
+    	width:30px;
+    	height:30px;
+    	line-height:30px;
+    	padding-left:0px;
+    	margin:15px;   	
+    	border-radius:30px;
+    	position:absolute;
+    	z-index:10;
+    	top:40%;
+    	font-size:15px;
+    	text-align: center;
+    	background-color:black;
+    	color:#fff;
+    	opacity:0.4;
+    }
+  	.wrap .right{
+  		right:0px;
+  	}
+  	
+  	.choosebtn{
+  		height: 12px;
+  		width: 200px;
+  		position: absolute;
+  		top: 90%;
+  		left:30%;
+  	}
+  	.choosebtn a{
+  		float: left;
+  		height: 10px;
+  		width: 40px;
+  		z-index: 10px;
+  		background-color: grey;
+  		border-radius: 5px;
+  		margin-left: 8px;
+  		opacity: 0.6;
+  	}
+  	.choosebtn a:hover{
+  		opacity: 1;
+  	}
+  	.choosebtn .choosebtn-1{
+  		opacity: 1;
+  	}
+    
+</style>
+</head>
+<body>
+	<div class='wrap'>
+		<ul class='ul clearfloat'>
+			<li><a href='#'><img src='http://cdn.jirengu.com/book.jirengu.com/img/25.jpg'></a></li>
+			<li><a href='#'><img src='http://cdn.jirengu.com/book.jirengu.com/img/24.jpg'></a></li>
+			<li><a href='#'><img src='http://cdn.jirengu.com/book.jirengu.com/img/23.jpg'></a></li>
+			<li><a href='#'><img src='http://cdn.jirengu.com/book.jirengu.com/img/26.jpg'></a></li>
+		</ul>
+		<ul class='choosebtn clearfloat'>
+			<li><a href='#' class='choosebtn-1'></a></li>
+			<li><a href='#'></a></li>
+			<li><a href='#'></a></li>
+			<li><a href='#'></a></li>
+		</ul>
+		<a href='#' class='left'><</a>
+		<a href='#' class='right'>></a>
+	</div>
+	
+	<script>
+		var $l=$('.left'),
+				$r=$('.right'),
+				$ul=$('.ul'),
+				$ul_child=$('.ul').children(),
+				$choosebtn=$('.choosebtn');
+		function leftmove(){
+      clearInterval(time);
+      if(picstart()==3){btnclass(0);}
+      else{btnclass(picstart()+1);}
+			changeopacity('left', picstart());
+
+		}
+		function rightmove(){
+      clearInterval(time);
+      if(picstart()==3){btnclass(0);}
+      else{btnclass(picstart()+2);}
+			changeopacity('right', picstart());
+      time=setInterval(rightmove, 3000);
+		}
+		function clickbtn(){
+      clearInterval(time);
+			btnclass($(this).index());
+      $ul_child.hide('slow');
+      $ul_child.eq($('.choosebtn a').index($(this))).show('slow');
+      time=setInterval(rightmove, 3000);
+
+
+		}
+		function btnclass(num){
+			$choosebtn.children().children().removeClass('choosebtn-1');
+			$choosebtn.children().eq(num).children().addClass('choosebtn-1');
+		}
+		function picstart(){
+			return $ul.children(":visible").index();
+
+		}
+		function changeopacity(action, piclocation){
+      $ul_child.hide('slow');
+			if(action=='left'){
+				if(piclocation==0){
+					$ul_child.last().show('slow');
+				}
+				else{
+					$ul_child.eq(piclocation-1).show('slow');
+				}
+			}
+			if(action=='right'){
+				if(piclocation==$ul_child.length-1){
+					$ul_child.first().show('slow');
+				}
+				else{
+					$ul_child.eq(piclocation+1).show('slow');
+				}
+			}
+		}	
+		
+		$l.on('click', leftmove);
+		$r.on('click', rightmove);
+		$choosebtn.on('click', 'a', clickbtn);
+    var time=setTimeout(rightmove, 3000);
+		
+	</script>
+</body>
+</html>
