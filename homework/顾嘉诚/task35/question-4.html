@@ -1,0 +1,101 @@
+<!-- ### 4.使用构造函数创建对象的方式实现 Tab 切换功能 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 35 question 4</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			padding: 50px;
+		}
+		li{
+			list-style: none;
+		}
+		li{
+			float: left;
+			border: 1px solid #333;
+			padding: 10px 50px;
+			margin-left: -1px;
+			cursor: pointer;
+		}
+		ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		ul{
+			margin-left: 1px;
+		}
+		.pannel{
+			width: 900px;
+			height: 400px;
+			border: 1px solid #333;
+			margin-top: -1px;
+			display: none;
+		}
+		.appear{
+			display: block;
+		}
+		.selected{
+			background-color: #ccc;
+		}
+		.tab{
+			margin-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<ul>
+			<li class="selected">tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<div class="pannel appear">content1</div>
+		<div class="pannel">content2</div>
+		<div class="pannel">content3</div>
+	</div>
+	<div class="tab">
+		<ul>
+			<li class="selected">tab1</li>
+			<li>tab2</li>
+			<li>tab3</li>
+		</ul>
+		<div class="pannel appear">content1</div>
+		<div class="pannel">content2</div>
+		<div class="pannel">content3</div>
+	</div>
+
+	<script type="text/javascript">
+		function shapeTab($node){
+			this.$li = $node.find('li');
+			this.$div = $node.find('div');
+			this.bindEvent();
+		}
+		shapeTab.prototype = {
+			bindEvent: function(){
+				var me = this;
+				me.$li.on('click',function(){
+					var index = $(this).index();
+					me.$li.removeClass('selected');
+					$(this).addClass('selected');
+					me.setVisible(index);
+				});
+			},
+			setVisible(index){
+				this.$div.removeClass('appear');
+				this.$div.eq(index).addClass('appear');
+			}
+		};
+
+		$('.tab').each(function(){
+			new shapeTab($(this));
+		});
+	</script>
+</body>
+</html>

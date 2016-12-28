@@ -1,0 +1,220 @@
+<!-- ### 3.使用构造函数创建对象的方式完成轮播功能( 查看demo )，使用如下调用方式
+```
+function Carousel($node){
+//todo...
+}
+Carousel.prototype = {
+//todo ..
+};
+
+var $node1 = $('.ct').eq(0);
+var $node2 = $('.ct').eq(1);
+var carousel1 = new Carousel($node1);
+var carousel2 = new Carousel($node2);
+``` -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 35 question 3</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.img-ct>li{
+			float: left;
+		}
+		img{
+			width: 310px;
+		}
+		#nodes1,
+		#nodes2{
+			overflow: hidden;
+			width: 310px;
+			position: relative;
+		}
+		.img-ct:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.img-ct{
+			margin-left: -310px;
+		}
+		.arrow>li{
+			border-radius: 50%;
+			background-color: #ccc;
+			padding: 5px 8px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.arrow>li:hover{
+			background-color: #999;
+		}
+		.arrow>li>a{
+			color: #fff;
+		}
+		.next{
+			
+			right: 0;
+		}
+		.pre{
+			position: absolute;
+			left: 0;
+		}
+		.order{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.order>li{
+			display: inline-block;
+		}
+		.order a{
+			color: #fff;
+			font-size: 40px;
+		}
+		a.selected{
+			color: #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div id="nodes1">
+		<ul class="img-ct">
+			<li><a href="javascript:void(0)"><img src="./pic/1.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/2.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/3.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/4.jpg"></a></li>
+		</ul>
+		<ul class="arrow">
+			<li class="next"><a href="javascript:void(0)">></a></li>
+			<li class="pre"><a href="javascript:void(0)"><</a></li>
+		</ul>
+		<ul class="order">
+			<li><a href="javascript:void(0)" class="selected">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+		</ul>
+	</div>
+	<div id="nodes2">
+		<ul class="img-ct">
+			<li><a href="javascript:void(0)"><img src="./pic/1.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/2.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/3.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/4.jpg"></a></li>
+		</ul>
+		<ul class="arrow">
+			<li class="next"><a href="javascript:void(0)">></a></li>
+			<li class="pre"><a href="javascript:void(0)"><</a></li>
+		</ul>
+		<ul class="order">
+			<li><a href="javascript:void(0)" class="selected">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+		</ul>
+	</div>
+
+
+	<script type="text/javascript">
+		function Carousel($nodes){
+			this.$ct = $nodes.find('.img-ct');
+			var $ele = $nodes.find('.img-ct li');
+			this.imgW = $('img').width();
+			this.$next = $nodes.find('.next');
+			this.$pre = $nodes.find('.pre');
+			this.$order = $nodes.find('.order li');
+			this.$select = $nodes.find('.order a');
+			this.curNum = 1;
+			this.lock = false;
+			this.$ct.prepend($ele.last().clone());
+			this.$ct.append($ele.first().clone());
+			this.$ct.css({
+				'width': this.imgW * this.$ct.find('li').length
+			});
+			this.bindEvent();
+		}	
+		Carousel.prototype = {
+			bindEvent: function(){
+						var me = this;
+						me.$next.on('click',function(){
+							me.playNext();
+						});
+						me.$pre.on('click',function(){
+							me.playPre();
+						});
+						me.$order.on('click',function(){
+							var index = $(this).index() + 1;
+							if(index > me.curNum){
+								me.playNext(index);
+							}else if(index < me.curNum){
+								me.playPre(index);
+							}
+						});
+					},
+			playNext: function playNext(index){
+						var that = this;
+						if(this.lock){
+							return ;
+						}
+						this.lock = true;
+						if(index){
+							this.curNum = index;
+						}else{
+							this.curNum += 1;
+						}
+						this.$ct.animate({
+							'margin-left': - this.imgW * this.curNum
+						},500,function(){
+							if(that.curNum === 5){
+								that.curNum = 1;
+								that.$ct.css('margin-left', - that.imgW * that.curNum);
+							}
+							that.lock = false;
+							that.addSty(that.curNum - 1);
+						});
+					},
+			playPre: function(index){
+						var that = this;
+						if(this.lock){
+							return ;
+						}
+						this.lock = true;
+						if(index){
+							this.curNum = index;
+						}else{
+							this.curNum -= 1;
+						}
+						this.$ct.animate({
+							'margin-left': - this.imgW * this.curNum
+						},500,function(){
+							if(that.curNum === 0){
+								that.curNum = 4;
+								that.$ct.css('margin-left', - that.imgW * that.curNum);
+							}
+							that.lock = false;
+							that.addSty(that.curNum - 1);
+						});
+					},
+			addSty: function(index){
+						this.$select.removeClass('selected');
+						this.$select.eq(index).addClass('selected');
+					}
+		};
+		var c1 = new Carousel($('#nodes1'));
+		var c1 = new Carousel($('#nodes2'));
+	</script>
+</body>
+</html>
