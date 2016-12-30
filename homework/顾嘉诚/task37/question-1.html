@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 37 question 1</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			padding: 50px;
+		}
+		a{
+			text-decoration: none;
+		}
+		.dialog{
+			width: 300px;
+			background-color: #ccc;
+			border-radius: 3px;
+			/*display: none;*/
+			position: absolute;
+			top: 30%;
+			left: 50%;
+		}
+		.dialog h1{
+			padding: 10px 20px;
+			background-color: #555;
+			color:#fff;
+			font-size: 26px;
+		}
+		.dialog-header{
+			position: relative;
+		}
+		.dialog-header span{
+			position: absolute;
+			right: 5px;
+			top: 5px;
+		}
+		.dialog-header span>a{
+			color: #fff;
+		}
+		.dialog-content{
+			margin: 20px;
+			color: #555;
+			font-size: 14px;
+		}
+		.btn{
+			display: inline-block;
+			background-color: rgb(217,26,5);
+			padding: 5px;
+			color: white;
+			border-radius: 7px;
+		}
+		.dialog-footer{
+			text-align: center;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button id="open0">打开1</button>
+		<button id="open1">打开2</button>
+		<button id="open2">打开3</button>
+		<button id="open3">打开4</button>
+		<button id="open4">打开5</button>
+	</div>
+
+
+	<!-- ### 1.实现如下dialog 弹窗功能， 参考效果 （难度:*****）
+	//功能描述：
+	// 1. 可使用 dialog.open() 去打开弹窗
+	// 2. 当点击确定、取消时可使用用户自定义事件
+	// 3. dialog 可拖动
+	// 4. 允许页面展示多个 dialog
+	-->
+	<script type="text/javascript">
+
+		function Dialog(){
+		//todo ...
+		}
+		Dialog.prototype = {
+			defaultOpts: {
+				title: '',
+				message: '',
+				isShowCloseBtn: true,
+				isShowConfirmBtn: false,
+				onClose: function(){},
+				onConfirm: function(){},
+			},
+			setOpts: function(opts){
+				if(typeof opts === 'string'){
+					this.opts = $.extend({},this.defaultOpts,{message: opts});
+				}else if(typeof opts === 'object'){
+					this.opts = $.extend({},this.defaultOpts,opts);
+				}
+			},
+			createDialog: function(){
+				var templet = '<div class="dialog"><div class="dialog-header"><h1></h1><span><a href="javascript:void(0)" class="close">X</a></span></div><div class="dialog-content"></div><div class="dialog-footer"><a href="javascript:void(0)" class="btn cancel">取消</a><a href="javascript:void(0)" class="btn confirm">确定</a></div></div>';
+				this.$templet = $(templet);
+				$('body').append(this.$templet);
+			},
+			fillDialog: function(){
+				var opts = this.opts;
+				var $templet = this.$templet;
+				if(!opts.title){
+					$templet.find('.dialog-header').hide();
+				}//else{}
+				if(!opts.isShowCloseBtn){
+					$templet.find('.cancel').hide();
+				}//else{}
+				if(!opts.isShowConfirmBtn){
+					$templet.find('.confirm').hide();
+				}//else{}
+				this.$templet.find('.dialog-header h1').text(opts.title);
+				this.$templet.find('.dialog-content').html(opts.message);
+			},
+			open: function(opts){
+				this.setOpts(opts);
+				this.createDialog();
+				this.addEvent();
+				this.fillDialog();
+			},
+			addEvent: function(){
+				var me = this;
+				var opts = me.opts;
+				var $templet = me.$templet;
+				$templet.find('.close').on('click',function(){
+					$templet.hide();
+				});
+				$templet.find('.confirm').on('click',function(){
+					opts.onConfirm();
+					$templet.hide();
+				});
+				$templet.find('.cancel').on('click',function(){
+					opts.onClose();
+					$templet.hide();
+				});
+				$templet.on('mousedown',function(e){
+					$templet.css({'cursor':'move'});
+					var x = e.pageX - $(this).offset().left;
+					var y = e.pageY - $(this).offset().top;
+					$('body').on('mousemove',function(event){
+						var disX = event.pageX - x;
+						var disY = event.pageY - y;
+						$templet.css({
+							'left': disX,
+							'top': disY
+						});
+					});
+				});
+				$('body').on('mouseup',function(){
+					$templet.css({'cursor':'auto'});
+					$(this).off('mousemove');
+				});
+			}
+		};
+
+		$('#open0').on('click',function(){
+			var dialog0 = new Dialog();
+			dialog0.open('hello, 这里是饥人谷');
+		});
+		$('#open1').on('click',function(){
+			var dialog1 = new Dialog();
+			dialog1.open('<a href="http://jirengu.com">饥人谷</a>');
+		});
+		$('#open2').on('click',function(){
+			var dialog2 = new Dialog();
+			dialog2.open({
+	            title: '欢迎来到饥人谷',
+	            message: 'hello',
+	            isShowCloseBtn: true,
+	            isShowConfirmBtn: true,
+	            onClose: function() {
+	                alert('close')
+	            },
+	            onConfirm: function() {
+	                alert('确定');
+	            }
+	        });
+		});
+		var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表1</li><li>列表1</li></ul>';
+		$('#open3').on('click',function(){
+			var dialog3 = new Dialog();
+			dialog3.open({
+	            title: '欢迎来到饥人谷',
+	            message: tpl,
+	            isShowCloseBtn: true,
+	            isShowConfirmBtn: true,
+	            onClose: function() {
+	                alert('close')
+	            },
+	            onConfirm: function() {
+	                alert('确定');
+	            }
+	        });
+		});
+		$('#open4').on('click',function(){
+			var dialog4 = new Dialog();
+			dialog4.open({
+	            title: '欢迎来到饥人谷',
+	            message: 'hello',
+	            isShowCloseBtn: false,
+	            isShowConfirmBtn: false
+	        });
+		});		
+	</script>
+</body>
+</html>
