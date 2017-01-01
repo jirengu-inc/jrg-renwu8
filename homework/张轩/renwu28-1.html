@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>renwu28</title>
+  <script src='//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+    }
+    .title{
+      height: 200px;
+      background-color: #660;
+      margin: 10px;
+    }
+    .menu{
+      height: 50px;
+      background-color: #328;
+      margin: 10px;
+    }
+    .full{
+      margin: 10px;  
+    }  
+    .left{
+      float: left;
+      min-height: 400px;
+      width: 200px;
+      background-color: #656;
+    }
+    .main{
+      min-height: 1000px;
+      background-color: #606;
+      margin-left: 210px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">标题</div>
+  <div class="menu">菜单栏</div>
+  <div class="full">
+    <div class="left">侧边栏</div>
+    <div class="main clear">主要内容</div>
+  </div>
+  
+  <script>
+  	var $menu=$('.menu'),
+  		$full=$('.full'),
+  		$menuH=$menu.offset().top,
+  		$menuL=$menu.offset().left,
+  		$menuclone=$menu.clone().css({display: 'none'}).insertBefore($menu);	
+  	
+  	$(window).on('scroll', function(){
+  		if($(this).scrollTop()>= $menuH){
+  			if(!statefix()){
+  				startfix();
+  				$menu.data('state',1);
+  			}
+  		}
+  		else{
+  			if(!!statefix()){
+  				stopfix();
+  				$menu.data('state',0);
+  			}
+  		}
+  	})
+  	function statefix(){
+  		return $menustate=$menu.data('state');
+  	}
+  	
+  	function startfix(){
+  		$menuclone.css({
+  			position:'fixed',
+  			top:0,
+  			width:$menu.width(),
+  		})
+  		$menuclone.show();
+  		$menu.css({
+  			opacity:'0',
+  		})
+  	}
+  	function stopfix(){
+  		$menuclone.hide();
+  		$menu.css({
+  			opacity:'1',
+  		})
+  	}
+  	
+  </script>
+</body>
+</html>
