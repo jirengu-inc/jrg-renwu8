@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>renwu29-3</title>
+	<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<style>
+	.line{
+		height: 500px;
+		line-height: 500px;
+		border: 1px solid grey;
+		border-radius: 5px;
+		padding: 10px;
+		margin: 5px;
+	}
+	.button{
+		padding: 5px;
+		width: 80px;
+		border-radius: 5px;
+		margin: 5px;
+		outline-style: none;
+	}
+	.hover{
+		background-color: #6fc;
+	}
+</style>
+<body>
+	<div class="line">1</div>
+	<div class="line">2</div>
+	<button class="button">click</button>
+	<script>
+
+$('body').on('mouseenter', 'div', function(){
+	$(this).addClass('hover');
+})
+$('body').on('mouseleave', 'div', function(){
+	$(this).removeClass('hover');
+})
+		/*
+		接口
+		1.url;
+		2.get,post
+		3.输入：
+		{
+			start：2，
+			length：6
+		}
+		4.输出:
+		{
+			status：1 --OK
+			data：[3,4,5,6,7,8]
+
+			status：0 --ERROR
+		}
+		*/
+var getdata=(function(){
+			function data(){
+				$.ajax(
+					{
+						url:'http://localhost/renwu26-3.php',
+						dataType:'json',
+						type:'get',
+						data:{
+							start:$('.line').length,
+							len:6
+						},
+						success:function(json){
+							onSuccess(json);
+						},
+						error:function(){
+							onError();
+						},
+					}
+			);
+			function onSuccess(json){
+				if(json.status==1){
+					append(json.data);
+				}
+				else{
+					alert('获取失败');
+				}
+			};
+			function onError(){
+				alert('链接失败');
+			};
+
+			function append(arr){
+				for(var i=0;i<arr.length;i++){
+					$('.line:last').after('<div class="line">'+arr[i]+'</div>');
+				}
+			};
+		}
+		return {
+			data:data
+		}
+
+})()
+
+
+var zhangxuan=(function(){
+  
+
+  function showimg(p){
+    getdata.data();
+  }
+  function isimg(node){
+    node.each(function(){
+      var $node=$(this),
+          $dscrollTop=$(document).scrollTop(),
+          $wwidth=$(window).height(),
+          $picoffsetTop=$node.offset().top;
+      //原本作为优化已加载图片不执行，但对于以DOM为参照物的方法不需要
+      // if(!!$node.data('isload')){            
+      //     return
+      //   }
+      // else{
+          if(($dscrollTop+$wwidth)>$picoffsetTop){
+            showimg($node);
+          }
+
+    })
+  }
+  function bind(node){
+    var clock;
+    $(window).on('scroll', function(){
+      if(clock){
+        clearTimeout(clock);
+      }
+      clock=setTimeout(function(){
+      	    //优化滚轮停止时才执行
+        isimg(node);
+      }, 500)
+    })
+
+  }
+  return{
+    bind:bind
+  }
+})()
+zhangxuan.bind($('.button'));
+
+
+
+
+	</script>
+</body>
+</html>
