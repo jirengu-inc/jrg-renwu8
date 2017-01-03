@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 40 question 1</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		div{
+			height: 1200px;
+			background-color: #ccc;
+		}
+		.target{
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="target"></div>
+	<div></div>
+
+	<script type="text/javascript">
+		var Expouse = (function(){
+			var winH = $(window).height();
+			var flag = true;
+
+			function bind($target, handler){
+				$(window).on('scroll',function(){
+					var clock;
+					clearTimeout(clock);
+					clock = setTimeout(function(){
+						checkShow($target);
+						handler();
+					},500);
+				});
+			}
+			function one($target, handler){
+				$(window).on('scroll',function(){
+					if(!flag){
+						return;
+					}else{
+						checkShow($target);
+						flag = false;
+						handler();
+					}
+				});
+			}
+			
+
+			function checkShow($target){
+				var offsetTop = $target.offset().top;
+				var scrollTop = $(window).scrollTop();
+				if(offsetTop < (winH + scrollTop)){
+					showEle($target);
+				}
+			}
+			function showEle($ele){
+				if(isShow($ele)){
+					return ;
+				}else{
+					$ele.data('isLoaded',true);
+				}
+			}
+			function isShow($ele){
+				if(!!$ele.data('isLoaded')){
+					return true;
+				}else{
+					return false;
+				}
+			}
+
+			return {
+				bind: bind,
+				one: one
+			};
+		})();
+		Expouse.bind($('.target'),function(){console.log('always')});
+		Expouse.one($('.target'),function(){console.log('once')});
+	</script>
+</body>
+</html>
+
