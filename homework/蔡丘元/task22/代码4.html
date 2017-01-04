@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>代码4</title>
+    <style>
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .wrapper {
+        width: 600px;
+        margin: 0 auto;
+    }
+    
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .tab_nav li {
+        float: left;
+        width: 198px;
+        border: 1px solid #000;
+        line-height: 50px;
+        text-align: center;
+    }
+    
+    .tab_nav .active {
+        background: #ccc;
+    }
+    
+    .tab_content {
+        position: absolute;
+        display: none;
+        width: 598px;
+        height: 500px;
+        border: 1px solid #000;
+    }
+    
+    .tab_content.active {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="tab_card">
+        <div class="wrapper">
+            <ul class="tab_nav clearfix">
+                <li class="active" data-item="0">tab1</li>
+                <li data-item="1">tab2</li>
+                <li data-item="2">tab3</li>
+            </ul>
+            <div class="tab_content active">内容1</div>
+            <div class="tab_content">内容2</div>
+            <div class="tab_content">内容3</div>
+        </div>
+    </div>
+    <script>
+    var ul = document.querySelector('.tab_nav');
+    var lis = ul.querySelectorAll('li');
+    var contents = document.querySelectorAll('.tab_content');
+    console.log(contents);
+    ul.addEventListener('click', function(e) {
+        var data = e.target.getAttribute('data-item');
+        removeClass(lis, 'active');
+        addClass(e.target, 'active');
+        removeClass(contents, 'active');
+        addClass(contents[data], 'active');
+    })
+
+    function addClass(ele, cls) {
+        if (ele.length && ele.length > 0) {
+            for (var i = 0; i < ele.length; i++) {
+                singleAddClass(ele[i], cls);
+            }
+        } else {
+            singleAddClass(ele, cls);
+        }
+    }
+
+    function removeClass(ele, cls) {
+        if (ele.length && ele.length > 0) {
+            for (var i = 0; i < ele.length; i++) {
+                singleRemoveClass(ele[i], cls);
+            }
+        } else {
+            singleRemoveClass(ele, cls);
+        }
+    }
+
+    function singleAddClass(el, cls) {
+        if (!hasClass(el, cls)) {
+            if (el.className.length == 0) {
+                el.className += cls;
+            } else {
+                el.className = el.className + ' ' + cls;
+            }
+
+        }
+    }
+
+    function singleRemoveClass(el, cls) {
+        // 判断className 是否存在
+        if (hasClass(el, cls)) {
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            el.className = el.className.replace(reg, ' ');
+            el.className = el.className.replace(/\s{2,}/g, '');
+            el.className = trim(el.className);
+        }
+    }
+
+    function hasClass(el, cls) {
+        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        return reg.test(el.className);
+    }
+
+    function trim(str) {
+        var re = /(^\s*)|(\s*$)/g;
+        return str.replace(re, '');
+    }
+    </script>
+</body>
+
+</html>
