@@ -18,7 +18,7 @@
         .hover {
             color: #fff;
             background: #b4b4b4;
-            transition: 0.3s;
+            transition: 0.2s;
         }
         .btn {
             display: block;
@@ -41,12 +41,12 @@
 </ul>
 <a id="load-more" class="btn" href="#">加载更多</a>
 
-<script src="jquery-3.1.1.min.js"></script>
+<script src="../jquery-3.1.1.min.js"></script>
 <script>
     var $btn = $('#load-more'),
             $ct = $('#ct');
 
-    var cur = 2,
+    var cur = 3,
             clock;
 
     load();
@@ -65,11 +65,11 @@
     function load() {
         $.ajax({
             url: 'task29-3.php',
-            datatype: 'json',
+            dataType: 'json',
             type: 'GET',
             data: {
                 start: cur,
-                len: 20
+                len: 15
             },
             success: function (json) {
                 onSuccess(json);
@@ -82,9 +82,9 @@
 
     function onSuccess(json) {
         console.log(json);
-        if (json.status == 1) {
+        if (json.status === 1) {
             append(json.data);
-            cur += 6;
+            cur += 15;
         } else {
             alert('数据获取失败');
         }
@@ -94,14 +94,14 @@
     }
     function append(arr) {
         for (var i=0;i<arr.length;i++) {
-            $ct.append('<li>' + arr[i] + '<li>');
+            $ct.append('<li>'+arr[i]+'</li>');
         }
     }
     function isVisible($node) {
         var winH = $(window).height(),
                 offsetH = $node.offset().top,
                 scrollH = $(window).scrollTop();
-        if ((offsetH > scrollH) && (offsetH < scollH + winH)) {
+        if ((offsetH > scrollH) && (offsetH < scrollH + winH)) {
             return true;
         }
         return false;
