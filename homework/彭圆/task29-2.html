@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载-简单</title>
+    <style>
+        ul,li {
+            list-style: none;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .container li {
+            float: left;
+            margin: 10px 10px;
+        }
+        .container li img {
+            width: 220px;
+            height: 460px;
+        }
+        p {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<ul class="container">
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <p id="hello">hello</p>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+    <li><a href="#"><img src="img/task29-2/blank.jpg" data-src="img/task29-2/img.png"></a></li>
+</ul>
+
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    var clock;
+    $(window).on('scroll', function(){
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock = setTimeout(function(){
+            checkShow();
+        }, 300);
+    });
+
+    checkShow();
+    function checkShow() {
+        $('.container img').each(function () {
+            var $cur = $(this);
+            if ($cur.attr('isLoaded')) return;
+            if (isShow($cur)) {
+                showImg($cur);
+            }
+        })
+    }
+    function isShow($ele) {
+        var scrollH = $(window).scrollTop(),
+                winH = $(window).height(),
+                top = $ele.offset().top;
+        if (top < winH + scrollH) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function showImg($ele) {
+        $ele.attr('src',$ele.attr('data-src'));
+        $ele.attr('isLoaded',true);
+    }
+</script>
+</body>
+</html>
