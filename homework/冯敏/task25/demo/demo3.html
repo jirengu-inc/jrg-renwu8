@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab 切换</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        ul,li,div{
+            margin:0;
+            padding:0;
+        }
+        .ct{
+            border:1px solid #ccc;
+            width:500px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            float:left;
+            width:33.3%;
+            height:30px;
+            line-height: 30px;
+            border-right:1px solid #ccc;
+            border-bottom:1px solid #ccc;
+            box-sizing: border-box;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+        li:last-child{
+            border-right:none;
+        }
+        li.active{
+            background-color: #eee;;
+        }
+        ul:after{
+            content: "";
+            display: block;
+            clear:both;
+        }
+        .panel{
+            display: none;
+            height:150px;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .panel.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <ul class="list">
+        <li class="item active">热门</li>
+        <li class="item">珠宝首饰</li>
+        <li class="item">奢侈品</li>
+    </ul>
+    <div class="panel active">内容1</div>
+    <div class="panel">内容2</div>
+    <div class="panel">内容3</div>
+</div>
+<div class="ct">
+    <ul class="list">
+        <li class="item active">热门</li>
+        <li class="item">珠宝首饰</li>
+        <li class="item">奢侈品</li>
+    </ul>
+    <div class="panel active">内容1</div>
+    <div class="panel">内容2</div>
+    <div class="panel">内容3</div>
+</div>
+<script type="text/javascript">
+    $(".ct .item").on("click",function () {
+        var $item=$(this);
+        var $index=$item.index();
+        $item.addClass("active");
+        $item.siblings().removeClass("active");
+        $item.parents(".ct").find(".panel").removeClass("active");
+        $item.parents(".ct").find(".panel").eq($index).addClass("active");
+    })
+</script>
+</body>
+</html>

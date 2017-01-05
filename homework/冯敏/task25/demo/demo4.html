@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo 4</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <button id="btn1">点我</button>
+    <div id="div" style="width: 80px;height: 80px; background-color: red;position: relative"></div>
+    <p id="para">这是一段<strong>加粗的</strong>文本</p>
+    <script type="text/javascript">
+        $div=$("#div");
+        $("#btn1").on("click",function () {
+            $div.stop(true,true);
+            $div.css({width:"80px",height:"80px",left:"0",top:"0"});
+            $div.animate({width:"150px",height:"150px"})
+                .animate({left:"200px"})
+                .animate({top:"200px"});
+            $div.animate({left:"0px"})
+                .animate({top:"0px"})
+                .animate({width:"80px",height:"80px"});
+        })
+    </script>
+</body>
+</html>
