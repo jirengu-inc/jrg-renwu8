@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div id="header">我是开头</div>
+    <div id="main">我是内容</div>
+    <div id="footer">我是结尾</div>
+    <div class="c">
+        <div class="dl">睡觉</div>
+        <div class="dl">工作</div>
+        <div class="dl d2">
+            <div class="e1">aaa</div>
+            <div class="e1">bbb</div>
+            <div class="e2">ccc</div>
+        </div>
+        <div class="d3">d3</div>
+    </div>
+    <script type="text/javascript">
+        function setFooter(){
+            var winH=$(window).height(),
+                docH=$("body").height();
+            if(winH>docH){
+                $("#footer").css("margin-top",(winH-docH)+"px");
+            }
+        }
+    </script>
+</body>
+</html>
