@@ -1,0 +1,58 @@
+<!-- ### 2.创建一个 GoTop 对象，当 new 一个 GotTop 对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部。拥有以下属性和方法 (难度: ****)
+ct属性，GoTop 对应的 DOM 元素的容器
+target属性， GoTop 对应的 DOM 元素
+bindEvent 方法， 用于绑定事件
+createNode 方法， 用于在容器内创建节点 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 35 question 2</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		div{
+			background-color: #ccc;
+			height: 3000px;
+		}
+		button{
+			background-color: pink;
+			width: 100px;
+			height: 70px;
+			display: none;
+			position: fixed;
+			bottom: 50px;
+			right: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<button>点击回到顶部</button>
+	<script type="text/javascript">
+		function goTop(ct,target){
+			this.ct = ct;
+			this.target = target;
+			this.bindEvent();
+			this.createNode();
+		}
+		goTop.prototype = {
+			bindEvent: function(){
+				$(this.target).on('click',function(){
+					$(window).scrollTop('0');
+				});
+			},
+			createNode: function(){
+				var cur = this;
+				$(window).on('scroll',function(){
+					if($(window).scrollTop() > 1000){
+						$(cur.target).css('display','block');
+					}else{
+						$(cur.target).css('display','none');
+					}
+				});
+			}
+		};
+		var goBack = new goTop($('body')[0],$('button')[0]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery.extend demo</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div id="node"></div>
+    <div class="ct"></div>
+<script>
+    $node=$("#node");
+    $ct=$(".ct");
+    $node.addClass("active");
+    $node.removeClass("active");
+var styleProps = $node.css(["id","src","title"]);
+$node.css({
+    "id":"div",
+    "src":"image/xxx",
+    "title":"hello world"
+})
+    $node.attr("data-src","image/xxx")
+    $ct.prepend($node);
+    $ct.append($node);
+    $node.remove();
+    $ct.empty();
+    $ct.html("<div class='btn'></div>");
+$ct.width();
+$ct.width(500);
+$ct.height();
+$ct.height(500);
+$ct.innerWidth();
+$ct.innerHeight();
+$ct.outerWidth();
+$ct.outerHeight();
+$ct.outerWidth(true)
+$ct.outerHeight(true);
+    $(window).scrollTop();
+    $node.offset();
+$node.css({
+    "font-size":"14px",
+    "color":"red"
+})
+$node.each(function () {
+    $(this).text();
+})
+    $ct.find(".item");
+    $ct.children();
+    $node.parents(".ct").find(".panel");
+    $node.length;
+    $node.index();
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>renwu30</title>
+	<script src='//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style>
+		.water{
+			width: 300px;
+			margin: 5px;
+			position: absolute;
+			transition: all 1s;
+		}
+		.blue{
+			background-color: blue;
+			height: 300px;
+		}
+		.green{
+			background-color: green;
+			height: 400px;
+		}
+		.grey{
+			background-color: grey;
+			height: 700px;
+		}
+		.red{
+			background-color: red;
+			height: 450px;
+		}
+		.yellow{
+			background-color: yellow;
+			height: 250px;
+		}
+	</style>
+</head>
+<body>
+	<div class="water yellow"></div>
+	<div class="water blue"></div>
+	<div class="water grey"></div>
+	<div class="water yellow"></div>
+	<div class="water green"></div>
+	<div class="water red"></div>
+	<div class="water blue"></div>
+	<div class="water yellow"></div>
+	<div class="water red"></div>
+	<div class="water yellow"></div>
+	<div class="water red"></div>
+	<div class="water green"></div>
+	<div class="water blue"></div>
+	<div class="water grey"></div>
+	<div class="water blue"></div>
+	<div class="water yellow"></div>
+	<div class="water blue"></div>
+	<div class="water green"></div>
+	<div class="water red"></div>
+	<div class="water green"></div>
+</body>
+<script>
+	var zhangxuan=(function(){
+
+
+		function init(f, s){
+			var $nodeW=s.outerWidth(true),
+				$winW=f.width(),
+				$nodeNum=parseInt($winW/$nodeW),
+				nodesSumHeight=[];
+
+			for(var i=0;i<$nodeNum;i++){
+				nodesSumHeight.push(0);
+			}
+
+			s.each(function(){
+				var $el=$(this),
+					$nodeH=$el.outerHeight(true),
+					temp=getmin(nodesSumHeight);
+				$el.css({
+					left:$nodeW*temp.idx,
+					top:temp.min
+				})
+				nodesSumHeight[temp.idx]+= $nodeH  //把this的高度加入数组中
+			})
+
+
+
+		}
+
+		function getmin(arr){   //用来node高度数组中return最小值和下标
+			var idx=0,
+				minSumHeight=arr[0];
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]< minSumHeight){
+					idx=i;
+					minSumHeight= arr[i];
+				}
+			}
+			return{idx:idx, min:minSumHeight}
+		}
+
+		$(window).on('resize', function(){
+			init($(window), $('.water'))			
+		})
+
+
+		return {
+			init:init
+		}
+
+
+	})()
+
+	zhangxuan.init($(window), $('.water'));
+</script>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task25-3</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <style>
+        body{
+            width:800px;
+            margin:0 auto;
+        }
+        ul,li,div,p{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .panel{
+            display: block;
+            width:710px;
+
+            overflow: hidden;
+        }
+        .panel:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .panel ul{
+            overflow: hidden;
+            margin-right: -10px;
+            margin-bottom: -20px;
+        }
+        .panel li{
+            position: relative;
+            float: left;
+            width:230px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        .show {
+            text-align: center;
+            border:1px solid #eee;
+            padding: 10px 0;
+        }
+        .show p{
+            text-align: left;
+            font-size: 14px;
+            /*color:#aaa;*/
+            margin-bottom: 3px;
+            padding-left: 30px;
+        }
+        .show .price{
+            color:#c81623;
+        }
+        .buy{
+            display: none;
+            text-align: center;
+            border:1px solid #eee;
+            padding: 60px 0;
+            position: absolute;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+        }
+        .buy a{
+            display: inline-block;
+            width:50px;
+            border:1px solid #c81623;
+            border-radius: 2px;
+            padding:15px;
+            color:#c81623;
+            font-size: 12px;
+            background-color: #eee;
+        }
+        #btn{
+            margin-top: 20px;
+        }
+        #btn a{
+            display: inline-block;
+            padding: 10px;
+            color:#c81623;
+            border: 1px solid #c81623;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h3>珠宝首饰</h3>
+    <div class="panel">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="btn"><a href="#">添加</a></div>
+    <script>
+        var products = [
+            {
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手 猴哥款',
+                price: '￥405.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金转运珠 猴哥款',
+                price: '￥100.00'
+            },{
+                img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                name: '珂兰 黄金手链 3D猴哥款',
+                price: '￥45.00'
+            }
+        ];
+        function getLiHtml(prod) {
+            var html="";
+            html += "<li>"+
+                   " <div class='show'>"+
+                   "<img src="+prod.img+" alt='ring'>"+
+                   "<p>"+prod.name+"</p>"+
+                   "<p class='price'>"+prod.price+"</p>"+
+                   "</div>"+
+                   "<div class='buy'>"+
+                   "<a href='#'>立即抢购</a>"+
+                   "</div>";
+            return html;
+        }
+        $("#btn").on("click",function (e) {
+            e.preventDefault();
+            for(var i=0;i<products.length;i++){
+                var html=getLiHtml(products[i]);
+                $(".panel ul").append(html);
+            }
+        })
+        $("ul").on("mouseenter",'li',function(){
+            console.log(1);
+            $(this).children(".buy").css({"display":"block","background-color":"rgba(0,0,0,0.3)"});
+
+        })
+        $("ul").on("mouseleave","li",function(){
+            $(this).children(".buy").css("display","none");
+        })
+    </script>
+</body>
+</html>

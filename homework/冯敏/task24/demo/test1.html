@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试http服务器</title>
+</head>
+<body>
+<button id="btn">click me!</button>
+<div id="myDiv"></div>
+<script>
+    document.getElementById("btn").addEventListener("click",function () {
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function () {
+            if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("get","page.json");
+        xmlhttp.send();
+    })
+</script>
+</body>
+</html>

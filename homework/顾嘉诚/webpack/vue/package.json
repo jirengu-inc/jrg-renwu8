@@ -1,0 +1,25 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "just a demo about vue",
+  "main": "app.js",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whiteblank/practice"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "vue": "^2.1.8",
+    "webpack": "^1.14.0"
+  }
+}
