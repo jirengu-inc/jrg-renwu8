@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>无缝轮播</title>
+    <title>不改变DOM位置无限循环滚动轮播</title>
     <style>
         html,body,ul,li{
             margin:0;
@@ -85,10 +85,10 @@
 <body>
     <div class="carousel">
         <ul class="img-ct">
-            <li data-id=0><a href="#"><img src="../image/pic1.jpg" alt="picture"></a></li>
-            <li data-id=1><a href="#"><img src="../image/pic2.jpg" alt="picture"></a></li>
-            <li data-id=2><a href="#"><img src="../image/pic3.jpg" alt="picture"></a></li>
-            <li data-id=3><a href="#"><img src="../image/pic4.jpg" alt="picture"></a></li>
+            <li data-id=0><a href="#"><img src="image/pic1.jpg" alt="picture"></a></li>
+            <li data-id=1><a href="#"><img src="image/pic2.jpg" alt="picture"></a></li>
+            <li data-id=2><a href="#"><img src="image/pic3.jpg" alt="picture"></a></li>
+            <li data-id=3><a href="#"><img src="image/pic4.jpg" alt="picture"></a></li>
         </ul>
         <a href="#" class="pre arrow"> < </a>
         <a href="#" class="next arrow"> > </a>
@@ -134,7 +134,7 @@
         function autoPlay(){
             clock=setInterval(function(){
                 playNext();
-            },3000);
+            },2000);
         }
         function stopAuto() {
             clearInterval(clock);
