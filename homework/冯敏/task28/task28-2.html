@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个nav stickup效果</title>
+    <style>
+        body{
+            margin: 10px;
+        }
+        .header,.section,.footer{
+            width:900px;
+            margin: 0 auto;
+        }
+        .header{
+            height:50px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+        .nav{
+            height:40px;
+            background-color: deepskyblue;
+            margin-bottom: 10px;
+        }
+        .content{
+            position: relative;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: gray;
+        }
+        .content .aside{
+            width:150px;
+            height:300px;
+            position: absolute;
+            background-color: green;
+            top:10px;
+            left:10px;
+        }
+        .content .main{
+            min-height: 500px;
+            margin-left: 160px;
+            background-color: white;
+        }
+        .footer{
+            height:40px;
+            background-color: coral;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="header-ct">
+        <div class="header">header</div>
+    </div>
+    <div class="main-ct">
+        <div class="section">
+            <div class="section1">
+                <div class="nav">nav1</div>
+                <div class="content">
+                    <div class="aside">aside1</div>
+                    <div class="main">main1</div>
+                </div>
+            </div>
+            <div class="section2">
+                <div class="nav">nav2</div>
+                <div class="content">
+                    <div class="aside">aside2</div>
+                    <div class="main">main2</div>
+                </div>
+            </div>
+            <div class="section3">
+                <div class="nav">nav3</div>
+                <div class="content">
+                    <div class="aside">aside3</div>
+                    <div class="main">main3</div>
+                </div>
+            </div>
+            <div class="section4">
+                <div class="nav">nav4</div>
+                <div class="content">
+                    <div class="aside">aside4</div>
+                    <div class="main">main4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-ct">
+        <div class="footer">footer</div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $.fn.stickup=function () {
+                var $cur=this,
+                    curW=$cur.width(),
+                    curH=$cur.height(),
+                    offsettop=$cur.offset().top,
+                    offsetleft=$cur.offset().left;
+                var $curClone=$cur.clone()
+                    .css({opacity:0})
+                    .insertBefore($cur)
+                    .hide();
+                $(window).on("scroll",function () {
+                    var scrolltTop=$(this).scrollTop();
+                    if(scrolltTop>=offsettop){
+                        if(!isFixed()){
+                            setFixed();
+                        }
+                    }else{
+                        if(isFixed()){
+                            unSetFixed();
+                        }
+                    }
+                })
+                function isFixed(){
+                    return !!$cur.data("data-fixed");
+                }
+                function setFixed() {
+                    $cur.data("data-fixed",true);
+                    $cur.css(
+                        {
+                            position:"fixed",
+                            top:0,
+                            left:offsetleft,
+                            width:curW,
+                            "z-index":999,
+                            'margin':0
+                        });
+                    $curClone.show();
+                }
+                function unSetFixed() {
+                    $cur.data("data-fixed",false)
+                        .removeAttr("style");
+                    $curClone.hide();
+                }
+
+            }
+            $(".nav").each(function () {
+                $(this).stickup();
+            });
+        })
+    </script>
+</body>
+</html>

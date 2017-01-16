@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stickup 效果1</title>
+    <style>
+        body{
+            margin: 10px;
+        }
+        .header{
+            height:60px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+        .nav{
+            height:40px;
+            background-color: deepskyblue;
+            margin-bottom: 10px;
+        }
+        .content{
+            position: relative;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: gray;
+        }
+        .content .aside{
+            width:150px;
+            height:500px;
+            position: absolute;
+            background-color: green;
+            top:10px;
+            left:10px;
+        }
+        .content .main{
+            min-height: 1000px;
+            margin-left: 160px;
+            background-color: white;
+        }
+        .footer{
+            height:40px;
+            background-color: coral;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="header">header</div>
+    <div class="nav">nav</div>
+    <div class="content">
+        <div class="aside">aside</div>
+        <div class="main">main</div>
+    </div>
+    <div class="footer">footer</div>
+    <script type="text/javascript">
+        $(function(){
+            $.fn.stickup=function () {
+                var $cur=this,
+                    curW=$cur.width(),
+                    curH=$cur.height(),
+                    offsettop=$cur.offset().top,
+                    offsetleft=$cur.offset().left;
+                var $curClone=$cur.clone()
+                    .css({opacity:0})
+                    .insertBefore($cur)
+                    .hide();
+                $(window).on("scroll",function () {
+                    var scrolltTop=$(this).scrollTop();
+                    if(scrolltTop>=offsettop){
+                        if(!isFixed()){
+                            setFixed();
+                        }
+                    }else{
+                        if(isFixed()){
+                            unSetFixed();
+                        }
+                    }
+                })
+                function isFixed(){
+                    return !!$cur.data("data-fixed");
+                }
+                function setFixed() {
+                    $cur.data("data-fixed",true);
+                    $cur.css(
+                    {
+                        position:"fixed",
+                        top:0,
+                        left:offsetleft,
+                        width:curW,
+                        "z-index":999,
+                        'margin':0
+                    });
+                    $curClone.show();
+                }
+                function unSetFixed() {
+                    $cur.data("data-fixed",false)
+                        .removeAttr("style");
+                    $curClone.hide();
+                }
+
+            }
+            $(".nav").stickup();
+        })
+
+    </script>
+</body>
+</html>
