@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stick up效果</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        body,html{
+            font-size:20px;
+        }
+        #header{
+            height:100px;
+            line-height:100px;
+            background:red;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #nav{
+            height:100px;
+            line-height: 100px;
+            line-height:100px;
+            background: blue;
+            text-align: center;
+        }
+        #content{
+            background: #ccc;
+            padding: 10px;
+        }
+        #aside{
+            width:100px;
+            height:1000px;
+            background:yellow;
+            float:left;
+        }
+        #main{
+            height:1000px;
+            background: white;
+        }
+        #footer{
+            height:50px;
+            background: #2f4f4f;
+        }
+    </style>
+</head>
+<body>
+<div id="header">header</div>
+<div id="nav"> nav </div>
+<div id="content">
+    <div id="aside"> aside </div>
+    <div id="main"> main </div>
+</div>
+<div id="footer">footer</div>
+</body>
+<script>
+    //利用插件的写法
+    $.fn.stickup = function(){
+        var $cur = this,
+                curWidth = $cur.width(),
+                curHeight = $cur.height(),
+                offsetTop = $cur.offset().top,
+                offsetLeft = $cur.offset().left;
+        //克隆元素
+        var $newNav = $cur.clone()
+                .css('opacity',0)
+                .insertBefore($cur)
+                .hide();
+        //监听函数
+        $(window).on('scroll',function(){
+            var scrollTop = $(this).scrollTop();
+            if(scrollTop >= offsetTop){
+                if(!isFixed()){
+                    setFixed();
+                     }
+                }
+                else{
+                    if(isFixed()){
+                        unFixed();
+                    }
+
+            }
+        })
+        //工具函数
+        function isFixed(){
+            return !!$cur.attr('data-fixed');
+        }
+        function setFixed(){
+            $cur.attr('data-fixed',true)
+                    .css({
+                        position:'fixed',
+                        top:0,
+                        left:offsetLeft,
+                        'z-index':999,
+                        width:curWidth,
+                        height:curHeight
+                    })
+            $newNav.show();
+        }
+        function unFixed(){
+            $cur.removeAttr('data-fixed')
+                    .removeAttr('style');
+            $newNav.hide();
+        }
+    }
+    $('#header').stickup()
+    //下滑
+    $('.header-btn').on('click',function(){
+        $('.header-show').slideToggle(300)
+    })
+</script>
+</html>
