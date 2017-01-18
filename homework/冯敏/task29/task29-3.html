@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限滚动</title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            height:25px;
+            line-height: 25px;
+            margin:8px;
+        }
+        li:hover{
+            background-color: green;
+            color:white;
+        }
+        #loadMore{
+            text-decoration: none;
+            color:black;
+            display: block;
+            padding: 8px;
+            width:64px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height:25px;
+            line-height: 25px;
+            border:1px solid orangered;
+            border-radius: 2px;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<ul id="ct">
+    <li>内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+    <li>内容4</li>
+    <li>内容5</li>
+    <li>内容6</li>
+    <li>内容7</li>
+    <li>内容8</li>
+    <li>内容9</li>
+    <li>内容10</li>
+    <li>内容11</li>
+    <li>内容12</li>
+    <li>内容13</li>
+    <li>内容14</li>
+    <li>内容15</li>
+    <li>内容16</li>
+    <li>内容17</li>
+    <li>内容18</li>
+    <li>内容19</li>
+    <li>内容20</li>
+    <li>内容21</li>
+    <li>内容22</li>
+    <li>内容23</li>
+    <li>内容23</li>
+    <li>内容24</li>
+    <li>内容25</li>
+</ul>
+<a id="loadMore" href="#">加载更多</a>
+<script>
+    var len=5,
+        ready=true,
+        $ct=$("#ct"),
+        $loadMore=$("#loadMore");
+    var clock;
+    $(window).on("scroll",function () {
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock=setTimeout(function () {
+            checkShow();
+        },200)
+    })
+    function checkShow() {
+        if(isShow($loadMore)){
+            showMore();
+        }
+    }
+    function isShow($elem) {
+        var srollHeight=$(window).scrollTop(),
+            windowHeight=$(window).height(),
+            elemTop=$elem.offset().top;
+        if(srollHeight+windowHeight>elemTop){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    function showMore() {
+        if(!ready){
+            return;
+        }
+        ready=false;
+        var start=$ct.children().length;
+        $.ajax({
+            url: "getMore.php",
+            method: "GET",
+            data: {
+                start: start+1,
+                length: len
+            },
+            dataType: 'json',
+            success: function (resp) {
+                if (resp && resp.status == 1) {
+                    var items = resp.data;
+                    for (var i = 0; i < items.length; i++) {
+                        $ct.append("<li>" + items[i] + "</li>");
+                    }
+                } else {
+                    alert("error !");
+                }
+            },
+            error: function () {
+                alert("error !");
+            },
+            complete:function () {
+                ready=true;
+            }
+        })
+    }
+</script>
+</body>
+</html>

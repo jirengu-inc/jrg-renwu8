@@ -44,28 +44,29 @@
     </ul>
     <a id="loadMore" href="#">加载更多</a>
     <script>
-        var len=5,
+        var len=4,
             ready=true,
             $ct=$("#ct");
-        $("#loadMore").on("click",function(){
+        $("#loadMore").on("click",function(event){
             if(!ready){
                 return;
             }
+            event.preventDefault();
             ready=false;
             var start=$ct.children().length;
             var $me=$(this);
             $me.text("正在加载");
             $.ajax({
                 url: "getMore.php",
-                method: get,
+                method: "GET",
                 data: {
-                    start: start,
+                    start: start+1,
                     length: len
                 },
-                dataType: JSON,
+                dataType: 'json',
                 success: function (resp) {
-                    if (resp && resp.status == "success") {
-                        var items = resp.items;
+                    if (resp && resp.status == 1) {
+                        var items = resp.data;
                         for (var i = 0; i < items.length; i++) {
                             $ct.append("<li>" + items[i] + "</li>");
                         }
