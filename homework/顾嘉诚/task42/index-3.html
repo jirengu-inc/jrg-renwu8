@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>loading</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+
+		body{
+			padding: 100px;
+			background-color: rgb(78,197,191);
+		}
+
+		.load1:after,
+		.load1:before{
+			content: '';
+			display: block;
+			position: absolute;
+		}
+		.load1:after,
+		.load1:before,
+		.load1{
+			width: 8px;
+			height: 30px;
+			background-color: #fff;
+			animation: 0.8s load1 infinite;
+		}
+		.load1{
+			position: relative;
+			animation-delay: 0.1s;
+		}
+		.load1:after{
+			left: -12px;
+			
+		}
+		.load1:before{
+			left: 12px;
+			animation-delay: 0.2s;
+		}
+		@keyframes load1{
+			from{
+				height: 30px;
+				box-shadow: 0 -5px 0 0 #fff;
+			}
+			50%{
+				height: 50px;
+				box-shadow: 0 -10px 0 0 #fff;
+			}
+			to{
+				height: 30px;
+				box-shadow: 0 -5px 0 0 #fff;
+			}
+		}
+
+		.load2{
+			margin-top: 100px;
+			width: 100px;
+			height: 100px;
+			border: 50px solid rgba(0,0,255,0.1);
+			border-radius: 50%;
+			border-top: 50px solid rgb(0,0,255);
+			animation: 1s round infinite linear;
+		}
+		@keyframes round{
+			form{
+				transform: rotate(0);
+			}
+			to{
+				transform: rotate(360deg)
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="load1"></div>
+	<div class="load2"></div>
+</body>
+</html>
