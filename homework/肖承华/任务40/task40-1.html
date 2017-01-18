@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>ex</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<style>
+	ul{
+		padding: 0;
+		margin: 0;
+		background-color: #fafafa;
+	}
+	li {
+		list-style: none;
+		padding: 15px 0;
+		margin: 10px 0px;
+		text-align: center;
+		color: #eee;
+	}
+	#one{
+		background-color: red;
+	}
+	#multiple{
+		background-color: orange;
+	}
+</style>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li id="one">出现一次</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li id="multiple">出现多次</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script src="exposure.js"></script>
+	<script>
+		$(window).on('scroll',function(){
+		
+			Exposure.one($('#one'), function(){
+		    console.log($(this));    // $target
+			})
+			Exposure.bind($('#multiple'), function(){
+   			console.log($(this));    // $target
+			});
+		})
+				
+	</script>
+</body>
+</html>

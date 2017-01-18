@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery插件轮播</title>
+</head>
+<style>
+	html,body,ul{
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.clearfixed:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.carousel{
+		position: relative;
+		width: 550px;
+		height: 406px;
+		overflow: hidden;
+	}
+	.img-ct {
+		position: absolute;
+
+	}
+	.img-ct li{
+		float: left;
+		
+	}
+	.img-ct li img{
+		width: 550px;
+		height: 406px;
+	}
+	.arrow {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 30px;
+		text-align: center;
+		color: #fff;
+		background-color: #333;
+		position: absolute;
+		top: 50%;
+		margin-top:-15px;
+		opacity: 0.6;
+	}
+	.arrow:hover{
+		opacity: 1;
+	}
+	.arrow.left{
+		left: 10px;
+	}
+	.arrow.right{
+		right:10px;
+	}
+	.bullet{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform:translateX(-50%);
+	}
+
+	.bullet>li{
+		display: inline-block;
+		width: 16px;
+		height: 4px;
+		border-radius: 4px;
+		background-color: #eee;
+		cursor: pointer;
+	}
+	.bullet>li.active{
+		background-color: #666;
+	}
+</style>
+<body>
+	<div class="carousel">
+		<ul class="img-ct clearfixed">
+			<li><a href="JavaScript:;"><img src="1.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="2.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="3.jpg" alt=""></a></li>
+			<li><a href="JavaScript:;"><img src="4.jpg" alt=""></a></li>
+		</ul>
+		<a href="JavaScript:;" class="arrow left"><</a>
+		<a href="JavaScript:;" class="arrow right">></a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+
+<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+<script src="carousel oop.js"></script>
+<script>
+	$('.carousel').each(function(){
+	    new Carousel($(this));
+	});
+</script>
+
+</body>
+</html>
