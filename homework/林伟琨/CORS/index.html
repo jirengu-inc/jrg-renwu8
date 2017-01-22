@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<style>
+    ul,p{
+    padding: 0;
+    margin: 0
+  }
+  li{
+    list-style: none;
+  }
+  a{
+    color:#333;
+    text-decoration: none;
+  }
+  .active{
+    background-color: #b3b3b3;
+  }
+  .clear:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .tab-ct{
+    border: 1px solid #cacaca;
+    width: 635px;
+    margin:0 auto;
+  }
+  .tab-ct img{
+      height: 150px;
+      width: 150px;
+  }
+  .tab-ct ul li{
+    position: relative;
+    float: left;
+    border: 1px solid #cacaca;
+    padding: 20px;
+    margin-left: 30px;
+    margin-top:30px;
+  }
+  .tab-ct ul{
+    margin-left: -31px;
+    margin-top: -31px;
+  }
+  .tab-ct p{
+    font-size: 12px;
+  }
+  .tab-ct p:last-child{
+    color: red;
+  }
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(179,179,179,0.8);
+    display: none;
+  
+  }
+    .btn{
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 2px 4px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform:translate(-50%,-50%);   
+  }
+  .click{
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 2px 4px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  body{
+    text-align: center;
+  }
+  .show{
+    display: block;
+  }
+</style>
+<script src='http://apps.bdimg.com/libs/jquery/2.1.1/jquery.js'></script>
+<body>
+  <div class="tab-ct clear">
+        <ul>  
+          <li>
+            <div class="mask"><a class="btn" href="#">立即抢购</a></div>
+            <a href=""><img src="pic1.jpg" alt="#"></a>
+            <p class='describe'>这是一段描述</p>
+            <p class='price'>￥1699.00</p>
+          </li>
+          <li>
+            <div class="mask"><a class="btn" href="#">立即抢购</a></div>
+            <a href=""><img src="pic2.jpg" alt="#"></a>
+            <p class='describe'>这是一段描述</p>
+            <p class='price'>￥1699.00</p>
+          </li>
+          <li>
+            <div class="mask"><a class="btn" href="#">立即抢购</a></div>
+            <a href=""><img src="pic3.jpg" alt="#"></a>
+            <p class='describe'>这是一段描述</p>
+            <p class='price'>￥1699.00</p>
+          </li>
+          <li>
+            <div class="mask"><a class="btn" href="#">立即抢购</a></div>
+            <a href=""><img src="pic2.jpg" alt="#"></a>
+            <p class='describe'>这是一段描述</p>
+            <p class='price'>￥1699.00</p>
+          </li>
+          <li>
+            <div class="mask"><a class="btn" href="#">立即抢购</a></div>
+            <a href=""><img src="pic1.jpg" alt="#"></a>
+            <p class='describe'>这是一段描述</p>
+            <p class='price'>￥1699.00</p>
+          </li>
+          <li>
+            <div class="mask"><a class="btn" href="#">立即抢购</a></div>
+            <a href=""><img src="pic2.jpg" alt="#"></a>
+            <p class='describe'>这是一段描述</p>
+            <p class='price'>￥1699.00</p>
+          </li>
+        </ul>
+    </div>
+    <a class="click" href="#">加载更多</a>
+
+<script>
+  function ajax(json){
+    var xmlhttp= new XMLHttpRequest();
+    var del='';
+    for(var attr in json.data){
+      del+=attr+'='+json.data[attr]+'&';
+    }
+    del=del.slice(0,del.length-1);
+    xmlhttp.onreadystatechange=function(){
+      if(xmlhttp.readyState==4&&xmlhttp.status==200){
+
+        load(xmlhttp.responseText);
+      
+      }
+    }
+    if(json.type==='get'){
+      xmlhttp.open('GET',json.url+'?'+del,true);
+      xmlhttp.send();
+    }else{
+      xmlhttp.open('POST',json.url,true);
+      xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+      xmlhttp.send(del);
+    }
+  }
+
+
+/*  function dealWith(content){
+    var arr= JSON.parse(content);
+    for(var i=0; i<arr.length; i++){
+      var $li=$('.tab-ct li').eq(0).clone();
+      $li.find('img').attr('src',arr[i].img);
+      $li.find('p').eq(0).text(arr[i].name);
+      $li.find('p').eq(1).text(arr[i].price);
+      $('.tab-ct li:last').after($li);
+    }
+  }*/
+
+  $('.tab-ct').on('mouseenter mouseleave','li',function(){
+    $('.mask').eq($(this).index()).toggleClass('show')
+  })
+
+
+  $('.click').on('click',function(e){
+    e.preventDefault();
+    ajax({
+      url:'http://b.lwk.com:8080/getSomething',
+      type:'get',
+      data:{
+        callback:load
+      }
+    })
+  })
+
+
+  function load (thing){ 
+
+    var arr = JSON.parse(thing);
+    for(var i=0; i<arr.length; i++){
+      var $li=$('.tab-ct li').eq(0).clone();
+      $li.find('img').attr('src',arr[i].img);
+      $li.find('p').eq(0).text(arr[i].name);
+      $li.find('p').eq(1).text(arr[i].price);
+      $('.tab-ct li:last').after($li);
+    }
+
+  }
+
+
+
+
+//这是JSONP的跨域  
+/*  $('.click').on('click',function(){
+    oScript=document.createElement('script');
+    oScript.src='http://b.lwk.com:8080/postSomething';
+    document.body.appendChild(oScript);
+    document.body.removeChild(oScript);
+  })*/
+
+/*  $('.click').on('click',function(){
+    var script=
+  })*/
+</script>
+</body>
+</html>
