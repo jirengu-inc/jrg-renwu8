@@ -1,0 +1,20 @@
+<html>
+<style>
+    html,body{
+        margin: 0;
+    }
+    input{
+        padding: 10px 30px;
+        width: 300px;
+    }
+</style>
+    <input id="input" type="text"  placeholder="http://b.sheldon.com:8080/降域.html">
+<script>
+// URL: http://b.jrg.com:8080/b.html
+ 
+document.querySelector('#input').addEventListener('input', function(){
+    window.parent.document.querySelector('input').value = this.value;
+})
+document.domain = 'sheldon.com';
+</script>
+</html>
