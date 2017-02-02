@@ -3,7 +3,10 @@ import './index.scss';
 import $ from '../jq.js';
 
 const $btn = $('.btn');
-$btn.on('click', function () {
+insertItems();
+insertItems();
+insertItems();
+function insertItems(){
     let data = getRandomData();
     let $ul = $('<ul class="panel"></ul>');
     for (let index in data) {
@@ -17,4 +20,5 @@ $btn.on('click', function () {
         $ul.append($li);
     }
     $btn.before($ul);
-});
+}
+$btn.on('click', insertItems);

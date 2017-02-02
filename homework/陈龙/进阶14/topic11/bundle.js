@@ -59,7 +59,10 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var $btn = (0, _jq2.default)('.btn');
-	$btn.on('click', function () {
+	insertItems();
+	insertItems();
+	insertItems();
+	function insertItems() {
 	    var data = (0, _mock2.default)();
 	    var $ul = (0, _jq2.default)('<ul class="panel"></ul>');
 	    for (var index in data) {
@@ -73,7 +76,8 @@
 	        $ul.append($li);
 	    }
 	    $btn.before($ul);
-	});
+	}
+	$btn.on('click', insertItems);
 
 /***/ },
 /* 1 */
