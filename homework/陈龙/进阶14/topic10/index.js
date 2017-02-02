@@ -79,15 +79,15 @@ class MyComponent extends Component {
                 <div className="aside1">
                     <ul className="tabs">
                         <li>
-                            <a href="#">热门</a>
+                            <a href="javascript:void(0)">热门</a>
                         </li>
                         <span>|</span>
                         <li>
-                            <a href="#">数码</a>
+                            <a href="javascript:void(0)">数码</a>
                         </li>
                         <span>|</span>
                         <li>
-                            <a href="#">鞋子</a>
+                            <a href="javascript:void(0)">鞋子</a>
                         </li>
                     </ul>
                     <ul className="content">
@@ -97,11 +97,11 @@ class MyComponent extends Component {
                 <div className="aside1">
                     <ul className="tabs">
                         <li>
-                            <a href="#">热门</a>
+                            <a href="javascript:void(0)">热门</a>
                         </li>
                         <span>|</span>
                         <li>
-                            <a href="#">数码</a>
+                            <a href="javascript:void(0)">数码</a>
                         </li>
                         <span>|</span>
                         <li>
