@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <p id="dom0">点我DOM0事件</p>
+	<button id="btnAddDom0">添加DOM0事件</button>
+	<button id="btnRemoveDom0">移除DOM0事件</button>
+
+
+	<p id="dom2">点我DOM2事件</p>
+	<button id="btnAddDom2">添加DOM2事件</button>
+	<button id="btnRemoveDom2">移除DOM2事件</button>
+    <script>
+    	var dom0 = document.getElementById("dom0");
+    	var dom2 = document.getElementById("dom2");
+
+
+    	var AddDom0 = document.getElementById("btnAddDom0");
+    	var removeDom0 = document.getElementById("btnRemoveDom0");
+    	var addDom2 = document.getElementById("btnAddDom2");
+    	var removeDom2 = document.getElementById("btnRemoveDom2");
+
+
+    	//DOM0
+    	//添加DOM0事件
+    	AddDom0.onclick = function() {
+    		console.log("已添加DOM0事件")
+    		dom0.onclick = function() {
+    			console.log("点我DOM0事件");
+    		}
+    	}
+    	//移除DOM0事件
+    	removeDom0.onclick = function () {
+    		console.log("已移除DOM0事件");
+    		dom0.onclick = null;
+    	}
+
+
+    	//DOM2  	
+    	addDom2.addEventListener("click",sayhello);
+    	removeDom2.addEventListener("click",sayhello);
+
+    	function sayhello(){
+    		if(this.id === "btnAddDom2"){
+    			//添加DOM2事件
+	    		dom2.addEventListener("click",dom2event);
+	    		console.log("已添加DOM2事件");
+    		}
+
+    		if(this.id === "btnRemoveDom2"){
+    			//移除DOM2事件
+    			dom2.removeEventListener("click",dom2event);
+    			console.log("已移除DOM2事件");
+    		}
+    	}
+
+    	function dom2event(){
+    		console.log("点我DOM2事件")
+    	}
+    </script>
+    </body>
+</html>

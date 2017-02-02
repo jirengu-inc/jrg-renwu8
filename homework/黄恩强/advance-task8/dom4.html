@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <script>
+    //创建一个元素
+    var newDiv = document.createElement("div");
+    var newCont = document.createTextNode("我是Div标签")
+    //设置元素属性
+    newDiv.setAttribute("id","mydiv");
+    console.log(newDiv); //输出<div id="mydiv"></div>
+    //删除元素设置
+    newDiv.removeAttribute("id");
+    console.log(newDiv);//输出<div></div>;
+    //插入元素
+    newDiv.appendChild(newCont);
+    document.body.appendChild(newDiv); //输出<div>我是Div标签</div>
+    </script>
+    </body>
+</html>

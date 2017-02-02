@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+	    <div class="mod-tabs">
+	   <ul>
+	       <li>list1<li>
+	       <li>list2<li>
+	       <li>list3<li>
+	   </ul>
+	   <button class="btn">点我</btn>
+	</div>
+	<script>
+		var SelectorLi1 = document.getElementsByTagName("li");
+		console.log(SelectorLi1); //输出[li, li, li, li, li, li]
+		var SelectorLi2 = document.querySelectorAll("ul li");
+		console.log(SelectorLi2); //输出[li, li, li, li, li, li]
+
+		var btn0 = document.getElementsByTagName("button");
+		console.log(btn0[0]);
+		var btn1 = document.getElementsByClassName("btn");
+		console.log(btn1[0]);
+		var btn2 = document.querySelector(".btn");
+		console.log(btn2);
+		var btn3 = document.querySelectorAll(".btn");
+		console.log(btn3[0]);
+	</script>
+    </body>
+</html>

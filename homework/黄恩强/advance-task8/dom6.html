@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+   	<div id="main" class="wrap">
+   		<h1 class="header">header</h1>
+   		<input type="button" name="btn" value="button">
+   		<p id="para">paragraph <span> in a word..</span></p>
+   	</div>
+    <script>
+   		//获取元素节点
+    	var main = document.getElementById("main");
+    	var para = document.getElementById("para");
+    	var mydiv = document.getElementsByTagName("div");
+    	console.log(main); //输出<div id="main" class="warp">...</div>
+      //判断指定的类值是否存在
+    	console.log(main.classList.contains("wrap")); //输出true
+      //添加单个类值
+      main.classList.add("clearfix");
+      console.log(main); //输出<div id="main" class="wrap clearfix">...</div>
+      //添加多个类值
+      main.classList.add("xx0","xx1");
+      para.classList.add("xx0","xx1");
+      console.log(main,para); //输出<div id="main" class="wrap clearfix xx0 xx1">...</div><p id="para" class="xx0 xx1">...</p>
+      //删除指定类值
+      main.classList.remove("xx0","xx1");
+      para.classList.remove("xx0","xx1");
+      console.log(main,para); //输出<div id="main" class="wrap clearfix">...</div><p id="para" class="">...</p>
+      //返回指定类值
+      console.log(main.classList.item(0)); //输出wrap
+
+      //当传入一个参数时，类值存在删除并返回false，类值不存在则添加并返回true
+      console.log(main.classList.toggle("wrap")); //false
+      console.log(main.classList.toggle("xx")); //true
+
+      //当传入两个参数时，第二参数为true时添加指定类值，如果为false则删除指定类值
+      main.classList.toggle("wrap",true);
+      console.log(main); //输出<div id="main" class="clearfix xx wrap">...</div>
+      main.classList.toggle("xx",false);
+      console.log(main);//输出<div id="main" class="clearfix wrap">...</div>
+    </script>
+    </body>
+</html>
