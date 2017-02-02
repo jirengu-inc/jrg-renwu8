@@ -89,6 +89,7 @@
     		console.log(e.target.className);
     		 var tmp = e.target.className;
     		 if(tmp === 'mask' | tmp === 'x' | tmp === 'false-btn'){
+    		 	e.stopPropagation();
     		 	mask.classList.add('hide');
     		 }
     	}
