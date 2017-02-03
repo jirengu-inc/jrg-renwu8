@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+	<ul class="ct">
+	    <li data-img="1.png">鼠标放置查看图片1</li>
+	    <li data-img="2.png">鼠标放置查看图片2</li>
+	    <li data-img="3.png">鼠标放置查看图片3</li>
+	</ul>
+	<div class="img-preview"></div>
+	<script>
+	//你的代码
+	var ct = $('.ct');
+	var preview = $('.img-preview');
+	ct.addEventListener('mouseover',function(e){
+		//移除图片还原默认状态
+		if(preview.children.length > 0){
+			[].forEach.call(preview.children,function(node){
+				preview.removeChild(node);
+			})
+		}
+		//鼠标悬浮指定位置显示对应图像
+		if(e.target.tagName.toLowerCase() === 'li'){
+			var image = document.createElement('img');
+			image.src = './img/' + e.target.dataset.img;
+			preview.appendChild(image);
+		}
+	})
+
+	function $ (cls){
+		return document.querySelector(cls);
+	}
+	function $$(cls){
+		return document.querySelector(cls);
+	}
+	</script>
+    </body>
+</html>

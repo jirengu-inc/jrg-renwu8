@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	body,html,div,p,ul,li{margin:0;padding:0;}
+
+        	.mask{
+        		width:100%;
+        		height:100%;
+        		background: rgba(0,0,0,0.5);
+        		position: absolute;
+        		top:0;
+        	}
+        	.box{
+        		width:400px;
+        		height:200px;
+        		background:#fff;
+        		position: absolute;
+        		top:50%;
+        		left:50%;
+        		margin-top:-100px;
+        		margin-left:-200px;
+        	}
+			.box > h1 {
+				font-size: 18px;
+				margin-left: 10px;
+			}
+			.box > .x{
+				position: absolute;
+				top: 6px;
+				right: 10px;
+				cursor: pointer;
+			}
+			.box > .wrap{
+				border-top:1px solid #ccc;
+				border-bottom:1px solid #eee;
+			}
+			.box > .wrap > p {
+				margin:20px 10px;
+			}
+			.false-btn{
+				position: absolute;
+				right:50px;
+				bottom:10px;
+				cursor: pointer;
+			}
+			.true-btn{
+				position: absolute;
+				right: 10px;
+				bottom:10px;
+				cursor: pointer;
+			}
+			.hide{
+				display:none;
+			}
+        </style>
+    </head>
+    <body>
+
+    	<button class="btn">点我</button>
+
+		<div class="mask hide">
+			<div class="box">
+				<h1>我是标题</h1>
+					
+				<div class="x">x</div>
+				<div class="wrap">
+					<p>我是内容1</p>
+					<p>我是内容2</p>
+				</div>
+
+				<div class="false-btn">取消</div>
+				<div class="true-btn">确认</div>
+			</div>
+		</div>
+    <script>
+    	var btn = document.querySelector('.btn'),
+    		mask = document.querySelector('.mask');
+
+    	//弹出弹窗
+    	btn.addEventListener('click',function() {
+    		mask.classList.remove('hide');
+    	})
+    	//添加代理事件，mask,x,btn可以点击隐藏弹窗
+    	mask.addEventListener('click',hide);
+
+    	function hide(e){
+    		console.log(e.target.className);
+    		 var tmp = e.target.className;
+    		 if(tmp === 'mask' | tmp === 'x' | tmp === 'false-btn'){
+    		 	e.stopPropagation();
+    		 	mask.classList.add('hide');
+    		 }
+    	}
+
+    </script>
+    </body>
+</html>
