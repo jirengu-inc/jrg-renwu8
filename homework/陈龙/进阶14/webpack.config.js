@@ -1,7 +1,7 @@
 module.exports = {
-  entry:  __dirname + "/topic11/entry.js",
+  entry:  __dirname + "/react-demo/entry.js",
   output: {
-    path: __dirname + "/topic11",
+    path: __dirname + "/react-demo",
     filename: "bundle.js"
   },
 

@@ -1,0 +1,20 @@
+@mixin clearFloat {
+    content: '';
+    display: block;
+    clear: both;
+}
+.wrapper{
+    max-width: 900px;
+    margin: 0 auto;
+    &:after{
+        @include clearFloat;
+    }
+    img{
+        float:left;
+        
+        width: 300px;
+        height:300px;
+
+        margin:50px;
+    }
+}
