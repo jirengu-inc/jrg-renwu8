@@ -1,7 +1,7 @@
 module.exports = {
-  entry:  __dirname + "/advance16/topic1/entry.js",
+  entry:  __dirname + "/advance16/topic6/entry.js",
   output: {
-    path: __dirname + "/advance16/topic1/",
+    path: __dirname + "/advance16/topic6/",
     filename: "bundle.js"
   },
 

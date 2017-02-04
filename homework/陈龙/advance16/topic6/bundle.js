@@ -70,48 +70,75 @@
 	    listData = [],
 	    $btn = (0, _jq2.default)('.btn');
 
-	$btn.on('click', function () {
-	    console.log((0, _jq2.default)(this).data('isLoading'), $btn.data('isLoading'));
-	    getData(index);
-	});
-
+	//判断元素是否在可视窗口上
+	var isShow = function isShow($node) {
+	    var windowHeight = (0, _jq2.default)(window).height(),
+	        scrollTop = (0, _jq2.default)(window).scrollTop(),
+	        offsetTop = $node.offset().top,
+	        nodeHeight = $node.height();
+	    if (windowHeight + scrollTop > offsetTop && offsetTop + nodeHeight > scrollTop) {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	};
+	//遍历并加载所有图片
+	var loadImgs = function loadImgs() {
+	    console.log('1');
+	    (0, _jq2.default)('.item img').not('.load').each(function (index) {
+	        console.log('2');
+	        var $node = (0, _jq2.default)(this);
+	        if (isShow($node)) {
+	            $node.addClass('load');
+	            $node.attr('src', $node.attr('data-src'));
+	        }
+	    });
+	};
+	//渲染List组件（react）
 	var doRender = function doRender(data) {
 	    (0, _reactDom.render)(_react2.default.createElement(_index2.default, { data: data }), (0, _jq2.default)('.wrapper')[0]);
 	};
 	//获取数据
 	var getData = function getData() {
-	    var i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-	    var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
-
-	    if ($btn.data('isLoading')) {
-	        return;
-	    }
-	    $btn.html('<img src="./loading.gif"/>').data('isLoading', true);
-	    _jq2.default.get('http://localhost:8080/getInfo', {
-	        index: index,
-	        size: size
-	    }).done(function (res) {
+	    _jq2.default.get('http://localhost:8080/getNews', { index: index }).done(function (res) {
 	        if (res.status === 0) {
 	            var data = res.data;
-	            index = i + data.length;
-	            console.log(data, index);
+	            index += data.length;
 	            if (data.length > 0) {
 	                listData.push.apply(listData, _toConsumableArray(data));
 	                doRender(listData);
+	                if (isShow($btn)) {
+	                    getData();
+	                }
+	                loadImgs();
+	            } else {
+	                $btn.html('<span>没有更多</span>').data('isOver', true);
 	            }
 	        } else {
 	            alert('获取数据失败!');
 	        }
-	        console.log('done');
-	    }).fail(function () {
-	        console.log('fail');
-	    }).always(function () {
-	        console.log('alway');
-	        $btn.html('加载更多').data('isLoading', false);
+	    }).fail(function () {}).always(function () {
+	        if ($btn.data('isOver') !== true) {
+	            $btn.html('加载更多').data('isLoading', false);
+	        }
 	    });
 	};
+	var getDataWithCheck = function getDataWithCheck() {
+	    if ($btn.data('isLoading') || $btn.data('isOver')) {
+	        return;
+	    }
+	    $btn.html('<img src="./loading.gif"/>').data('isLoading', true);
+	    getData();
+	};
+	getDataWithCheck();
 
-	getData(0, 2);
+	//监听列表是否滚动到底部，若滚动到底部则再次加载(用最底部的元素是否在视窗范围内来判断)
+	(0, _jq2.default)(window).scroll(function () {
+	    if (isShow($btn)) {
+	        getDataWithCheck();
+	    }
+	    loadImgs();
+	});
 
 /***/ },
 /* 1 */
@@ -31694,8 +31721,22 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                "li",
-	                null,
-	                this.props.content
+	                { className: "item" },
+	                _react2.default.createElement(
+	                    "a",
+	                    { href: this.props.item.link },
+	                    _react2.default.createElement("img", { src: "./loading.gif", "data-src": this.props.item.img }),
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        this.props.item.title
+	                    ),
+	                    _react2.default.createElement(
+	                        "p",
+	                        null,
+	                        this.props.item.brif
+	                    )
+	                )
 	            );
 	        }
 	    }]);
@@ -31719,7 +31760,7 @@
 	                "ul",
 	                { className: "list" },
 	                this.props.data.map(function (e, index) {
-	                    return _react2.default.createElement(Item, { key: index, content: e });
+	                    return _react2.default.createElement(Item, { key: index, item: e });
 	                })
 	            );
 	        }
@@ -31765,7 +31806,7 @@
 
 
 	// module
-	exports.push([module.id, "ul {\n  margin: 0;\n  padding: 0; }\n\nli {\n  list-style: none; }\n\na {\n  text-decoration: none; }\n\n.btn {\n  display: block;\n  text-align: center;\n  margin: 10px auto;\n  height: 40px;\n  width: 80px;\n  line-height: 40px;\n  border: 1px solid #E27272;\n  border-radius: 3px;\n  background-color: #fff;\n  color: #E27272; }\n  .btn img {\n    width: 40px;\n    height: 40px; }\n\n.list li {\n  margin-top: 10px;\n  padding: 10px;\n  color: black;\n  border: 1px solid #ccc;\n  cursor: pointer; }\n  .list li:hover {\n    color: white;\n    background-color: green; }\n", ""]);
+	exports.push([module.id, "ul {\n  margin: 0;\n  padding: 0; }\n\nli {\n  list-style: none; }\n\na {\n  text-decoration: none; }\n\n.btn {\n  display: block;\n  text-align: center;\n  margin: 10px auto;\n  height: 40px;\n  width: 80px;\n  line-height: 40px;\n  border: 1px solid #E27272;\n  border-radius: 3px;\n  background-color: #fff;\n  color: #E27272; }\n  .btn img {\n    width: 40px;\n    height: 40px; }\n\n.list .item:hover {\n  color: white;\n  background-color: green; }\n\n.list .item a {\n  display: block;\n  margin-top: 10px;\n  padding: 10px;\n  color: black;\n  border: 1px solid #ccc;\n  cursor: pointer; }\n  .list .item a:after {\n    content: '';\n    display: block;\n    clear: both; }\n  .list .item a img {\n    width: 50px;\n    height: 50px; }\n  .list .item a h3 {\n    margin-left: 60px;\n    font-size: 14px; }\n  .list .item a p {\n    margin-left: 60px;\n    font-size: 14px;\n    margin-top: 10px;\n    color: #ccc; }\n", ""]);
 
 	// exports
 
