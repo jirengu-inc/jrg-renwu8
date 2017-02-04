@@ -5,7 +5,7 @@ import './index.scss';
 
 class PicItem extends Component {
     render() {
-        return (<img src='./img/header-bg.jpg' data-src={this.props.url}/>)
+        return (<img src='./img/loading.gif' data-src={this.props.url}/>)
     }
 }
 

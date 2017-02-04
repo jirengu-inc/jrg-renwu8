@@ -31685,7 +31685,7 @@
 	    _createClass(PicItem, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement('img', { src: './img/header-bg.jpg', 'data-src': this.props.url });
+	            return _react2.default.createElement('img', { src: './img/loading.gif', 'data-src': this.props.url });
 	        }
 	    }]);
 
