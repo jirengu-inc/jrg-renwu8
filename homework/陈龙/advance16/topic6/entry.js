@@ -23,16 +23,18 @@ const isShow = ($node) => {
     }
 }
 //遍历并加载所有图片
-const loadImgs = ()=>{
+const loadImgs = () => {
     console.log('1');
-    $('.item img').not('.load').each(function(index){
-    console.log('2');
-        let $node = $(this);
-        if(isShow($node)){
-            $node.addClass('load');
-            $node.attr('src',$node.attr('data-src'));
-        }
-    });
+    $('.item img')
+        .not('.load')
+        .each(function (index) {
+            console.log('2');
+            let $node = $(this);
+            if (isShow($node)) {
+                $node.addClass('load');
+                $node.attr('src', $node.attr('data-src'));
+            }
+        });
 }
 //渲染List组件（react）
 const doRender = (data) => {
@@ -64,10 +66,10 @@ const getData = () => {
         })
         .fail(function () {})
         .always(function () {
-            if ($btn.data('isOver')!==true) {
+            if ($btn.data('isOver') !== true) {
                 $btn
-                    .html('加载更多')
                     .data('isLoading', false);
+                    // .html('加载更多')
             }
         });
 };
@@ -77,6 +79,7 @@ const getDataWithCheck = () => {
     }
     $btn
         .html('<img src="./loading.gif"/>')
+        .css('visibility', 'visible')
         .data('isLoading', true);
     getData();
 }
@@ -89,5 +92,3 @@ $(window).scroll(function () {
     }
     loadImgs();
 })
-
-

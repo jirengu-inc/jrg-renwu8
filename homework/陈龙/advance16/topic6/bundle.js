@@ -119,7 +119,8 @@
 	        }
 	    }).fail(function () {}).always(function () {
 	        if ($btn.data('isOver') !== true) {
-	            $btn.html('加载更多').data('isLoading', false);
+	            $btn.data('isLoading', false);
+	            // .html('加载更多')
 	        }
 	    });
 	};
@@ -127,7 +128,7 @@
 	    if ($btn.data('isLoading') || $btn.data('isOver')) {
 	        return;
 	    }
-	    $btn.html('<img src="./loading.gif"/>').data('isLoading', true);
+	    $btn.html('<img src="./loading.gif"/>').css('visibility', 'visible').data('isLoading', true);
 	    getData();
 	};
 	getDataWithCheck();
@@ -31806,7 +31807,7 @@
 
 
 	// module
-	exports.push([module.id, "ul {\n  margin: 0;\n  padding: 0; }\n\nli {\n  list-style: none; }\n\na {\n  text-decoration: none; }\n\n.btn {\n  display: block;\n  text-align: center;\n  margin: 10px auto;\n  height: 40px;\n  width: 80px;\n  line-height: 40px;\n  border: 1px solid #E27272;\n  border-radius: 3px;\n  background-color: #fff;\n  color: #E27272; }\n  .btn img {\n    width: 40px;\n    height: 40px; }\n\n.list .item:hover {\n  color: white;\n  background-color: green; }\n\n.list .item a {\n  display: block;\n  margin-top: 10px;\n  padding: 10px;\n  color: black;\n  border: 1px solid #ccc;\n  cursor: pointer; }\n  .list .item a:after {\n    content: '';\n    display: block;\n    clear: both; }\n  .list .item a img {\n    width: 50px;\n    height: 50px; }\n  .list .item a h3 {\n    margin-left: 60px;\n    font-size: 14px; }\n  .list .item a p {\n    margin-left: 60px;\n    font-size: 14px;\n    margin-top: 10px;\n    color: #ccc; }\n", ""]);
+	exports.push([module.id, "ul {\n  margin: 0;\n  padding: 0; }\n\nli {\n  list-style: none; }\n\na {\n  text-decoration: none; }\n\n.btn {\n  display: block;\n  text-align: center;\n  margin: 10px auto;\n  height: 40px;\n  width: 80px;\n  line-height: 40px;\n  border: 1px solid #E27272;\n  border-radius: 3px;\n  background-color: #fff;\n  color: #E27272;\n  visibility: hidden; }\n  .btn img {\n    width: 40px;\n    height: 40px; }\n\n.list .item:hover {\n  color: white;\n  background-color: green; }\n\n.list .item a {\n  display: block;\n  margin-top: 10px;\n  padding: 10px;\n  color: black;\n  border: 1px solid #ccc;\n  cursor: pointer; }\n  .list .item a:after {\n    content: '';\n    display: block;\n    clear: both; }\n  .list .item a img {\n    width: 50px;\n    height: 50px;\n    float: left; }\n  .list .item a h3 {\n    margin-left: 60px;\n    font-size: 14px; }\n  .list .item a p {\n    margin-left: 60px;\n    font-size: 14px;\n    margin-top: 10px;\n    color: #ccc; }\n", ""]);
 
 	// exports
 
