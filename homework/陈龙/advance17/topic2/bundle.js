@@ -60,7 +60,7 @@
 
 	var _Carousel2 = _interopRequireDefault(_Carousel);
 
-	var _mock = __webpack_require__(192);
+	var _mock = __webpack_require__(191);
 
 	var _mock2 = _interopRequireDefault(_mock);
 
@@ -70,92 +70,6 @@
 
 	//将Carousel组件渲染到页面上
 	(0, _reactDom.render)(_react2.default.createElement(_Carousel2.default, { imgList: _mock2.default }), (0, _jq2.default)('#root')[0]);
-
-	var LEN = _mock2.default.length,
-	    //图片个数
-	$imgCt = (0, _jq2.default)('.img-ct'),
-	    //图片父容器
-	$arrowPre = (0, _jq2.default)('.arrow-pre'),
-	    //左按钮
-	$arrowNext = (0, _jq2.default)('.arrow-next'),
-	    //右按钮
-	$bullet = (0, _jq2.default)('.bullet'),
-	    //小圆点父容器
-	$firstImg = (0, _jq2.default)('.img-ct>a').first(),
-	    $lastImg = (0, _jq2.default)('.img-ct>a').last();
-	console.log($firstImg[0], $lastImg[0]);
-
-	var curPage = 0,
-	    //当前第几张图片
-	imgWidth = $firstImg.width(),
-	    //图片宽度
-	isAnimate = false; //动画加锁
-
-	//前面添加末位图片，后面添加第一张图片
-	$imgCt.prepend($lastImg.clone()).append($firstImg.clone());
-	//改变图片父容器宽度,向右偏移一个图片的宽度
-	$imgCt.width(imgWidth * $imgCt.children().length);
-	$imgCt.css('left', -imgWidth);
-
-	//下一张图片
-	var playNext = function playNext() {
-	    var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-
-	    if (isAnimate) return;
-	    isAnimate = true;
-	    $imgCt.animate({
-	        left: '-=' + imgWidth * n
-	    }, function () {
-	        curPage += n;
-	        if (curPage >= LEN) {
-	            $imgCt.css('left', -imgWidth);
-	            curPage = 0;
-	        }
-	        $bullet.children().removeClass('active').eq(curPage).addClass('active');
-	        isAnimate = false;
-	    });
-	};
-
-	//上一张
-	var playPre = function playPre() {
-	    var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-
-	    if (isAnimate) return;
-	    isAnimate = true;
-	    $imgCt.animate({
-	        left: '+=' + imgWidth * n
-	    }, function () {
-	        curPage -= n;
-	        if (curPage < 0) {
-	            $imgCt.css('left', -imgWidth * LEN);
-	            curPage = LEN - 1;
-	        }
-	        $bullet.children().removeClass('active').eq(curPage).addClass('active');
-	        isAnimate = false;
-	    });
-	};
-
-	var play = function play(n) {
-	    if (n > 0) {
-	        playNext(n);
-	    } else if (n < 0) {
-	        playPre(-n);
-	    }
-	};
-
-	$arrowPre.on('click', function (e) {
-	    e.preventDefault();
-	    play(-1);
-	});
-	$arrowNext.on('click', function (e) {
-	    e.preventDefault();
-	    play(1);
-	});
-	$bullet.children().on('click', function (e) {
-	    var index = $bullet.children().index((0, _jq2.default)(this));
-	    console.log(index);
-	    play(index - curPage);
-	});
 
 /***/ },
 /* 1 */
@@ -31718,15 +31632,18 @@
 
 	__webpack_require__(186);
 
+	var _initial = __webpack_require__(190);
+
+	var _initial2 = _interopRequireDefault(_initial);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //引入轮播图样式
 
-	//引入轮播图样式
 
 	//整个轮播图（可复用：只需改变图片集合即刻）
 	var Carousel = function (_Component) {
@@ -31739,6 +31656,11 @@
 	    }
 
 	    _createClass(Carousel, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            (0, _initial2.default)(this.props.imgList);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -32136,9 +32058,108 @@
 
 
 /***/ },
-/* 190 */,
-/* 191 */,
-/* 192 */
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _jq = __webpack_require__(1);
+
+	var _jq2 = _interopRequireDefault(_jq);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//=========jquery控制逻辑代码=============
+	var getInitial = function getInitial(DATA) {
+	    var LEN = DATA.length,
+	        //图片个数
+	    $imgCt = (0, _jq2.default)('.img-ct'),
+	        //图片父容器
+	    $arrowPre = (0, _jq2.default)('.arrow-pre'),
+	        //左按钮
+	    $arrowNext = (0, _jq2.default)('.arrow-next'),
+	        //右按钮
+	    $bullet = (0, _jq2.default)('.bullet'),
+	        //小圆点父容器
+	    $firstImg = (0, _jq2.default)('.img-ct>a').first(),
+	        $lastImg = (0, _jq2.default)('.img-ct>a').last();
+
+	    var curPage = 0,
+	        //当前第几张图片
+	    imgWidth = $firstImg.width(),
+	        //图片宽度
+	    isAnimate = false; //动画加锁
+
+	    //前面添加末位图片，后面添加第一张图片
+	    $imgCt.prepend($lastImg.clone()).append($firstImg.clone());
+	    //改变图片父容器宽度,向右偏移一个图片的宽度
+	    $imgCt.width(imgWidth * $imgCt.children().length);
+	    $imgCt.css('left', -imgWidth);
+
+	    //下一张图片
+	    var playNext = function playNext() {
+	        var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+	        if (isAnimate) return;
+	        isAnimate = true;
+	        $imgCt.animate({
+	            left: '-=' + imgWidth * n
+	        }, function () {
+	            curPage += n;
+	            if (curPage >= LEN) {
+	                $imgCt.css('left', -imgWidth);
+	                curPage = 0;
+	            }
+	            $bullet.children().removeClass('active').eq(curPage).addClass('active');
+	            isAnimate = false;
+	        });
+	    };
+
+	    //上一张
+	    var playPre = function playPre() {
+	        var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+	        if (isAnimate) return;
+	        isAnimate = true;
+	        $imgCt.animate({
+	            left: '+=' + imgWidth * n
+	        }, function () {
+	            curPage -= n;
+	            if (curPage < 0) {
+	                $imgCt.css('left', -imgWidth * LEN);
+	                curPage = LEN - 1;
+	            }
+	            $bullet.children().removeClass('active').eq(curPage).addClass('active');
+	            isAnimate = false;
+	        });
+	    };
+
+	    var play = function play(n) {
+	        if (n > 0) {
+	            playNext(n);
+	        } else if (n < 0) {
+	            playPre(-n);
+	        }
+	    };
+
+	    $arrowPre.on('click', function (e) {
+	        e.preventDefault();
+	        play(-1);
+	    });
+	    $arrowNext.on('click', function (e) {
+	        e.preventDefault();
+	        play(1);
+	    });
+	    $bullet.children().on('click', function (e) {
+	        var index = $bullet.children().index((0, _jq2.default)(this));
+	        play(index - curPage);
+	    });
+	};
+
+	module.exports = getInitial;
+
+/***/ },
+/* 191 */
 /***/ function(module, exports) {
 
 	"use strict";
