@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            fonr-family:"Helvetica Neue", Arial, sans-serif;
+            list-style:none;
+            text-decoration:none;
+            color:black;
+        }
+        .layout{
+            border:1px solid #fff;
+            width:500px;
+            margin:20px auto;
+            height: 75px;
+        }
+        .layout>a>img{
+            width:100px;
+            float: left;
+            height: 77px;
+            margin-right: 10px;
+        }
+        .layout>a>h3{
+            margin-top: 8px;
+        }
+        .layout>a>p{
+            margin:0px;
+            color:#ccc;
+            position: relative;
+            bottom:10px;
+            font-size: 14px;
+        }
+        .clearfix:after{
+        content: "";
+        display: block;
+        clear: both;
+        }
+        .loadmore{
+            visibility: hidden;
+        }
+        .no-brif{
+            text-align: center;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div id="warp">
+    <ul class="news">
+        <li class="layout">
+            <a class="clearfix" href="#">
+            <img src="http://news.qingdaonews.com/images/attachement/jpg/site1/20141130/ec55f9c0894e15e4fabf19.jpg" alt="">
+            <h3>中国轰6K研发险些被俄罗斯发动机厂商卡脖子 1</h3>
+            <p>近日，轰6K＂战神＂轰炸机首次公开亮相。在中国...</p>
+            </a>
+        </li>
+        <li class="layout">
+            <a href="#">
+                <img src="http://news.qingdaonews.com/images/attachement/jpg/site1/20141130/ec55f9c0894e15e4fabf19.jpg" alt="">
+                <h3>中国轰6K研发险些被俄罗斯发动机厂商卡脖子 2</h3>
+                <p>近日，轰6K＂战神＂轰炸机首次公开亮相。在中国...</p>
+            </a>
+        </li>
+        <li class="layout">
+            <a href="#">
+                <img src="http://news.qingdaonews.com/images/attachement/jpg/site1/20141130/ec55f9c0894e15e4fabf19.jpg" alt="">
+                <h3>中国轰6K研发险些被俄罗斯发动机厂商卡脖子 3</h3>
+                <p>近日，轰6K＂战神＂轰炸机首次公开亮相。在中国...</p>
+            </a>
+        </li>
+    </ul>
+    <p class="loadmore">加载更多</p>
+</div>
+<script>
+    var pageIndex = 0,
+    isover = false,
+    isfanish = true;
+    getNews();
+    $(window).on('scroll',function () {
+            isLoad();
+    })
+    function isLoad() {
+        if(isCheck($('.loadmore')) && !isover && isfanish){
+            getNews();
+        }
+    }
+    function isCheck(node) {
+        var windowH = $(window).height(),
+            scrollT = $(window).scrollTop(),
+            offsetH = node.offset().top,
+            nodeH   = node.height();
+        if(scrollT + windowH > offsetH && scrollT < offsetH + nodeH){
+            return true;
+        }else{
+            return false;
+        }
+    }//检测节点是否出现在视野中
+    function getNews() {
+            isfanish = false;
+            $.get('/getNews',{page : pageIndex}).done(function(ret){
+                isfanish = true;
+                if(ret.status == 0){
+                    pageIndex++;
+                    appendHtml(ret.data);
+                    isLoad();
+                }else{
+                    alert('找不到失踪人口(信息)<._.>!!!');
+                }
+            }).fail(function () {
+                alert('系统出现异常')
+            })
+    }
+    function appendHtml(data) {
+        if(data.length === 0 ){
+            isover = true;
+            var html = '<div class="no-brif">已经没有数据了，都给你看了</div>';
+            $('#warp').append(html);
+            return;
+        }else{
+            var html = '';
+            $.each(data,function () {
+                html += '<li class="layout">' + '<a class="clearfix" href= " ' + this.link + ' ">';
+                html += '<img src = "' + this.img + '">';
+                html += '<h3>' + this.title + '</h3>';
+                html += '<p>' + this.brif +'</p>' ;
+                html +=  '</a>'+'</li>';
+            })
+            $('.news').append(html);
+            isover = false;
+        }
+    }
+</script>
+</body>
+</html>
