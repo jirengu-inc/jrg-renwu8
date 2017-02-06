@@ -37,7 +37,6 @@
         <iframe src="http://baidu.com" frameborder="0"></iframe>
     </div>
     <script>
-        //URL: http://a.kuayu.com:8080/a.html
         document.querySelector('.main input').addEventListener('input', function(){
             console.log(this.value);
             window.frames[0].document.querySelector('input').value = this.value;
