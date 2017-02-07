@@ -1,0 +1,96 @@
+$img-width:300px; //设置图片宽度
+$img-height:206px; //设置图片高度
+$img-size:5; //设置图片个数
+$bullet-width:16px; //小圆点宽度
+$bullet-height:4px; //小圆点高度
+//清除浮动的代码块
+@mixin clearFloat {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+//轮播图
+.carousel {
+    //轮播图内全局设置
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    //轮播图根节点设置
+    width: $img-width;
+    height: $img-height;
+    overflow: hidden;
+    position: relative;
+    //图片集合
+    .img-ct {
+        position: relative;
+        width: $img-width;
+        height: $img-height;
+        a {
+            position: absolute;
+            display: none;
+            width: $img-width;
+            //每个图片
+            img {
+                width: $img-width;
+                height: $img-height;
+            }
+        }
+        a.active {
+            display: inline;
+        }
+    }
+    //左右按钮
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 50%;
+    }
+    //左按钮
+    .arrow-pre {
+        left: 10px;
+    }
+    //右按钮
+    .arrow-next {
+        right: 10px;
+    }
+    //控制 底部小圆点 的显示位置
+    .bullet-ct {
+        position: absolute;
+        bottom: 10px;
+        text-align: center;
+        width: 100%;
+        //包裹所有原点
+        .bullet {
+            display: inline-block;
+            //圆点
+            li {
+                display: inline-block;
+                width: $bullet-width;
+                height: $bullet-height;
+                background-color: white;
+                border-radius: 2px;
+                margin: 5px;
+                cursor: pointer;
+            }
+            li.active {
+                background: #666;
+            }
+        }
+    }
+}
