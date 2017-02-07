@@ -26,19 +26,19 @@
     </style>
 </head>
 <body>
-    <div class="ct">
-        <h1>使用postMessage实现跨域</h1>
-        <div class="main">
-            <input type="text" placeholder="http://a.jrg.com:8080/a.html">
-        </div>
-        <iframe src="http://localhost:8080/b.html" frameborder="0" ></iframe>
+<div class="ct">
+    <h1>使用postMessage实现跨域</h1>
+    <div class="main">
+        <input type="text" placeholder="http://a.jrg.com:8080/a.html">
     </div>
+    <iframe src="http://b.kuayu.com:8080/b.html" frameborder="0" ></iframe>
+</div>
     <script>
         //URL: http://a.jrg.com:8080/a.html
-        $('.main input').addEventListener('input', function(){
-            console.log(this.value);
-            window.frames[0].postMessage(this.value,'*');
-        })
+$('.main input').addEventListener('input', function(){
+    console.log(this.value);
+    window.frames[0].postMessage(this.value,'*');
+})
         window.addEventListener('message',function(e) {
             $('.main input').value = e.data
             console.log(e.data);
