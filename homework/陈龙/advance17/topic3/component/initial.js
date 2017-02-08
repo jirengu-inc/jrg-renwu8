@@ -18,9 +18,9 @@ const getInitial = (DATA) => {
         isAnimate = true;
         let nextPage = curPage + n;
         if (nextPage < 0) {
-            nextPage = 0;
-        } else if (nextPage >= LEN) {
             nextPage = LEN - 1;
+        } else if (nextPage >= LEN) {
+            nextPage = 0;
         }
         $bullet
             .children()
