@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载组件化</title>
+    <style>
+        .container{
+            width:930px;
+            margin: 0 auto;
+        }
+        li{
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        img{
+            width:300px;
+            height:250px;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<ul class="container">
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic1.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic1.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic1.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic2.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic2.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic2.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic3.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic3.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic3.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic4.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic4.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic4.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic5.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic5.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic5.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic6.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic6.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic6.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic7.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic7.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic7.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic8.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic8.jpg"></a></li>
+    <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic8.jpg"></a></li>
+</ul>
+<script type="text/javascript">
+    function Expourse(target,callback) {
+        this.$target=target;
+        this.callback=callback;
+        this.checkShow();
+        this.addEvent();
+    }
+    Expourse.prototype.checkShow=function () {
+        if(this.$target.attr("isLoaded")){
+            return;
+        }
+        if(this.isShow(this.$target)){
+            this.showImg(this.$target);
+        }
+    }
+    Expourse.prototype.showImg=function ($target) {
+        $target.attr("src",$target.attr("data-src"));
+        $target.attr("isLoaded",true);
+    }
+    Expourse.prototype.isShow=function ($elem) {
+        var srollHeight=$(window).scrollTop(),
+            windowHeight=$(window).height(),
+            elemTop=$elem.offset().top,
+            elemHeight=$elem.outerHeight(true);
+        if(srollHeight+windowHeight>elemTop  && elemTop+elemHeight>srollHeight){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    Expourse.prototype.addEvent=function () {
+        var clock;
+        var _this=this;
+        $(window).on("scroll",function () {
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock=setTimeout(function () {
+                _this.checkShow();
+            },200)
+        })
+     }
+    var lazyLoad=(function () {
+        return {
+            init:function ($targets) {
+                $targets.each(function(idx,target){
+                    new Expourse($(target));
+                })
+            }
+        }
+    })();
+    lazyLoad.init($(".container img"));
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的tab组件</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .table-ct{
+            padding:20px;
+            width:500px;
+            margin: 20px auto;
+            border:1px solid #bbb;
+            border-radius: 5px;
+        }
+        .item-container{
+            border-bottom: 1px solid #bbb;
+
+        }
+        .clearfix:after{
+            display: block;
+            clear: both;
+            content:"";
+        }
+        .tab-item{
+            position: relative;
+            font-size: 20px;
+            float: left;
+            color:black;
+            cursor: pointer;
+            padding: 15px 20px;
+        }
+        .active{
+            color:red;
+            border:1px solid #bbb;
+            border-radius: 5px 5px 0 0;
+            border-bottom-color: #fff;
+            margin-bottom: -1px;
+        }
+        .tab-body{
+            font-size: 20px;
+            padding:20px 15px;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function Tab() {
+           this.tabConfig = {
+               tabList:[
+                   {
+                       tabName:"选项1",
+                       tabContent:"我是内容1"
+                   },
+                   {
+                       tabName:"选项2",
+                       tabContent:"我是内容2"
+                   },
+                   {
+                       tabName:"选项3",
+                       tabContent:"我是内容3"
+                   }],
+               activeIndex:0
+           };
+           this.activeIndex=this.tabConfig.activeIndex;
+           this.$ct=$("<div class='table-ct'>");
+           $("body").append(this.$ct);
+           this.render();
+        }
+        Tab.prototype.render=function () {
+            var tabList=this.tabConfig.tabList;
+            var headerHtml=tabList.map(function (tabItem) {
+                var tabName=tabItem.tabName;
+                return["<div class='tab-item'>",
+                        tabName,
+                        "</div>"
+                ].join("");
+            }).join("");
+            var bodyHtml="<div class='tab-body'></div>";
+            var finalHtml=["<div class='item-container clearfix'>",
+                headerHtml,
+                "</div>",
+                bodyHtml
+            ].join("");
+//            debugger;
+            this.$ct.html(finalHtml);
+            this.renderStyle(this.activeIndex);
+            this.addEvent();
+        }
+        Tab.prototype.renderStyle=function(index){
+            var $tabList=this.$ct.find(".tab-item"),
+                $tabContent=this.$ct.find(".tab-body");
+            $tabList.eq(this.activeIndex).removeClass("active");
+            $tabList.eq(index).addClass("active");
+            $tabContent.html(this.tabConfig.tabList[index].tabContent);
+        }
+        Tab.prototype.addEvent=function () {
+            var _this=this;
+            var $tabList=this.$ct.find(".tab-item");
+            $tabList.each(function (index,tabitem) {
+                $(tabitem).on("click",function(){
+                    if(index ===_this.activeIndex){
+                        return ;
+                    }else{
+                        _this.renderStyle(index);
+                        _this.activeIndex=index;
+                    }
+                })
+            })
+
+        }
+        new Tab();
+        new Tab();
+    </script>
+</body>
+</html>
