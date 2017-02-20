@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        html,body{margin:0;padding:0;}
+        	.ct{
+        		width: 910px;
+        		margin: auto;
+        	}
+        	.ct .main{
+        		float: left;
+        		width: 450px;
+        		height: 200px;
+        		border: 1px solid #ccc;
+        	}
+        	.main input{
+        		margin: 20px;
+        		width: 200px;
+        	}
+        	iframe{
+        		width: 450px;
+        		height: 200px;
+        		border: 1px solid #ccc;
+        		float: right;
+        	}
+        </style>
+    </head>
+    <body>
+    <div class="ct">
+    	<h1>postMessage</h1>
+		<div class="main">
+			<input type="text" placeholder="http://a.hqq.com:8080/a.html">
+		</div>
+
+	    <iframe src="http://b.hqq.com:8080/b.html"></iframe>
+    </div>
+
+
+    <script type="text/javascript">
+    	
+    	document.querySelector('.main input').addEventListener('input', function(e){
+    		console.log(this.value);
+    		window.frames[0].postMessage(this.value, '*');
+    	})
+
+        window.addEventListener('message', function(e){
+            console.log(e);
+            console.log(e.data);
+            document.querySelector('.main input').value = e.data;
+        })
+
+
+    </script>
+    </body>
+</html>
