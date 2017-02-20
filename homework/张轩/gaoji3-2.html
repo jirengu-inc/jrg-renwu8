@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<style>
+*{
+  margin:0px;
+  padding:0px; 
+}
+
+.wrap{
+  border:1px solid #ccc;
+}
+
+.top{
+  margin:20px 0px 10px 10px;
+}
+
+.main{
+  margin:0px 0px 10px 10px;
+}
+
+.noLi>li{
+   list-style:none;
+}
+
+.left li{
+  float:left
+}
+
+.clearfix:after{
+     content:"";        
+     display:block;               
+     clear:both;    
+}
+
+.top li{
+  border-bottom:1px solid #ccc;
+  text-align:center;
+  padding:10px;
+}
+
+.top .line{
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+  border-right:1px solid #ccc;
+  border-bottom:0px solid #ccc;
+  border-radius:5px 5px 0 0;
+}
+
+.main li{
+  width:250px;
+  height:100px;
+  display:none;
+}
+
+.main>.active{
+  display:block;
+}
+</style>
+<meta charset="utf-8">
+<title>JS Bin</title>
+</head>
+<body>
+  <div class="wrap">
+      <ul class="top noLi left clearfix">
+        <li class='line'>语文</li>
+        <li>数学</li>
+        <li>英语</li>
+      </ul>
+      <ul class="main noLi">
+        <li class='active'>语文课要背书</li>
+        <li>数学课要解方程</li>
+        <li>英语课要做阅读理解</li>
+      </ul>
+  </div>
+  <script>
+    function Tab(a, b, c, d, e){
+    this.a=a;
+    this.b=b;
+    this.c=c;
+    this.d=d;
+    this.e=e;
+    this.bind();
+  }
+
+  Tab.prototype.bind = function(){
+    this.b.onclick=function(e){
+      e.target.classList.add(this.d);
+    }
+  }
+
+  var a = new Tab(document.querySelectorAll('.wrap')[0], document.querySelectorAll('.top')[0],document.querySelectorAll('.main')[0], 'line', 'active');
+  </script>
+</body>
+</html>
