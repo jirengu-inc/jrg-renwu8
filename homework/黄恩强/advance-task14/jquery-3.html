@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+	<button id="btn">点我</button>
+
+
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var btn = document.querySelector('#btn');
+
+		var $btn = $('#btn');
+
+
+
+		//DOM原生对象转换jQuery对象
+		var $btn1 = $(btn);
+
+
+		//jQuery对象转换DOM原生对象
+		var btn1 = $btn[0];
+
+	</script>
+
+
+    </body>
+</html>

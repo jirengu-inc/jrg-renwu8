@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	.box{
+        		background: #123456;
+        		width:100px;
+        		height: 100px;
+        		position: relative;
+        	}
+        </style>
+    </head>
+    <body>
+    <div class="box"></div>
+	<button id="btn1">变大</button>
+	<button id="btn2">移动</button>
+	<button id="btn3">连续动画-1</button>
+	<button id="btn4">连续动画-2</button>
+	<button id="btn5">连续动画-3</button>
+	<button id="btn6">连续动画-4</button>
+	<button id="btn7">stop</button>
+	<button id="btn8">连续动画-5</button>
+	
+
+	<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var $box = $('.box');
+
+		$('#btn1').on('click', function(){
+			$box.animate({
+				width: '200px',
+				height: '200px'
+			},function(){
+				console.log('btn1动画执行完毕')
+			})
+		})		
+
+		$('#btn2').on('click', function(){
+			$box.animate({
+				left: '200px',
+			})
+		})
+
+		$('#btn3').on('click', function(){
+			//1
+			$box.animate({
+				left: '100px'
+			},function() {
+				$box.animate({
+					top: '100px'
+				},function() {3
+					$box.animate({
+						left: 0
+					},function() {
+						$box.animate({
+							top: 0
+						})
+					})
+				})
+			})
+
+		})
+
+		//2
+		var anim = [
+			{top: 0, left: '100px'},
+			{top: '100px', left: '100px'},
+			{top: '100px', left: 0},
+			{top: 0, left: 0}
+		]
+		$('#btn4').on('click', function(){
+			$box.animate(anim[0], function(){
+					$box.animate(anim[1], function(){
+						$box.animate(anim[2], function(){
+							$box.animate(anim[3], function(){
+								console.log('btn4动画执行完毕')
+							})
+						})
+					})
+				})
+		})
+
+		$('#btn5').on('click', function(){
+			//动画队列
+			$box.animate(anim[0])
+			$box.animate(anim[1])
+			$box.animate(anim[2])
+			$box.animate(anim[3], function(){
+				console.log('btn5动画执行完毕')
+			})
+		})
+
+		$('#btn6').on('click', function(){
+			$.each(anim, function(){
+				$box.animate(this, 1000, function(){
+					console.log(this)
+				})
+				console.log(this);
+			})
+		})
+
+		$('#btn7').on('click', function(){
+			$box.stop(true, false)
+		})
+
+
+		//3
+		var isMove = false;
+		$('#btn8').on('click', function(){
+			if(!isMove){
+				isMove= true;
+				$box.animate(anim[0])
+				$box.animate(anim[1])
+				$box.animate(anim[2])
+				$box.animate(anim[3], function(e){
+					console.log(e)
+					console.log(this)
+					console.log('btn8动画执行完毕')
+					isMove = false;
+				})
+			}
+		})
+	</script>
+    </body>
+</html>

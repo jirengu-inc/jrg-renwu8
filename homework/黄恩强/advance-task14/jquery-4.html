@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+	<ul class="list">
+		<li>111</li>
+		<li>222</li>
+		<li>333</li>
+	</ul>
+	<button id="btn">点我</button>
+
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+   	<script type="text/javascript">
+   		var $btn = $('#btn'),
+   			$list = $('.list');
+
+   		//事件绑定
+   		$btn.on('click', function(e){
+   			console.log($(e.target));
+   		})
+
+   		//事件代理
+   		$list.on('click', 'li', function(e){
+   			console.log($(e.target).html());
+   		})
+
+
+   		//on/off 事件绑定/解绑
+   		$btn.on('click.hqq1', function(e){
+   			console.log('click.qq on/off');
+   		})
+   		$btn.off('click.hqq1');
+
+   		//bind/unbind 老的事件绑定/解绑 已被on/off取代
+   		$btn.bind('click.hqq2', function(){
+   			console.log('bind');
+   		})
+   		$btn.unbind('click.hqq2');
+
+   		//delegate 老的事件代理 已被on/off取代
+   		$list.delegate('li', 'click', function(event) {
+   			console.log('delegate');
+   		})
+   		//live 
+   		$('#btn').live('click', function(){
+   			console.log('live')
+   		})
+   		
+   	</script>
+    </body>
+</html>
