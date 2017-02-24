@@ -38,4 +38,4 @@ var classOpt={
             classOpt.singleAddClass(elems, str);
         }
     }
-}
+};

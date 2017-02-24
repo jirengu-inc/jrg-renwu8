@@ -170,7 +170,7 @@
                 this.$imgCt.css({
                     left:0-this.imgWidth,
                     width:this.imgRealCount*this.imgWidth
-                })
+                });
                 this.curIdx=0;
                 this.isAnimate=false;
             },
@@ -202,7 +202,7 @@
                     imgWidth=this.imgWidth;
                 if(!this.isAnimate){
                     this.isAnimate=true;
-                    debugger
+                    debugger;
                     this.setBg((this.curIdx+idx+1)%imgRealCount);
                     this.$imgCt.animate({left:"-="+(idx*imgWidth)},function () {
                         _this.curIdx=(_this.curIdx+idx)%imgCount;
@@ -239,10 +239,10 @@
                 var _this=this;
                 this.$next.on("click",function () {
                     _this.playNext();
-                })
+                });
                 this.$pre.on("click",function () {
                     _this.playPre();
-                })
+                });
                 _this.$bullet.find("li").on("click",function () {
                     var idx=$(this).index();
                     if(idx>_this.curIdx){
@@ -252,7 +252,7 @@
                     }
                 })
             }
-        }
+        };
         new Carousel($(".carousel"));
 
 

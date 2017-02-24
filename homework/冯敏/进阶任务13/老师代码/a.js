@@ -1,4 +1,4 @@
-console.log('haha')
+console.log('haha');
 
 $('.change').addEventListener('click', function(){
 
@@ -11,7 +11,7 @@ $('.change').addEventListener('click', function(){
         }
     }
 
-})
+});
 function appendHtml(news){
     var html = '';
     for( var i=0; i<news.length; i++){

@@ -149,14 +149,14 @@
             autoPlay();
             $next.on("click",function () {
                 playNext();
-            })
+            });
             $pre.on("click",function () {
                 playPre();
-            })
+            });
             $bullet.find("li").on("click",function () {
                 var idx=$(this).index();
                 play(idx);
-            })
+            });
             function play(idx){
                 if(isAnimate)
                     return;

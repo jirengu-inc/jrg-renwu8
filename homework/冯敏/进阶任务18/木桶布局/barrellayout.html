@@ -63,7 +63,7 @@
                         };
                         _this.render(imgInfo);
                     }
-                })
+                });
                /* for(var i=0;i<imgs.length;i++){
                     var img=new Image();
                     img.src=imgs[i];
@@ -125,10 +125,10 @@
                         $img.width(newImgWidth);
                         $imgCt.append($img);
                         $rowCt.append($imgCt);
-                })
+                });
                 this.$ct.append($rowCt);
             },
-        }
+        };
         new Barrels($(".img-preview"));
     </script>
 </body>

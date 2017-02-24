@@ -62,11 +62,11 @@
         if(this.isShow(this.$target)){
             this.showImg(this.$target);
         }
-    }
+    };
     Expourse.prototype.showImg=function ($target) {
         $target.attr("src",$target.attr("data-src"));
         $target.attr("isLoaded",true);
-    }
+    };
     Expourse.prototype.isShow=function ($elem) {
         var srollHeight=$(window).scrollTop(),
             windowHeight=$(window).height(),
@@ -77,7 +77,7 @@
         }else{
             return false;
         }
-    }
+    };
     Expourse.prototype.addEvent=function () {
         var clock;
         var _this=this;
@@ -89,7 +89,7 @@
                 _this.checkShow();
             },200)
         })
-     }
+     };
     var lazyLoad=(function () {
         return {
             init:function ($targets) {

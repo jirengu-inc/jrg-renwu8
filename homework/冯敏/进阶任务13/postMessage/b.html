@@ -16,9 +16,9 @@
         // URL: http://b.jrg.com:8080/b.html
         $('#input').addEventListener('input', function(){
             window.parent.postMessage(this.value, '*');
-        })
+        });
 window.addEventListener('message',function(e) {
-    $('#input').value = e.data
+    $('#input').value = e.data;
     console.log(e.data);
 });
         function $(id){

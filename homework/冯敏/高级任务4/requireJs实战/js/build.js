@@ -11,4 +11,4 @@
     },
     name: "main",
     out: "out/index.merge.min.js"
-})
+});

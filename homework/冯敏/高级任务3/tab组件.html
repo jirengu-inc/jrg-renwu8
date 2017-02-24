@@ -65,7 +65,7 @@
     };
     // 渲染
     TabFactory.prototype.render=function(container){
-        var tabList = this.tabConfig['tabList']
+        var tabList = this.tabConfig['tabList'];
         //渲染头部
         var headerHtml = tabList.map(function(tab){
             var tabname  = tab.tabname;
@@ -87,7 +87,7 @@
         this.renderStyle(this.activeIndex);
         //挂载事件
         this.addEvent();
-    }
+    };
     TabFactory.prototype.renderStyle=function(index,boolean){
         var tabDomList = document.querySelectorAll('.tab-item');
         var tabBodyContainter = document.querySelectorAll('.tab-body')[0];
@@ -98,7 +98,7 @@
         tabItem.classList.add('active');
         debugger;
         tabBodyContainter.innerHTML = this.tabConfig.tabList[index].tabContent;
-    }
+    };
     //挂载事件
     TabFactory.prototype.addEvent=function(){
         var that = this;
@@ -108,13 +108,13 @@
             tabItem.addEventListener('click',function(){
                 if(index == that.activeIndex){
                     return
-                };
+                }
                 that.renderStyle(index);
                 //重新复制active
                 that.activeIndex = index
             })
         })
-    }
+    };
     var container = document.getElementById('root');
     var tabInstance = new TabFactory({});
     tabInstance.render(container)

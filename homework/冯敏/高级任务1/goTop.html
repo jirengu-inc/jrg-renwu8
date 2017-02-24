@@ -80,12 +80,12 @@
         GoTop.prototype.createNode=function () {
             this.$target=$("<div class='goTop'> 回到顶部 </div>");
             this.$ct.append(this.$target);
-        }
+        };
         GoTop.prototype.bindEvent=function () {
             this.$target.on("click",function () {
                 $("body").scrollTop(0);
             })
-        }
+        };
         var goTop=new GoTop($(".content"));
     </script>
 </body>

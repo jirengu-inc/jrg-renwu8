@@ -8,4 +8,4 @@ define(["./math"],function (math) {
     return{
         increment:increment,
     }
-})
+});

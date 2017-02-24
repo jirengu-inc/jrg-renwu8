@@ -78,16 +78,16 @@
         PASSWORD_CANYEMPTY:"密码不可为空",
         PASSWORD_TYPEWRONG:"密码格式不正确,大写字母、小写、数字、下划线最少两种，6-15个字符",
         PASSWORD_NOTEQUAL:"两次密码不一致"
-    }
+    };
     userNameInput.addEventListener("change",function(){
         testUserName()&&canUse();
     });
     pwd.addEventListener("change",function(){
         testPwd();
-    })
+    });
     pwdAgain.addEventListener("change",function () {
         testPwdAgain();
-    })
+    });
     btn.addEventListener("click",function(e){
         e.preventDefault();
         if(testUserName()  && testPwd()&& testPwdAgain()){
@@ -95,7 +95,7 @@
                alert("正在提交表单");
            }
         }
-    })
+    });
 
     // 处理响应后的数据
     function dealWith(resp){
@@ -137,7 +137,7 @@
                 userName: userNameInput.value,
             },
             success: function(resp){
-                dealWith(resp)       // {status: 0}
+                dealWith(resp);       // {status: 0}
             },
             error: function(){
                 alert('出错了')

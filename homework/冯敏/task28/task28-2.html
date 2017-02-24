@@ -109,7 +109,7 @@
                             unSetFixed();
                         }
                     }
-                })
+                });
                 function isFixed(){
                     return !!$cur.data("data-fixed");
                 }
@@ -132,7 +132,7 @@
                     $curClone.hide();
                 }
 
-            }
+            };
             $(".nav").each(function () {
                 $(this).stickup();
             });

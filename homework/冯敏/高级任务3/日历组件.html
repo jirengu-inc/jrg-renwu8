@@ -173,22 +173,22 @@
                 this.$datepicker.find(".pre").on("click",function(){
                     self.watchDate=self.getPreMonth(self.watchDate);
                     self.setData();
-                })
+                });
                 this.$datepicker.find(".next").on("click",function(){
                     self.watchDate=self.getNextMonth(self.watchDate);
                     self.setData();
-                })
+                });
                 this.$datepicker.on("click",".cur-month",function () {
                     self.$target.val($(this).attr("data-date"));
                     self.$datepicker.hide();
-                })
+                });
                 this.$target.on("click",function (e) {
                     e.stopPropagation();
                     self.$datepicker.show();
-                })
+                });
                 this.$datepicker.on("click",function (e) {
                     e.stopPropagation();
-                })
+                });
                 $(window).on("click",function (e) {
                     self.$datepicker.hide();
                 })
@@ -239,12 +239,12 @@
                         date.getDate()].join("");
             }
 
-        }
+        };
         $.fn.datePicker=function () {
             this.each(function () {
                 new DatePicker($(this));
             })
-        }
+        };
         $(".date-ipt").datePicker();
     </script>
 </body>

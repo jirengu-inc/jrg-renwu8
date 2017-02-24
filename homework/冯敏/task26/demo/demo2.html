@@ -17,8 +17,8 @@ $node.css({
     "id":"div",
     "src":"image/xxx",
     "title":"hello world"
-})
-    $node.attr("data-src","image/xxx")
+});
+    $node.attr("data-src","image/xxx");
     $ct.prepend($node);
     $ct.append($node);
     $node.remove();
@@ -32,17 +32,17 @@ $ct.innerWidth();
 $ct.innerHeight();
 $ct.outerWidth();
 $ct.outerHeight();
-$ct.outerWidth(true)
+$ct.outerWidth(true);
 $ct.outerHeight(true);
     $(window).scrollTop();
     $node.offset();
 $node.css({
     "font-size":"14px",
     "color":"red"
-})
+});
 $node.each(function () {
     $(this).text();
-})
+});
     $ct.find(".item");
     $ct.children();
     $node.parents(".ct").find(".panel");

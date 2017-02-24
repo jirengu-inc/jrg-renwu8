@@ -59,10 +59,10 @@
             setTimeout(function () {
                 $btn.css("background-color","blue");
             },1000);
-        })
+        });
         $(window).on("scroll",function () {
             $("#getScroll").html("<p>窗口垂直滚动距离为:"+$(window).scrollTop()+"px</p>");
-        })
+        });
         $("#changeColor").on({
             "mouseenter":function () {
                 $("#changeColor").css("background-color","red")
@@ -70,7 +70,7 @@
             "mouseleave":function () {
                 $("#changeColor").css("background-color","white")
             }
-        })
+        });
         $("#input").on({
             "focus":function () {
                 $("#input").css("border-color","blue");
@@ -82,7 +82,7 @@
                 $("#input").css("border-color","");
                 console.log($("#input").val());
             }
-        })
+        });
         $("#select").on("change",function () {
             $("#selectContent").html("<p>用户选择的内容是："+$("#select").find("option:selected").text()+"</p>");
         })

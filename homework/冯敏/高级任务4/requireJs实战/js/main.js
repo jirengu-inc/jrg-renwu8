@@ -17,4 +17,4 @@ requirejs(["GoTop","Carousel","WaterFall"],function (GoTop,Carousel,WaterFall) {
 
     var $waterfal_ct=$("#pic-ct");
     new WaterFall($waterfal_ct);
-})
+});

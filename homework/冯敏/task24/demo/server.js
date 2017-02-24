@@ -28,4 +28,4 @@ ele.addEventListener("click",function () {
         ajax();
         lock=false;
     }
-})
+});

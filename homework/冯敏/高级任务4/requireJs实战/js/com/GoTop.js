@@ -23,11 +23,11 @@ define(["jquery"],function ($) {
                 }else{
                     me.$goTop.hide();
                 }
-            })
+            });
             me.$goTop.on("click",function () {
                 $("body").scrollTop(0);
             })
         }
-    }
+    };
     return  GoTop;
-})
+});

@@ -24,7 +24,7 @@ define(["jquery"],function ($) {
             this.$imgCt.css({
                 left:0-this.imgWidth,
                 width:this.imgRealCount*this.imgWidth
-            })
+            });
             this.curIdx=0;
             this.isAnimate=false;
         },
@@ -92,10 +92,10 @@ define(["jquery"],function ($) {
             var _this=this;
             this.$next.on("click",function () {
                 _this.playNext();
-            })
+            });
             this.$pre.on("click",function () {
                 _this.playPre();
-            })
+            });
             _this.$bullet.find("li").on("click",function () {
                 var idx=$(this).index();
                 if(idx>_this.curIdx){
@@ -105,6 +105,6 @@ define(["jquery"],function ($) {
                 }
             })
         }
-    }
+    };
     return Carousel;
-})
+});

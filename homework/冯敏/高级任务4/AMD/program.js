@@ -3,4 +3,4 @@
  */
 define(["./increment"],function (inc) {
     inc.increment();
-})
+});

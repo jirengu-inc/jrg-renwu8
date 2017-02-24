@@ -8,11 +8,11 @@ function Car(name,color,status){
 }
 Car.prototype.run=function () {
     this.status="run";
-}
+};
 Car.prototype.stop=function () {
     this.status="stop";
-}
+};
 Car.prototype.getStatus=function () {
     return this.status;
-}
+};
 var myCar=new Car("ford","red","");

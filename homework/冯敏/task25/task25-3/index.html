@@ -192,12 +192,12 @@
                 var html=getLiHtml(products[i]);
                 $(".panel ul").append(html);
             }
-        })
+        });
         $("ul").on("mouseenter",'li',function(){
             console.log(1);
             $(this).children(".buy").css({"display":"block","background-color":"rgba(0,0,0,0.3)"});
 
-        })
+        });
         $("ul").on("mouseleave","li",function(){
             $(this).children(".buy").css("display","none");
         })

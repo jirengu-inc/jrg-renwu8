@@ -89,21 +89,21 @@
             this.$ct.html(finalHtml);
             this.renderStyle(this.activeIndex);
             this.addEvent();
-        }
+        };
         Tab.prototype.renderStyle=function(index){
             var $tabList=this.$ct.find(".tab-item"),
                 $tabContent=this.$ct.find(".tab-body");
             $tabList.eq(this.activeIndex).removeClass("active");
             $tabList.eq(index).addClass("active");
             $tabContent.html(this.tabConfig.tabList[index].tabContent);
-        }
+        };
         Tab.prototype.addEvent=function () {
             var _this=this;
             var $tabList=this.$ct.find(".tab-item");
             $tabList.each(function (index,tabitem) {
                 $(tabitem).on("click",function(){
                     if(index ===_this.activeIndex){
-                        return ;
+
                     }else{
                         _this.renderStyle(index);
                         _this.activeIndex=index;
@@ -111,7 +111,7 @@
                 })
             })
 
-        }
+        };
         new Tab();
         new Tab();
     </script>

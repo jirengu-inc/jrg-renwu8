@@ -7,4 +7,4 @@ define(function (require,exports,module) {
     var sum=inc(a);
     console.log(sum);
     module.id="program";
-})
+});

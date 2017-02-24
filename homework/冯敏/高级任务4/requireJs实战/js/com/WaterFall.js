@@ -13,7 +13,7 @@ define(["jquery"],function ($) {
         // 按照瀑布流的方式进行渲染   render
         this.init();
         // 渲染首屏的图片
-        this.renderFirst(this.$ct.find(".item"))
+        this.renderFirst(this.$ct.find(".item"));
         this.addEvent();
         this.resize();
     }
@@ -108,7 +108,7 @@ define(["jquery"],function ($) {
             $me.css({
                 left:idx*this.itemWidth,
                 top:minSumHeight
-            })
+            });
             this.colHeightArr[idx]+=$me.outerHeight(true);
         },
         getMin:function () {
@@ -131,6 +131,6 @@ define(["jquery"],function ($) {
                 me.render();
             })
         }
-    }
+    };
     return WaterFall;
-})
+});

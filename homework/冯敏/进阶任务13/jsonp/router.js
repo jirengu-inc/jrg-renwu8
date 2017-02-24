@@ -11,7 +11,7 @@ app.get('/getNews', function(req, res){
         "博彩赔率挺中国夺回第二纽约时报：中国因对手服禁药而丢失的奖牌最多",
         "最“出柜”奥运？同性之爱闪耀里约",
         "下跪拜谢与洪荒之力一样 都是真情流露"
-    ]
+    ];
     var data = [];
     for(var i=0; i<3; i++){
         var index = parseInt(Math.random()*news.length);
@@ -24,4 +24,4 @@ app.get('/getNews', function(req, res){
     }else{
         res.send(data);
     }
-})
+});

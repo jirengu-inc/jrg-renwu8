@@ -7,4 +7,4 @@ exports.add=function () {
         sum+=args[i++];
     }
     return sum;
-}
+};

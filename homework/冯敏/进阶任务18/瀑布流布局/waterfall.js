@@ -45,7 +45,7 @@ var Waterfall={
         $me.css({
             left:idx*this.itemWidth,
             top:minSumHeight
-        })
+        });
         this.colHeightArr[idx]+=$me.outerHeight(true);
     },
     getMin:function () {
@@ -62,4 +62,4 @@ var Waterfall={
             minSumHeight:minSumHeight
         }
     }
-}
+};

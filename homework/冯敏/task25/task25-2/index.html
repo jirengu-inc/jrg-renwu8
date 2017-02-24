@@ -526,10 +526,10 @@
         $item.siblings().removeClass("active");
         $item.parents(".ct").find(".panel").removeClass("active");
         $item.parents(".ct").find(".panel").eq($index).addClass("active");
-    })
+    });
     $(".panel li").on("mouseenter",function(){
         $(this).children(".buy").css({"display":"block","background-color":"rgba(0,0,0,0.3)"});
-    })
+    });
     $(".panel li").on("mouseleave",function(){
         $(this).children(".buy").css("display","none");
     })

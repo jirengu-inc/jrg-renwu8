@@ -113,15 +113,15 @@
         $ct.css({
             left:0-imgWidth,
             width:imgRealCount*imgWidth
-        })
+        });
         var curIdx=0,
             isAnimate=false;
         $next.on("click",function () {
             playNext();
-        })
+        });
         $pre.on("click",function () {
             playPre();
-        })
+        });
         $bullet.find("li").on("click",function () {
             var idx=$(this).index();
             if(idx>curIdx){
@@ -129,7 +129,7 @@
             }else if(idx<curIdx){
                 playPre(curIdx-idx);
             }
-        })
+        });
         autoPlay();
         function autoPlay(){
             clock=setInterval(function(){

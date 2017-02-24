@@ -59,14 +59,14 @@
         if(windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight){
             this.triggerLoad();
         }
-    }
+    };
     //添加滚动监听
     LazyLoad.prototype.addScrollEvent = function(){
         var that = this;
         window.addEventListener('scroll', function(e) {
             that.check();
         });
-    }
+    };
     //触发加载
     LazyLoad.prototype.triggerLoad= function(){
         var imgNode = this.node.querySelectorAll('img')[0];
@@ -78,7 +78,7 @@
         [].slice.call(container.children).forEach(function(childDOM){
             new LazyLoad(childDOM);
         })
-    }
+    };
     init(containerDom);
 </script>
 </body>
