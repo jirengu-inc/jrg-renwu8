@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+	<ul class="list">
+		<li>我是</li>
+		<li>饥人谷</li>
+		<li>任务8班</li>
+	</ul>
+	
+	<button id="btn1">获取HTML内容</button>
+	<button id="btn2">设置HTML内容</button>
+
+	<button id="btn3">获取元素文本</button>
+	<button id="btn4">设置元素文本</button>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	
+    	$('#btn1').on('click', function(){
+    		console.log($('.list').html())
+    	})
+
+    	$('#btn2').on('click', function(){
+    		console.log($('.list').html('黄强强强'))
+    	})
+
+    	$('#btn3').on('click', function(){
+    		console.log($('.list li:last').text())
+    	})
+
+    	$('#btn4').on('click', function(){
+    		console.log($('.list li:first').text('黄强强强'))
+    	})
+    </script>
+    </body>
+</html>
