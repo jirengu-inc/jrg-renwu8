@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单例模式</title>
+</head>
+<body>
+<script type="text/javascript">
+    var Person=(function () {
+        var temp;
+        function init(name,age) {
+            return {
+                name:name,
+                age:age,
+                sayName:function () {
+                    console.log(this.name);
+                }
+            }
+        }
+        return {
+            createPerson:function (name,age) {
+                if(!temp){
+                    temp=init(name,age);
+                }
+                return temp;
+            }
+        }
+    }());
+    var person1=Person.createPerson("lucy",23);
+    var person2=Person.createPerson("lily",24);
+    </script>
+</body>
+</html>

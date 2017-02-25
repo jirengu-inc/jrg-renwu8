@@ -2,6 +2,8 @@
  * Created by fm on 2017/2/22.
  */
 var webpack=require("webpack");
+var DefinePlugin = require("webpack/lib/DefinePlugin");
+var path=require("path");
 module.exports={
     entry:"./main.js",
     output:{
@@ -9,7 +11,7 @@ module.exports={
     },
     resolve:{
       alias:{
-          jquery:"./jquery.js"
+          jquery: "./jquery.min.js"
       }
     },
     plugins: [
