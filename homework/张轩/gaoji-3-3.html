@@ -5,13 +5,14 @@
 	<title>面向对象懒加载</title>
 	<style>
 		.wrap{
-			width: 1300px;
-			height: 4200px;
+			width: 1600px;
+			height: 1000px;
 			margin: 0 auto;
 		}
 		.img{
-			width: 600px;
-			margin:5px 0px;
+			width: 700px;
+			margin:5px 5px;
+			float: left;
 		}
 	</style>
 </head>
@@ -52,7 +53,6 @@
 				var _this = this;
 				this.p.querySelectorAll('img').forEach(function(img, index){
 					if( (img.offsetTop - window.innerHeight ) <= window.scrollY && img.getAttribute('data-src')!= null && img.getAttribute('show') == 'N'){
-						console.log(img.getAttribute('show'));
 						img.src = img.getAttribute('data-src');
 						img.setAttribute('show', 'Y');
 					}
