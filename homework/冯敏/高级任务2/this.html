@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this的值</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*function sayHello(){
+        this.nick="hello";
+        console.log(this);
+    }
+    var say=new sayHello();*/
+
+    /*function fn4(){
+        console.log(fn4.caller);
+        function fn(){
+            console.log(fn.caller);
+        }
+        fn();
+    }
+    fn4();*/
+
+    /*function fn5(name, age){
+        console.log(arguments);
+        name = 'XXX';
+        console.log(arguments);
+        arguments[1] = 30;
+        console.log(arguments);
+    }
+    fn5('Byron', 20);*/
+
+    /*var i =0;
+    window.onclick = function(){
+        console.log(i);
+        if(i<5){
+            i++;
+            setTimeout(arguments.callee, 200);
+        }
+    }*/
+    /*var john = {
+        firstName: "John"
+    }
+    function func() {
+        alert(this.firstName + ": hi!")
+    }
+    john.sayHi = func
+    john.sayHi()*/
+
+    /*func()
+    function func() {
+        alert(this)
+    }*/
+
+    /*document.addEventListener('click', function(e){
+        console.log(this);
+        setTimeout(function(){
+            console.log(this);
+        }, 200);
+    }, false);*/
+
+   /* var john = {
+        firstName: "John"
+    }
+
+    function func() {
+        alert( this.firstName )
+    }
+    func.call(john)*/
+
+    var module= {
+        bind: function(){
+            var _this=this;
+            $btn.on('click', function(){
+                console.log(this); //this指什么
+                _this.showMsg();
+            })
+        },
+
+        showMsg: function(){
+            console.log('饥人谷');
+        }
+    }
+</script>
+
+</body>
+</html>

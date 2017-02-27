@@ -1,0 +1,16 @@
+#go-top{
+	width: 60px;
+	height: 40px;
+	color: #666;
+	text-align: center;
+	line-height: 40px;
+	border: 1px solid #ccc;
+	position: fixed;
+	bottom: 40px;
+	right: 20px;
+	cursor: pointer;
+}
+#go-top:hover{
+	background-color: #eee;
+	color: #333;
+}

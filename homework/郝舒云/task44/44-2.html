@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.d1
+		{
+			position: fixed;
+			left:0;
+			right:0;
+			top:0;
+			bottom:0;
+			background: url(imgs/2.jpg);
+			background-size: cover;
+		}
+	.d1::before
+	{
+		display: block;
+		content: "";
+		position: fixed;
+			left:0;
+		
+			top:0;
+			bottom:0;
+			width: 50%;
+			background: linear-gradient(to bottom right,rgba(255,192,203,0),rgba(255,192,203,1));
+	}
+		
+			.d1::after
+	{display: block;
+		content: "";
+		position: fixed;
+			right:0;
+		
+			top:0;
+			bottom:0;
+			width: 50%;
+			background: linear-gradient(to top right,rgba(255,192,203,1),rgba(255,192,203,0));
+	}
+	</style>
+</head>
+<body>
+
+	<div class="d1"></div>
+	
+</body>
+</html>

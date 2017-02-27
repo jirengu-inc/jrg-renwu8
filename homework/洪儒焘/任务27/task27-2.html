@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.carousel{
+	position: relative;
+	width: 340px;
+	height: 200px;
+}
+
+.img{
+	position: absolute;
+	display: none;
+}
+.screen>img>a{
+	display: inline-block;
+}
+.screen>.img>a>img{
+	width: 340px;
+	height: 200px;
+}
+.show{
+	display: block;
+}
+
+.label-left{
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	left: 10px;
+	margin-top: -15px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;	
+}
+.label-right{
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	right: 10px;
+	margin-top: -15px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;	
+}
+
+.label-left>a{
+	position: relative;
+	left: -1px;
+}
+.label-left>a,.label-right>a{
+	color: #ddd;
+	font-weight: bold;
+	font-size: 200%;
+}
+.label-left>a:hover,.label-right>a:hover{
+	color: #fff;
+}
+
+.label-wrap{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20px;
+	margin-left: -6px;
+}
+.label-wrap:after{
+	display: block;
+	content: '';
+	clear:both;
+}
+.label{
+	float: left;
+	width: 16px;
+	height: 4px;
+	background: #ddd;
+	cursor: pointer;
+	border-radius: 2px;
+	margin-left: 6px;
+	display: inline-block;
+}
+.active{
+	background: #666;
+}
+</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="screen">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+			<li class="label-left">
+				<a><</a>
+			</li>
+			<li class="label-right">
+				<a>></a>
+			</li>
+		</ul>
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div>
+	<div class="carousel">
+		<ul class="screen">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+			<li class="label-left">
+				<a><</a>
+			</li>
+			<li class="label-right">
+				<a>></a>
+			</li>
+		</ul>
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div>
+	<div class="carousel">
+		<ul class="screen">
+			<li data-id="0" class="img show">
+				<a href="javascript:;">
+					<img src="am.png" alt="">
+				</a>
+			</li>
+			<li data-id="1" class="img">
+				<a href="javascript:;">
+					<img src="slark.png" alt="">
+				</a>
+			</li>
+			<li data-id="2" class="img">
+				<a href="javascript:;">
+					<img src="start.png" alt="">
+				</a>
+			</li>
+			<li data-id="3" class="img">
+				<a href="javascript:;">
+					<img src="devil.jpg" alt="">
+				</a>
+			</li>
+			<li class="label-left">
+				<a><</a>
+			</li>
+			<li class="label-right">
+				<a>></a>
+			</li>
+		</ul>
+		<ul class="label-wrap">
+			<li class="label active"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+			<li class="label"></li>
+		</ul>
+	</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var lunbo= [];
+	var isAnimating = false;
+	var label = $('.label');
+
+	$('.carousel').each(function(ind,element){	
+		var now = $(this);
+		var index = 0;
+		lunbo[ind] = {
+			now: now,
+			index:index,
+			timer:0
+		};
+		allStart(ind);
+	})
+	function allStart(ind){
+		lunbo[ind].timer = setInterval(function(){
+				turn(ind);
+		},2000);
+	}
+	
+	function turn(ind) {
+		lunbo[ind].index = +lunbo[ind].now.find('.show').attr('data-id');
+		clearShow(lunbo[ind].now);
+		if(lunbo[ind].index == lunbo[ind].now.find('.img').length-1){
+			lunbo[ind].now.find('[data-id="0"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				lunbo[ind].index = 0;
+			});
+			lunbo[ind].now.find('.label').eq(0).addClass('active');	
+		}
+		else{
+			lunbo[ind].now.find('[data-id="'+(++lunbo[ind].index).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+			});
+			lunbo[ind].now.find('.label').eq(lunbo[ind].index).addClass('active');			
+		}
+	}
+	function clearShow(now_carousel){
+		now_carousel.find('.show').fadeOut('slow', function() {
+			$(this).removeClass('show');
+		});
+		now_carousel.find('.active').removeClass('active');
+	}
+
+	$('body').on('mouseenter','.carousel',function(){
+		clearInterval(lunbo[$(this).index()].timer);
+	})
+	$('body').on('mouseleave','.carousel',function(){
+		var a = $(this).index();
+		lunbo[a].timer = setInterval(function(){
+				turn(a);
+		},2000);
+	})
+
+
+	$('.label').on('click',function(){
+		if(isAnimating){return;}
+		isAnimating = true;
+		var ind = $(this).parents('.carousel').index();	
+		var index = $(this).index();
+		if(index == lunbo[ind].now.find('.show').index()){
+			isAnimating = false;
+			return;
+		}
+		clearShow(lunbo[ind].now);
+		lunbo[ind].now.find('[data-id="'+index+'"]').fadeIn('slow',function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+		lunbo[ind].now.find('.label').eq(index).addClass('active');
+	})
+
+
+
+	$('.label-left').on('click',function(){
+		if(isAnimating){return;}
+		isAnimating = true;
+		var ind = $(this).parents('.carousel').index();	
+		clearShow(lunbo[ind].now);
+
+		if(lunbo[ind].index == 0){
+			lunbo[ind].now.find('[data-id="'+(--lunbo[ind].now.find('.img').length).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+			lunbo[ind].index = lunbo[ind].now.find('.img').length-1;
+			lunbo[ind].now.find('.label').eq(lunbo[ind].index).addClass('active');
+		}else{
+			lunbo[ind].now.find('[data-id="'+(--lunbo[ind].index).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+			lunbo[ind].now.find('.label').eq(lunbo[ind].index).addClass('active');
+		}	
+	})
+
+
+
+
+
+	$('.label-right').on('click',function(){
+		if(isAnimating){return;}
+		isAnimating = true;
+		var ind = $(this).parents('.carousel').index();
+		clearShow(lunbo[ind].now);
+
+		if(lunbo[ind].index == lunbo[ind].now.find('.img').length-1){
+			lunbo[ind].now.find('[data-id="0"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+			lunbo[ind].index = 0;
+			lunbo[ind].now.find('.label').eq(0).addClass('active');
+		}
+		else{
+			lunbo[ind].now.find('[data-id="'+(++lunbo[ind].index).toString()+'"]').fadeIn('slow', function() {
+				$(this).addClass('show');
+				isAnimating = false;
+			});
+			lunbo[ind].now.find('.label').eq(lunbo[ind].index).addClass('active');
+		}	
+	})
+
+})
+</script>
+</body>
+</html>

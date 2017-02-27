@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	html,body,ul,li{margin:0;padding:0;}
+        	li{list-style: none}
+        	.ct{
+        		width: 180px;
+        		margin: 10px 10px;
+        	}
+        	a{
+        		text-decoration: none;
+        		color: #eee;
+        	}
+        	span{
+        		color: #eee;
+        	}
+        	.tab{
+        	}
+        	.tab-aside{
+        		background: red;
+        		padding: 8px 15px;
+        		border-bottom:1px solid rgba(255,255,255,0.3);
+        		position: relative;
+				
+        	}
+        	.tab > li > span{
+        		float: right;
+        	}
+        	.child-panel{
+        		display: none;
+        		width: 180px;
+        		border: 1px solid #ccc;
+        		position: absolute;
+        		top: 0;
+				left: 180px;
+        	}
+        	.child-panel > li{
+        		float: left;
+        		width: 70px;
+        		padding: 8px 10px;
+        	}
+        	.child-panel > li > a {
+        		color: #000;
+        		font-size: 14px;
+        		font-family: "微软雅黑"
+        	}
+        	.hover{
+        		display: block;
+        	}
+        </style>
+    </head>
+    <body>
+    <div class="ct">
+	    <ul class="tab">
+	    	<li class="tab-aside">
+	    		<a href="#">珠宝玉器</a>
+	    		<span>></span>
+	    		<ul class="child-panel">
+	    			<li><a href="">翡翠</a></li>
+	    			<li><a href="">玉石</a></li>
+	    			<li><a href="">宝石</a></li>
+	    			<li><a href="">水晶</a></li>
+	    			<li><a href="">玛瑙</a></li>
+	    			<li><a href="">珍珠</a></li>
+	    			<li><a href="">钻石</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    			<li><a href="">和田</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    		</ul>
+	    	</li>
+	    	<li class="tab-aside">
+	    		<a href="#">珠宝玉器</a>
+	    		<span>></span>
+	    		<ul class="child-panel">
+	    			<li><a href="">翡翠</a></li>
+	    			<li><a href="">玉石</a></li>
+	    			<li><a href="">宝石</a></li>
+	    			<li><a href="">水晶</a></li>
+	    			<li><a href="">玛瑙</a></li>
+	    			<li><a href="">珍珠</a></li>
+	    			<li><a href="">钻石</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    			<li><a href="">和田</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    		</ul>
+	    	</li>
+	    	<li class="tab-aside">
+	    		<a href="#">珠宝玉器</a>
+	    		<span>></span>
+	    		<ul class="child-panel">
+	    			<li><a href="">翡翠</a></li>
+	    			<li><a href="">玉石</a></li>
+	    			<li><a href="">宝石</a></li>
+	    			<li><a href="">水晶</a></li>
+	    			<li><a href="">玛瑙</a></li>
+	    			<li><a href="">珍珠</a></li>
+	    			<li><a href="">钻石</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    			<li><a href="">和田</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    		</ul>
+	    	</li>
+	    	<li class="tab-aside">
+	    		<a href="#">珠宝玉器</a>
+	    		<span>></span>
+	    		<ul class="child-panel">
+	    			<li><a href="">翡翠</a></li>
+	    			<li><a href="">玉石</a></li>
+	    			<li><a href="">宝石</a></li>
+	    			<li><a href="">水晶</a></li>
+	    			<li><a href="">玛瑙</a></li>
+	    			<li><a href="">珍珠</a></li>
+	    			<li><a href="">钻石</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    			<li><a href="">和田</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    		</ul>
+	    	</li>
+	    	<li class="tab-aside"> 
+	    		<a href="#">珠宝玉器</a>
+	    		<span>></span>
+	    		<ul class="child-panel">
+	    			<li><a href="">翡翠</a></li>
+	    			<li><a href="">玉石</a></li>
+	    			<li><a href="">宝石</a></li>
+	    			<li><a href="">水晶</a></li>
+	    			<li><a href="">玛瑙</a></li>
+	    			<li><a href="">珍珠</a></li>
+	    			<li><a href="">钻石</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    			<li><a href="">和田</a></li>
+	    			<li><a href="">琥珀</a></li>
+	    		</ul>
+	    	</li>
+	    </ul>
+    </div>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var $tabAside = $('.tab-aside');
+		
+		$tabAside.hover(function(){
+			$(this).find('.child-panel').addClass('hover');
+		},function(){
+			$(this).find('.child-panel').removeClass('hover');
+		})
+	</script>
+    </body>
+</html>

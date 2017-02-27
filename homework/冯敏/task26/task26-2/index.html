@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task26-2</title>
+    <style>
+        body{
+            height:1400px;
+        }
+        #getScroll{
+            position: fixed;
+            top:0;
+            right:0;
+            width:250px;
+            height:100px;
+            background-color: pink;
+        }
+        #changeColor{
+            border:1px solid black;
+            width:250px;
+            height:100px;
+        }
+        fieldset{
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>当点击$btn时，让$btn的背景色变为红色再变为蓝色</legend>
+        <button id="btn">点我</button>
+    </fieldset>
+    <div id="getScroll">
+        <p>窗口垂直滚动距离为:0px</p>
+    </div>
+    <fieldset>
+        <legend>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</legend>
+        <div id="changeColor"></div>
+    </fieldset>
+    <fieldset>
+        <legend>input操作</legend>
+        <input type="text" id="input" placeholder="请输入内容">
+    </fieldset>
+    <fieldset>
+        <legend>当选择 select 后，获取用户选择的内容</legend>
+        <select id="select">
+            <option value ="苹果">苹果</option>
+            <option value ="香蕉">香蕉</option>
+            <option value="柚子">柚子</option>
+            <option value="草莓">草莓</option>
+        </select>
+        <p id="selectContent">用户选择的内容是：苹果</p>
+    </fieldset>
+    <script>
+        $("#btn").on("click",function(){
+            var $btn=$(this);
+            $btn.css("background-color","red",400);
+            setTimeout(function () {
+                $btn.css("background-color","blue");
+            },1000);
+        });
+        $(window).on("scroll",function () {
+            $("#getScroll").html("<p>窗口垂直滚动距离为:"+$(window).scrollTop()+"px</p>");
+        });
+        $("#changeColor").on({
+            "mouseenter":function () {
+                $("#changeColor").css("background-color","red")
+            },
+            "mouseleave":function () {
+                $("#changeColor").css("background-color","white")
+            }
+        });
+        $("#input").on({
+            "focus":function () {
+                $("#input").css("border-color","blue");
+            },
+            "change":function () {
+                $("#input").val($("#input").val().toUpperCase());
+            },
+            "blur":function () {
+                $("#input").css("border-color","");
+                console.log($("#input").val());
+            }
+        });
+        $("#select").on("change",function () {
+            $("#selectContent").html("<p>用户选择的内容是："+$("#select").find("option:selected").text()+"</p>");
+        })
+    </script>
+</body>
+</html>

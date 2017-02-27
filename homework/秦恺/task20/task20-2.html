@@ -1,0 +1,34 @@
+<script>
+
+var Car = (function(){
+	var speed = 0;
+	function setSpeed (s) {
+		speed = s;
+	}
+	function getSpeed () {
+		console.log(speed);
+	}
+	function accelerate () {
+		speed = speed + 10;
+	}
+	function decelerate () {
+		speed = speed - 10;
+	}
+	function getStatus () {
+		if (speed > 0) {
+			return "running"
+		} else {
+			return "stop"
+		}
+	}
+	return{
+		'setSpeed':setSpeed,
+		'getSpeed':getSpeed,
+		'accelerate':accelerate,
+		'decelerate':decelerate,
+		'getStatus':getStatus,
+		'speed':'error'
+	} 
+})();	
+
+</script>

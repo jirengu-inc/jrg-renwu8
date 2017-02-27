@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>requireJs</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/myfont.css">
+</head>
+<body>
+	<div id="nav">
+		<div class="container clearfix">
+			<div class="logo">
+				<a href="#">重庆</a>
+			</div>
+			<ul class="nav-list">
+				<li><a href="#">概览</a></li>
+				<li><a href="#">美食</a></li>
+				<li><a href="#">景区</a></li>
+				<li><a href="#">文化</a></li>
+				<li><a href="#">联系我们</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li class="item">
+				<div class="cover" data-bg-img="http://i1.piimg.com/567571/ba3b0f0c23492dd5.jpg"></div>
+				<div class="main">
+					<h3>重庆</h3>
+					<p>一座来了就不想走的城市</p>
+				</div>
+			</li>
+			<li class="item">
+				<div class="cover" data-bg-img="http://i1.piimg.com/567571/c2ec0b19e9e7eaef.jpg"></div>
+				<div class="main">
+					<h3>重庆</h3>
+					<p>一座来了就不想走的城市</p>
+				</div>
+			</li>
+			<li class="item">
+				<div class="cover" data-bg-img="http://i1.piimg.com/567571/e8ffc825a5e56c8f.jpg"></div>
+				<div class="main">
+					<h3>重庆</h3>
+					<p>一座来了就不想走的城市</p>
+				</div>
+			</li>
+			<li class="item">
+				<div class="cover" data-bg-img="http://i1.piimg.com/567571/3ddd6cddcc16070b.jpg"></div>
+				<div class="main">
+					<h3>重庆</h3>
+					<p>一座来了就不想走的城市</p>
+				</div>
+			</li>
+		</ul>
+		<a href="#" class="pre arrow"> < </a>
+		<a href="#" class="next arrow"> > </a>
+		<ul class="bullet">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div class="overview">
+			<div class="container">
+				<h2>概 览</h2>
+				<p>我将从以下三个方面介绍重庆</p>
+				<ul>
+					<li>
+						<div class="iconfont-wrapper">
+							<span class="iconfont">&#xe62d;</span>
+						</div>
+						<h3>美食</h3>
+						<p>重庆菜属于渝派川菜，是以 “麻、辣、鲜、嫩、烫”为重点，
+							而近年来的“新渝菜”也取各家所长，不断创新。</p>
+					</li>
+					<li>
+						<div class="iconfont-wrapper">
+							<span class="iconfont">&#xe681;</span>
+						</div>
+						<h3>景点</h3>
+						<p>重庆，号称“火炉”、“山城”、“雾都”，曾经的陪都，
+							现在的直辖市，媲美夜香港的无敌夜景。</p>
+					</li>
+					<li>
+						<div class="iconfont-wrapper">
+							<span class="iconfont">&#xe6d5;</span>
+						</div>
+						<h3>文化</h3>
+						<p>重庆拥有熔巴渝文化、民族文化、移民文化、三峡文化、陪都文化、
+							都市文化于一炉的文化景观。</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="food">
+			<div class="container">
+				<h2>美 食</h2>
+				<p>重庆美食以“麻、辣、鲜、嫩、烫”为重点</p>
+				<div class="ct-waterfall">
+					<ul id="pic-ct" class="ct clearfix">
+						<li class="item">
+							<a href="#" class="link">
+								<img src="http://i1.piimg.com/567571/f5851338e02870e6.png" alt="">
+							</a>
+							<h4 class="header">毛血旺</h4>
+							<p class="desp">这道菜是川菜江湖菜的鼻祖之一</p>
+						</li>
+						<li class="item">
+							<a href="#" class="link">
+								<img src="http://p1.bpimg.com/567571/cea6a40247b9c1cb.jpg" alt="">
+							</a>
+							<h4 class="header">火锅</h4>
+							<p class="desp">'重庆十大文化符号'之首</p>
+						</li>
+						<li class="item">
+							<a href="#" class="link">
+								<img src="http://p1.bqimg.com/567571/94c3ba49bc9fc9a3.jpg" alt="">
+							</a>
+							<h4 class="header">辣子鸡</h4>
+							<p class="desp">此菜成菜色泽棕红油亮，麻辣味浓</p>
+						</li>
+					</ul>
+				</div>
+				<div id="load" class="btn">加载更多</div>
+			</div>
+		</div>
+		<div class="scenery">
+			<div class="container">
+				<div class="scenery-title">
+					<h2>景 点</h2>
+					<p>重庆拥有集山、水、林、泉、瀑、峡、洞等为一体自然景色</p>
+				</div>
+				<div class="scenery-intro">
+					<ul>
+						<li>
+							<div class="scenery-img">
+								<img src="image/hongyadong.jpg" alt="洪崖洞">
+							</div>
+							<div class="scenery-para">
+								<h3>洪崖洞</h3>
+								<p>位于重庆直辖市核心商圈解放碑沧白路，长江、
+									嘉陵江两江交汇的滨江地带，坐拥城市旅游景观、商务休闲
+									景观和城市人文景观于一体,以具巴渝传统建筑特色的“吊脚楼”风貌
+									为主体，依山就势，沿江而建，解放碑直达江滨。</p>
+							</div>
+						</li>
+						<li class="right">
+							<div class="scenery-img">
+								<img src="image/sanxia.jpg" alt="长江三峡">
+							</div>
+							<div class="scenery-para">
+								<h3>长江三峡</h3>
+								<p>长江三峡西起重庆奉节县白帝城，东至湖北宜昌市南津关，
+									全长193千米，沿途两岸奇峰陡立、峭壁对峙，
+									自西向东依次为瞿塘峡、巫峡、西陵峡。</p>
+							</div>
+						</li>
+						<li>
+							<div class="scenery-img">
+								<img src="image/tiankeng.jpg" alt="天坑地缝">
+							</div>
+							<div class="scenery-para">
+								<h3>天坑地缝</h3>
+								<p>天坑地缝旅游风景区位于天坑地缝旅游风景区位于奉节县荆竹乡小寨村，
+									是世界上深度和容积最大的岩溶漏斗。天坑口四面绝壁，
+									如斧劈刀削， 宏伟壮观。坑中有无数幽深莫测的洞穴
+									和一条汹涌澎湃的暗河。</p>
+							</div>
+						</li>
+						<li class="right">
+							<div class="scenery-img">
+								<img src="image/dazushike.gif" alt="大足石刻">
+							</div>
+							<div class="scenery-para">
+								<h3>大足石刻</h3>
+								<p>大足石刻位于重庆市大足区境内，是唐末、宋初时期
+									宗教摩崖石刻，以佛教题材为主，儒、道教造像并陈，
+									是著名的艺术瑰宝、历史宝库和佛教圣地，
+									有“东方艺术明珠”之称</p>
+							</div>
+						</li>
+						<li>
+							<div class="scenery-end">
+								<p>重庆欢迎您</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="culture">
+			<div class="container">
+				<div class="culture-title">
+					<h2>文 化</h2>
+					<p>重庆拥有熔巴渝文化、民族文化、移民文化、三峡文化、陪都文化、
+						都市文化于一炉的文化景观。</p>
+				</div>
+				<div class="culture-intro">
+					<ul>
+						<li>
+							<div class="culture-list">
+								<img src="image/matou.jpg" alt="码头文化">
+								<div class="culuture-text">
+									<h4>重庆码头文化</h4>
+									<p>长江、嘉陵江两江交汇</p>
+									<div class="culture-iconfont">
+										<a href="#">
+											<span class="iconfont">&#xe62e;</span>
+										</a>
+										<a href="#">
+											<span class="iconfont">&#xe616;</span>
+										</a>
+										<a href="#">
+											<span class="iconfont">&#xe615;</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="culture-list">
+								<img src="image/zhulian.jpg" alt="梁平竹帘">
+								<div class="culuture-text">
+									<h4>手工艺品</h4>
+									<p>民间手工艺品</p>
+									<div class="culture-iconfont">
+										<a href="#">
+											<span class="iconfont">&#xe62e;</span>
+										</a>
+										<a href="#">
+											<span class="iconfont">&#xe616;</span>
+										</a>
+										<a href="#">
+											<span class="iconfont">&#xe615;</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="culture-list">
+								<img src="image/diaojiaolou.jpg" alt="吊脚楼">
+								<div class="culuture-text">
+									<h4>吊脚楼</h4>
+									<p>左青龙，右白虎，前朱雀，后玄武</p>
+									<div class="culture-iconfont">
+										<a href="#">
+											<span class="iconfont">&#xe62e;</span>
+										</a>
+										<a href="#">
+											<span class="iconfont">&#xe616;</span>
+										</a>
+										<a href="#">
+											<span class="iconfont">&#xe615;</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div class="ad">
+			<div class="container">
+				<a href="#">
+					<img src="image/ad.jpg" alt="ad">
+				</a>
+				<a href="#">
+					<img src="image/ad.jpg" alt="ad">
+				</a>
+				<a href="#">
+					<img src="image/ad.jpg" alt="ad">
+				</a>
+				<a href="#">
+					<img src="image/ad.jpg" alt="ad">
+				</a>
+			</div>
+		</div>
+		<div class="contact">
+			<div class="container">
+				<div class="contact-title">
+					<h2>联系我们</h2>
+					<p>一场说走就走的旅行</p>
+				</div>
+				<div class="contact-form">
+					<div class="left-box">
+						<input type="text" placeholder="YOUR NAME *">
+						<input type="text" placeholder="YOUR EMAIL *">
+						<input type="text" placeholder="YOUR PHONE *">
+					</div>
+					<div class="right-box">
+						<textarea name="message" id="" cols="30" rows="10" placeholder="YOUR MESSAGE *"></textarea>
+					</div>
+					<div class="right-box"></div>
+				</div>
+				<a href="#" class="btn">发送信息</a>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="container">
+			<ul>
+				<li>
+					<span>Copyright © Your Website 2014</span>
+				</li>
+				<li>
+					<div class="iconfont-wrapper">
+						<a href="#">
+							<span class="iconfont">&#xe62e;</span>
+						</a>
+						<a href="#">
+							<span class="iconfont">&#xe616;</span>
+						</a>
+						<a href="#">
+							<span class="iconfont">&#xe615;</span>
+						</a>
+					</div>
+				</li>
+				<li>
+					<div class="policy">
+						<a href="#">Privacy Policy</a>
+						<a href="#">Terms of Use</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/lib/require.js" data-main="js/out/index.merge.min.js"></script>
+	<!--<script src="js/lib/require.js" data-main="js/main.js"></script>-->
+</body>
+</html>

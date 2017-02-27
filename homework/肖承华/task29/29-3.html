@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+ <html lang="zh-CN">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Document</title>
+ </head>
+ <style>
+ 	a{
+ 		text-decoration: none;
+ 		color: #FF3300;
+ 	}
+ 	.content{
+ 		padding: 10px 5px;
+ 		margin: 10px 5px;
+ 		border: 1px solid #ccc;
+ 	}
+ 	.wrap-btn {
+		text-align: center;
+		margin-top: 30px;
+ 	}
+ 	.content.hover:hover{
+ 		background-color: #99CCFF;
+ 	}
+ 	.more-btn{
+ 		display: inline-block;
+ 		width: 80px;
+ 		height: 40px;
+ 		line-height: 40px;
+ 		border: 1px solid #FF3300;
+ 		border-radius: 4px;
+ 	}
+ 	.more-btn img{
+ 		width: 40px;
+ 		height: 40px;
+ 	}
+ </style>
+ <body>
+ 	<div class="content">内容1</div>
+ 	<div class="content">内容2</div>
+ 	<div class="wrap-btn">
+ 		<a href="JavaScript:;" class="more-btn">加载更多</a>
+ 	</div>
+ </body>
+ <script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+ 	<script>
+
+ 		$('body').on('mouseenter','.content',function(){
+ 			$(this).addClass('hover');
+ 		})
+ 		$('body').on('mouseleave','.content',function(){
+ 			$(this).removeClass('hover');
+ 		})
+ 		var cur = $('.more-btn');
+
+ 		checkShow();
+ 		var clock;
+ 		$(window).on('scroll',function(){	
+ 			if (clock) {
+ 				clearTimeout(clock);
+ 			}
+ 			clock = setTimeout(function(){
+ 				checkShow()	
+ 			},200)		
+ 		})
+ 		function checkShow(){	
+			if (isShow(cur)) {
+				 load();
+			}
+		}
+
+		function load(){
+		var index=$('.wrap-btn').index();
+	  	$.ajax({
+ 			  method:'GET',
+			  dataType: "json",
+			  url: '29.php',
+			  data: {
+			  	start:index,
+			  	len:12
+			  },
+			  success:function(data){
+			  	success(data)
+			  },
+			  error:function(){
+			  	error();
+			  }
+			})
+		}
+		function isShow(el){
+			winH = $(window).height(),
+			scrollH = $(window).scrollTop(),
+			nodeH = el.offset().top;
+			if ((nodeH > scrollH) && (winH+scrollH) > nodeH) {
+				return true;
+			}else{
+				return false; 
+			}
+
+		}
+
+
+		function success(data){
+			if (data.status==1) {
+				$.each(data.data,function(k,v){
+			 	console.log(v)
+			 	$('.wrap-btn').before('<div class="content">'+v+'</div>')
+			 })
+			}else{
+				alert('数据加载失败')
+			}
+		 }
+
+		 function error(){
+		 	alert('系统异常 请稍后！')
+		 }
+ 	</script>
+ </html>

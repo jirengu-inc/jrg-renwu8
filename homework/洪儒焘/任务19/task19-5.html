@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法？用代码（递归）实现
+		function step(floors) {
+		    if (floors === 1) {
+		       return 1;
+		    }else if (floors === 2) {
+		       return 2;
+		    }else {
+		    	return step(floors-1)+step(floors-2);
+		    }
+		}
+		console.log(step(5));
+	</script>
+</body>
+</html>

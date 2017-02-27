@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+	<ul class="newsList">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="btn1">AJAX请求</button>
+	<button id="btn2">CORS请求</button>
+
+<script type="text/javascript">
+	
+ var btn1 = $('#btn1'),
+ 	 btn2 = $('#btn2');
+
+//普通ajax
+btn1.addEventListener('click', function(e){
+	var xhr = new XMLHttpRequest();
+	xhr.open('get', 'http://a.hqq.com:8080/getNews1', true)
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4 && xhr.status === 200){
+			console.log(JSON.parse(xhr.responseText));
+			appendHtml(JSON.parse(xhr.responseText));
+		}
+	}
+
+})
+
+//cors
+btn2.addEventListener('click', function(){
+	var xhr = new XMLHttpRequest();
+	xhr.open('get', 'http://b.hqq.com:8080/getNews2', true)
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4 && xhr.status === 200){
+			console.log(JSON.parse(xhr.responseText));
+			appendHtml(JSON.parse(xhr.responseText));
+		}
+	}
+})
+
+
+
+function appendHtml(str){
+	var htmls = '';
+	for(var key in str){
+		htmls += '<li>' + str[key] + '</li>';
+	}
+
+	$('.newsList').innerHTML = htmls;
+}
+
+	function $(id){
+		return document.querySelector(id);
+	}
+
+</script>
+</body>
+</html>

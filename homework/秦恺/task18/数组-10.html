@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组-10</title>
+</head>
+<body>
+	<script>
+function isNumeric (el){
+    return typeof el === 'number'; 
+}
+function isInt (el){
+    return  typeof el === "number" && el > 0; 
+}
+function filter(arr, func) {
+    for (var i = 0; i<arr.length; i++) {
+        if (!func(arr[i])) {
+            arr.splice(i,1);
+        }
+    }
+return arr;    
+}
+
+	</script>
+</body>
+</html>

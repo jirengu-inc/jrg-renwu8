@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流布局</title>
+    <style type="text/css">
+        .content{
+            position: relative;
+        }
+        .item{
+            position: absolute;
+            width: 200px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 1s;
+        }
+        .h1{
+            height: 200px;
+            background-color: dodgerblue;
+        }
+        .h2{
+            height: 300px;
+            background-color: green;
+        }
+        .h3{
+            height: 400px;
+            background-color: lightpink;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="item h1">
+            1
+        </div>
+        <div class="item h3">
+            2
+        </div>
+        <div class="item h2">
+            3
+        </div>
+        <div class="item h1">
+            4
+        </div>
+        <div class="item h1">
+            5
+        </div>
+        <div class="item h3">
+            6
+        </div>
+        <div class="item h3">
+            7
+        </div>
+        <div class="item h2">
+            8
+        </div>
+        <div class="item h1">
+            9
+        </div>
+        <div class="item h3">
+            10
+        </div>
+        <div class="item h3">
+            11
+        </div>
+        <div class="item h3">
+            12
+        </div>
+        <div class="item h2">
+            13
+        </div>
+        <div class="item h2">
+            14
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+           function render() {
+               var nodeWindth=$(".item").outerWidth(true);
+               var colNum=parseInt($(window).width()/nodeWindth);
+               var colSumHeight=[];
+               for(var i=0;i<colNum;i++){
+                   colSumHeight.push(0);
+               }
+               $(".item").each(function () {
+                   var $me=$(this);
+                   var idx=0,
+                       minSumHeight=colSumHeight[0];
+                   for(i=1;i<colSumHeight.length;i++){
+                       if(colSumHeight[i]<minSumHeight){
+                           idx=i;
+                           minSumHeight=colSumHeight[i];
+                       }
+                   }
+                   $me.css({
+                       left:idx*nodeWindth,
+                       top:minSumHeight
+                   });
+                   colSumHeight[idx]+=$me.outerHeight(true);
+               })
+           }
+           render();
+           $(window).on("resize",function () {
+               render();
+           });
+        })
+    </script>
+</body>
+</html>

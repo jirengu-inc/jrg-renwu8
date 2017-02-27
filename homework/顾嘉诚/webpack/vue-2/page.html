@@ -1,0 +1,25 @@
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <title>vue demo</title>
+  </head>
+  <body>
+    <div id="app"><!-- 用于 vue 的初始化-->
+      <div class="task">
+        <input type="text" name="task" v-model="newToDo" v-on:keyup.enter="addToDos">
+      </div>
+      <ol class="todos">
+        <li v-for="todo in toDoList">
+          <input type="checkbox" name="mark" v-model="todo.checked">
+          {{ todo.title }}
+          <span v-if="todo.checked">已完成</span>
+          <span v-else>未完成</span>
+          <button v-on:click="removeToDos">X</button>
+        </li>
+      </ol>
+    </div>
+    <p>使用了 window.sessionStorage 页面关闭前数据不会丢</p>
+    
+    <script src="bundle.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task12-3</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background: #eee;
+        }
+
+        #footer {
+            background: #eee;
+        }
+
+        #content {
+            padding: 0 0 0 200px;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #content .main {
+            float: left;
+            width: 100%;
+            background: green;
+        }
+
+        #content .leftside{
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 500px;
+        }
+
+        #content .leftside {
+            margin-left: -100%;
+            left: -200px;
+            background: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="header">头部</div>
+<div id="content" class="clearfix">
+    <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, adipisci, aspernatur blanditiis
+        culpa cum dolorem dolores doloribus earum eos error hic iusto nostrum odit repellendus rerum suscipit tempora
+        tenetur veniam.
+    </div>
+    <div class="leftside">左侧边栏，固定宽度</div>
+</div>
+<div id="footer">尾部</div>
+</body>
+</html>

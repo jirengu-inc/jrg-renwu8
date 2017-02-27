@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  	*{
+  text-decoration:none;
+  list-style:none;
+  margin:0;
+}
+.warp{
+  margin:20px auto;
+}
+.warp>li{
+  float:left;
+  margin:50px;
+}
+
+.warp:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.warp>li>a>img{
+  width:500px;
+  height:500px;
+}
+  </style>
+</head>
+<body>
+<div class="load">
+  <ul class="warp">
+     <li><a href="#"><img src="" data-src="http://www.sinaimg.cn/dy/slidenews/4_img/2015_14/704_1593246_211678.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://news.youth.cn/yl/201504/W020150403379102514033.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://img.mingxingtu.com/allimg/150807/co150PG13002-7.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://img.mingxingtu.com/allimg/150807/co150PG13002-7.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://pic.enorth.com.cn/003/023/114/00302311404_b9a90c8c.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://pic.enorth.com.cn/003/023/114/00302311404_b9a90c8c.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://2f.zol-img.com.cn/product/35_1200x900/45/ceo3JRy6eQOis.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://2f.zol-img.com.cn/product/35_1200x900/45/ceo3JRy6eQOis.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syufumoni/20160915/20160915221346.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syufumoni/20160915/20160915221346.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://attachments.gfan.com/attachments2/day_100818/100818130734616ea053e09ead.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://attachments.gfan.com/attachments2/day_100818/100818130734616ea053e09ead.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://www.mightymedia.com.tw/news/pic/narutoPs402.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="https://i.ytimg.com/vi/AjqW12RWlOg/hqdefault.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://dl.bizhi.sogou.com/images/2014/11/06/951050.jpg" alt=""></a></li>
+     <li><a href="#"><img src="" data-src="http://dl.bizhi.sogou.com/images/2014/11/06/951050.jpg" alt=""></a></li>
+  </ul>
+</div>
+<script>
+   showImg($('img'));//用户未开始先执行一次
+  $(window).on('scroll',function(e){
+    showImg($('img'));
+ })
+function checkShow(ele){
+	var windowH = $(window).height(),
+		offsetH = ele.offset().top,
+		scrollH = $(window).scrollTop()
+		eleH    = ele.outerHeight();
+	if(windowH + scrollH > offsetH && scrollH < offsetH + eleH){
+		return true;
+	}else{
+		return false;
+	}
+}//负责显示图片
+
+function showImg(ele){
+	ele.not('.hadshow').each(function(){
+	if(checkShow($(this))){
+		var imgUrl = $(this).attr('data-src');
+		$(this).attr('src',imgUrl)
+               .addClass('hadshow');//添加Class防止重复检测
+	}else{
+		return;
+	}
+	})
+}//判断图片是否应该显示
+//http://js.jirengu.com/yutitanimu/1/edit?output
+</script>
+</body>
+</html>

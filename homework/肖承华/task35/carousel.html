@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>无限轮播</title>
+</head>
+<style>
+	html,body,ul{
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.clearfixed:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.carousel{
+		position: relative;
+		width: 550px;
+		height: 406px;
+		overflow: hidden;
+	}
+	.img-ct {
+		position: absolute;
+
+	}
+	.img-ct li{
+		float: left;
+		
+	}
+	.img-ct li img{
+		width: 550px;
+		height: 406px;
+	}
+	.arrow {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 30px;
+		text-align: center;
+		color: #fff;
+		background-color: #333;
+		position: absolute;
+		top: 50%;
+		margin-top:-15px;
+		opacity: 0.6;
+	}
+	.arrow:hover{
+		opacity: 1;
+	}
+	.arrow.left{
+		left: 10px;
+	}
+	.arrow.right{
+		right:10px;
+	}
+</style>
+<body>
+	<div class="ct">
+		<div class="carousel">
+			<ul class="img-ct clearfixed">
+				<li><a href="JavaScript:;"><img src="a1.jpg" alt=""></a></li>
+				<li><a href="JavaScript:;"><img src="a2.jpg" alt=""></a></li>
+				<li><a href="JavaScript:;"><img src="a3.jpg" alt=""></a></li>
+				<li><a href="JavaScript:;"><img src="a4.jpg" alt=""></a></li>
+			</ul>
+			<a href="JavaScript:;" class="arrow left"><</a>
+			<a href="JavaScript:;" class="arrow right">></a>
+		</div>
+	</div>
+	<div class="ct">
+		<div class="carousel">
+			<ul class="img-ct clearfixed">
+				<li><a href="JavaScript:;"><img src="a1.jpg" alt=""></a></li>
+				<li><a href="JavaScript:;"><img src="a2.jpg" alt=""></a></li>
+				<li><a href="JavaScript:;"><img src="a3.jpg" alt=""></a></li>
+				<li><a href="JavaScript:;"><img src="a4.jpg" alt=""></a></li>
+			</ul>
+			<a href="JavaScript:;" class="arrow left"><</a>
+			<a href="JavaScript:;" class="arrow right">></a>
+		</div>
+	</div>	
+
+
+<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+<script>
+
+	function Carousel($node){
+		this.ct=$node.find('.img-ct');
+		this.pre=$node.find('.left');
+		this.next=$node.find('.right');
+		this.imgWidth=$node.find('img').width();
+		this.imgCount=$node.find('img').size();
+
+		this.ct.css({width:this.imgCount*this.imgWidth});
+		this.bind();
+	}
+	Carousel.prototype = {	
+		bind:function(){
+			var _this = this;
+			_this.next.on('click',function(){
+				_this.playNext();
+			})
+			_this.pre.on('click',function(){
+				_this.playPre();
+			})
+		},
+		playNext:function(){
+			this.ct.animate({'left':0-this.imgWidth},function(){
+				$(this).append($(this).children().first()); //函数内部出现的this其实已经是ct了,但确是dom对象 得转成jq对象
+				$(this).css('left',0)
+			})			
+		},	
+		playPre:function(){
+			this.ct.prepend(this.ct.children().last());
+			this.ct.css('left',0-this.imgWidth);
+			this.ct.animate({'left':0});
+		}
+	};
+
+	var $node1 = $('.ct').eq(0);
+	var $node2 = $('.ct').eq(1);
+	var carousel1 = new Carousel($node1);
+	var carousel2 = new Carousel($node2);
+
+</script>
+
+</body>
+</html>

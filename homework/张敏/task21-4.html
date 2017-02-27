@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.
+
+    var str = 'hello  "hunger" , hello "world"';
+    var pat = /".*?"/g;
+    //输出[""hunger" , hello "world""],应为贪婪模式
+
+    console.log(str.match(pat));
+</script>
+</body>
+</html>

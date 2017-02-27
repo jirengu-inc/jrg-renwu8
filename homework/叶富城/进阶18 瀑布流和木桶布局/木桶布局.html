@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        *{margin:0;padding:0;}
+        .img-preview{
+            width:1000px;
+            margin:0 auto;
+        }
+        .img-row{
+            margin-bottom:8px;
+        }
+        .img-row:after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .img-box{
+            float:left;
+        }
+        .img-line .img-box:first-child{
+            padding-left:0;
+        }
+    </style>
+</head>
+<body>
+<div class="img-preview">
+
+
+</div>
+</body>
+
+<script>
+    function Barrels($ct) {
+        this.$ct = $ct;
+        this.imgNum = 40;
+        this.baseHeight = 140;
+        this.rowList = [];
+        this.loadImg();
+    }
+    Barrels.prototype = {
+        loadImg: function() {   //生成图片
+            var _this = this;
+            var imgUrls = this.getImgUrls(100);
+            $.each(imgUrls,function(idx, url){
+                var img = new Image();
+                img.src = url;
+                img.onload = function(){
+                    var originWidth = img.width,
+                        originHeight = img.height,
+                        ratio = originWidth/originHeight;
+
+                    var imgInfo = {
+                        target: $(img),
+                        width: _this.baseHeight*ratio,
+                        height: _this.baseHeight,
+                        ratio: ratio
+                    };
+                    _this.render(imgInfo);
+                };
+            });
+        },
+        render: function(imgInfo){   //递交图片，虚拟行
+            var _this = this;
+            var rowList = this.rowList,
+                rowWidth = 0,
+                rowHeight = 0,
+                clientWidth = this.$ct.width(),
+                lastImgInfo = imgInfo;
+            this.rowList.push(imgInfo);
+            $.each(rowList,function(idx, imgInfo){
+                rowWidth += imgInfo.width;
+                if(rowWidth  > clientWidth ){
+                    rowList.pop();
+                    rowWidth = rowWidth - lastImgInfo.width;
+                    rowHeight = clientWidth * _this.baseHeight / rowWidth;
+                    _this.createRow(rowHeight);
+                    _this.rowList = [];
+                    _this.rowList.push(lastImgInfo);
+                }
+            });
+        },
+        createRow: function(rowHeight){   //输出图片行
+            console.log('createRow');
+            var $rowCt = $('<div class="img-row"></div>');
+            $.each(this.rowList, function(idx, imgInfo){
+                var $imgCt = $('<div class="img-box"></div>'),
+                    $img = imgInfo.target;
+                $img.height(rowHeight);
+                $imgCt.append($img);
+                $rowCt.append($imgCt);
+            });
+            console.log(this.$ct);
+            this.$ct.append($rowCt);
+        },
+        getImgUrls: function(num) {  //创建图片地址
+            var color, width, height, urls = [];
+            for (var i = 0; i < num; i++) {
+                color = Math.random().toString(16).substring(2, 8);
+                width = Math.floor(Math.random() * 100 + 50);
+                height = Math.floor(Math.random() * 30 + 50);
+                urls.push("http://placehold.it/" + width + "/" + height +color +"/fff");
+            }
+            return urls;
+        }
+    };
+    var barrels = new Barrels($('.img-preview'));
+</script>
+</html>

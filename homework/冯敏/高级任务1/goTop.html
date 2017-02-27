@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>goTop对象</title>
+    <style>
+        p{
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .goTop{
+            position: fixed;
+            right:20px;
+            bottom:20px;
+            width:80px;
+            height:40px;
+            line-height: 40px;
+            padding:8px;
+            border: 1px solid red;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="content">
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+        <p>内容1</p>
+    </div>
+    <script type="text/javascript">
+        function GoTop($ct) {
+            this.$ct=$ct;
+            this.createNode();
+            this.bindEvent();
+        }
+        GoTop.prototype.createNode=function () {
+            this.$target=$("<div class='goTop'> 回到顶部 </div>");
+            this.$ct.append(this.$target);
+        };
+        GoTop.prototype.bindEvent=function () {
+            this.$target.on("click",function () {
+                $("body").scrollTop(0);
+            })
+        };
+        var goTop=new GoTop($(".content"));
+    </script>
+</body>
+</html>

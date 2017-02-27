@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <style>
+        p {
+            line-height: 3;
+        }
+        #go-top {
+            position: fixed;
+            color: #666;
+            bottom: 10px;
+            right: 10px;
+            border: 1px solid rgba(0, 140, 255, 0.41);
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<p>内容1</p>
+<p>内容2</p>
+<p>内容3</p>
+<p>内容4</p>
+<p>内容5</p>
+<p>内容6</p>
+<p>内容7</p>
+<p>内容8</p>
+<p>内容9</p>
+<p>内容1</p>
+<p>内容2</p>
+<p>内容3</p>
+<p>内容4</p>
+<p>内容5</p>
+<p>内容6</p>
+<p>内容7</p>
+<p>内容8</p>
+<p>内容9</p>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    var $goTop = $('<div id="go-top">回到顶部</div>');
+    $('body').append($goTop);
+    $(window).on('scroll',function () {
+        var offsetTop = $('body').scrollTop();
+        console.log(offsetTop);
+        if (offsetTop > 200) {
+            $goTop.show();
+        } else {
+            $goTop.hide();
+        }
+    });
+    $goTop.on('click',function () {
+        $(window).scrollTop(0);
+    });
+</script>
+</body>
+</html>

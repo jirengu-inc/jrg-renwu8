@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//完善如下代码，用于获取执行时间如：
+		var Runtime = (function(){
+		    var startTime,endTime,getTime;
+		    var obj = {
+		        start: function(){
+		            startTime = +new Date();
+		        },
+		        end: function(){
+		            endTime=Date.now();
+		        },
+		        get: function(){
+		            getTime=endTime-startTime+ "毫秒";
+		            return getTime;
+		        }
+		    };
+		return obj;
+		}());
+		Runtime.start();
+		for (var i = 0; i < 1000000; i++) {
+		    a = 1;
+		}
+		Runtime.end();
+		console.log(  Runtime.get() );
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var EventManager = (function() {
+        var evtsque = {};
+
+        function on(evt, handle) {
+            evtsque.evt = evtsque.evt || [];
+            evtsque.evt.push(handle);
+        }
+
+        function fire(evt, args) {
+            if (evtsque.evt) {
+                for (var func in evtsque.evt) {
+                    evtsque.evt[func](args);
+                }
+
+            }
+        }
+        function off(evt){
+        	if (evtsque.evt)
+        	{
+        		delete evtsque.evt;
+        	}
+        }
+        return {
+            on: on,
+            fire: fire,
+            off:off
+        }
+    })();
+    EventManager.on('text:change', function(val) {
+        console.log('text:change... now val is ' + val);
+    });
+    EventManager.fire('text:change', '饥人谷');
+    EventManager.off('text:changer');
+    </script>
+</body>
+
+</html>

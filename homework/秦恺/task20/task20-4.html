@@ -1,0 +1,16 @@
+<script>
+	
+function getMini(){
+    var i=0;
+    var start=Date.now();
+    var clock=setTimeout(function (){
+    i++;
+    if (i === 1000){
+    	var end=Date.now();
+    	clearTimeout(clock);
+        console.log((end-start)/i);
+     }                  
+    clock=setTimeout(arguments.callee,0);
+    },0);
+}
+</script>

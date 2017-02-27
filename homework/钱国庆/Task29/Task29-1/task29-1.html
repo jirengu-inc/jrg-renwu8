@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task29-1-回到顶部</title>
+    <style>
+        div {
+            padding: 20px;
+        }
+
+        #go-to-top {
+            border: 1px solid red;
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            padding: 10px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<script>
+
+    // 方法一、一般实现
+//    var $goToTop = $('<div id="go-to-top">回到顶部</div>')
+//    $('body').append($goToTop);
+//
+//    $(window).on('scroll', function () {
+//        var currentOffsetTop = $(this).scrollTop();
+//        if (currentOffsetTop > 100) {
+//            $goToTop.show(500);
+//        } else {
+//            $goToTop.hide(500);
+//        }
+//    });
+//
+//    $goToTop.on('click', function () {
+//        $(window).scrollTop(0);
+//    });
+
+    // 方法二、封装成对象
+//    var goTop = {
+//        init: function () {
+//            if ($('#go-to-top').length > 0) { /* 表示如果存在了go-to-top */
+//                return;
+//            }
+//            var $goToTop = $('<div id="go-to-top">回到顶部</div>');
+//            $('body').append($goToTop);
+//
+//            this.$goToTop = $goToTop;
+//            this.bind();
+//        },
+//
+//        bind: function () {
+//            var self = this;
+//
+//            $(window).on('scroll', function () {
+//                var currentOffsetTop = $('body').scrollTop();
+//                if (currentOffsetTop > 100) {
+//                    self.$goToTop.show();
+//                } else {
+//                    self.$goToTop.hide();
+//                }
+//            });
+//
+//            self.$goToTop.on('click', function () {
+//                $(window).scrollTop(0);
+//            });
+//        }
+//    };
+//
+//    goTop.init();
+
+    // 方法三、封装到函数中
+    var goToTop = (function () {
+        var $goToTop = $('<div id="go-to-top">回到顶部</div>');
+        $('body').append($goToTop);
+
+        function init() {
+            $(window).on('scroll', function () {
+                var currentOffsetTop = $('body').scrollTop();
+
+                if (currentOffsetTop > 100) {
+                    $goToTop.show();
+                } else {
+                    $goToTop.hide();
+                }
+            });
+
+            $goToTop.on('click', function () {
+                $(window).scrollTop(0);
+            });
+        }
+        return {
+            init: init
+        };
+    })();
+
+    goToTop.init();
+
+</script>
+</html>

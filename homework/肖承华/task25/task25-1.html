@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			background-color: #c7171e;
+			margin:0;
+			padding: 0;
+			list-style: none;
+			width: 200px;
+		}
+		a{
+			color: #fff;
+			text-decoration: none;
+		}
+		 .side-item{
+			font-size: 14px;
+			color: #fff;
+			padding: 15px 20px;
+			border-bottom: 1px dotted #de272e;
+			cursor: pointer;
+			position: relative;
+		}
+		.icon-right {
+			float: right;
+		}
+		.child-panel {
+			background-color: #fff;
+			border: 1px solid #ccc;
+			position: absolute;
+			top: 0;
+			left: 200px;
+			display: none
+		}
+		.hover-show{
+			display: block;
+		}
+		.child-panel>li{
+			width: 80px;
+			padding: 10px 0;
+			float: left;
+			padding-left: 20px;
+		}
+		.child-panel>li>a{
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+	<ul class="side-ct">
+		<li class="side-item">
+			<a href="">珠宝玉器</a>
+			<span class="icon-right">></span>
+			<ul class="child-panel">
+				<li><a href="">翡翠</a></li>
+				<li><a href="">玉石</a></li>
+				<li><a href="">宝石</a></li>
+				<li><a href="">水晶</a></li>
+				<li><a href="">玛瑙</a></li>
+				<li><a href="">珍珠</a></li>
+				<li><a href="">和田</a></li>
+				<li><a href="">砖石</a></li>
+				<li><a href="">真金</a></li>
+				<li><a href="">白银</a></li>		
+			</ul>
+		</li>
+		<li class="side-item">
+			<a href="">珠宝玉器</a>
+			<span class="icon-right">></span>
+			<ul class="child-panel">
+				<li><a href="">翡翠</a></li>
+				<li><a href="">玉石</a></li>
+				<li><a href="">宝石</a></li>
+				<li><a href="">水晶</a></li>
+				<li><a href="">玛瑙</a></li>	
+			</ul>
+		</li class="side-item">
+		<li class="side-item">
+			<a href="">珠宝玉器</a>
+			<span class="icon-right">></span>
+			<ul class="child-panel">
+				<li><a href="">翡翠</a></li>
+				<li><a href="">玛瑙</a></li>
+				<li><a href="">珍珠</a></li>
+				<li><a href="">和田</a></li>
+				<li><a href="">砖石</a></li>
+				<li><a href="">真金</a></li>
+				<li><a href="">白银</a></li>		
+			</ul>
+		</li>
+		<li class="side-item">
+			<a href="">珠宝玉器</a>
+			<span class="icon-right">></span>
+			<ul class="child-panel">
+				<li><a href="">翡翠</a></li>
+				<li><a href="">玉石</a></li>
+				<li><a href="">砖石</a></li>
+				<li><a href="">真金</a></li>		
+			</ul>
+		</li>
+		<li class="side-item">
+			<a href="">珠宝玉器</a>
+			<span class="icon-right">></span>
+			<ul class="child-panel">
+				<li><a href="">翡翠</a></li>
+				<li><a href="">玉石</a></li>
+				<li><a href="">宝石</a></li>
+				<li><a href="">水晶</a></li>	
+			</ul>
+		</li>
+	</ul>
+	
+
+
+
+
+
+
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+	<script>
+		$('.side-item').on('mouseenter',function(){
+			$(this).find('.child-panel').addClass('hover-show')
+		})
+		$('.side-item').on('mouseleave',function(){
+			$(this).find('.child-panel').removeClass('hover-show')
+		})
+	
+	</script>
+</body>
+</html>

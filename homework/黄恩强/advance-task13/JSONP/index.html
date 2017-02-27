@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>server-mock使用说明</title>
+<style>
+  .container{
+    width: 900px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+	<ul class="newsList">
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<button id="btn1">ajax请求</button>
+	<button id="btn2">jsonp请求</button>
+
+<script type="text/javascript">
+	
+ var btn1 = $('#btn1'),
+ 	 btn2 = $('#btn2');
+
+
+//ajax
+ btn1.addEventListener('click', function(){
+ 	var xhr = new XMLHttpRequest();
+ 	xhr.open('get', 'http://a.hqq.com:8080/getNews1', true);
+ 	xhr.send();
+ 	xhr.onreadystatechange = function() {
+ 		if(xhr.readyState === 4 && xhr.status === 200){
+ 			appendHtml(JSON.parse(xhr.responseText));
+ 		}
+ 	}
+ })
+
+
+//status 0 = 正常 1 = 报错 undefined = jsonp
+function appendHtml(obj){
+ 	var htmls = '';
+ 	console.log(obj,obj.status)
+ 	if(obj.status === 0){
+ 		for(var key in obj.data){
+ 			console.log(key + ':' + obj.data[key]);
+ 			htmls += '<li>' + obj.data[key] + '</li>'
+ 		}
+ 		$('.newsList').innerHTML = htmls;
+ 	}else if(obj.status === undefined){
+ 		for(var key in obj){
+ 			console.log(key + ':' + obj[key]);
+ 			htmls += '<li>' + obj[key] + '</li>'
+ 		}
+ 		$('.newsList').innerHTML = htmls;
+ 	}else{
+ 		console.log('未获取到数据')
+ 	}
+}
+
+
+
+//jsonp
+btn2.addEventListener('click', function(){
+	var script = document.createElement('script');
+	script.src = 'http://b.hqq.com:8080/getNews2?callback=appendHtml';
+	document.head.appendChild(script);
+	document.head.removeChild(script);
+})
+
+
+
+
+
+
+
+
+	function $(id){
+		return document.querySelector(id);
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSONP</title>
+    <style>
+        *{
+            font-family: "微软雅黑";
+            font-size: 18px;
+        }
+        .btn{
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+<h3>你所在城市的天气</h3>
+<div class="content">
+    等待点击
+</div>
+<button class="btn">点击获取信息</button>
+<script>
+    var btn = document.querySelector('.btn');
+    var content = document.querySelector('.content');
+    btn.addEventListener('click',function () {
+        content.innerText = '正在获取资料';
+        var oscript = document.createElement('script');
+        oscript.src='http://jirenguapi.applinzi.com/weather.php?callback=getWeather'
+        document.head.appendChild(oscript);
+        document.head.removeChild(oscript);
+    });
+    function getWeather(obj) {
+        if(obj.error!=0){
+            conetent.innerText='出问题了。。。。';
+        }else{
+            content.innerText = obj.results[0].currentCity + '\n' +  'pm2.5='+ obj.results[0].pm25 + '\n' + obj.results[0].weather_data[0].date ;
+        }
+    }
+</script>
+</body>
+</html>

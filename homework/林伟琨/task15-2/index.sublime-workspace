@@ -1,0 +1,628 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"clo",
+				"color"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"fla",
+				"float"
+			],
+			[
+				"head",
+				"header"
+			],
+			[
+				"table",
+				"table-cell"
+			],
+			[
+				"zin",
+				"z-index"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"tra",
+				"transition"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"mari",
+				"margin"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"icon",
+				"iconfont"
+			],
+			[
+				"font-st",
+				"font-style"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"lef",
+				"left"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"r",
+				"rgb()"
+			],
+			[
+				"co",
+				"cover"
+			],
+			[
+				"ta",
+				"table-cell"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"pso",
+				"position"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"fol",
+				"float"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"wdi",
+				"width"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"ce",
+				"clearfix"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"cl",
+				"clearfix"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"border-t",
+				"border-top"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"box-s",
+				"box-sizing"
+			],
+			[
+				"offset",
+				"offsetTop"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"pro",
+				"proportion"
+			],
+			[
+				"ev",
+				"event"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"a",
+				"arguments"
+			],
+			[
+				"off",
+				"offsetHeight"
+			],
+			[
+				"le",
+				"Left"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"ovwe",
+				"overflow"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"borderw",
+				"border-top-width"
+			],
+			[
+				"line",
+				"outline"
+			],
+			[
+				"bold",
+				"bold"
+			],
+			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"border-top",
+				"border-top-width"
+			],
+			[
+				"getElement",
+				"getElementsByTagName"
+			],
+			[
+				"fotn",
+				"font-size"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"inli",
+				"inline"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"to",
+				"toTwo"
+			],
+			[
+				"char",
+				"charAt"
+			],
+			[
+				"se",
+				"sec"
+			],
+			[
+				"sec",
+				"second"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"list-s",
+				"list-style"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"hei",
+				"height"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"About"
+			],
+			[
+				"instal",
+				"Plugin Development: Convert Syntax to .sublime-syntax"
+			],
+			[
+				"Package Control: I",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: IS",
+				"Package Control: Install Package"
+			],
+			[
+				"remove p",
+				"Package Control: Remove Package"
+			],
+			[
+				"remover",
+				"BracketHighlighter: Remove Brackets"
+			]
+		],
+		"width": 432.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/DocBlockr/LICENSE",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/DocBlockr/README.md",
+		"/D/task15-2/style.css",
+		"/C/task/jrg-renwu8/homework/林伟琨/task15-2/index.html",
+		"/C/Users/Evans/Desktop/测试.html",
+		"/C/task/jrg-renwu8/homework/林伟琨/task15-2/style.css",
+		"/D/task15-2/index.html",
+		"/C/task/jrg-renwu8/homework/林伟琨/task15-1/style.css",
+		"/C/task/jrg-renwu8/homework/林伟琨/task15-1/index.html",
+		"/C/task/jrg-renwu8/homework/林伟琨/task14/style.css",
+		"/C/task/jrg-renwu8/homework/林伟琨/task14/index.html",
+		"/C/Users/Evans/Desktop/task14/style.css",
+		"/C/Users/Evans/Desktop/task14/index.html",
+		"/C/Users/Evans/Pictures/icon/task",
+		"/C/Users/Evans/Desktop/dom.html",
+		"/C/Users/Evans/Desktop/-cb8cc81819eac7f.jpg",
+		"/C/Users/Evans/Pictures/icon/font/iconfont.css",
+		"/C/Users/Evans/Pictures/icon/font_ocwttmns2g5019k9/demo.css",
+		"/C/Users/Evans/Pictures/icon/font/demo_unicode.html",
+		"/C/Users/Evans/Desktop/JQuery/jquery.html",
+		"/C/Users/Evans/Pictures/task/httpjs.jirengu.comdireyuvoji1edit.txt",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+		"/C/Users/Evans/Pictures/task/index.html",
+		"/C/Users/Evans/Desktop/练习训练2/CSS3-1选择器.html",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
+		"/C/Users/Evans/Desktop/练习训练2/ev.html",
+		"/C/Users/Evans/Desktop/练习训练2/ev2.html",
+		"/C/Users/Evans/.ssh/id_rsa",
+		"/C/Users/Evans/.ssh/id_rsa.pub",
+		"/C/Users/Evans/Desktop/jquery-3.1.1.min.js",
+		"/C/Users/Evans/Desktop/练习训练2/pra.html",
+		"/C/Users/Evans/Desktop/练习训练2/move.html",
+		"/C/Users/Evans/Desktop/html/style/css.css",
+		"/C/Users/Evans/Desktop/html/index.html",
+		"/C/Users/Evans/Desktop/练习训练2/表单.html",
+		"/C/Users/Evans/Desktop/练习训练2/优酷弹窗.html",
+		"/C/Users/Evans/Desktop/练习训练2/dom中的自定义列表.html",
+		"/C/Users/Evans/Desktop/练习训练2/关键字.html",
+		"/C/Users/Evans/Desktop/练习训练2/检查替换.html",
+		"/C/Users/Evans/Desktop/练习训练2/回到顶部.html",
+		"/C/Users/Evans/Desktop/新建文件夹/index.html",
+		"/C/Users/Evans/Desktop/HTML作业.html",
+		"/C/Users/Evans/Desktop/html/11111111111111111111",
+		"/C/Users/Evans/Desktop/新建文件夹/index.css",
+		"/C/Users/Evans/Desktop/html/form.html",
+		"/C/Users/Evans/Desktop/new1.html",
+		"/C/Users/Evans/Desktop/new2.html",
+		"/C/Users/Evans/Desktop/11111111.html",
+		"/C/Users/Evans/Desktop/new.html",
+		"/C/Users/Evans/Desktop/html/style/style.css",
+		"/C/Users/Evans/Desktop/html/style.css",
+		"/C/Users/Evans/Desktop/练习训练2/new3.html",
+		"/C/Users/Evans/Desktop/练习训练2/留言板.html",
+		"/C/Users/Evans/Desktop/练习训练2/CSS3-2选择器.html",
+		"/C/Users/Evans/Desktop/练习训练2/J12-广告.html",
+		"/C/Users/Evans/Desktop/练习训练2/复习-数组.html",
+		"/C/Users/Evans/Desktop/MOV.html",
+		"/C/Users/Evans/Desktop/练习训练2/文字传输.html",
+		"/C/Users/Evans/Desktop/练习训练2/广告.html",
+		"/C/Users/Evans/Desktop/CSS.html",
+		"/C/Users/Evans/Desktop/练习训练2/J12小作业.html",
+		"/C/Users/Evans/Desktop/练习训练2/广告",
+		"/D/大前端/JS/J9/课件及作业/6-抖起来.html",
+		"/C/Users/Evans/Desktop/练习训练2/new.html",
+		"/D/大前端/JS/J9/课件及作业/7-抖函数的问题.html",
+		"/C/Users/Evans/Desktop/练习训练2/系统时间（动画）.html",
+		"/C/Users/Evans/Desktop/练习训练2/系统时间图片(无动画).html",
+		"/C/Users/Evans/Desktop/练习训练/获取和移动还有透明度.js",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Evans/Desktop/练习训练2/定时器2.html",
+		"/C/Users/Evans/Desktop/练习训练2/系统时间+图片特效.html",
+		"/D/大前端/JS/J10/课件及作业/4-倒计时实例.html",
+		"/D/大前端/JS/J10/课件及作业/3-倒计时.html",
+		"/D/大前端/JS/J10/课件及作业/2-图片时间.html",
+		"/D/大前端/JS/J10/课件及作业/1-系统时间.html",
+		"/C/Users/Evans/Desktop/开发/实战/导航/style.css",
+		"/C/Users/Evans/Desktop/aa.html",
+		"/C/Users/Evans/Desktop/练习训练/加分.html",
+		"/C/Users/Evans/Desktop/微专业HTML.html",
+		"/C/Users/Evans/Desktop/作业.html",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Evans/Desktop/NEW1.html",
+		"/C/Users/Evans/Desktop/css1.html",
+		"/C/Users/Evans/Desktop/练习训练/new.html",
+		"/C/Users/Evans/Desktop/练习训练/doMove.js",
+		"/C/Users/Evans/Desktop/练习训练/showFn.js",
+		"/C/Users/Evans/Desktop/练习训练/啦啦.html",
+		"/C/Users/Evans/Desktop/练习训练/for循环II.html",
+		"/C/Users/Evans/Desktop/练习训练/6.1J3-QQ好友列表.html",
+		"/C/Users/Evans/Desktop/练习训练/函数传参 列表展示.html",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/User/Emmet.sublime-settings",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Evans/Desktop/练习训练/全选与反选.html",
+		"/C/Users/Evans/Desktop/练习训练/练习",
+		"/C/Users/Evans/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";",
+			"\t\t\t</",
+			"{\n",
+			"这是另外一个段落这是另外一个段落这是另外一个段落这是另外一个段落这是另外一个段落",
+			";\n",
+			"weight",
+			";\n",
+			"li",
+			"innerHTML",
+			"function",
+			"src",
+			"\t\t\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Evans\\Desktop\\CSS.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

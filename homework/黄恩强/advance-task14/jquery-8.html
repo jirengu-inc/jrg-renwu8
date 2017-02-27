@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+	
+	<form>
+		name：<input type="text" id="username">
+		password: <input type="password" id="password" >
+	</form>
+	
+	<button id="btn1">默认设置</button>
+	<button id="btn2">获取密码框状态</button>
+	<button id="btn3">禁用密码框</button>
+
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$('#username').on('change', function(){
+			console.log(this.value)
+		})
+
+		$('#btn1').on('click', function(){
+			$('#username').val('username')
+			$('#password').val('password')
+		})
+
+		$('#btn2').on('click', function(){
+			console.log($('#password').attr('disabled'));
+		})
+
+		$('#btn3').on('click', function(){
+			console.log($('#password').attr('disabled', 'true'))
+		})
+	</script>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<script>
+var str = '.. <!-- My -- comment \n test --> ..  <!----> .. ';
+//非贪婪模式
+var re = /<!--[\W\w]*?-->/g;
+str.match(re);
+	
+//贪婪模式
+var reg = /<!--[^>]*>/g;
+str.match(reg);
+</script>

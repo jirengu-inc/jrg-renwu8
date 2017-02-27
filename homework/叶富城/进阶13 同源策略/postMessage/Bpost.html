@@ -1,0 +1,22 @@
+<html>
+<style>
+    html,body{
+        margin: 0;
+    }
+    input{
+        padding: 10px 30px;
+        width: 300px;
+    }
+</style>
+    <input id="input" type="text"  placeholder="http://b.sheldon.com:8080/Bpost.html">
+<script>
+// URL: http://b.jrg.com:8080/b.html
+	var input = document.querySelector('#input');
+ 	input.addEventListener('input',function(e){
+ 		window.parent.postMessage(this.value,'*');
+ 	})
+ 	window.addEventListener('message',function(e){
+ 		input.value=e.data;
+ 	})
+</script>
+</html>

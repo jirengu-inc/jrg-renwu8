@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>降域</title>
+    <style>
+        *{
+            font-family: "微软雅黑";
+        }
+        .ct>input{
+            padding: 10px 30px;
+            width: 300px;
+        }
+        .ct>iframe{
+            position: relative;
+            left: 650px;
+            top: 126px;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <input type="text" placeholder="http://a.sheldon.com/降域.html">
+    <iframe src="http://b.sheldon.com:8080/Bpost.html" frameborder="0"></iframe>
+</div>
+<script>
+    document.querySelector('.ct>input').addEventListener('input',function(e){
+        console.log(this.value);
+        window.frames[0].postMessage(this.value,'*');
+    })
+
+    window.addEventListener('message',function(e){
+        document.querySelector('.ct>input').value = e.data;
+        console.log(e.data);
+    })
+</script>
+</body>
+</html>

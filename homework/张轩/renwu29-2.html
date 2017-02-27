@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src='//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+  <style>
+    .full{
+      height: 6000px;
+    }
+    .pic{
+      width:1080px;
+      height: 1080px;
+    }
+  </style>
+</head>
+<body>
+  <div class="full">
+    <img class="pic" src='http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2iIehKJAA6usMLC3ckAALJVABqPUwADq7I914.jpg' data-src='http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2iIehKJAA6usMLC3ckAALJVABqPUwADq7I914.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIJCCwAAUwK3IgQc4AALJVACsbAwABTBD003.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIJCCwAAUwK3IgQc4AALJVACsbAwABTBD003.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIJCCwAAUwK3IgQc4AALJVACsbAwABTBD003.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIJCCwAAUwK3IgQc4AALJVACsbAwABTBD003.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIJCCwAAUwK3IgQc4AALJVACsbAwABTBD003.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIfwMSAAMpuYNKAdQAALJVADaPGsAAynR719.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIfwMSAAMpuYNKAdQAALJVADaPGsAAynR719.jpg'>
+    <img class="pic" data-src='//desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz2mIfwMSAAMpuYNKAdQAALJVADaPGsAAynR719.jpg'>
+  </div>
+  <script>
+    var zhangxuan=(function(){
+      function showimg(p){
+        p.attr('src', p.attr('data-src'));
+        p.data('isload', true);
+      }
+
+      function isimg(node){
+        node.each(function(){
+          var $node=$(this),
+              $dscrollTop=$(document).scrollTop(),
+              $wwidth=$(window).height(),
+              $picoffsetTop=$node.offset().top;
+          if(!!$node.data('isload')){            //优化已加载图片不执行
+              return
+            }
+          else{
+              if(($dscrollTop+$wwidth)>=$picoffsetTop){
+                showimg($node);
+              }
+            }
+        })
+      }
+
+      function bind(node){
+        var clock;
+        $(window).on('scroll', function(){
+          if(clock){
+            clearTimeout(clock);
+          }
+          clock=setTimeout(function(){    //优化滚轮停止时才执行
+            isimg(node);
+          }, 300)
+        })
+        // $(window).on('scroll', function(){
+        //   isimg(node);
+        //   console.log(1);
+        // })
+      }
+
+
+      return{
+        bind:bind
+      }
+
+    })()
+
+    zhangxuan.bind($('.pic'));
+  </script>
+</body>
+</html>

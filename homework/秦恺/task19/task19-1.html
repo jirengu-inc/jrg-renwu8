@@ -1,0 +1,74 @@
+<script>
+//写一个函数getIntv，获取从当前时间到指定日期的间隔时间
+
+function getIntv (str) {
+  var nowtime = Date.now();
+  var fut = Date.parse(str);
+  var dtime = Math.abs(fut-nowtime);
+  var day = Math.floor(dtime/(24*3600000));
+  var hour = Math.floor((dtime-day*24*3600000)/3600000);
+  var min = Math.floor((dtime-(day*24+hour)*3600000)/60000);
+  var sec = Math.floor((dtime-(day*24+hour)*3600000-min*60000)/1000);
+  var result;
+  if(fut>nowtime){
+      result = "距离"+ str +  "还有："+ day+"天"+ hour+"时"+ min +"分"+ sec +"秒";
+   } else {
+      result = "距离"+ str +  "已过去了："+ day+"天"+ hour+"时"+ min +"分"+ sec +"秒";
+     }
+    return result;
+}
+
+//把数字日期改成中文日期
+
+function getChsDate (str) {
+ var num = ["零","一","二","三","四","五","六","七","八","九","十","十一","十二","十三","十四","十五","十六","十七","十八","十九","二十","二十一","二十二","二十三","二十四","二十五","二十六","二十七","二十八","二十九","三十","三十一"];
+ var dat = new Date(Date.parse(str));
+ var year = dat.getFullYear().toString();
+ var mon = (dat.getMonth()+1);
+ var day = dat.getDate();
+ var str1 = "";
+ for (var i=0;i<year.length;i++){
+ 	str1 = str1 + num[year[i]];
+ }
+	return str1 + "年" + num[mon] + "月" + num[day] + "日";
+ }
+
+ //写一个函数获取n天前的日期
+
+ function getLastNDays(val){
+  	var then = new Date(Date.now()-val*24*3600000);
+  	var str = then.toLocaleDateString();
+	  var arr = str.split('');
+    for (var i=0;i<arr.length;i++){
+      if(arr[i] === "/"){
+        arr[i] = "-";
+      }
+    }
+     return str = arr.join('');
+ }
+
+// 完善如下代码，用于获取执行时间如：
+
+ var Runtime = (function(){
+    var startT,endT,getT;
+    var obj = {
+        start: function(){
+              startT = Date.now();//code here ...， 当前时间
+        },
+        end: function(){
+             endT = Date.now();//code here ...  结束时间
+        },
+        get: function(){
+             getT = endT - startT;
+             return getT;//code here ...  获取执行时间
+        }
+    };
+return obj;
+}());
+Runtime.start();
+for (var i=0;i<999;i++){
+	console.log(99999);
+}
+Runtime.end();
+console.log(Runtime.get());
+</script>

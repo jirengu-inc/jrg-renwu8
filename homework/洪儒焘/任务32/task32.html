@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+
+	}
+	li{
+		list-style: none;
+	}
+	.content{
+		width: 900px;
+		margin: 20px auto;
+	}
+	.wrap{
+		position: relative;
+	}
+	.item{
+		position: absolute;
+		margin: 0 10px 10px 10px;
+		box-sizing: border-box;
+		width: 280px;
+		border: 1px solid #ccc;
+		font-family: 'microsoft yahei';
+	}
+	.item-img{
+		width: 260px;
+		margin: 10px;
+	}
+	.item-title{
+		padding-bottom: 8px;
+		border-bottom: 1px solid #ccc;
+		margin: 0 10px 10px 10px;
+		font-weight: 500;
+	}
+	.item-text{
+		font-size: 14px;
+	    line-height: 1.8;
+	    margin: 0 0 10px 10px;
+	    color: #777371;
+	}
+</style>
+</head>
+<body>
+	<div class="content">
+		<ul class="wrap">
+			<!-- <li class="item">
+				<a href="javascript:;">
+					<img class="item-img" src="1.jpg" alt="">
+				</a>
+				<h4 class="item-title">寒冰飞龙</h4>
+				<p class="item-text">咋说的分工会认为儿童</p>
+			</li>
+			<li class="item">
+				<a href="javascript:;">
+					<img class="item-img" src="1.jpg" alt="">
+				</a>
+				<h4 class="item-title">寒冰飞龙</h4>
+				<p class="item-text">咋说的分工会认为儿童</p>
+			</li>
+			<li class="item">
+				<a href="javascript:;">
+					<img class="item-img" src="1.jpg" alt="">
+				</a>
+				<h4 class="item-title">寒冰飞龙</h4>
+				<p class="item-text">咋说的分工会认为儿童</p>
+			</li> -->
+		</ul>
+		<!-- <div id="lead">aaa</div> -->
+	</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+$(function(){
+	var curPage = 1,
+		loadCount = 10,
+		$node,
+		minHeightArr = [],
+		min = 0,
+		scrollTop = 0,
+		screenHeight = $(window).height(),
+		$wrap = $('.wrap'),
+		$content = $('.content'),
+		marginTop = parseInt($content.css('margin-top'));
+		isLoading = false;
+
+	load();
+
+	$(window).on('scroll',function(){
+		scrollTop = $(this).scrollTop();
+		if(marginTop+min <= scrollTop+screenHeight){
+			load();
+		}
+	})	
+
+
+	//ajax
+	function load(){ 
+		if(isLoading == false){
+				isLoading = true;
+				$.ajax({
+					url:'http://platform.sina.com.cn/slide/album_tech?jsoncallback=?&app_key=1271687855&num='+loadCount+'&page='+curPage,
+					dataType:'jsonp',
+					jsonp:"jsoncallback",
+					success: function(ret){
+						$node = mosaic(ret.data);
+						console.log('!');
+						render($node);
+						curPage++;
+						isLoading = false;
+					},
+					error: function(){
+						console.log('fail');
+					}
+				})
+			}
+	}
+
+	//接受数据并拼接节点
+	function mosaic(arr){
+		var dom = '',
+			$node;
+		for (var i = 0; i < arr.length; i++) {
+			dom += '<li class="item">';
+			dom += 	  '<a href="'+arr[i].url+'">';
+			dom += 		'<img class="item-img" src="'+arr[i].img_url+'" alt="">';
+			dom +=    '</a>';
+			dom += 	  '<h4 class="item-title">'+arr[i].short_name+'</h4>';
+			dom += '<p class="item-text">'+arr[i].short_intro+'</p>';
+			dom += '</li>';
+		}
+		$node = $(dom);
+		$wrap.append($node);
+		return $node;	
+	}
+
+	//渲染节点
+	function render($node){
+		var 
+			width = $node.outerWidth(true), 
+			count = parseInt($wrap.width()/width);
+		if(minHeightArr.length == 0){
+			for (var i = 0; i < count; i++) {
+				minHeightArr[i] = 0;
+			}
+		}
+		$node.each(function(index,element){
+			var $cur = $(this);
+			$cur.find('img').on('load',function(){
+				min = Math.min.apply(null, minHeightArr);
+				for (var i = 0; i < count; i++) {
+					if(minHeightArr[i] == min){
+						$cur.css({
+							'left': width*i+'px',
+							'top': minHeightArr[i]+'px'
+						});
+						minHeightArr[i] += $cur.outerHeight(true);
+						break;
+					}
+				}
+			})
+		})
+	}
+})	
+</script>
+</body>
+</html>

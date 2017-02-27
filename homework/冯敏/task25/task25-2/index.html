@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab 切换</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        ul,li,div,p{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .ct{
+            margin-bottom: 10px;
+        }
+        .list ul{
+            width:350px;
+            border:1px solid #ccc;
+            border-radius: 2px;
+            margin:1px;
+        }
+        .list li{
+            float:left;
+            width:33.3%;
+            height:30px;
+            line-height: 30px;
+            border-right:1px solid #ccc;
+            box-sizing: border-box;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+        .list li:last-child{
+            border-right:none;
+        }
+        .list li.active{
+            background-color: #eee;;
+        }
+        .list ul:after{
+            content: "";
+            display: block;
+            clear:both;
+        }
+        .panel{
+            display: none;
+            width:710px;
+            height:410px;
+            border:1px solid #eee;
+            overflow: hidden;
+        }
+        .panel:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .panel.active{
+            display: block;
+        }
+        .panel ul{
+            overflow: hidden;
+            margin-right: -10px;
+            margin-bottom: -20px;
+        }
+        .panel li{
+            position: relative;
+            float: left;
+            width:230px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        .show {
+            text-align: center;
+            border:1px solid #eee;
+            padding: 10px 0;
+        }
+        .show p{
+            text-align: left;
+            font-size: 14px;
+            /*color:#aaa;*/
+            margin-bottom: 3px;
+            padding-left: 30px;
+        }
+        .show .price{
+            color:#c81623;
+        }
+        .buy{
+            display: none;
+            text-align: center;
+            border:1px solid #eee;
+            padding: 60px 0;
+            position: absolute;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+        }
+        .buy a{
+            display: inline-block;
+            width:50px;
+            border:1px solid #c81623;
+            border-radius: 2px;
+            padding:15px;
+            color:#c81623;
+            font-size: 12px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="list">
+        <ul>
+            <li class="item active">热门</li>
+            <li class="item">珠宝首饰</li>
+            <li class="item">奢侈品</li>
+        </ul>
+    </div>
+
+    <div class="panel active">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="ct">
+    <div class="list">
+        <ul>
+            <li class="item active">热门</li>
+            <li class="item">珠宝首饰</li>
+            <li class="item">奢侈品</li>
+        </ul>
+    </div>
+
+    <div class="panel active">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/ring.jpg" alt="ring">
+                    <p>周大福简约真挚铂金钻戒</p>
+                    <p class="price">￥1699.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/jade.jpg" alt="ring">
+                    <p>六福珠宝金镶玉吊坠</p>
+                    <p class="price">￥1263.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="panel">
+        <ul>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+            <li>
+                <div class="show">
+                    <img src="image/gold.jpg" alt="ring">
+                    <p>周大福福星宝金条</p>
+                    <p class="price">￥3063.00</p>
+                </div>
+                <div class="buy">
+                    <a href="#">立即抢购</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $(".ct .item").on("click",function () {
+        var $item=$(this);
+        var $index=$item.index();
+        $item.addClass("active");
+        $item.siblings().removeClass("active");
+        $item.parents(".ct").find(".panel").removeClass("active");
+        $item.parents(".ct").find(".panel").eq($index).addClass("active");
+    });
+    $(".panel li").on("mouseenter",function(){
+        $(this).children(".buy").css({"display":"block","background-color":"rgba(0,0,0,0.3)"});
+    });
+    $(".panel li").on("mouseleave",function(){
+        $(this).children(".buy").css("display","none");
+    })
+</script>
+</body>
+</html>

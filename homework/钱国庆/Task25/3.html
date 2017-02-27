@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <legend>html, text</legend>
+    <input type="button" value="获取html" id="getHtml">
+    <input type="button" value="设置html" id="setHtml">
+    <input type="button" value="获取text" id="getText">
+    <input type="button" value="设置text" id="setText">
+    <div>
+        <p>$().html()</p>
+        <div class="div1">.text()</div>
+    </div>
+</fieldset>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#getHtml").on('click', function () {
+            alert($("p").html())
+            console.log($("p").html());
+        })
+        $("#setHtml").on('click', function () {
+            $('p').html("<a href='#'>更换了HTML</a>");
+        });
+        $("#getText").on('click', function () {
+           alert($(".div1").text());
+           console.log($(".div1").text());
+        });
+        $("#setText").on('click', function () {
+            $('.div1').text("<a href='#'>更换了text</a>");
+        })
+    });
+</script>
+</body>
+</html>

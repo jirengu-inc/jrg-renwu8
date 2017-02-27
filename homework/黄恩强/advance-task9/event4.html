@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	.wrap1,.wrap2{
+        		width:300px;
+        		height:100px;
+        		border: 1px solid #000;
+        		margin-top:20px;
+        	}
+        </style>
+    </head>
+    <body>
+	<div class="wrap1">
+		<a class="btn1" href="http:\\www.baidu.com">点我转到百度</a>
+	</div>
+	
+	<p>阻止事件冒泡&阻止默认事件</p>
+	<div class="wrap2">
+		<a class="btn2" href="http:\\www.baidu.com">点我转到百度</a>
+	</div>
+	<script type="text/javascript">
+		function $(cls) {
+			return document.querySelector(cls); 
+		}
+		var body = document.body;
+		var wrap1 = $(".wrap1");
+		var btn1 = $('.btn1');
+
+		var wrap2 = $(".wrap2");
+		var btn2 = $('.btn2');
+
+		body.addEventListener('click',function(){
+			console.log(this);
+		})
+
+		//正常
+		wrap1.addEventListener('click',function(){
+			console.log(this);
+		})
+		btn1.addEventListener('click',function(){
+			console.log(this);
+		})
+		//阻止事件冒泡&阻止默认事件
+		wrap2.addEventListener('click',function(){
+			console.log(this);
+		})
+		btn2.addEventListener('click',function(e){
+			console.log(this);
+			e.stopPropagation();
+			e.preventDefault();
+		})
+	</script>
+
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<script>
+for(var i=0;i<5;i++){
+    setTimeout(function(){
+         console.log('delayer:' + i );
+    }, 0);
+    console.log(i);
+}	
+// 输出0-4，5个delayer:5	
+
+//如何输出delayer: 0, delayer:1...（使用闭包来实现）
+for(var i=0;i<5;i++){
+    (function(){
+    	var n = i;
+    	setTimeout(function(){
+         console.log('delayer:' + n );
+    }, 0);
+     })();
+    console.log(i);
+}
+</script>

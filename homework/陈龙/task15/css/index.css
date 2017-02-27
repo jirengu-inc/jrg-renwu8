@@ -1,0 +1,464 @@
+/* 全局*/
+.icon{
+    /*iconfont*/
+    font-family:"iconfont" !important;
+    font-size:20px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    color:white;
+}
+body,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    margin:0;
+}
+
+body {
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #fec503;
+    padding: 20px 40px;
+    border-radius: 3px;
+    border-width: 0;
+    margin-top: 50px;
+    color: #fff;
+    border: 1px solid #f6bf01;
+    font-size: 18px;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #edb100;
+}
+
+img.round-icon  {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+li.icon:hover{
+    background: #fed136;
+    border-color:#fed136;
+}
+
+/*font style*/
+.animal h4{
+    font-weight: bold;
+    color:rgb(100, 100, 100);
+}
+.animal p{
+    color: rgb(150, 100, 200);
+    line-height: 1.7em;
+}
+
+/*清除浮动*/
+
+.menu:after, aside:after, section.map .container:after,
+section.map .left:after,footer .wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/*顶部菜单*/
+
+.menu {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 2;
+}
+
+.menu h1 {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: #fed136;
+    font-size: 28px;
+}
+
+.menu ul {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 50%;
+    float: right;
+}
+
+.menu li {
+    float: left;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.menu a {
+    color: white;
+}
+
+.menu a:hover {
+    color: orange;
+}
+
+
+
+/**头部*/
+
+header {
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    background-image: url(../img/header-bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+header .container {
+    position: relative;
+    left: 50%;
+    top: 300px;
+    transform: translate(-50%, 0);
+    width: 100%;
+    color: rgb(50,50,50);
+    text-align: center;
+    font-weight: bold;
+}
+
+header .welcome {
+    font-size: 40px;
+    color:rgb(250, 254, 20);
+}
+
+header .welcome-big {
+    font-size: 75px;
+    margin-top: 30px;
+    color:rgb(250, 254, 20);
+}
+
+
+/*中间*/
+
+section {
+    padding: 100px 0;
+}
+
+section:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+section .container {
+    max-width: 1170px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section .title {
+    font-size: 40px;
+    color: rgb(90, 80, 110);
+}
+
+section .explain {
+    font-size: 19px;
+    font-style: italic;
+    color:#777;
+    margin-top: 20px;
+    margin-bottom: 75px;
+}
+
+section .content:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*card*/
+section .card{
+    margin-bottom: 40px;
+    width:30%;
+    float:left;
+    margin-right:5%;
+}
+section .card:nth-of-type(3n){
+    margin-right: 0;
+}
+section  p{
+    color:#777;
+    line-height: 1.5em;
+}
+
+.mountain p{
+    min-height: 50px;
+}
+.mountain .card{
+    box-shadow: 10px 10px 5px #888888;
+}
+
+section img.rectangle-icon{
+    width: 100%;
+    height: 200px;
+}
+section .mountain .card:nth-of-type(1) img.rectangle-icon{
+    background-image: url("../img/mountain1.jpg");
+    background-size: cover;
+}
+section .mountain .card:nth-of-type(2) img.rectangle-icon{
+    background-image: url("../img/mountain2.jpg");
+    background-size: cover;
+}
+section .mountain .card:nth-of-type(3) img.rectangle-icon{
+    background-image: url("../img/mountain3.jpg");
+    background-size: cover;
+}
+section .mountain .card:nth-of-type(4) img.rectangle-icon{
+    background-image: url("../img/mountain4.jpg");
+    background-size: cover;
+}
+section .mountain .card:nth-of-type(5) img.rectangle-icon{
+    background-image: url("../img/mountain5.jpg");
+    background-size: cover;
+}
+section .mountain .card:nth-of-type(6) img.rectangle-icon{
+    background-image: url("../img/mountain6.jpg");
+    background-size: cover;
+}
+section .mountain .card:nth-of-type(n) img.rectangle-icon:hover{
+    background-image: url(../img/add.png);
+    background-color: yellow;
+    background-size: 50px 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+section:nth-of-type(2) .card{
+    background-color: white;
+}
+
+/*box*/
+section .left-box, section .right-box{
+    width:50%;
+    position: relative;
+    padding-bottom: 40px;
+    min-height: 300px;
+}
+section .left-box{
+    border-right: 2px solid pink;
+    transform: translate(-1px, 0);
+    float:left;
+    text-align: right;
+}
+section .left-box .wrapper{
+    max-width:350px;
+    margin-right: 90px;
+    float:right;
+}
+section .left-box img{
+    position: absolute;
+    transform: translate(-50%,0);
+
+    width:150px;
+    height: 150px;
+    border: 2px solid pink;
+    border-radius: 50%;
+}
+
+section .right-box{
+    transform: translate(1px, 0);
+    float:right;
+    border-left: 2px solid pink;
+    text-align: left;
+}
+section .right-box .wrapper{
+    max-width:350px;
+    margin-left: 90px;
+    float:left;
+}
+
+section .right-box img{
+    position: absolute;
+    transform: translate(-50%,0);
+
+    width:150px;
+    height: 150px;
+    border: 2px solid pink;
+    border-radius: 50%;
+}
+section .last-box {
+    height: 100px;
+    min-height: 0;
+}
+section  .last-box .round-text{
+    text-align: center;
+    width:100px;
+    height: 100px;
+    background-color: #edb100;
+    border: 25px solid #edb100;
+    border-radius: 50%;
+    line-height: 26px;
+    font-size:18px;
+    text-align: center;
+    margin-left: 100%;
+    transform: translate(-50%,0);
+}
+section  .last-box .round-text p{
+    color: white;
+    font-weight: bold;
+    margin-top:30px;
+    font-size: 22px;
+}
+/*person*/
+section.person img{
+    width: 150px;
+    height: 150px;
+    border: 2px solid pink;
+    border-radius: 50%;
+}
+section.person p{
+    font-size:14px;
+    margin-top:5px;
+}
+section.person h4{
+    font-size:18px;
+    color:rgb(51,51,51);
+    margin-bottom:0;
+}
+section.person ul{
+    display: inline-block;
+}
+section.person li{
+    background-color:#222;
+    width:20px;
+    height:20px;
+    border:10px solid #222;
+    border-radius: 50%;
+    text-align: center;
+    float:left;
+    margin: 0 3px;
+}
+/*底部内容*/
+aside{
+    width: 100%;
+    text-align: center;
+}
+aside .wrapper>div{
+    width:25%;
+    float:left;
+}
+aside img{
+    margin:50px auto;
+}
+section.map{
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-image: url(../img/map.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    color:yellow;
+}
+
+section.map .left{
+    width:50%;
+    float:left;
+    text-align: right;
+}
+section.map input, section.map textarea{
+    width:500px;
+    border-radius: 5px;
+    background-color:white;
+    font-size:14px;
+    border:1px solid rgb(204,204,204);
+    padding:20px;
+}
+section.map .left input{
+    height: 20px;
+    margin-bottom: 25px;
+}
+section.map .right {
+    width:50%;
+    float:left;
+    margin-bottom: 25px;
+}
+section.map .right textarea {
+    height: 200px;
+    width:500px;
+}
+section.map button{
+    margin-top:0;
+}
+footer {
+    text-align: center;
+}
+footer .wrapper{
+    padding:25px 0;
+    width: 950px;
+    height: 40px;
+    margin:0 auto;
+}
+footer .left{
+    width:30%;
+    height: 100%;
+    float:left;
+    margin-right: 5%;   
+    margin-top:7px; 
+}
+footer .middle{
+    width:30%;
+    height: 100%;
+    float:left;
+    margin-right: 5%;
+}
+footer .right{
+    width:30%;
+    height: 100%;
+    float:left;
+    margin-top:7px;
+}
+footer ul.icon{
+    display:inline-block;
+}
+footer ul.icon li{
+    background-color:#222;
+    width:20px;
+    height:20px;
+    border:10px solid #222;
+    border-radius: 50%;
+    text-align: center;
+    float:left;
+    margin: 0 3px;
+}
+footer span{
+    font-size:18px;
+    color:rbg(51,51,51);
+    font-weight: bold;
+    font-style: italic;
+}
+footer ul.underline li{
+    float:right;
+    margin-left:20px;
+}
+footer ul.underline li a{
+    color:orange;
+}
+footer ul.underline li:hover,footer span:hover{
+    text-decoration: underline;
+}

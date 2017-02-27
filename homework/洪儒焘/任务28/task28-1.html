@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#header{
+		background: red;
+		padding: 40px;
+		margin: 10px;
+		text-align: center;
+	}
+	#nav{
+		background: blue;
+		padding: 20px;
+		margin: 10px;
+		text-align: center;
+	}
+	#content{
+		background: #ccc;
+		padding: 20px;
+		margin: 10px;
+	}
+	#content:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	#content .aside{
+		background: green;
+		float: left;
+		width: 100px;
+		height: 300px;
+	}
+	#content .main{
+		background: #fff;
+		height: 800px;
+		overflow: auto;
+	}
+	#footer{
+		background: red;
+		margin: 10px;
+		padding: 20px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+	<div id="header">header</div>
+	<div id="nav">nav</div>
+	<div id="content">
+	  	<div class="aside">aside</div>
+	  	<div class="main">main</div>
+	</div>
+	<div id="footer">footer</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+$(function(){
+	$.fn.stick = function(){
+		var $now = this,
+			isStick = false,
+			width = $now.width(),
+			height = $now.height(),
+			left = $now.offset().left,
+			top = $now.offset().top;
+		var $clone = $now.clone();
+		$clone.css({
+			'width': width,
+			'height': height,
+			'left': left,
+			'top': 0,
+			'margin': 0,
+			'position':'fixed'
+		});
+		$clone.css('display','none').insertBefore($now);
+		$(document).on('scroll',function(){
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop >= top){
+				if(!isStick){
+					isStick = true;
+					$now.css('opacity',0);
+					$clone.css('display','block');
+				}
+			}
+			else{
+				if(isStick){
+					isStick = false;
+					$now.css('opacity',1);
+					$clone.css('display','none');
+				}
+			}
+		})
+	}
+	$('.aside').stick();
+})
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="ct">
+    <li data-img="http://k.sinaimg.cn/n/sports/transform/20160630/u23F-fxtsatn7781133.jpg/w5703cf.jpg">鼠标放置查看图片1</li>
+    <li data-img="http://img3.imgtn.bdimg.com/it/u=1490256057,3019133167&fm=11&gp=0.jpg">鼠标放置查看图片2</li>
+    <li data-img="http://p7.qhimg.com/t0198ef7ec78ff55d96.jpg?size=640x417">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+</body>
+<script>
+    var ct = document.querySelector('.ct');
+    var previewImg = document.querySelector('.img-preview');
+    var img = document.createElement('img');
+
+    ct.addEventListener('mouseover',function(e){
+        var imgdata = e.target.getAttribute('data-img'); //获取data-img这个属性
+        img.setAttribute('src',imgdata); //设置src这个属性节点并插入imgdata属性节点
+        previewImg.appendChild(img);//在div下添加img的属性
+    })
+
+
+</script>
+</html>

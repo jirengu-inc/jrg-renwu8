@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>表单验证</title>
+</head>
+<style>
+  *{
+  font-family:"微软雅黑";
+}
+.warp{
+  margin:0 30px;
+}
+.register-ct{
+  clear:both;
+}
+.register-form dt{
+  float:left;
+  width:90px;
+  height:25px;
+  line-height:25px;
+}
+.input{
+  border-radius:3px;
+  border:1px solid gray;
+  width:230px;
+  height:30px;
+  padding:0px 10px;
+  line-height:30px;
+}
+.under{
+  color:gray;
+  padding:10px 0px;
+  position:relative;
+  left:50px;
+}
+.btn{
+  position:relative;
+  left:50px;
+  width:60px;
+  height:30px;
+}
+.warning{
+  border:1px solid red;
+}
+</style>
+<body>
+ <div class="warp">
+    <h3>注册</h3>
+   <form action="" class="register-form">
+     <dl class="register-ct">
+       <dt>用户名:</dt>
+       <dd>
+         <input type="text" class="input username" placeholder="用户名(hunger已经被注册)">
+       </dd>
+       <dd class="under name">只能是字母、数字、下划线，3-10个字符</dd>
+       <dt>密码:</dt>
+       <dd>
+         <input type="password" class="input password" placeholder="">
+       </dd>
+       <dd class="under pw">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+       <dt>再输一次:</dt>
+       <dd>
+         <input type="password" class="input passworda" placeholder="再输一次密码">
+         <dd class="under pwa"></dd>
+       <dd>
+         <button class="btn">注册</button>
+       </dd>
+       </dd>
+     </dl>
+   </form>
+  </div>
+  <script src="ajaxTools.js"></script>
+  <script>
+    //取得相关节点
+    var ct = document.querySelector('.register-ct'),
+        username = document.querySelector('.username'),
+        undernametext = document.querySelector('.name'),
+        password = document.querySelector('.password'),
+        underpwtext = document.querySelector('.pw'),
+        passworda = document.querySelector('.passworda'),
+        underpwatext = document.querySelector('.pwa'),
+        btn = document.querySelector('.btn');
+
+    var usernamePass = false,
+        password1Pass = false,
+        password2Pass = false;
+    //验证用户名是否可用
+    username.addEventListener('change',function(e){
+      if(e.target.value){
+          ajax({
+            url:'/testname',
+            type:'post',
+            data:{
+              username : username.value
+            },
+            success:function(ret){
+              if(ret.status == 1 && ret.msg == '用户名错误'){
+                addClass(username,'warning');
+                undernametext.innerText = '用户名错误';
+                usernamePass = false;
+              }
+              if(ret.status == 1 && ret.msg == '用户名重复'){
+                addClass(username,'warning');
+                undernametext.innerText = '用户名重复';
+                usernamePass = false;        
+              }
+              else if(ret.status == 0 && ret.msg == '用户名可用'){
+                console.log(1);
+                removeClass(username,'warning');
+                undernametext.innerText = '用户名可用';
+                return usernamePass = true;
+              }
+            },
+            erroe:function(){
+              alert('出错了。。。。。');
+            }
+          })
+    }
+    });
+    //验证输入密码是否可用
+    password.addEventListener('change',function(e){
+      if(isPassword(e.target.value)){
+        console.log(2);
+        removeClass(password,'warning');
+        underpwtext.innerText = '密码可用';
+        return password1Pass = true;
+      }else{
+            addClass(password,'warning');
+            console.log(1);
+            underpwtext.innerText = '密码格式错误';
+            password1Pass = false; 
+      }
+    });
+    //验证两次密码是否相同
+    passworda.addEventListener('change',function(e){
+      if(password.value == passworda.value){
+        removeClass(passworda,'warning');
+        underpwatext.innerText = '';
+        return password2Pass = true;
+      }else{
+            addClass(passworda,'warning');
+            underpwatext.innerText = '两次输入密码不同';
+            password2Pass = false;
+      }
+    });
+    //点击提交
+    btn.addEventListener('click',function(e){
+      if(usernamePass && password1Pass && password2Pass){
+        alert('注册中...');
+      }else{
+        alert('请填写正确的信息，亲...');
+      }
+    });
+
+  </script>
+</body>
+</html>

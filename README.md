@@ -19,5 +19,8 @@ add task 9-2
 
 # 在线预览
 
-这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu8/
-预览。
+这个 repo 里的代码可以在 http://book.jirengu.com/jirengu-inc/jrg-renwu8/ 预览。
+
+或者使用 https://jirengu-inc.github.io/jrg-renwu8/homework/xxx/xxx.html 预览（注意，后面这个预览不支持目录，只支持文件）
+
+

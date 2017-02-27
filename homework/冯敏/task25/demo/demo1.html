@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo1</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div id="header">标题</div>
+<button id="btn1">点我隐藏</button>
+<button id="btn2">点我展示</button>
+<button id="btn3">toggle</button>
+<script type="text/javascript">
+    $('#btn1').on('click',function () {
+        $('#header').hide('slow',function () {
+            alert("隐藏完毕");
+        });
+    });
+    $('#btn2').on('click',function () {
+        $('#header').show(1000,function () {
+            $('#header').css('background-color',"green")
+        });
+    });
+    $('#btn3').on('click',function () {
+        $('#header').toggle(100);
+    })
+</script>
+</body>
+</html>

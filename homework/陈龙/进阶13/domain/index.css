@@ -1,0 +1,13 @@
+.main {
+    width: 40%;
+    height: 300px;
+    float: left;
+    border: 1px solid;
+}
+
+iframe {
+    width: 40%;
+    height: 300px;
+    float: right;
+    border: 1px solid #ccc;
+}

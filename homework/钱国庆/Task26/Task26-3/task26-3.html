@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Task26-3</title>
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        .ul-list li {
+            padding: 10px;
+            list-style: none;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+
+        .ul-list li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .ul-list li.active {
+            background: green;
+        }
+
+        .load-div {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .load-div .load-more {
+            padding: 10px 15px;
+            border: 1px solid deeppink;
+            border-radius: 4px;
+            color: deeppink;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="ul-list">
+    <li>
+        <a href="#">内容1</a>
+    </li>
+    <li>
+        <a href="#">内容2</a>
+    </li>
+</ul>
+
+<div class="load-div">
+    <a href="#" class="load-more">加载更多</a>
+</div>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".ul-list").on('mouseover', "li", function () {
+            $(this).addClass("active");
+        }).on('mouseout', "li", function () {
+            $(this).removeClass("active");
+        });
+
+        var idx = 3;
+        $(".load-more").on('click', function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: "getData.php",
+                type: "get",
+                data: {
+                    start: idx,
+                    len: 6
+                },
+                dataType: "json",
+                success: function(json) {
+                    if (json.status === 1) {
+                        for (var i = 0; i < json.data.length; i++) {
+                            $('.ul-list').append($("<li><a href=''>"+ json.data[i] +"</a></li>"));
+                        }
+                        idx += json.data.length;
+                    } else {
+                        console.log("数据获取发生异常...");
+                    }
+                },
+                error: function () {
+                    console.log("数据获取发生异常...");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

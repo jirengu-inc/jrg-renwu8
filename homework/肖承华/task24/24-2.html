@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,h3,ul {
+			padding: 0;
+			margin: 0;
+			font-size: 16px;
+			color: #333;
+		}
+		.reg{
+			margin: 50px;
+		}
+		.btn {
+			text-decoration: none;
+			color: #333;
+			display: inline-block;
+			padding: 5px 10px;
+			border: 1px solid #666;
+			height: 20px;
+			margin-left: 85px; 
+		}
+		.reg-ct dt {
+			float: left;
+			padding: 15px 0;
+		}
+		.reg-ct dd {
+			margin-left: 80px;
+			padding: 6px 0;
+		}
+		.reg-ct dd input {
+			width: 200px;
+			height: 30px;
+			border: 1px solid #666;
+			border-radius: 4px;
+			background-color: #fafafa;
+			padding: 3px;
+		}
+		.msg {
+			font-size: 13px;
+			color: #999;
+		}
+		.reg-ct input.error {
+			border: 1px solid red;
+		}
+		.msg {
+			border: 1px solid transparent;
+			height: 10px;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="reg">
+		<h3>注册</h3>
+		<form action="">
+			<dl class="reg-ct">
+				<dt>账　　号:</dt>
+				<dd><input type="text" class="username" placeholder="用户名(xianyu已被注册)"></dd>
+				<dd class="msg user-msg">只能是字母、数字、下划线，3-10个字符</dd>
+				<dt>密　　码:</dt>
+				<dd><input type="password" class="password1" placeholder="请输入密码"></dd>
+				<dd class="msg pwd-msg1">大写字母、小写、数字、下划线最少两种，6-15个字符</dd>
+				<dt>重复密码:</dt>
+				<dd><input type="password" class="password2" placeholder="请再次输入密码"></dd>
+				<dd class="msg pwd-msg2"> </dd>
+				<dd><a href="JavaScript:;" class="btn">注册</a></dd>
+			</dl>
+		</form>
+	</div>
+
+	<script src="library.js"></script>
+	<script>
+		var reg=document.querySelector('.reg'),
+			userName=document.querySelector('.username'),
+			userMsg=document.querySelector('.user-msg'),
+			password1=document.querySelector('.password1'),
+			password2=document.querySelector('.password2'),
+			pwdMsg1=document.querySelector('.pwd-msg1'),
+			pwdMsg2=document.querySelector('.pwd-msg2'),
+			btn=document.querySelector('.btn')
+		
+		userName.addEventListener('blur',function(){
+			testName()&&checkName();
+
+		})
+		password1.addEventListener('blur',function(){
+			testPwd();
+		})
+
+		password2.addEventListener('blur',function(){
+			checkPwd();
+		})
+		btn.addEventListener('click',function(e){
+			if (testName()&&testPwd()&&checkPwd()&&flag) {
+				alert('正在注册中....');
+			}else{
+				alert('资料不正确！请重新填写');
+			}
+		})
+
+		//检测用户名格式
+		function testName(){
+			var name=userName.value;
+			if (regexps.isValidUsername(name)) {
+				tools.removeClass(userName,'error');
+				userMsg.innerText='用户名可用'
+				return true;
+			}else{
+				userMsg.innerText='用户名格式错误'
+				tools.addClass(userName,'error');
+				return false;
+			}
+		}
+
+		//确认用户名是否存在
+		// {status: 1} 可用
+		// {status: 0} 不可用 有相同
+		var flag;
+		function checkName(){
+			ajax({
+		        url: '24-2.php', 
+		        type: 'GET', 
+		        data: {
+		            username:userName.value
+		        },
+		        success: function(ret) {
+		           	if (ret.status==1) {
+		           		tools.removeClass(userName,'error');
+						userMsg.innerText='用户名可用'
+						flag=true;
+		           	}else{
+		           		userMsg.innerText='用户名已经存在'
+						tools.addClass(userName,'error');
+						flag=false;
+		           	}
+		        },
+		        error: function() {
+		            alert('出错了');
+		        }
+	   		 });
+		}
+
+		// 检测密码格式
+		function testPwd(){
+			var pwd1=password1.value;
+			if (regexps.isValidPassword(pwd1)) {
+				pwdMsg1.innerText='密码可用'
+				tools.removeClass(password1,'error');
+				 return true;
+			}
+			else{
+				pwdMsg1.innerText='密码格式错误'
+				tools.addClass(password1,'error');
+				return false;
+			}
+		}
+		//确认两次输入是否一致
+		function checkPwd(){
+			var pwd2 = password2.value;
+			if(password1.value!== pwd2) {
+				pwdMsg2.innerText='两次输入不一致'
+				tools.addClass(password2,'error');
+				return false;
+			}
+			else if(!regexps.isValidPassword(pwd2)){
+				pwdMsg2.innerText='密码格式错误'
+				tools.addClass(password2,'error');
+				return false;
+			}
+			else if (password1.value=== pwd2&&testPwd()) {
+				pwdMsg2.innerText=''
+				tools.removeClass(password2,'error');
+				return true;
+			}		
+		}
+
+
+	</script>	
+	
+</body>
+</html>

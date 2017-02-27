@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+        	html,body,p,ul,li{margin:0;padding:0;}
+			#header,#footer{
+				min-height: 80px;
+				background-color: #eee;
+			}
+			.clearfix:after{
+				content:'';
+				display: block;
+				clear: both;
+			}
+			#content .main{
+				float:left;
+				width:100%;
+				min-height: 400px;
+				background-color: green;
+			}
+			#content .R-Sidebar{
+				float: left;
+				width: 200px;
+				min-height: 400px;
+				background-color: yellow;
+				margin-left: -200px;
+			}
+			#content .main-cont{
+				background-color: pink;
+				margin-right: 220px;
+				min-height: 400px;
+			}
+        </style>
+    </head>
+    <body>
+    	<div id="header">头部</div>
+    	<div id="content" class="clearfix">
+    		<div class="main">
+    			<div class="main-cont">我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..我是双飞翼 ..<</div>
+    		</div>
+    		<div class="R-Sidebar">右侧边栏，固定宽度</div>
+    	</div>
+    	<div id="footer">尾部</div>
+    </body>
+</html>

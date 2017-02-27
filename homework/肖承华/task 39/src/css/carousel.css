@@ -1,0 +1,85 @@
+html,body,ul{
+		padding: 0;
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	.clearfixed:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	html,body,.carousel,.img-ct{
+		width: 100%;
+		height: 100%;
+	}
+	.carousel{
+		position: relative;
+		overflow: hidden;
+	}
+	.img-ct {
+		position: absolute;
+	}
+	.item{
+		float: left;
+		height: 100%;
+		position: relative;
+	}
+	.cover{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-repeat: no-repeat;
+		background-position: center 70%;
+		-webkit-background-size: cover ;
+		background-size: cover ;
+	}
+	.arrow {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 30px;
+		text-align: center;
+		color: #fff;
+		background-color: #333;
+		position: absolute;
+		top: 50%;
+		margin-top:-15px;
+		opacity: 0.2;
+	}
+	.arrow:hover{
+		opacity: 1;
+	}
+	.arrow.left{
+		left: 10px;
+	}
+	.arrow.right{
+		right:10px;
+	}
+	.bullet{
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform:translateX(-50%);
+		z-index: 200;
+	}
+
+	.bullet>li{
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		border-radius: 14px;
+		background-color: #eee;
+		cursor: pointer;
+		opacity: 0.4;
+	}
+	.bullet>li.active{
+		background-color: #fafafa;
+		opacity: 1;
+	}

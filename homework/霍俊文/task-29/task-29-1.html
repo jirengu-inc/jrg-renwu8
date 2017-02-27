@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        div{
+            background: #0fb296;
+            border:1px solid black;
+            width:300px;
+            height:100px;
+        }
+        div:first-child{
+            background: red;
+        }
+        div:nth-child(2){
+            background:green
+        }
+        div:nth-child(3){
+            background: bisque;
+        }
+        div:nth-child(4){
+            background: yellow;
+        }
+        div:nth-child(5){
+            background: orange;
+        }
+        div:nth-child(7){
+            background: #ccc;
+        }
+        div:nth-child(10){
+            background: #8e8e8e;
+        }
+        .go-top{
+            width:70px;
+            height:50px;
+            position: fixed;
+            bottom:20px;
+            right:10px;
+            padding:20px;
+            display: none;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div>1.看我！</div>
+<div>2.看我！</div>
+<div>3.看我！</div>
+<div>4.看我！</div>
+<div>5.看我！</div>
+<div>6.看我！</div>
+<div>7.看我！</div>
+<div>8.看我！</div>
+<div>9.看我！</div>
+<div>10.看我！</div>
+</body>
+<script>
+    //插件写法
+    var topBotton = $('<div class="go-top">回到顶部！</div>')
+    var goTop = {
+        init:function(){
+            $('body').append(topBotton)
+            this.$goTop  = topBotton;
+            this.bind();
+        },
+        bind:function(){
+            var self = this;
+            $(window).on('scroll',function(){
+                var scrollTop = $(this).scrollTop();
+                if(scrollTop > 30){
+                    self.$goTop.show()
+                }
+                else{
+                    self.$goTop.hide();
+                }
+            })
+            self.$goTop.on('click',function(){
+                $(window).scrollTop(0)
+            })
+        }
+    }
+    goTop.init()
+</script>
+</html>

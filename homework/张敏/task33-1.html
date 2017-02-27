@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this and 闭包</title>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<script>
+    //    apply、call 有什么作用，什么区别
+    //两个方法都是用来改变this指向的，区别就是call的传参方式是一个一个传，apply是传入数组，所以使用哪个就看参数的数据格式了
+
+    //    var john = {
+    //        firstName: "John"
+    //    }
+    //    function func() {
+    //        alert(this.firstName + ": hi!")
+    //    }
+    //    john.sayHi = func
+    //    john.sayHi()
+    /*
+     以上代码输出john:hi!
+     john对象下被定义了一个sayhi函数，并被赋值为func函数，
+     john.sayHi,调用这个函数，并且john调用导致func内部的指针指向john对象,
+     */
+    //    func()
+    //
+    //    function func() {
+    //        alert(this)
+    //    }
+    /*
+     以上代码输出window,应为func调用的时候，前面没有任何对象调用，所以默认就是window调用，所以this就是window
+     */
+    //    function fn0() {
+    //        function fn() {
+    //            console.log(this);
+    //        }
+    //
+    //        fn();
+    //    }
+    //
+    //    fn0();
+    //
+    //
+    //    document.addEventListener('click', function (e) {
+    //        console.log(this);
+    //        setTimeout(function () {
+    //            console.log(this);
+    //        }, 200);
+    //    }, false);
+    /*
+     第一次输出window,其实识别this很简单，只要看函数前面是否有调用的对象，有的话，谁调用，this就是谁，没有的话，就是window
+     第二次输出document,事件绑定this就是指向绑定的那个对象
+     第三次输出window,虽然在事件绑定内,但是应为这个this又处于一个单数的function中，所以仍然适用第一次输出的结论。
+     */
+    //    var john = {
+    //        firstName: "John"
+    //    }
+    //
+    //    function func() {
+    //        alert( this.firstName )
+    //    }
+    //    func.call(john)
+    /*
+     以上代码输出john,应为使用了call，强制改变了func内this的指向，使其指向john对象
+     */
+    //    var john = {
+    //        firstName: "John",
+    //        surname: "Smith"
+    //    }
+    //
+    //    function func(a, b) {
+    //        alert( this[a] + ' ' + this[b] )
+    //    }
+    //    func.call(john, 'firstName', 'surname')
+    /*
+     输出john smith
+     call方法就是用来改变this的指向的，第一个参数就是新指向，后面的参数都是相应的匹配函数内的参数
+     */
+
+    var module = {
+        bind: function () {
+            var _this = this;//这样改
+            $btn.on('click', function () {
+                console.log(this) //this指什么----这里this指$btn,事件绑定所以this指向绑定的对象
+                // this.showMsg();这一步有问题，不能直接使用this,showMsg方法是定义在module对象里面的，所以要调用的话，必须使this指向module,
+                //但是这里这个this是指向$btn,所以如果要使用的话，应该在事件绑定函数之外保存下this的引用，以便在里面使用
+                this.showMsg();//这样改_this.showMsg();
+            })
+        },
+
+        showMsg: function () {
+            console.log('饥人谷');
+        }
+    }
+     //补充知识点的题目
+    obj = {
+        go: function() { alert(this) }
+    }
+
+//    obj.go();//输出this为Objcet,应为这里的this就是指obj这个对象
+//
+//    (obj.go)();//输出this为Objcet,应为这里的this就是指obj这个对象
+//
+//    (a = obj.go)();//输出this为window,应为这里的把go这个函数引用赋给了a,然后在让a执行，所以a函数是没有调用者的，所以默认就是window
+//
+//    (0 || obj.go)();//||这个写法就是前者不符合条件就执行后者，前者为0,0在判断条件中为假，所以执行后面的obj.go,但这里要注意的是，
+    //||这种写法，这种写法实际上和三元运算是一样的，判断结束之后，会返回一个正确的值，而不是直接执行代码，所以（0||obj.go()）最终执行的
+    //其实是这个函数的一个引用，变为funciton(){},所以this为window
+    //console.log((0||obj.go))
+
+
+
+</script>
+</body>
+</html>

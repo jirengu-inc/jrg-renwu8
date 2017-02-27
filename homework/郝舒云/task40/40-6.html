@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    .carousel {
+        width: 300px;
+        height: 220px;
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .imgs {
+        width: 1200px;
+        height: 220px;
+    }
+    
+    .imgs li {
+        position: absolute;
+        width: 300px;
+        height: 220px;
+        display: none;
+    }
+    
+    .imgs img {
+        width: 300px;
+        height: 220px;
+    }
+    
+    .arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        display: block;
+        background: #4e443c;
+        opacity: 0.5;
+        position: absolute;
+        text-align: center;
+        line-height: 30px;
+    }
+    
+    .left {
+        left: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .right {
+        right: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .arrow:hover {
+        opacity: 1;
+    }
+    
+    .icons {
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+    
+    .icons li {
+        cursor: pointer;
+        width: 20px;
+        height: 4px;
+        display: inline-block;
+        background: #fff;
+        border-radius: 3px;
+    }
+    
+    .bg {
+        background: #ccc !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <ul class="imgs">
+            <li style="display: block">
+                <a href="#"><img src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/4.jpg" alt=""></a>
+            </li>
+        </ul>
+        <a class="arrow left" href="javascript:void(0)">
+            <</a>
+                <a class="arrow right" href="javascript:void(0)">></a>
+                <ul class="icons">
+                    <li class="bg">
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+    </div>
+    <div class="carousel">
+        <ul class="imgs">
+            <li style="display: block">
+                <a href="#"><img src="imgs/1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/3.jpeg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/4.jpg" alt=""></a>
+            </li>
+        </ul>
+        <a class="arrow left" href="javascript:void(0)">
+            <</a>
+                <a class="arrow right" href="javascript:void(0)">></a>
+                <ul class="icons">
+                    <li class="bg">
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+    </div>
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+
+
+
+
+        // 要求：html 里有多个carousel，当调用时启动全部的 carousel
+
+        //方式2
+        //通过创建对象的方式启动所有轮播
+        function Carousel($item) {
+
+            var imgsli = $item.find('.imgs').find('li');
+            var nowli = $item.find('.icons').find('li');
+            var left = $item.find('.left');
+            var right = $item.find('.right');
+            var li_len = nowli.length;
+            this.statuscollection = {
+                imgsli: imgsli,
+                nowli: nowli,
+                li_len: li_len,
+                rollFlag: false,
+                now_index: 0,
+                new_index: 0,
+                left: left,
+                right: right,
+                setTime: -1
+
+            };
+            this.bindEvent();
+        }
+        Carousel.prototype = {
+            gotonext: function(len) {
+
+                var rollstatus = this.statuscollection;
+
+                rollstatus.new_index = (rollstatus.now_index + len) % rollstatus.li_len;
+                rollstatus.nowli.eq(rollstatus.new_index).addClass('bg').siblings().removeClass('bg');
+                rollstatus.imgsli.eq(rollstatus.now_index).fadeOut(500);
+                rollstatus.imgsli.eq(rollstatus.new_index).fadeIn(500, function() {
+                    rollstatus.now_index = rollstatus.new_index;
+                    rollstatus.rollFlag = false;
+
+                });
+            },
+            goback: function(len) {
+
+                var rollstatus = this.statuscollection;
+                rollstatus.new_index = (rollstatus.now_index - len) % rollstatus.li_len;
+                rollstatus.nowli.eq(rollstatus.new_index).addClass('bg').siblings().removeClass('bg');
+                rollstatus.imgsli.eq(rollstatus.now_index).fadeOut(500);
+                rollstatus.imgsli.eq(rollstatus.new_index).fadeIn(500, function() {
+                    rollstatus.now_index = rollstatus.new_index;
+                    rollstatus.rollFlag = false;
+
+
+                });
+
+
+            },
+            rollStart: function() {
+                var _this = this;
+                this.statuscollection.setTime = setInterval(function() {
+                    _this.gotonext(1);
+                }, 3000);
+
+            },
+            bindEvent: function() {
+                var $thisroll = this;
+                var rollstatus = this.statuscollection;
+                rollstatus.nowli.on('click', function() {
+
+                    var $this = $(this);
+                    var $index = $this.index();
+
+                    if (rollstatus.rollFlag) {
+                        return;
+                    }
+
+                    rollstatus.rollFlag = true;
+                    clearInterval(rollstatus.setTime);
+                    if ($index > rollstatus.now_index) {
+                        $thisroll.gotonext($index - rollstatus.now_index);
+                    }
+                    if ($index < rollstatus.now_index) {
+                        $thisroll.goback(rollstatus.now_index - $index);
+                    }
+                    $thisroll.rollStart();
+                });
+
+                rollstatus.right.on('click', function() {
+
+                    if (rollstatus.rollFlag) {
+                        return;
+                    }
+                    rollstatus.rollFlag = true;
+
+                    clearInterval(rollstatus.setTime);
+
+
+                    $thisroll.gotonext(1);
+                    $thisroll.rollStart();
+
+                });
+                rollstatus.left.on('click', function() {
+
+                    if (rollstatus.rollFlag) {
+                        return;
+                    }
+                    rollstatus.rollFlag = true;
+                    clearInterval(rollstatus.setTime);
+
+
+                    $thisroll.goback(1);
+                    $thisroll.rollStart();
+                });
+                $thisroll.rollStart();
+            }
+        };
+
+        $('.carousel').each(function() {
+            new Carousel($(this));
+        });
+    });
+    </script>
+</body>
+
+</html>

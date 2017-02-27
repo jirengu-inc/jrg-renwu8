@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sliders</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        ul,li,a,img,div{
+            padding:0;
+            margin:0;
+            text-decoration: none;
+            list-style:none;
+        }
+        #slider{
+            position: relative;
+        }
+        #slider .ct{
+            border-radius: 5px;
+            overflow: hidden;
+            width: 500px;
+            height:250px;
+            position: absolute;
+            left: 50%;
+            top:150px;
+            margin-left:-250px;
+        }
+        #slider .ct .imgct{
+            height:250px;
+            width: 500px;
+            position: relative;
+        }
+        #slider .ct .imgct>li{
+            position: absolute;
+            display: none;
+        }
+        #slider .ct .imgct img{
+            width:500px;
+            height:250px;
+        }
+        #slider .ct .imgct .show{
+            display: block;
+        }
+        #slider .ct .btnct{
+            width: 500px;
+            position: absolute;
+            top: 115px;
+        }
+        #slider .ct .btnct .btn{
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            border-radius: 50%;
+            background-color: black;
+            opacity: 0.8;
+            transition: all 0.9s;
+            color:#fff;
+        }
+        #slider .ct .btnct .btn:hover{
+            opacity: 1;
+        }
+        #slider .ct .btnct .btn-pre{
+            float: left;
+        }
+        #slider .ct .btnct .btn-next{
+            float: right;
+        }
+        #slider .ct .cricle{
+            text-align: center;
+            line-height: 30px;
+            height: 30px;
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            left: 0;
+        }
+        #slider .ct .cricle>li{
+            display: inline-block;
+            background-color: #fff;
+            margin: 0 5px;
+            width: 20px;
+            height: 8px;
+            line-height: 8px;
+            border-radius: 3px;
+            cursor: pointer ;
+            transition: all 0.8s;
+        }
+        #slider .ct .cricle .active{
+            background-color: #40bd79;
+            transform: scale(1.5);
+        }
+        #slider .ct .cricle>li:hover{
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+<div id="slider">
+    <div class="ct">
+        <ul class="imgct clearfix">
+            <li class="show" imgN ="0"><a href="#"><img src="img/火影忍者1.jpg" alt="火影忍者"></a></li>
+            <li imgN ="1"><a href="#"><img src="img/火影忍者2.jpg" alt="火影忍者"></a></li>
+            <li imgN ="2"><a href="#"><img src="img/火影忍者3.jpg" alt="火影忍者"></a></li>
+            <li imgN ="3"><a href="#"><img src="img/火影忍者4.jpg" alt="火影忍者"></a></li>
+        </ul>
+        <div class="btnct clearfix">
+            <a href="#" class="btn btn-pre">&lt</a>
+            <a href="#" class="btn btn-next">&gt</a>
+        </div>
+        <ul class="cricle">
+            <li class="active"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+</div>
+<script>
+    var imgCt = $('.imgct'),
+        prebtn = $('.btn-pre'),
+        nextbtn = $('.btn-next'),
+        Cricle = $('.cricle>li'),
+        indeximg = 0,
+        imgli = $('.imgct li'),
+        imglength = imgli.length,
+        isslider = false,
+        stopkey;
+
+    function nextImg() {
+        isslider = true;
+        if(indeximg === imglength-1){
+            imgli.eq(indeximg).fadeOut('slow');
+            imgli.eq(0).fadeIn('slow',function () {
+                isslider = false;
+            });
+            indeximg = 0;
+            Cricle.removeClass('active').eq(indeximg).addClass('active');
+            return;
+        }
+        imgli.eq(indeximg).fadeOut('slow');
+        imgli.eq(indeximg+1).fadeIn('slow',function () {
+            isslider = false;
+        });
+        Cricle.removeClass('active').eq(indeximg+1).addClass('active');
+        indeximg++
+    }
+
+    function preImg() {
+        isslider = true;
+        if(indeximg === 0){
+            imgli.eq(0).fadeOut('slow');
+            imgli.eq(imglength-1).fadeIn('slow',function () {
+                isslider = false;
+            })
+            Cricle.removeClass('active').eq(imglength-1).addClass('active');
+            indeximg = imglength-1;
+            return;
+        }
+        imgli.eq(indeximg).fadeOut('slow');
+        imgli.eq(indeximg-1).fadeIn('slow',function () {
+            isslider = false;
+        });
+        Cricle.removeClass('active').eq(indeximg-1).addClass('active');
+            indeximg--;
+    }
+
+    function ControlIcon(n) {
+        isslider = true;
+        imgli.eq(indeximg).fadeOut('slow');
+        imgli.eq(n).fadeIn('slow',function () {
+            isslider = false
+        })
+        Cricle.removeClass('active').eq(n).addClass('active');
+        indeximg = n;
+    }
+
+    function autoPlay() {
+        stopkey = setInterval(function () {
+            nextImg();
+        },2000)
+    }
+    nextbtn.on('click',function (e) {
+        if(stopkey){
+            clearInterval(stopkey);
+        }
+        if(!isslider){
+            nextImg();
+            autoPlay();
+        }
+    })
+    prebtn.on('click',function (e) {
+        if(stopkey){
+            clearInterval(stopkey);
+        }
+        if(!isslider){
+            preImg();
+            autoPlay();
+        }})
+
+        $('.cricle').on('click',function (e) {
+            if(stopkey){
+                clearInterval(stopkey);
+            }
+           if(!isslider){
+               var n = $(e.target).index();
+              ControlIcon(n);
+              autoPlay();
+            }
+        })
+
+    autoPlay();
+</script>
+</body>
+</html>

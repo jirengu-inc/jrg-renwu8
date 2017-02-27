@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        html,body,ul,li{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            width:1000px;
+            padding:10px;
+            list-style: none;
+        }
+        img{
+            width:500px;
+            height:400px;
+        }
+        li{
+            float:left;
+        }
+        ul:after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img1.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img2.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img3.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img4.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img5.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img6.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img7.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img8.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img9.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img1.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img2.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img3.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img4.png"></a>
+    </li>
+    <li>
+        <a href="javascript:;"><img src="images/loading.gif" data-src="images/img5.png"></a>
+    </li>
+</ul>
+</body>
+<script>
+    var clock;  //状态锁
+    checkPic()
+    //因为每次滚轮都会触发此事件，为了优化，我们可以使用settimeout，只在最后一次事件响应
+    $(window).on('scroll',function(){   //滚轮触发checkPic函数
+        if(clock){
+            clearTimeout(clock)
+        }
+        clock = setTimeout(function(){
+            checkPic()
+        },300)
+    })
+    function checkPic(){
+       $('img').each(function(){    //遍历
+           var $curImg = $(this);    //防止this被滥用
+           if($curImg.attr('isLoad')){ //如果有这个标记位就return
+               return;
+           }
+           if(isShow($curImg)){  //判断是否需要触发isShow()方法
+               showImg($curImg)
+           }
+       })
+    }
+
+    function isShow($e){    //通过判断 图片的高度是否少于滚轮的距离+窗口的高度来触发加载
+        var scrollHeight = $(window).scrollTop(), //滚轮高度
+                winHeight = $(window).height(), //窗口高度
+                offsetTop = $e.offset().top; //元素离顶部的偏移量
+
+        if(offsetTop < winHeight + scrollHeight){
+            return true;
+        }
+        else{
+            return false
+        }
+    }
+
+        function showImg($e){   //通过换属性来变换地址
+            $e.attr('src',$e.attr('data-src'));
+            $e.attr('isLoad',true);  //标记位
+        }
+</script>
+</html>

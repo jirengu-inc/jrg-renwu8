@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //    正则表达式的学习
+    //[xx-xx]查找任何在这个范围内的字符
+    //[^xx-xx]查找任何不在括号范围内的字符
+    //.查找字母、数字、下划线
+    //\w查找单词(字母、数字、下划线)，只要连在一起的中间没有符号间隔开的都算单词,特殊字符不能匹配
+    //g全局匹配
+    //\d查找数字 \D查找非数字
+    //    var pat=/\w/g;
+    //    var pat2=/[0-9]/g;
+    //    var str="1placn-2 sql&* 333";
+    //    console.log(str.replace(pat,''));
+    //    写一个函数trim(str)，去除字符串两边的空白字符
+
+    function trim(str) {
+        return str.replace(/(^\s*)|(\s*$)/g, "");
+    }
+    console.log(trim(" 哈哈哈 "));
+
+</script>
+</body>
+</html>

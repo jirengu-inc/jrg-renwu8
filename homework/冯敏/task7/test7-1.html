@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test7-1</title>
+	<style>
+		.wrap{
+			width: 900px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="wrap">
+			<a href="#" id="logo"><img src=""></a>
+			<ul class="nav">
+				<li><a href="#">导航1</a></li>
+				<li><a href="#">导航2</a></li>
+				<li><a href="#">导航3</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div class="wrap">
+			<div class="aside">侧边栏</div>
+			<div class="main">中心区块</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="wrap">这里是footer</div>
+	</div>
+	<form action="test.php" name="form1" method="post">
+		姓名：<input type="text" name="username" placeholder="用户名" maxlength="10"> <br/>
+		密码：<input type="password" name="pwd"><br/>
+		性别：<input type="radio" name="sex" value="male" checked> 男
+		     <input type="radio" name="sex" value="female"> 女 <br/>
+		取向：<input type="radio" name="quxiang" value="male" > 男
+		     <input type="radio" name="quxiang" value="female" checked> 女 <br/>
+		<input type="checkbox" name="vehicle" value="Bike">I have a bike
+		<br>
+		<input type="checkbox" name="vehicle" value="Car">I have a car
+			 <br/>
+		评论：<textarea name="comment" placeholder="ddd" rows="30" cols="50"></textarea>
+		<input type="submit"><br/>
+		我的car：<select name="mycar">
+					<option vale="saab"selected>萨博</option>
+					<option value="audi">奥迪</option>
+					<option value="bmw">宝马</option>
+				</select>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流布局</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    #ct{
+        position: relative;
+    }
+    #ct>div{
+        position: absolute;
+    }
+    .item{
+        width:200px;
+        transition: all 1s;
+        margin-top: 10px;
+        margin-left: 10px;
+        border-radius: 5px;
+    }
+    .item1{
+        height:300px;
+        background-color:orangered;
+    }
+    .item2{
+        height:250px;
+        background-color:darkmagenta;
+    }
+    .item3{
+        height:350px;
+        background-color:darkslategray;
+    }
+    .item4{
+        height:200px;
+        background-color:dodgerblue;
+    }
+    img{
+        width: 200px;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+<div id="ct">
+    <div class="item1 item"><img src="https://unsplash.it/821/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/200/300" alt=""></div>
+    <div class="item4 item"><img src="https://unsplash.it/200" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/300" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/300/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/200/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/100/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/400/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/290/?random" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/280/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/310/?random" alt=""></div>
+    <div class="item4 item"><img src="https://unsplash.it/350/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/1200/?random" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/600/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/1/?random" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/2/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/800/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/90/?random" alt=""></div>
+    <div class="item4 item"><img src="https://unsplash.it/18/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/37/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/310/?random" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/170/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/30/?random" alt=""></div>
+    <div class="item4 item"><img src="https://unsplash.it/40/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/60/?random" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/50/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/318/?random" alt=""></div>
+    <div class="item1 item"><img src="https://unsplash.it/16/?random" alt=""></div>
+    <div class="item2 item"><img src="https://unsplash.it/39/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/21/?random" alt=""></div>
+    <div class="item4 item"><img src="https://unsplash.it/14/?random" alt=""></div>
+    <div class="item3 item"><img src="https://unsplash.it/18/?random" alt=""></div>
+</div>
+    <script>
+        function render() {
+            var windowWidth = $(window).width(),
+                itemWidth =$('.item').eq(0).outerWidth(true),
+                itemList = $('.item'),
+                amountColumn = parseFloat(windowWidth/itemWidth),
+                columnList = [];
+            for(var i=0;i<amountColumn-1;i++){
+                columnList.push(0);
+            }
+            itemList.each(function () {
+                var minHeight = columnList[0];
+                var index = 0;
+                var cur = $(this);
+                for(var i=0;i<columnList.length;i++){
+                    if(columnList[i] < minHeight){
+                        minHeight = columnList[i];
+                        index = i;
+                    }
+                }
+                cur.css({
+                    left : itemWidth*index,
+                    top : minHeight
+                });
+                 columnList[index] = cur.outerHeight(true) + columnList[index];
+            })
+        }
+        $(window).on('resize', function(){
+            render();
+        })
+        render();
+    </script>
+</body>
+</html>

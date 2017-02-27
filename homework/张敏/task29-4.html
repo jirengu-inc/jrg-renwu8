@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            height: 80px;
+            line-height: 80px;
+            border: 1px solid black;
+            margin: 5px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .more {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 10px;
+            border: 1px solid red;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .focus{
+            background: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <!--11-->
+    <li></li>
+
+</ul>
+<div class="more">加载更多</div>
+<script>
+    $(function () {
+        var obj = {
+            init: function () {
+                this.isload();
+                this.bind();
+            },
+            isload: function () {
+
+                this.event();
+            },
+            isVisible: function (ele) {
+                var $cur = ele;
+                //视窗高度
+                var clienth = $(window).height();
+                //元素到页面顶部的距离
+                var eleh = $cur.offset().top;
+                //页面的滚动距离
+                var scrolltop = $(window).scrollTop();
+                //当滚动距离+视窗高度>元素到页面顶部的高度,说明元素已经出现在页面中(可见),否则反之(不可见)
+                var res = (scrolltop + clienth > eleh) ? true : false;
+                return res;
+            },
+            bind: function () {
+                var _this = this;
+                $(window).on('scroll', function () {
+                    _this.event();
+                })
+
+            },
+            event: function (obj) {
+                var _this = this;
+                $('li').each(function () {
+                    //如果符合出现条件的
+                    $(this).html($(this).index());
+                    $(this).on('mouseover',function () {
+                        $(this).addClass('focus').siblings('li').removeClass('focus');
+                    })
+                })
+                if (_this.isVisible($('.more'))) {
+                    _this.send();
+                }
+            },
+            send: function () {
+                var _this = this;
+                this.len = 6;
+                this.start = $('li').length + 1;
+                $.ajax({
+                    url: 'ajax.php',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        'len': _this.len,
+                        'start': _this.start
+                    },
+                    success: function (data) {
+                        var idx = 0;
+                        var $oli;
+                        for (var i = 0; i < _this.len; i++) {
+                            $oli=$('<li>data.data[i]</li>');
+//                            $('ul').append($('<li>data.data[i]</li>'));
+//                            console.log(data.data[i]);
+                        }
+                        //等循环结束之后，一次性添加，大大优化性能
+                        $('ul').append($oli);
+                    },
+                    error: function () {
+
+                    }
+                })
+            }
+
+        }//end
+        obj.init();
+    })
+</script>
+</body>
+</html>

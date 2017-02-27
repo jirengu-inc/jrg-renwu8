@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限加载的瀑布流布局</title>
+    <style>
+        html,body,ul,li,p{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear:both;
+        }
+        .ct{
+            position: relative;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .ct .item{
+            width:200px;
+            position: absolute;
+            padding: 0 0 10px 0;
+            box-shadow: 2px 2px 2px #e8e8e8;
+            border: 1px solid #dfdfdf;
+            background: #fff;
+            margin: 10px;
+            transition: all 0.8s;
+        }
+        .ct .item img{
+            margin: 12px;
+            width: 176px;
+        }
+        .ct .item header{
+            height:25px;
+            margin: 0 12px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .ct .desp{
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 10px 15px 0;
+            color:#777371;
+        }
+        #load{
+            opacity: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="expourse.js"></script>
+    <script src="waterfall.js"></script>
+    <script src="dataOpt.js"></script>
+    <div class="ct-waterfall">
+        <ul id="pic-ct" class="ct clearfix">
+            <!--<li class="item">
+    			<a href="#" class="link">
+    				<img src="http://s.img.mix.sina.com.cn/auto/resize?img=http%3A%2F%2Fwww.sinaimg.cn%2Fdy%2Fslidenews%2F5_img%2F2016_09%2F453_75615_657883.jpg&size=250_0" alt="">
+    			</a>
+    			<h4 class="header">标题</h4>
+    			<p class="desp">
+    				当地时间2016年3月1日，在东部与亲俄武装作战中受伤的乌克兰士兵接受海豚治疗。
+    			</p>
+    		</li>-->
+        </ul>
+        <div id="load">我是看不见的</div>
+    </div>
+    <script type="text/javascript">
+        Waterfall.init($("#pic-ct"));
+        // 判断load标签是否出现
+        Expourse.init($("#load"));
+
+    </script>
+</body>
+</html>

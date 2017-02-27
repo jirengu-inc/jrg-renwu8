@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的轮播组件</title>
+    <style>
+        html,body,ul,li{
+            margin:0;
+            padding:0;
+        }
+        body {
+            margin-top:20px;
+            margin-left: 20px;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            position: relative;
+            width:310px;
+            height:206px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .carousel .img-ct{
+            position: absolute;
+        }
+        .carousel .img-ct:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .carousel .img-ct li{
+            float: left;
+        }
+        .carousel .img-ct img{
+            width:310px;
+            height:206px;
+        }
+        .arrow{
+            position: absolute;
+            top:50%;
+            margin-top: -15px;
+            width:30px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4e443c;
+            color:#fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8;
+        }
+        .arrow:hover{
+            opacity: 1;
+        }
+        .pre{
+            left:10px;
+        }
+        .next{
+            right: 10px;
+        }
+        ul.bullet{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        ul.bullet li{
+            width:16px;
+            height:4px;
+            border-radius: 2px;
+            background: #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+        ul.bullet li.active{
+            background: #666;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<div class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="image/pic1.jpg" alt="picture"></a></li>
+        <li data-id=1><a href="#"><img src="image/pic2.jpg" alt="picture"></a></li>
+        <li data-id=2><a href="#"><img src="image/pic3.jpg" alt="picture"></a></li>
+        <li data-id=3><a href="#"><img src="image/pic4.jpg" alt="picture"></a></li>
+    </ul>
+    <a href="#" class="pre arrow"> < </a>
+    <a href="#" class="next arrow"> > </a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="carousel">
+    <ul class="img-ct">
+        <li data-id=0><a href="#"><img src="image/pic1.jpg" alt="picture"></a></li>
+        <li data-id=1><a href="#"><img src="image/pic2.jpg" alt="picture"></a></li>
+        <li data-id=2><a href="#"><img src="image/pic3.jpg" alt="picture"></a></li>
+        <li data-id=3><a href="#"><img src="image/pic4.jpg" alt="picture"></a></li>
+    </ul>
+    <a href="#" class="pre arrow"> < </a>
+    <a href="#" class="next arrow"> > </a>
+    <ul class="bullet">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function everyCarousel($container) {
+        this.$ct=$container;
+        this.init();
+        this.bind();
+    }
+    everyCarousel.prototype.init=function(){
+        var $imgCt=this.$imgCt=this.$ct.find(".img-ct"),
+            $items=this.$items=this.$imgCt.children(),
+            $pre=this.$pre=this.$ct.find(".pre"),
+            $next=this.$next=this.$ct.find(".next"),
+            $bullet=this.$bullet=this.$ct.find(".bullet"),
+            imgWidth=this.imgWidth=$items.width();
+        this.curIdx=0;
+        this.isAnimate=false;
+        this.imgCount=$imgCt.children().length;
+        $imgCt.prepend($items.last().clone());
+        $imgCt.append($items.first().clone());
+        var imgRealCount=$imgCt.children().length;
+        $imgCt.css({
+            left:0-imgWidth,
+            width:imgRealCount*imgWidth
+        })
+    };
+    everyCarousel.prototype.bind=function () {
+        this.autoplay();
+        this.addEvent();
+    };
+    everyCarousel.prototype.playNext=function (idx) {
+        var idx=idx || 1,
+            _this=this;
+        if(!this.isAnimate){
+            this.isAnimate=true;
+            this.$imgCt.animate({left:"-="+(idx*this.imgWidth)},function () {
+                _this.curIdx=(_this.curIdx+idx)%_this.imgCount;
+                if(_this.curIdx==0){
+                    _this.$imgCt.css("left",0-_this.imgWidth);
+                }
+                _this.isAnimate=false;
+                _this.setBullet();
+            })
+        }
+    };
+    everyCarousel.prototype.playPre=function(idx){
+        var idx=idx || 1,
+            _this=this;
+        if (!this.isAnimate){
+            this.isAnimate=true;
+            this.$imgCt.animate({left:"+="+(idx*this.imgWidth)},function () {
+                _this.curIdx=(_this.curIdx-idx+_this.imgCount)%_this.imgCount;
+                if(_this.curIdx==(_this.imgCount-1)){
+                    _this.$imgCt.css("left",0-_this.imgCount*_this.imgWidth);
+                }
+                _this.isAnimate=false;
+                _this.setBullet();
+            })
+        }
+    };
+    everyCarousel.prototype.setBullet=function(){
+        this.$bullet.find("li").removeClass("active").eq(this.curIdx).addClass("active");
+    };
+    everyCarousel.prototype.autoplay=function(){
+        var _this=this;
+        clock=setInterval(function(){
+            _this.playNext();
+        },2000);
+    };
+    everyCarousel.prototype.addEvent=function () {
+        var _this=this;
+        this.$next.on("click",function () {
+            _this.playNext();
+        });
+        this.$pre.on("click",function () {
+            _this.playPre();
+        });
+        _this.$bullet.find("li").on("click",function () {
+            var idx=$(this).index();
+            if(idx>_this.curIdx){
+                _this.playNext(idx-_this.curIdx);
+            }else if(idx<_this.curIdx){
+                _this.playPre(_this.curIdx-idx);
+            }
+        })
+    };
+    var Carousel=(function () {
+        return {
+            init:function ($containers) {
+                $containers.each(function (idx,container) {
+                    new everyCarousel($(container));
+                })
+            }
+        }
+    })();
+    Carousel.init($(".carousel"))
+</script>
+</body>
+</html>

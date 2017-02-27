@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组8</title>
+</head>
+<body>
+	<script>
+	function isPalindrome (str) {
+		var a = str.split('');
+		var b = str.split('').reverse();
+		for(var i=0;i<a.length;i++){
+			if(a[i] === b[i]){
+				return "ture";
+			}
+		}
+		return "false";
+	}
+	
+	</script>
+</body>
+</html>

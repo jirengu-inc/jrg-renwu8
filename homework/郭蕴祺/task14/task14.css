@@ -1,0 +1,197 @@
+@font-face {
+  font-family: 'iconfont';  /* project id："181188" */
+  src: url('//at.alicdn.com/t/font_5bfv4vkaiy8bmx6r.eot');
+  src: url('//at.alicdn.com/t/font_5bfv4vkaiy8bmx6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_5bfv4vkaiy8bmx6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_5bfv4vkaiy8bmx6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_5bfv4vkaiy8bmx6r.svg#iconfont') format('svg');
+}
+html,body,ul,li,img{
+	margin: 0;
+	padding: 0;
+	font-family: Arial,"微软雅黑";
+}
+a{
+	text-decoration: none;
+	color: rgb(51,122,183);
+}
+ul li{
+	list-style-type: none;
+}
+hr{
+	width: 150px;
+}
+.iconfont{
+	font-family: "iconfont";
+}
+.layout{
+	width: 960px;
+	margin:0 auto;
+}
+html,body{
+	height: 100%;
+}
+#header{
+	color: black;
+	text-align:center;
+	background: url(img/bg.jpg) no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	display: table;
+	font-size: 14px;	
+}
+#header .wrap{
+	display: table-cell;
+	vertical-align: middle;
+}
+.btn{
+	display: inline-block;
+	height: 45px;
+	width: 120px;
+	line-height: 45px;
+	background: rgba(0,0,0 ,0.4);
+	color: white;
+	border-radius: 5px;
+}
+#intro{
+	padding: 30px 0;
+	text-align: center;
+	font-size: 20px;
+}
+#intro h1{
+	font-weight: normal;
+	font-size: 30px;
+}
+#skill{
+	background: rgb(51,122,183);
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	padding: 20px 0;
+}
+#skill .wrap{
+	margin: 30px 0;
+}
+#skill li{
+	float: left;
+	width: 225px;
+	margin-left: 20px;
+}
+#skill ul{
+	overflow: hidden;
+	width: 980px;
+	margin-left: -20px;
+	margin-top: 20px;
+}
+#skill .btn{
+	background: white;
+	color: black;
+}
+#skill .iconfont{
+	font-size: 80px;
+}
+#picture{
+	background: url(img/callout.jpg) no-repeat;
+	background-size: cover;
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	padding: 180px 0;
+}
+#picture h1{
+	font-weight: normal;
+}
+#work{
+	text-align: center;
+	font-size: 13px;
+	padding: 10px 0;
+}
+#work .wrap{
+	margin:30px 0;
+}
+#work img{
+	width: 470px;
+}
+#work li{
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+#work ul{
+	overflow: hidden;
+	margin-left: -20px;
+	width: 980px;
+}
+#work .btn{
+	background: #999;
+	color: white;
+	margin-top: 20px;
+}
+#work hr{
+	border-top: 1px solid #CCC;
+}
+#work h1{
+	font-weight: normal;
+}
+#link{
+	background: rgb(51,122,183);
+	text-align: center;
+	padding: 10px;
+	color: white;
+}
+#link .wrap{
+	margin: 50px 0;
+}
+#link .btn{
+	width: 150px;
+	background: white;
+	font-size: 14px;
+}
+#link .btn:first-of-type{
+	color: black;
+}
+#link .btn:last-of-type{
+	color: white;
+	background: rgb(31,73,110);
+}
+#link .btn:first-of-type:hover{
+	background: #EEE;
+}
+#link .btn:last-of-type:hover{
+	background: rgb(15,36,54);
+}
+#footer{
+	text-align: center;
+	padding: 100px 0;
+}
+#footer .address{
+	font-size: 14px;
+	line-height: 5px;
+}
+#footer .contact{
+	font-size: 13px;
+	line-height: 5px;
+	padding: 10px 0 20px 0;
+}
+#footer a{
+	color: rgb(51,122,183);
+}
+#footer a:hover{
+	color: rgb(31,73,110);
+}
+.media .iconfont{
+	font-size: 50px;
+}
+#footer li{
+	float: left;
+	padding:10px;
+}
+#footer ul{
+	overflow: hidden;
+	display: inline-block;
+	margin:0 auto;
+}
+#footer hr{
+	border-top: 1px solid #EEE;
+}

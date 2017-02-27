@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>inline-block缝隙</title>
+	<style>
+		ul,li{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.box{
+			border:1px solid green;
+			font-size: 0;
+		}
+		.box>li{
+			display: inline-block;
+			*display:inline;
+			background: blue;
+			color:#fff;
+			padding: 3px;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+<ul class="box">
+	<li>tag1</li>
+	<li>tag2</li>
+	<li>tag3</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <ul class="ct">
+	    <li>这里是</li>
+	    <li>饥人谷</li>
+	    <li>前端6班</li>
+	</ul>
+	<script>
+	//todo ...
+		var ct = $('.ct');
+
+		ct.addEventListener('click',function(e){
+			console.log(e.target.innerText);
+		})
+
+		function $ (cls) {
+			return document.querySelector(cls);
+		}
+	</script>
+    </body>
+</html>

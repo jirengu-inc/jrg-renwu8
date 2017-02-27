@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+   
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <style>
+    html,
+    body,
+    ul,
+    li,
+    p {
+        padding: 0;
+        margin: 0;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    
+    .online {
+        position: relative;
+        width: 300px;
+        height: 220px;
+        overflow: hidden;
+    }
+    
+    .imgs {
+        width: 1200px;
+        height: 220px;
+    }
+    
+    .imgs li {
+        position: absolute;
+        display: none;
+    }
+    
+    .imgs img {
+        width: 300px;
+        height: 220px;
+    }
+    
+    .arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        display: block;
+        background: #4e443c;
+        opacity: 0.5;
+        position: absolute;
+        text-align: center;
+        line-height: 30px;
+    }
+    
+    .left {
+        left: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .right {
+        right: 8px;
+        top: 50%;
+        margin-top: -23px;
+    }
+    
+    .arrow:hover {
+        opacity: 1;
+    }
+    
+    .icons {
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+    
+    .icons li {
+        cursor: pointer;
+        width: 20px;
+        height: 4px;
+        display: inline-block;
+        background: #fff;
+        border-radius: 3px;
+    }
+    
+    .bg {
+        background: #ccc !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="online">
+        <ul class="imgs">
+            <li style="display: block;">
+                <a href="#"><img src="imgs/1.jpg"></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/2.jpg"></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/3.jpeg"></a>
+            </li>
+            <li>
+                <a href="#"><img src="imgs/4.jpg"></a>
+            </li>
+        </ul>
+        <a class="arrow left" href="#">
+            <</a>
+                <a class="arrow right" href="#">></a>
+                <ul class="icons">
+                    <li class="bg">
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+    </div>
+    <script type="text/javascript">
+    var nowli = $('.icons').find('li');
+    var imgsli = $('.imgs').find('li');
+    var li_len = nowli.length;
+    var setTime;
+    var rollFlag = false;
+    var now_index = 0;
+    var new_index = 0;
+    rollStart();
+
+    function rollStart() {
+        setTime = setInterval(function() {
+            gotonext(1);
+        }, 5000);
+    }
+
+
+    function gotonext(len) {
+
+        new_index = (now_index + len) % li_len;
+        nowli.eq(new_index).addClass('bg').siblings().removeClass('bg');
+        imgsli.eq(now_index).fadeOut(500);
+        imgsli.eq(new_index).fadeIn(500, function() {
+            now_index = new_index;
+            rollFlag = false;
+        });
+
+
+    }
+
+    function goback(len) {
+        new_index = (now_index - len) % li_len;
+        nowli.eq(new_index).addClass('bg').siblings().removeClass('bg');
+        imgsli.eq(now_index).fadeOut(500)
+        imgsli.eq(new_index).fadeIn(500, function() {
+            now_index = new_index;
+            rollFlag = false;
+        });
+
+
+
+    }
+    $('.right').on('click', function() {
+
+        if (rollFlag) {
+            return;
+        }
+        rollFlag = true;
+        clearInterval(setTime);
+        gotonext(1);
+
+        rollStart();
+
+
+    });
+    $('.left').on('click', function() {
+        if (rollFlag) {
+            return;
+        }
+        rollFlag = true;
+        clearInterval(setTime);
+        goback(1);
+
+        rollStart();
+    });
+
+    $('.icons li').on('click', function() {
+        var $index = $(this).index();
+        if (rollFlag) {
+            return;
+        }
+
+        clearInterval(setTime);
+        rollFlag = true;
+        if ($index > now_index) {
+            gotonext($index - now_index);
+        }
+        if ($index < now_index) {
+            goback(now_index - $index);
+        }
+        rollStart();
+    });
+    </script>
+</body>
+
+</html>

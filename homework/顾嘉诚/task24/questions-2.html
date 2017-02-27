@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 24 questions 2</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}	
+		li{
+			list-style: none;
+		}
+		.btn{
+			border: 1px solid #ccc;
+			text-decoration: none;
+		}
+		li{
+			border: 1px solid #ccc;
+			padding: 15px;
+			margin: 5px;
+			border-radius: 5px;
+		}
+		li:hover{
+			background-color: green;
+		}
+		a{
+			display: block;
+			padding: 15px;
+			margin: 0 auto;
+			width: 80px;
+			text-align: center;
+			border-color: rgb(223,95,95);
+			color: rgb(223,95,95);
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		实现加载更多的功能
+	-->
+	<ul>
+		<li>内容1</li>
+		<li>内容2</li>
+	</ul>
+	<a href="#" class='btn'>加载更多</a>
+
+	<script type="text/javascript">
+		var count = 2,
+			len = 0;
+		var lock = false;
+		$$('.btn')[0].addEventListener('click',function(){
+			if(!lock){
+				lock = true;
+				ajax({
+					type: 'post',
+					url: './loadmore.php',
+					data: {
+						start: count,
+						len: 6
+					},
+					sucess: function(json){
+						var data = json;
+						dealWith(data);
+					},
+					error: function(){
+						console.log('error');
+					}
+				});
+				lock = false;
+			}
+		});
+		function $$(ele){
+			var length = ele.length - 1;
+			if(ele[0] === '.'){
+				return document.getElementsByClassName(ele.substr(1,length));
+			}else if(ele[0] === '#'){
+				return document.getElementById(ele.substr(1,length));
+			}else{
+				return document.getElementsByTagName(ele);
+			}
+		}
+		function ajax(opts){
+			var xmlhttp = new XMLHttpRequest();
+			var value = '';
+			for(var prop in opts.data){
+				value += prop + '=' + opts.data[prop] + '&';
+			}
+			value = value.substr(0,value.length - 1);
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+					opts.sucess(JSON.parse(xmlhttp.responseText));
+				}else if(xmlhttp.readyState === 4 && xmlhttp.status !== 200){
+					opts.error();
+				}
+			};
+			if(opts.type.toLowerCase() === 'post'){
+				xmlhttp.open('POST',opts.url,true);
+				xmlhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				xmlhttp.send(value);
+			}else if(opts.type.toLowerCase() === 'get'){
+				xmlhttp.open('POST',opts.url + '?' + value,true);
+				xmlhttp.send();
+			}
+		}
+		function dealWith(json){	
+			for(var i = 0;i < 6;i ++){
+				var li = document.createElement('li');	
+				var text = document.createTextNode('内容' + json[i]);
+				li.appendChild(text);
+				$$('ul')[0].appendChild(li);
+			}
+			count = json[5];
+		}
+	</script>
+</body>
+</html>

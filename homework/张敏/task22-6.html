@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #mask {
+            background-color: rgba(0,0,0,0.4);
+            position: absolute;
+            left:0;
+            top:0;
+            z-index: 2;
+        }
+
+        #dialog {
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            border: 1px solid black;
+            display: none;
+            background: white;
+            z-index: 3;
+        }
+
+        .content {
+            width: 100%;
+            height: 140px;
+
+        }
+
+        .top {
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid black;
+        }
+
+        .top p {
+            height: 30px;
+            line-height: 30px;
+            float: left;
+        }
+
+        .top a {
+            display: block;
+            float: right;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .bot {
+            width: 100%;
+            height: 30px;
+            border-top: 1px solid black;
+        }
+
+        .btnok, .btncancel {
+            display: block;
+            float: right;
+            height: 30px;
+            margin-right: 10px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点我</button>
+<div id="dialog">
+    <div class="top">
+        <p>我是标题</p>
+        <a href="#" class="close">×</a>
+    </div>
+    <div class="content">
+        <p>内容1</p>
+        <p>内容2</p>
+    </div>
+    <div class="bot">
+        <a href="#" class="btnok">确定</a>
+        <a href="#" class="btncancel">取消</a>
+    </div>
+</div>
+<script>
+    //模态框
+    window.onload = function () {
+        var close = document.getElementsByClassName('close')[0];
+        var btncancel = document.getElementsByClassName('btncancel')[0];
+        var dialog = document.getElementById('dialog');
+        var btn = document.getElementById('btn');
+
+        var mask=null;
+        btn.onclick = function (e) {
+            mask = document.createElement('div');
+            mask.id = 'mask';
+            document.body.appendChild(mask);
+            var cw = document.documentElement.clientWidth || document.body.clientWidth;
+            var ch = document.documentElement.clientHeight || document.body.clientHeight;
+            mask.style.width = cw + 'px';
+            mask.style.height = ch + 'px';
+
+            dialog.style.display='block';
+
+           dialog.style.left=(cw-dialog.offsetWidth)/2+'px';
+           dialog.style.top=(ch-dialog.offsetHeight)/2+'px';
+        }
+
+
+        close.onclick = function () {
+            dialog.style.display='none';
+            document.body.removeChild(mask);
+        }
+        btncancel.onclick = function () {
+            dialog.style.display='none';
+            document.body.removeChild(mask);
+        }
+    }
+
+
+</script>
+</body>
+</html>

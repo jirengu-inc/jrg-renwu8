@@ -1,0 +1,43 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    height: 40px;
+    width: 80px;
+    line-height: 40px;
+    border: 1px solid #E27272;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #E27272;
+    img{
+        width:40px;
+        height:40px;
+    }
+}
+
+.list {
+    li{
+        &:hover{
+            color:white;
+            background-color:green;
+        }
+        margin-top:10px;
+        padding:10px;
+        color:black;
+        border: 1px solid #ccc;
+        cursor:pointer;
+    }
+}

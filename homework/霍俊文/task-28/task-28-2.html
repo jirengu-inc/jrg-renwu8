@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多个stickup</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        body,html{
+            font-size:20px;
+        }
+        #header{
+            height:100px;
+            line-height:100px;
+            background:red;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .nav{
+            height:100px;
+            line-height: 100px;
+            line-height:100px;
+            background: blue;
+            text-align: center;
+        }
+        .content{
+            background: #ccc;
+            padding: 10px;
+        }
+        .aside{
+            width:100px;
+            height:1000px;
+            background:yellow;
+            float:left;
+        }
+        .main{
+            height:1000px;
+            background: white;
+        }
+        #footer{
+            height:50px;
+            background: #2f4f4f;
+        }
+        .aside1{
+            background: pink;
+        }
+        .aside2{
+            background: green;
+        }
+        .aside3{
+            background: #1d496b;
+        }
+        .aside4{
+            background:#0fb296;
+        }
+    </style>
+</head>
+<body>
+<div id="header">header</div>
+<div class="nav nav1"> nav </div>
+<div class="content ct1">
+    <div class="aside aside1"> aside </div>
+    <div class="main main1"> main </div>
+</div>
+<div class="nav nav2"> nav2 </div>
+<div class="content ct2">
+    <div class="aside aside2"> aside2 </div>
+    <div class="main main2"> main2 </div>
+</div>
+<div class="nav nav3"> nav3 </div>
+<div class="content ct3">
+    <div class="aside aside3"> aside3 </div>
+    <div class="main main3"> main3 </div>
+</div>
+<div class="nav"> nav4 </div>
+<div class="content ct4">
+    <div class="aside aside4"> aside4 </div>
+    <div class="main main4"> main4</div>
+</div>
+<div id="footer">footer</div>
+</body>
+<script>
+    //利用插件的写法
+$.fn.stickup = function(){
+    //声明变量
+    var $cur = $(this),
+            curWidth = $cur.width(),
+            curHeight = $cur.height(),
+            offsetTop = $cur.offset().top,
+            offsetLeft = $cur.offset().left,
+            offsetTop = $cur.offset().top;
+    //克隆元素占位，不然fixed之后 下面的元素会偏移，因为fixed脱离了文档流
+    var $newNav = $cur.clone()
+            .css('opacity',0)
+            .insertBefore($cur)
+            .hide()
+    //监听函数，判断是否fixed
+    $(window).on('scroll',function(){
+        var scrollTop = $(this).scrollTop();
+        if(scrollTop >= offsetTop){
+            if(!isFixed()){
+                setFixed()
+            }
+        }
+        else {
+            if(isFixed()){
+                removeFixed()
+            }
+        }
+    })
+
+    //工具函数（设置fixed)
+    function isFixed(){
+        return !! $cur.attr('data-fixed')
+    }
+    function setFixed() {
+        $cur.attr('data-fixed',true)
+        $cur.css({
+            position:'fixed',
+            left:offsetLeft,
+            top:0,
+            'z-index':999,
+            width:curWidth,
+            height:curHeight
+        })
+        $newNav.show();
+    }
+    function removeFixed(){
+        $cur.removeAttr('data-fixed')
+                .removeAttr('style');
+        $newNav.hide();
+    }
+}
+$('.nav').each(function(){
+    $(this).stickup()
+})
+
+</script>
+</html>

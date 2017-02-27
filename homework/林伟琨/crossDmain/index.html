@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		<h2>你的城市是</h2>
+		<h3 class='city'>未显示</h3>
+	</div>
+	<button class="btn">点击获取你的城市</button>
+<script>
+
+	var city=document.querySelector('.city');
+	var btn=document.querySelector('.btn');
+
+	btn.addEventListener('click', function(){
+
+		var oScript=document.createElement('script');
+		oScript.src='http://jirenguapi.applinzi.com/weather.php?callback=getCity'
+		document.head.appendChild(oScript);
+		document.head.removeChild(oScript);
+	})
+
+	function getCity(obj){
+		if(obj.error!=0){
+			city.innerHTML='api出问题';
+		}else{
+			city.innerHTML=obj.results[0].currentCity;
+		}
+	}
+</script>
+</body>
+</html>

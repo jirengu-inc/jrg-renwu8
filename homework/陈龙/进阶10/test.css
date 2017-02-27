@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+}
+
+.clearFloat:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#btn {
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.hidden {
+    display: none;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(100, 100, 100, 0.2);
+}
+
+.wrapper>.pannel {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px #ccc;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper header {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.wrapper header h4 {
+    margin: 0;
+    float: left;
+}
+
+.wrapper header .close {
+    height: 18px;
+    float: right;
+}
+
+.wrapper main {
+    padding: 15px;
+    border-bottom: 1px solid #cff;
+}
+
+.wrapper footer {
+    padding: 10px 0;
+}
+
+.wrapper footer button {
+    float: right;
+    border: none;
+    background: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    margin: 0 15px 0 5px;
+}

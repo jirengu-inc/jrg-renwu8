@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.1.1.js"></script>
+    <title>瀑布流布局test</title>
+    <style>
+        .ct{
+            position: relative;
+        }
+        .item{
+            position: absolute;
+            width:200px;
+            margin-left:10px;
+            margin-top:10px;
+            transition:all 2s;
+        }
+        .h1{
+            height:250px;
+            background: yellow;
+        }
+        .h2{
+            height:170px;
+            background: blue;
+        }
+        .h3{
+            height:130px;
+            background: green;
+        }
+        .h4{
+            height:80px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="ct">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+    <div class="item">16</div>
+    <div class="item">17</div>
+    <div class="item">18</div>
+    <div class="item">19</div>
+    <div class="item">20</div>
+    <div class="item">21</div>
+</div>
+</body>
+<script>
+    //随机分配class
+    function randomClass(){
+        var classArr = ['h1','h2','h3','h4'],  //每个class名
+                itemNum = $('.item').length; //'.item'的长度
+        for(var i=0;i<itemNum;i++){  //遍历，随机分布h1,h2,h3,h4
+            var classIndex = Math.floor((Math.random()*classArr.length)) // 随机下标
+//            console.log(classIndex)
+//            console.log(classArr[classIndex]);
+            $('.item').eq(i).addClass(classArr[classIndex])   //添加随机下标
+        }
+    }
+    randomClass()
+    //瀑布流布局
+    function waterFall(){
+        var elementWidth = $('.item').outerWidth(true); //获取每个元素的宽度(包括内边距、边框和外边距)
+        var colNum = parseInt($(window).width()/elementWidth); //用 窗口的宽度 / 每个元素的宽度 就能得出有几列
+        var colSumHeight = [];//用来储存每列的高度之和
+
+        for(var i=0;i < colNum;i++){
+            colSumHeight.push(0) //每列高度初始化为0 ,21个
+        }
+
+        $('.item').each(function() { //遍历item元素，
+            var $this = $(this), //防止this转变
+                    minSumHeight = colSumHeight[0],//初始化最小高度位置
+                    idx = 0//下标从0开始
+            //需要知道当前最短的那列的高度
+            //以及这一列的下标idx
+            for (var i = 0; i < colSumHeight.length; i++) {
+                if (colSumHeight[i] < minSumHeight) { //判断高度
+                    idx = i;
+                    minSumHeight = colSumHeight[i]
+                    console.log(minSumHeight)
+                }
+            }
+            $this.css({
+                left:elementWidth * idx,   //偏移
+                top:minSumHeight       //偏移
+            })
+            colSumHeight[idx] += $this.outerHeight(true) //更新每列高度之和
+        })
+    }
+    waterFall()
+    $(window).on('relize',function () {
+        waterFall()
+    })
+    //waterfall(test)
+    function water(){
+       var elementWidth = $('.item').outerWidth(true); //一个元素宽度
+        var colNum = parseInt((window).width() / elementWidth); //一排能放几个
+        var colSumHeight = [];
+        for(var i=0;i<colNum;i++){  //每列的高度
+            colSumHeight.push(0)
+        }
+        $('.item').each(function () { //遍历
+            var $this = $(this); //防止改变this
+            var minSumHeight = colSumHeight[0]; //初始化高度
+            var idx = 0; //因为下面的i会变化
+            for(var i=0;i<colSumHeight.length;i++){
+                if(colSumHeight[i]<minSumHeight){
+                    idx = i;
+                    minSumHeight = colSumHeight[i];  //遍历高度，如果小的话
+                }
+            }
+            $this.css({
+                left:elementWidth * idx,
+                top:minSumHeight
+            })
+            colSumHeight[idx] +=$this.outerHeight(true);
+        })
+    }
+
+</script>
+</html>

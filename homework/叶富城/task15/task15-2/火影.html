@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task15</title>
+  <style>
+    *{
+  padding:0;
+  margin:0;
+  font-family:"微软雅黑";
+  text-decoration:none;
+  list-style:none;
+  color:#000;
+}
+.clearfix:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+#nav{
+  width:100%;
+  background-color:rgba(0,0,0,.4);
+  height:80px; 
+  position:fixed;
+  z-index:10;
+}
+.ct{
+  width:1300px;
+  margin:0 auto;
+}
+.ct .minlogo{
+  border:1px solid;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  box-sizing:border-box;
+  overflow:hidden;
+  transition:0.9s;
+  float:left;
+  margin:10px;
+}
+.ct .minlogo:hover{
+  opacity:0.6;
+}
+#nav .ct .minlogo>a>img{
+  width:53px;
+  height:53px;
+}
+.ct>a{
+  font-size:1.5em;
+  color:#fff;
+  float:left;
+  line-height:80px;
+  transition:0.9s;
+}
+.ct>a:hover{
+  color:#d8ae06;
+}
+#nav .ct>ul{
+  float:right;
+}
+#nav .ct>ul>li{
+  float:left;
+  margin:10px;
+  position:relative;
+  top:20px;
+}
+#nav .ct>ul>li>a{
+  color:#fff;
+  transition:0.9s;
+}
+#nav .ct>ul>li>a:hover{
+  color:#d8ae06;
+}
+#header{
+  width:100%;
+  height:850px;
+  background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1478970892733&di=a2b4c66727ae41c933a2c331a3df8ff5&imgtype=0&src=http%3A%2F%2Fatt.x2.hiapk.com%2Fforum%2F201211%2F19%2F213033tcfilsgep535gisb.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  position:relative;
+}
+#header .ct .content{
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -220px;
+  border-radius:20px;
+}
+#header .ct .content>h1{
+  font-size:40px;
+  color:#b3111b;
+}
+#header .ct .content>p{
+  display:block;
+  margin:10px 0;
+  font-size:20px;
+  font-weight:bold;
+  color:#000;
+}
+#header .ct .content>a{
+  display:inline-block;
+  width: 100px;
+  line-height: 50px;
+  text-align: center;
+  color:#fff;
+  background-color:red;
+  border-radius:20px;
+  opacity:0.7;
+  transition:0.9s;
+}
+#header .ct .content>a:hover{
+  opacity:1;
+}
+#charter{
+  margin:80px 0;
+}
+#charter .ct>ul>li{
+  float:left;
+  width:30%;
+  text-align:center;
+  margin:15px;
+  border-radius:20px;
+  height:370px;
+}
+#charter .ct>.introduction{
+  margin-bottom:80px;
+}
+#charter .ct>h1{
+  border-left:6px solid red;
+}
+#charter .ct>.introduction>li>a{
+    display: inline-block;
+    width: 210px;
+    height: 210px;
+    border:1px solid transparent;
+    border-radius: 50%;
+    transition: 0.9s;
+}
+#charter .ct>.introduction>li>a:hover{
+  background:#f4ea2a;
+}
+#charter .ct>.introduction>li>h2{
+    border-bottom: 5px solid;
+    padding: 0 20px;
+    margin: 20px 50px;
+}
+#charter .ct>ul>li>a>img{
+  width:180px;
+  height:180px;
+}
+#charter .ct>.introduction>li>p{
+  display: inline-block;
+  margin: 0 65px;
+}
+#charter .ct>.movie{
+  background-color:#f7f7f7;
+}
+#charter .ct>.movie>h1{
+  border-left: 6px solid red;
+}
+#charter .ct>.movie>li{
+   width: 22%;
+   text-align: center;
+   height: 300px;
+   margin-top:30px;
+   box-shadow: 5px 2px 5px rgba(0, 0, 0, .5);
+}
+#charter .ct>.movie>li>a{
+  position:relative;
+}
+#charter .ct>.movie>li>a>img{
+  width:100%;
+  height:200px;
+  border-radius:20px;
+}
+.cover{
+    width: 100%;
+    height: 200px;
+    display: block;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 20px;
+    position:absolute;
+    bottom:25%;
+    line-height:200px;
+    opacity:0;
+    transition:0.9s;
+}
+#charter .ct>.movie>li>a:hover .cover{
+    opacity:1;
+}
+#charter .ct>.movie>li>h2{
+  margin-top:15px;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'),
+  url('iconfont.ttf') format('truetype'),
+  url('iconfont.svg#iconfont') format('svg');
+}
+.cover>em{
+  font-family:"iconfont";
+  font-size:100px;
+  color:#ff0000;
+}
+#boss .ct .warp{
+  text-align:center;
+}
+#boss .ct>h1{
+  border-left: 6px solid red;
+}
+#boss .ct .bossfile{
+  display:inline-block;
+}
+#boss .ct .bossfile>li{
+  position:relative;
+  margin-top:60px;
+}
+#boss .ct .bossfile>li>img{
+  width: 200px;
+    height: 200px;
+  border:  5px solid #eee;
+    border-radius: 50%;
+    margin-top: 20px;
+    position: relative;
+    top: 5px;
+}
+#boss .ct .bossfile>li .text-include1{
+    width: 20%;
+    position: absolute;
+    top: 30px;
+    left: 250px;
+}
+#boss .ct .bossfile>li .text-include2{
+  width: 20%;
+    position: absolute;
+    top: 30px;
+    left: 800px;
+}
+#boss .ct .bossfile>li .text-include3{
+  width: 20%;
+    position: absolute;
+    top: 40px;
+    left: 250px;
+}
+#boss .ct .bossfile>li .text-include4{
+  width: 20%;
+    position: absolute;
+    top: 35px;
+    left: 800px;
+}
+#boss .ct .bossfile>li .text-include5{
+    width: 20%;
+    position: absolute;
+    top: 30px;
+    left: 250px;
+}
+#boss .ct .bossfile>li .text-include6{
+  width: 20%;
+    position: absolute;
+    top: 50px;
+    left: 800px;
+}
+#boss .ct .bossfile>li .text-include7{
+   width: 20%;
+    position: relative;
+    bottom: 200px;
+    left: 250px;
+}
+.line{
+    height: 100px;
+    border-right: 5px solid #eee;
+    position: absolute;
+    right: 670px;
+}
+.word>p{
+  color:gray;
+}
+#teamate{
+  background-color:#f2f2f2;
+  padding:50px;
+}
+#teamate .ct>h1,#teamate .ct>p,#teamate .ct>h3{
+  text-align:center; 
+  color:#989898;
+}
+#teamate .mate{
+  margin:60px 0;
+}
+#teamate .mate>li{
+    width: 33%;
+    height: 350px;
+    text-align: center;
+    float: left;
+}
+#teamate .mate>li>ul>li{
+  float:left;
+  position:relative;
+  left:160px;
+  margin-right:10px;
+  margin-top:10px;
+}
+#teamate .mate>li>ul>li>a{
+  font-family:"iconfont";
+  font-size:30px;
+  color:#1296db;
+  transition:0.9s;
+}
+#teamate .mate>li>ul>li>a:hover{
+  color:#d81e06;
+}
+#teamate .mate>li>img{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  margin-bottom:5px;
+}
+#sponsor .ct .support{
+  left: 50px;
+    position: relative;
+}
+#sponsor .ct .support>li{
+      width: 25%;
+    float: left;
+    margin-top: 50px;
+}
+#sponsor .ct .support>li>a>img{
+  width:200px;
+  height:100px;
+}
+#advice-area{
+  margin-top:50px;
+  background-image:url(http://img.bizhi.sogou.com/images/2013/01/23/329471.jpg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  height:700px;
+}
+#advice-area .ct{
+  text-align:center;
+  position: relative;
+  top: 100px; 
+}
+#advice-area .ct>h1{
+  color:#fff;
+  font-size:40px;
+  letter-spacing:30px;
+  position:relative;
+  top:30px;
+}
+#advice-area .ct>p{
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  position:relative;
+  top:30px;
+  right:20px;
+}
+#advice-area .ct .input>li{
+  position:relative;
+}
+.input-name{
+    display: block;
+    width: 40%;
+    height: 60px;
+    padding-left: 10px;
+    border:1px solid;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    position:relative;
+    top:80px;
+}
+.input-mail{
+  display: block;
+    width: 40%;
+    height: 60px;
+    padding-left: 10px;
+    border:1px solid;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    position:relative;
+    top:80px;
+}
+.input-phone{
+  display: block;
+    width: 40%;
+    height: 60px;
+    padding-left: 10px;
+    border:1px solid;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    position:relative;
+    top:80px;
+}
+.advice-text{
+    width: 500px;
+    height: 200px;
+    border: 1px solid;
+    border-radius: 4px;
+    position: absolute;
+    top: -160px;
+    font-size:16px;
+    padding:10px;
+}
+.text-btn{
+    position: relative;
+    top: 100px;
+    right: 60px;
+    width: 150px;
+    height: 50px;
+    background-color: #ce4a29;
+    border: 1px solid #ce4a29;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity:0.9;
+    cursor: pointer;
+    transition:0.9s;
+}
+.text-btn:hover{
+    opacity:1;
+}
+#footer{
+  padding:30px;
+}
+#footer .ct .clearfix>li{
+  display:inline-block;
+}
+#footer .ct .clearfix>li>p{
+  font-size:16px;
+}
+#footer .ct .clearfix>li:nth-child(2)>a{
+  font-family:"iconfont";
+  font-size:2em;
+  margin:10px;
+}
+#footer .ct .clearfix>li:nth-child(3)>a{
+  color:#f48a1d;
+}
+#footer .ct .clearfix>li:nth-child(2)>a:hover{
+  color:red;
+}
+#footer .ct .clearfix>li:nth-child(1){
+  position:relative;
+}
+#footer .ct .clearfix>li:nth-child(2){
+  position:relative;
+  left:310px;
+}
+#footer .ct .clearfix>li:nth-child(3){
+  position:relative;
+  left:680px;
+}
+  </style>
+</head>
+<body>
+<div id="nav">
+   <div class="ct clearfix">
+   <div class="minlogo">
+   <a href="#"><img src="http://tse2.mm.bing.net/th?id=OIP.Ma206789d118123f40d09af8eec5ba4e8o0&pid=15.1" alt="鸣人"></a>
+    </div>
+   <a href="#">火影忍者</a>
+    <ul class="clearfix">
+      <li><a href="#">官网首页</a>/</li>
+      <li><a href="#">各国介绍</a>/</li>
+      <li><a href="#">人物介绍</a>/</li>
+      <li><a href="#">忍术大全</a>/</li>
+      <li><a href="#">联系我们</a>/</li>
+    </ul>
+  </div>  
+</div>
+<div id="header">
+ <div class="ct">
+   <div class="content">
+   <h1>Welcome to NARUTO</h1>
+     <p>只要有树叶的飞舞的地方，火就会燃烧</p>
+     <p>火之意志，永不熄灭</p>
+     <a href="#">Click</a>
+     </div>
+ </div>    
+</div>
+  <div id="charter">
+    <div class="ct">
+    <h1>主角介绍:</h1>
+    <ul class="introduction clearfix">
+      <li><a href="#"><img src="https://dw9to29mmj727.cloudfront.net/misc/newsletter-naruto3.png" alt="鸣人"></a>
+      <h2>鸣人</h2>
+      <p>出生于木叶忍者村，爸爸是第四代火影波风水门，妈妈是前代九尾人柱力漩涡玖辛奈，自己是现任九尾人柱力,爱好是吃一乐的拉面，梦想是成为火影。</p>
+      </li>
+      <li><a href="#"><img src="https://lh3.googleusercontent.com/-w2li-AgE2v0/VTVoamljEiI/AAAAAAAAH5w/1ChzyA85tF0/w900-h1076/sasuke_render_by_rukia95-d4hqi35.png" alt="佐助"></a>
+      <h2>佐助</h2>
+      <p>年幼时目睹宇智波一族被哥哥宇智波鼬所灭，从而走上复仇之路。在终结谷与漩涡鸣人大战一场后叛离村子并追随大蛇丸。</p>
+      </li>
+      <li><a href="#"><img src="http://i224.photobucket.com/albums/dd227/narutoman_bucket/Sakuracopy-1.png" alt="小樱"></a>
+      <h2>小樱</h2>
+      <p>具有良好的查克拉控制能力与清晰的脑力，擅长怪力与医疗忍术以及解除幻术（早期设定是幻术型忍者）。</p>
+      </li>
+    </ul>  
+      <ul class="movie clearfix">
+         <h1>剧场版电影</h1>
+        <li><a href="#"><img src="http://r1.ykimg.com/050E00005211A87E67583944830E2732" alt="雪姬忍法贴"><span class="cover"><em>&#xe60e;</em></span></a><h2>雪姬忍法贴</h2></li>
+        <li><a href="#"><img src="http://image.wangchao.net.cn/bt/1245116961206.jpg" alt="牵绊"><span class="cover"><em>&#xe60e;</em></span></a><h2>牵绊</h2></li>
+        <li><a href="#"><img src="http://pic.pimg.tw/daaaa/1320324900-2945657448.png" alt="火之意志的继承者"><span class="cover"><em>&#xe60e;</em></span></a><h2>火之意志的继承者</h2></li>
+        <li><a href="#"><img src="https://farm2.staticflickr.com/1480/25096463656_20a6eee08e_b.jpg" alt="失落之塔"><span class="cover"><em>&#xe60e;</em></span></a><h2>失落之塔</h2></li>
+        <li><a href="#"><img src="http://i-7.vcimg.com/24a4eee93ea353153e3e1d41358ca917230499/64439124;20120426021244089.jpg" alt="血狱"><span class="cover"><em>&#xe60e;</em></span></a><h2>血狱</h2></li>
+        <li><a href="#"><img src="http://comic.sinaimg.cn/2012/1107/U8297P1157DT20121107120955.jpg" alt="忍者之路"><span class="cover"><em>&#xe60e;</em></span></a><h2>忍者之路</h2></li>
+        <li><a href="#"><img src="http://www.animen.com.tw/FilesUpload/BNS/150115_63_015.JPG"><span class="cover"><em>&#xe60e;</em></span></a><h2>The Last</h2></li>
+        <li><a href="#"><img src="http://img1.gtimg.com/hebei/pics/hv1/137/49/2019/131298107.jpg" alt="博人传"><span class="cover"><em>&#xe60e;</em></span></a><h2>博人传</h2></li>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="boss">
+    <div class="ct clearfix">
+      <h1>历代火影介绍</h1>
+      <div class="warp">
+      <ul class="clearfix bossfile">
+        <li>
+          <img src="http://z9x9.com/wp-content/uploads/2016/05/20160520_573f4b63ef72b.jpg" alt="一代火影">
+          <div class="text-include1 word">
+          <h2>一代火影</h2>
+          <p>火之国木叶村的初代火影，二代火影千手扉间的兄长，六道仙人大筒木羽衣次子阿修罗上一代转世者，擅长使用“木遁”，具有操控尾兽的能力；平定乱世，平均分配尾兽给五大国，并在终结之谷之战中一举击败宇智波斑，是宇智波斑唯一敬畏的忍者</p>
+          </div>
+        </li>
+        <div class="line"></div>
+        <li>
+          <img src="http://www.narutom.com/d/file/article/2012-11-29/38d1ae5cc648b35bd7a9d186e83c2389.jpg" alt="二代火影">
+          <div class="text-include2 word">
+          <h2>二代火影</h2>
+          <p>火之国木叶村的第二代火影，是初代火影的弟弟、木叶村的建立者之一，对村子的兴旺发达做出了杰出的贡献。擅长研究开发忍术，开发了飞雷神之术、影分身之术及禁术秽土转生，声名显赫</p>
+          </div>
+        </li>
+        <div class="line"></div>
+        <li>
+          <img src="https://upload.wikimedia.org/wikipedia/zh/c/c0/Sarutobi.jpg" alt="三代火影">
+          <div class="text-include3 word">
+          <h2>三代火影</h2>
+          <p>火之国木叶忍者村的三代目火影，亦是初代火影和二代目火影的亲传弟子，培育出了威震忍界的“三忍”。精通五种查克拉属性的忍术，享有“忍术教授”的称号。</p>
+          </div>
+        </li>
+        <div class="line"></div>
+        <li>
+          <img src="https://upload.wikimedia.org/wikipedia/zh/d/d1/%E5%9B%9B%E4%BB%A3%E7%81%AB%E5%BD%B1%EF%BC%90%EF%BC%91.jpg" alt="四代火影">
+          <div class="text-include4 word">
+          <h2>四代火影</h2>
+          <p>水门自童年时代便立志当上火影。第三次忍界大战中，水门无人能及的神速威震忍界，被称为“黄色闪光”。除火之国外各国高层均下令，凡遇到木叶的“黄色闪光”可以立即放弃任务逃跑，而且不会受到处罚。</p>
+          </div>
+        </li>
+        <div class="line"></div>
+        <li>
+          <img src="http://image.kanman.com/file/userfiles/images/12413/7.jpg" alt="五代火影">
+          <div class="text-include5 word">
+          <h2>五代火影</h2>
+          <p>，火之国木叶隐村的第五代火影，初代火影千手柱间及其妻子漩涡水户的孙女（或外孙女），也是传说中的“三忍”中的一点红，最重要的人是恋人加藤断与弟弟绳树。擅长体术和医疗忍术。</p>
+          </div>
+        </li>
+        <div class="line"></div>
+        <li>
+          <img src="http://a0.att.hudong.com/32/77/01300542493086139831774729504_s.jpg" alt="六代火影">
+          <div class="text-include6 word">
+          <h2>六代火影</h2>
+          <p>火之国木叶隐村的精英上忍，原木叶暗部成员，四代目火影波风水门的弟子，木叶第七班队长，漩涡鸣人、宇智波佐助、春野樱的指导老师。年仅12岁时就成为上忍的天才。</p>
+          </div>
+        </li>
+        <div class="line"></div>
+        <li>
+          <img src="https://upload.wikimedia.org/wikipedia/zh/6/61/Naruto_20160925.jpg" alt="七代火影">
+          <div class="text-include7 word">
+          <h2>七代火影</h2>
+          <p>为守护与伙伴之间的羁绊，鸣人不断勤修苦炼，成为木叶“三忍”之一自来也的关门弟子，学会了父亲自创的忍术螺旋丸。后来练就仙术并打败了袭击木叶的“晓”首领佩恩成为人人称赞的木叶英雄。最后，鸣人终于实现自己的梦想，成为了火影</p>
+          </div>
+        </li>
+      </ul>
+        </div>
+   </div>
+  </div>
+  <div id="teamate">
+    <div class="ct">
+      <h1>OUR AMAZING TEAM </h1>
+      <p>We are a marvelous term of young and energetic staff</p>
+      <ul class="clearfix mate">
+        <li><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRE2IdHj5SPe11W5xykocj5kWgrNgxjFTzFV51VOGgsCTwLGUp6" alt="designer">
+            <h3>Kira Yamato(USA)</h3>
+            <p>Website Designer</p>
+          <ul class="clearfix link">
+            <li><a href="#">&#xe611;</a></li>
+            <li><a href="#">&#xe614;</a></li>
+            <li><a href="#">&#xe616;</a></li>
+          </ul>
+        </li>
+        <li><img src="http://img.qq745.com/uploads/allimg/150330/234FGb7-12.jpg" alt="marketer">
+            <h3>Arthur Yee(CHINA)</h3>
+            <p>Website Marketer</p>
+          <ul class="clearfix link">
+            <li><a href="#">&#xe611;</a></li>
+            <li><a href="#">&#xe614;</a></li>
+            <li><a href="#">&#xe616;</a></li>
+          </ul>
+        </li>
+       <li><img src="http://image13.m1905.cn/uploadfile/2013/1126/20131126055837469120.jpg" alt="developter">
+            <h3>Aslan(JAPAN)</h3>
+            <p>Website Developter</p>
+         <ul class="clearfix link">
+            <li><a href="#">&#xe611;</a></li>
+            <li><a href="#">&#xe614;</a></li>
+            <li><a href="#">&#xe616;</a></li>
+          </ul>
+        </li>
+      </ul>
+      <h3>You have to believe in yourself. That's the secret of success.</h3>
+    </div>
+  </div>
+   <div id="sponsor">
+    <div class="ct">
+      <ul class="clearfix support">
+        <li>
+          <a href="#">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Sunrise_company_logo.svg/775px-Sunrise_company_logo.svg.png" alt="sunrise">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+          <img src="https://www.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_284x96dp.png" alt="google">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+          <img src="http://upload.wikimedia.org/wikipedia/en/c/c9/Namco_Bandai_Games_Logo.png" alt="BANDAI">
+          </a>
+        </li>
+        <li>
+          <a href="#">
+          <img src="http://androidteen.com/wp-content/uploads/2013/05/sony-xperia-logo.jpg" alt="sunrise">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="advice-area">
+    <div class="ct">
+      <h1>CONTACT-US</h1>
+      <p>如果你有好提议，有趣的意见，或者想成为我们团队一份子</p>
+      <form action="php.save" method="post">
+      <ul class="clearfix input">
+        <li>
+          <input class="input-name" type="text" name="name" placeholder="YOUR NAME">
+          <input class="input-mail" type="text" name="e-mail" placeholder="YOUR E-MAIL">
+          <input class="input-phone" type="text" name="phone" placehoLder="YOUR TELEPHONE NUMBER">
+        </li>
+        <li>
+          <textarea name="advice" class="advice-text" cols="30" rows="10" placeholder="INPUT YOUR ADVICE"></textarea>
+        </li>
+      </ul>
+      <input class="text-btn" type="submit" value="提交" >
+      </form>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="ct">
+      <ul class="clearfix">
+        <li>
+          <p>Copyright©YEE城 website 2016</p>
+        </li>
+        <li>
+            <a href="#">&#xe611;</a>
+            <a href="#">&#xe614;</a>
+            <a href="#">&#xe616;</a>
+        </li>
+        <li>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

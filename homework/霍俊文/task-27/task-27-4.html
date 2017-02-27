@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏轮播</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+        /*基础样式*/
+        html,body,ul,li,p{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+
+        /*要设置全屏，必须设置width:100%,height:100%,而且要有连锁*/
+        html,body, .container, .container .carousel, .container .img-ct{
+            width:100%;
+            height:100%;
+        }
+
+        /*设置overflow:hidden是把多的元素隐藏掉，这样可以利用定位让图片一张一张显示出来*/
+        .carousel{
+            position:relative;
+            overflow:hidden;
+        }
+        /*因为总宽度是会变的，必须设置成绝对定位*/
+        .container .img-ct{
+            position:absolute;
+        }
+        .img-ct:after{
+            content:'';
+            display: block;
+            clear:both;
+        }
+        .container .item{
+            position: relative;
+            float:left;
+            height:100%;
+        }
+        .container .description{
+            position: absolute;
+            width:600px;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            color: #ffffff;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        /*背景图片蒙版的设置*/
+        .container .cover{
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background-size:cover;
+            opacity: 0.8;
+        }
+        .bottom-list{
+            position: absolute;
+            bottom:10px;
+            transform: translateX(-50%);
+            bottom:10px;
+            left:50%;
+        }
+        .bottom-list:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .bottom-list li {
+            width: 40px;
+            height: 15px;
+            float: left;
+            border-radius: 7px;
+            background-color: #fff;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .bottom-list .active{
+            background:#8e8e8e;
+            }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="carousel">
+        <ul class="img-ct">
+            <li class="item">
+                <div class="cover" data-bg-img="img1.jpg"></div>
+                <div class="description">
+                    <p >夜空中最亮的星</p>
+                    <p> 能否听清</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="img2.jpg"></div>
+                    <div class="description">
+                    <p>那仰望的人</p>
+                    <p>心底的孤独和叹息</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="img3.jpg"></div>
+                    <div class="description">
+                    <p>夜空中最亮的星</p>
+                    <p>能否记起</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="img4.jpg"></div>
+                    <div class="description">
+                    <p>给我再去相信的勇气</p>
+                    <p>越过谎言去拥抱你</p>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="bottom-list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    var $ct =$('.img-ct'),
+            $item = $ct.children(),
+            $bottomList = $('.bottom-list');
+    var imgWidth = $(window).width();
+    var imgCount = $ct.children().length
+
+
+    $ct.prepend($item.last().clone());
+    $ct.append($item.first().clone());
+    $ct.find('.item').css('width',imgWidth);
+    $ct.find('.cover').css('width',imgWidth);
+     imgRealCount = $ct.children().length//克隆之后的长度
+    $ct.css({left:-imgWidth,width:imgRealCount * imgWidth})
+
+    var curIdx = 0;
+    var lock = false;
+
+    function playNext(idx){
+        var idx = idx || 1;
+        if(!lock){
+            lock = true;
+            setBg(curIdx+2);
+            $ct.animate({left:'-='+(imgWidth * idx)},function(){
+                curIdx = (curIdx + idx)  % imgCount;
+                if(curIdx === 0) {
+                    $ct.css({left: 0-imgWidth});
+                }
+                lock = false;
+                setbottomList();
+
+            })
+        }
+    }
+
+    function playPre(idx){
+        var idx = idx || 1 ;
+        if(!lock){
+            lock = true;
+            setBg(curIdx);
+            $ct.animate({left:'+='+(imgWidth*idx)},function(){
+                curIdx = (imgCount + curIdx - idx)%imgCount;
+                if(curIdx === (imgCount - 1)){
+                    $ct.css({left:0-imgWidth * imgCount});
+                }
+                lock = false;
+                setbottomList();
+            });
+        }
+    }
+    function autoPlay(){
+        setInterval(function(){
+            playNext();
+        }, 3000);
+    }
+    autoPlay(1)
+
+    function setBg(idx){
+        var idx = idx || 0;
+        var $node = $ct.children().eq(idx);
+        var $cover = $node.find('.cover')
+        var imgUrl = $cover.attr('data-bg-img');
+        if($node.data('isBgSet')) {
+            return;
+        } else {
+            $cover.css('background-image', 'url(' + imgUrl + ')');
+            $node.data('isBgSet', true);
+        }
+    }
+    setBg(1);
+
+    function  setbottomList(){
+        $bottomList.find('li').removeClass('active').eq(curIdx).addClass('active')
+    }
+
+    $bottomList.find('li').on('click',function(){
+        var idx = $(this).index();
+        if(idx > curIdx){
+            playNext(idx-curIdx)
+        }
+        else if(idx < curIdx){
+            playPre(curIdx - idx)
+        }
+    })
+</script>
+</html>

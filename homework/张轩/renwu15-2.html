@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	@font-face {
+  font-family: 'iconfont';  /* project id："170706" */
+  src: url('http://at.alicdn.com/t/font_vjns2n316qsvpldi.eot');
+  src: url('http://at.alicdn.com/t/font_vjns2n316qsvpldi.eot') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_vjns2n316qsvpldi.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_vjns2n316qsvpldi.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_vjns2n316qsvpldi.svg#iconfont') format('svg');
+}
+
+.icon{
+    font-family:"iconfont" !important;
+    font-size:66px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;}
+
+	*{
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+		text-decoration: none;
+	}
+	body{
+		background: url(./img/renwu15-2.jpg) no-repeat;
+		height: 900px;
+		font-family: '微软雅黑';
+	}
+	.wrap-mid{
+		width: 1200px;
+		margin: 0 auto;
+		overflow: auto;
+	}
+	#nav{
+		background-color: rgba(1,2,1,0.8);
+		position: fixed;
+		width: 100%;
+		height: 60px;
+		z-index: 50;
+		color: #fff;
+	}
+	#nav .sign{
+		float: left;
+		margin-left: 40px;
+		font-size: 28px;
+		font-weight: bold;
+		font-style: italic;
+		line-height: 56px;
+	}
+	#nav li{
+		float: left;
+		margin-left: 20px;
+
+	}
+	#nav ul{
+		margin:20px 0px 20px 750px;
+		overflow: auto;
+	}
+	#cover{
+		padding-top: 25%;
+		padding-bottom: 20%;
+	}
+	#cover p{
+		font-weight: bold;
+		font-size: 80px;
+		text-align: center;
+	}
+	#cover a{
+		padding: 15px 30px;
+		background-color: rgba(1,1,1,0.5);
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		text-align: center;
+		display: block;
+		margin: 20px 40%;
+		color: #fff;
+	}
+	#cover a:hover{
+		background: rgba(1,2,1,0.8);
+	}
+	#directory{
+		background-color: #fff;
+		height: 400px;
+	}
+	#directory h2{
+		text-align: center;
+		margin: 50px auto 100px auto;
+	}
+	#directory .directory-son{
+		float: left;
+		margin-left: 190px;
+	}
+	#directory span{
+		padding: 20px 20px;
+		border: 1px solid #ccc;
+		border-radius: 16px;
+		position: relative;
+		left: 20px;
+	}
+	#directory span:hover{
+		background: #f7c273;
+	}
+	#directory h4{
+		margin-top: 40px;
+		text-align: center;
+	}
+	#news{
+		background-color: #ccc;
+		padding: 30px 0px;
+	}
+	#news h2{
+		text-align: center;
+		margin: 30px;
+	}
+	#news a{
+		margin: 0px 20px 20px 0px;
+		display: block;
+		float: left;
+		position: relative;
+	}
+	#news a:hover .wrap-index{
+		display: block;
+	}
+	#news .wrap-index{
+		display: none;
+		background-color: rgba(254,209,54,0.9);
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		z-index: 10;
+		top: 0;
+	}
+	#news .down{
+		height: 20px;
+		width: 80px;
+		background-color: #fff;
+		position: absolute;
+		z-index: 20px;
+		left: 150px;
+		top: 115px;
+		border-radius: 10px;
+	}
+	#news .up{
+		height: 80px;
+		width: 20px;
+		background-color: #fff;
+		position: absolute;
+		z-index: 20px;
+		left: 180px;
+		top: 85px;
+		border-radius: 10px;
+	}
+	#timeline{
+		background-color: #fff;
+	}
+	#timeline h2{
+		text-align: center;
+		margin-top: 120px;
+	}
+	#timeline p{
+		text-align: center;
+		margin: 30px auto;
+	}
+	#timeline ul{
+		position: relative;
+	}
+	#timeline li{
+		overflow: auto;
+		position: relative;
+	}
+	#timeline li img{
+		float: left;
+		margin: 20px 0px 40px 40%;
+		display: block;
+		border: 10px solid #ccc;
+		border-radius: 150px;
+		position: relative;
+		z-index: 2;
+	}
+	#timeline li:nth-child(odd) .explain{
+		float: left;
+		max-width: 400px;
+		position: absolute;
+	}
+	#timeline li:nth-child(even) .explain{
+		float: right;
+		max-width: 400px;
+	}
+	#timeline .explain{
+		margin-top: 50px;
+	}
+	#timeline .explain h3{
+		text-align: center;
+	}
+	#timeline .explain p{
+		margin-top: 10px;
+	}
+	#timeline li:last-child .explain{
+		margin-top: 100px;
+		margin-left: 150px;
+	}
+	#timeline .up-line{
+		height: 2000px;
+		width: 6px;
+		background-color: #ccc;
+		position: absolute;
+		left: 595px;
+		top: 40px;
+		z-index: 1;
+	}
+	#contact{
+		background-color:#623623; 
+		padding: 50px 0px;
+	}
+	#contact h2{
+		text-align: center;
+		margin-bottom: 50px;
+		color: #fff;
+	}
+	#contact .input{
+		overflow: auto;
+		padding-left: 15%;
+	}
+	#contact .input>div{
+		float: left;
+	}
+	#contact .input .input-left{
+		max-width: 477px;
+	}
+	#contact input{
+		height: 50px;
+		width: 400px;
+		border-radius: 4px;
+		margin-bottom: 25px;
+		margin-right: 200px;
+	}
+	#contact .input .input-right{
+		margin-left: -80px;
+	}
+	#contact textarea{
+		border-radius: 4px;
+		margin: 0px 0px 0px 60px; 
+		width: 426px; height: 210px;
+	}
+	#foot{
+		background-color: #fff;
+		padding: 50px 0px;
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<div class="wrap-mid">
+			<div class="sign">
+				Start DOTA
+			</div>
+			<ul>
+				<li>SERVICES</li>
+				<li>PORTFOLIO</li>
+				<li>ABOUT</li>
+				<li>TEAM</li>
+				<li>CONTACT</li>
+			</ul>
+		</div>
+	</div>
+	<div id="cover">
+		<p>CN DOTA BEST DOTA</p>
+		<a href="#">教练，我想打dota!</a>
+	</div>
+	<div id="directory">
+		<div class="wrap-mid">
+			<h2>开始DOTA之路</h2>
+			<div class="directory-son">
+				<span class='icon'>&#xe9f5;</span>
+				<h4>新手入门</h4>
+				<p>第一次玩dota该怎么做</p>
+			</div>
+			<div class="directory-son">
+				<span class='icon'>&#xe61c;</span>
+				<h4>高手进阶</h4>
+				<p>天梯高手速成指南</p>
+			</div>
+			<div class="directory-son">
+				<span class='icon'>&#xe615;</span>
+				<h4>操作技巧</h4>
+				<p>如何充分使用阴影反杀</p>
+			</div>
+		</div>
+	</div>
+	<div id="news">
+		<div class="wrap-mid">
+		<h2>DOTA新闻站</h2>
+		<a href="#">
+			<img src="http://image.uuu9.com/pcgame/dota2/UploadFiles/201610/201610201014467651.jpg" alt="BurNing：新iG气氛活跃 成员默契足">
+			<div class="wrap-index">
+				<div class="down"></div>
+				<div class="up"></div>
+			</div>
+		</a>
+		<a href="#">
+			<img src="http://image.uuu9.com/pcgame/dota2/UploadFiles/201610/201610251817047181.jpg" alt="波士顿特锦赛27日地区预选赛开战">
+			<div class="wrap-index">
+				<div class="down"></div>
+				<div class="up"></div>
+			</div>
+		</a>
+		<a href="#">
+			<img src="http://image.uuu9.com/pcgame/dota2/UploadFiles/201610/201610271656010001.jpg" alt="Mag谈Solo和No[o]ne离队：看好VP新阵容">
+			<div class="wrap-index">
+				<div class="down"></div>
+				<div class="up"></div>
+			</div>
+		</a>
+		<a href="#">
+			<img src="http://image.uuu9.com/pcgame/dota2/UploadFiles/201610/201610181705404061.jpg" alt="Sylar刘嘉俊职业生涯">
+			<div class="wrap-index">
+				<div class="down"></div>
+				<div class="up"></div>
+			</div>
+		</a>
+		<a href="#">
+			<img src="http://image.uuu9.com/pcgame/dota2/UploadFiles/201610/201610131520097961.jpg" alt="71自述">
+			<div class="wrap-index">
+				<div class="down"></div>
+				<div class="up"></div>
+			</div>
+		</a>
+		<a href="#">
+			<img src="http://image.uuu9.com/pcgame/dota2/UploadFiles/201610/201610201014467651.jpg" alt="BurNing：新iG气氛活跃 成员默契足">
+			<div class="wrap-index">
+				<div class="down"></div>
+				<div class="up"></div>
+			</div>
+		</a>
+		</div>
+	</div>
+	<div id="timeline">
+		<div class="wrap-mid">
+			<h2>WINNER</h2>
+			<P>Ti1-Ti6</P>
+			<ul>
+				<li>
+					<img src="./img/renwu15-2-1.jpg" alt="">
+					<div class="explain">
+						<h3>Navi</h3>
+						<p>乌克兰的Natus Vincere战队，该队的缩写为Na`Vi。是建立于2009年的一只游戏战队。赢得第一届DotA2邀请赛冠军，获得100万美金奖金，第三届DOTA2邀请赛，NAVI战队以2比3惜败于Alliance战队。1冠2亚的成绩奠定了其DOTA2王者的实力。</p>
+					</div>
+				</li>
+				<li>
+					<img src="./img/renwu15-2-2.jpg" alt="">
+					<div class="explain">
+						<h3>IG</h3>
+						<p>。IG电子竞技俱乐部是一家以电子竞技及周边业务为核心，iG的目标之一是打造全球顶级电竞俱乐部。在2012年9月3日举行的西雅图邀请赛上iG的DotA战队3比1力克Na`Vi战队，获得冠军并夺得100万美元的冠军奖金。</p>
+					</div>
+				</li>
+				<li>
+					<img src="./img/renwu15-2-3.jpg" alt="">
+					<div class="explain">
+						<h3>Aliance</h3>
+						<p>Alliance战队的前身为NTh，由前HON职业选手EternaLEnVy在第二届国际邀请赛后建立。在队伍成立的当月就拿到了第一个冠军：DOTA2复仇者杯。随后又在ESWC西部预选赛上爆冷战胜美国劲旅EG，这支战队也开始被人所熟知。2013年8月获得Ti3总冠军</p>
+					</div>
+				</li>
+				<li>
+					<img src="./img/renwu15-2-4.jpg" alt="">
+					<div class="explain">
+						<h3>NewBee</h3>
+						<p>2014年2月28日Newbee电子竞技俱乐部正式宣布成立。2014年西雅图国际邀请赛小组赛成绩不佳后绝地反击1穿N最终获得TI4世界冠军！奖金$5,028,308。成为第二支TI夺冠的中国队。完美实现了中国参赛队伍逢偶数夺冠！</p>
+					</div>
+				</li>
+				<li>
+					<img src="./img/renwu15-2-5.jpg" alt="">
+					<div class="explain">
+						<h3>EG</h3>
+						<p>第二届西雅图Dota2国际邀请赛战队之一的名称也是EG.Mealk、Fear、Demon三个dota界的翘楚，三个Dota活化石将自己的传说一直从上古dota延续到如今的dota2。在2015年dota2国际邀请赛中，尽管顶着六支中国豪强的巨大压力，EG战队最终荣获冠军，奖金高达660万美元。</p>
+					</div>
+				</li>
+				<li>
+					<img src="./img/renwu15-2-6.jpg" alt="">
+					<div class="explain">
+						<h3>Wings</h3>
+						<p>Wings电子竞技俱乐部是重庆游士科技有限公司旗下的电子竞技俱乐部，于2014年8月在重庆成立，
+						2016年4月25日，Wings战队在ESL one马尼拉站决赛中3:0击败了Liquid，获得了ESL的冠军。2016年8月14日，Wings战队在以中国区预选赛第一名的身份下参加Ti6，并成功将冠军盾带回了中国。</p>
+					</div>
+				</li>
+				<li>
+					<img src="./img/renwu15-2-7.jpg" alt="">
+					<div class="explain">
+						<h3>Ti7</h3>
+						<p>我们拭目以待！</p>
+					</div>
+				</li>
+				<div class="up-line"></div>
+			</ul>
+		</div>
+	</div>
+	<div id="contact">
+		<div class="wrap-mid">
+			<h2>welconme to join XBD</h2>
+			<div class="input">
+				<div class="input-left">
+					<input type="text" placeholder="Your Name *">
+					<input type="text" placeholder="Your Email *">
+					<input type="text" placeholder="Your Phone *">
+				</div>
+				<div class="input-right">
+					<textarea name="" id="" cols="30" rows="10" placeholder="Your Message *"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="foot">
+		<div class="wrap-mid">
+			<p>Copyright © RY 2017</p>
+		</div>
+	</div>
+</body>
+</html>

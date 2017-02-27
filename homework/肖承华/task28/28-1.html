@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>task28-1</title>
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+</head>
+<style>
+	#header{
+		width: 100%;
+		padding: 30px 0;
+		text-align: center;
+		background-color: red;
+		margin-bottom: 20px;
+	}
+	#nav{
+		height: 40px;
+		background-color: blue;
+	}
+	#content{
+		height: 800px;
+		background-color: #ccc;
+		padding: 10px;
+		overflow: auto;
+	}
+	#content .aside{
+		width: 100px;
+		height: 400px;
+		background-color: green;
+		float: left;
+	}
+	#content .main{
+		height: 100%;
+		margin-left: 100px;
+		padding-left: 20px;
+		background-color: #eee;
+	}
+	#footer{
+		padding: 5px 0;
+		background-color: purple;
+	}
+</style>
+<body>
+	<div id="header">header</div>
+	<div id="nav">nav</div>
+	<div id="content">
+		<div class="aside">aside</div>
+		<div class="main">main</div>
+	</div>
+	<div id="footer">footer</div>
+	
+	<script>
+		$.fn.extend({stickUp:function(){
+			var $nav=this,
+				$navW=$nav.width(),
+				$top=$nav.offset().top,
+				$left=$nav.offset().left;
+
+			var $newNav=$nav.clone()
+							.css({'visibility':'hidden','display':'none'})
+							.insertBefore($nav);
+
+			$(window).on('scroll',function(){
+				var scrollTop=$(this).scrollTop();
+				if (scrollTop>=$top) {
+					if (!isFixed()) {
+						setFixed();
+					}	
+				}else{
+					if (isFixed()) {
+						unSetFixed();
+					}
+				}
+			})
+			window.onresize = function(){  
+					$navW=$nav.width()
+            }  
+			function isFixed(){
+				return $nav.data('flag')
+			}
+			function setFixed(){
+				$nav.data('flag',true)
+					.css({
+		               'position': 'fixed', 
+		               'top': 0, 
+		               'left': $left,
+		               'width': $navW, 
+		               'margin': 0,
+		               'z-index': 9999
+		         });
+				$newNav.show();
+			}
+			function unSetFixed(){
+				$nav.data('flag',false).removeAttr('style');
+				$newNav.hide();
+			}
+		}})
+		$('#header').stickUp();
+	</script>
+</body>
+</html>

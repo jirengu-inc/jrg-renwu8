@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不改变DOM顺序的做法</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        .container {
+            width: 480px;
+            height: 360px;
+            position: relative;
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        ul, li {
+            padding: 0;
+            margin: 0;
+        }
+
+        .pics {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+        }
+
+        a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+
+        .l_btn {
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+
+        .r_btn {
+            position: absolute;
+            right: 0;
+            top: 150px;
+        }
+
+        .focus {
+            position: absolute;
+            left: 150px;
+            bottom: 50px;
+        }
+
+        .focus li {
+            float: left;
+            width: 40px;
+            height: 20px;
+            margin-right: 10px;
+            background: greenyellow;
+        }
+
+        .focus .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container num1">
+    <ul class="pics clearfix">
+        <li data-id="0"><img src="img/23.jpg" alt=""></li>
+        <li data-id="1"><img src="img/24.jpg" alt=""></li>
+        <li data-id="2"><img src="img/25.jpg" alt=""></li>
+        <li data-id="3"><img src="img/26.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="l_btn"><</a>
+    <a href="javascript:;" class="r_btn">></a>
+    <ul class="focus clearfix">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script>
+    $(function () {
+        //应为用了和老师不一样的图，我的图比较大，所以发现了使用width()方法的时候有时候会出现width为0的情况，
+        //原因就是应为img图片还没有加载进来，所以这里需要监听img的加载情况，以防止出现这个bug
+        curtarget('.num2');
+        function curtarget(tar) {
+            var $pics = $(tar).find('.pics');
+            var $c_item = $pics.children();
+            var item_width = $pics.children().width();//获取每个li的宽度
+
+            $pics.append($c_item.first().clone().attr('data-id',0));
+            $pics.prepend($c_item.last().clone().attr('data-id',3));
+
+            var pics_items = $pics.children().length;
+            $pics.css({
+                'width': pics_items * item_width,
+                'left': 0 - item_width
+            });//ul下的li个数
+
+        var $pics = $('.pics');
+        var $c_item = $pics.children();
+        var item_width = $pics.children().width();//获取每个li的宽度
+
+        $pics.append($c_item.first().clone().attr('data-id',0));
+        $pics.prepend($c_item.last().clone().attr('data-id',3));
+
+        var pics_items = $pics.children().length;
+        $pics.css({
+            'width': pics_items * item_width,
+            'left': 0 - item_width
+        });//ul下的li个数
+
+        //思路:在UL队列的最前面克隆一份（li:last）,最后面克隆一份(li:first),这样在移动的时候，如果移动到了最后一张，就可以把对面对应的那一张，一下子
+        //改变坐标过去，在看到人眼中实际上是看不到这个过程，但是实际上整个UL的位置已经发生改变
+        var index = -1;
+        var $rbtn = $('.r_btn'), $lbtn = $('.l_btn'), isanimate = false;
+        $rbtn.on('click', function () {
+            index--;
+            //console.log(index);极限是==$c_item-1
+            if (index < -5) {
+                index = -1;
+                $pics.css({'left': index * item_width});
+                index--;
+
+            }
+            $pics.stop().animate({'left': index * item_width});
+            console.log('动画执行了额');
+            var data_id=$pics.find('li').eq(-index).attr('data-id');
+            $('.focus li').eq(data_id).addClass('active').siblings('li').removeClass('active');
+        })
+        var rel_pos=item_width*(pics_items-2)
+        $lbtn.on('click',function () {
+            index++;
+            if(index==1){
+                $pics.css({'left':-rel_pos});
+                index=-(pics_items-2);
+                index++;
+            }
+
+            $pics.stop().animate({'left': index * item_width});
+            console.log('动画执行了额');
+            var data_id=$pics.find('li').eq(-index).attr('data-id');
+            $('.focus li').eq(data_id).addClass('active').siblings('li').removeClass('active');
+        })
+
+        $('.focus li').on('mouseover',function () {
+            var f_index=0-$(this).index()-1;//1,2,3,4
+            $(this).addClass('active').siblings('li').removeClass('active');
+            $pics.stop().animate({'left': f_index * item_width});
+        })
+
+        }
+    })
+</script>
+</body>
+</html>

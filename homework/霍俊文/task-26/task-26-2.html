@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ简单实现一些操作</title>
+    <script src="jquery-3.1.1.js"></script>
+    <style>
+
+        .ct2{
+            width:100px;
+            height:100px;
+            background: green;
+            position: fixed;
+            right:10px;
+            top:200px;
+            display: none;
+        }
+        .ct3{
+            width:100px;
+            height:100px;
+
+            border:1px solid black
+        }
+        .wrap5{
+            height:1000px;
+        }
+    </style>
+</head>
+<body>
+<!--当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色-->
+<fieldset>
+    <legend>1.当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</legend>
+    <button class="bt1">点我变色！</button>
+    <script>
+        $('.bt1').on('click',function(){
+            $('.bt1').css({"background":"red"})
+            setTimeout(function(){
+                $('.bt1').css({"background":"blue"})
+            },1000)
+        })
+
+    </script>
+</fieldset>
+<!--2.当窗口滚动时，获取垂直滚动距离-->
+<fieldset>
+    <legend>2.当窗口滚动时，获取垂直滚动距离</legend>
+    <div class="ct2">
+    </div>
+    <button class="bt2">点我获取</button>
+    <script>
+
+        $('.bt2').on('click',function() {
+            $('.ct2').show()
+        })
+        $(window).on('scroll',function(){
+
+            $('.ct2').text('垂直滚动的距离:' + $(window).scrollTop() + 'px')
+        })
+    </script>
+</fieldset>
+<!--当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色-->
+<fieldset>
+    <legend>3.当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</legend>
+    <div class="ct3"></div>
+    <script>
+        $('.ct3').on('mouseenter',function(){
+            $('.ct3').css({"background":"red"})
+        })
+        $('.ct3').on('mouseleave',function(){
+            $('.ct3').css({"background-color":"white"})
+        })
+    </script>
+</fieldset>
+<!--当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字-->
+<fieldset>
+    <legend>4.当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+    </legend>
+    <form>
+        <input class="ct4" type="text" name="inputname">
+    </form>
+    <script>
+        $('.ct4').on('focus',function(){
+            $('.ct4').css('border','1px solid blue')
+        })
+        $('.ct4').on('keypress',function(){
+            var $this = $(this)
+            setTimeout(function(){
+                $this.val($this.val().toUpperCase());
+            },0)
+
+            $('.ct4').on('blur',function(){
+          $(this) .css({'border':''})
+            if($(this).val()!=''){
+                 console.log($(this).val());
+            }
+          })
+        })
+    </script>
+</fieldset>
+<!--当选择 select 后，获取用户选择的内容-->
+<fieldset class="wrap5">
+    <legend>5.当选择 select 后，获取用户选择的内容</legend>
+    <form>
+        <select class="ct5">
+            <option>哈登</option>
+            <option>戈登</option>
+            <option>卡佩拉</option>
+            <option>阿里扎</option>
+            <option>安德森</option>
+        </select>
+    </form>
+    <p class="p5"></p>
+    <script>
+        $('.ct5').on('change',function(){
+            $('.p5').text('我选择了：'+$('.ct5').val())
+        })
+    </script>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.content{
+		position: relative;
+		margin: 10px auto 0;
+	}
+	.item{
+		margin: 0 10px 10px 0;
+		position: absolute;
+		width: 200px;
+		transition: all 1s;
+	}
+	.h1{
+		height: 300px;
+		background: #20CFEA;
+	}
+	.h2{
+		height: 200px;
+		background: #36F884;
+	}
+	.h3{
+		height: 400px;
+		background: #F88B21;
+	}
+</style>
+</head>
+<body>
+	<div class="content">
+		<div class="item h1">
+			1
+		</div>
+		<div class="item h2">
+			2
+		</div>
+		<div class="item h3">
+			3
+		</div>
+		<div class="item h1">
+			4
+		</div>
+		<div class="item h1">
+			5
+		</div>
+		<div class="item h3">
+			6
+		</div>
+		<div class="item h2">
+			7
+		</div>
+		<div class="item h3">
+			8
+		</div>
+		<div class="item h1">
+			9
+		</div>
+		<div class="item h3">
+			10
+		</div>
+		<div class="item h2">
+			11
+		</div>
+		<div class="item h3">
+			12
+		</div>
+		<div class="item h1">
+			13
+		</div>
+		<div class="item h2">
+			14
+		</div>
+	</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script>
+$(function(){
+	$.fn.waterfall = function(){
+		$cur = this;
+		$(window).on('resize', function(){
+			add();
+		});
+		add();
+		
+		function add(){//arr高度数组,start下一行的item索引
+			var min,
+				arr = [],
+				$item = $cur.children(),
+				width = $item.outerWidth(true),
+				count = parseInt($(window).width()/width);
+			for (var i = 0; i < count; i++) {
+				arr[i] = 0;
+			}
+			$item.each(function(index,element){
+				min = Math.min.apply(null, arr);
+				for (var i = 0; i < count; i++) {
+					if(arr[i] == min){
+						$(this).css({
+							'left': width*i+'px',
+							'top': arr[i]+'px'
+						});
+						arr[i] += $(this).outerHeight(true);
+						break;
+					}
+				}
+
+			})
+		}
+	}
+	$('.content').waterfall();
+})	
+
+</script>
+</html>

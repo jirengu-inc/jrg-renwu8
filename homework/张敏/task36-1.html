@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person() {
+
+    }
+
+    function isInstanceof(obj, fn) {
+        var __proto__ = obj.__proto__;
+        do {
+            if (__proto__ === fn.prototype)return true;
+            if (!__proto__) return false;
+        } while (__proto__ = __proto__.__proto__)
+            return false;
+    }
+
+    var p1=new Person();
+    //console.log(isInstanceof(p1,Person2));
+    var i=0
+    do{
+       if(i<10)   i+=10;
+    }
+    while(i==10);
+    console.log(i+'sssss');
+</script>
+</body>
+</html>

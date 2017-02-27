@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+      *{
+  padding:0px;
+  margin:0px;
+  font-family:"微软雅黑";
+  font-weight:bold;
+  text-decoration:none;
+  color:black;
+}
+.big-ct{
+  display:none;
+}
+.btn1{
+  border:1px solid;
+  width:60px;
+  border-radius:30px;
+  text-align:center;
+  cursor:pointer;
+  background:#FFDC00;
+  margin-left:10px;
+  margin-top:10px;
+}
+.cover{
+  position: fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  background-color:#000;
+  opacity: 0.5;
+  z-index: 99;
+}
+.modal-ct{
+  background:#fff;
+  border-radius:10px;
+  box-shadow: 5px -5px teal;
+  width:360px;
+  height:160px;
+  position:absolute;
+  top:50%;
+  right:50%;
+  margin-top:-80px;
+  margin-right:-180px;
+  z-index:100;
+}
+.head{
+ margin:8px 0px;
+}
+.head:after{
+  display:block;
+  content:'';
+  clear:both;
+}
+.head>h{
+  margin-left:5px;
+}
+.close{
+  float:right;
+  margin-right:5px;
+}
+.content{
+  border-top:1px solid;
+  border-bottom:1px solid;
+  padding:15px 0px;
+}
+.content>p{
+  margin-left:5px;
+}
+.footer{
+  padding:12px;
+}
+.footer:after{
+  content:'';
+  display:block;
+  clear:both;
+}
+.cancel{
+  float:right;
+  margin-right:5px;
+}
+.dec{
+  float:right;
+margin-right:5px;
+}
+  </style>
+</head>
+<body>
+   <div class="btn1">点击我</div>
+  <div class="big-ct">
+    <div class="cover"></div>
+    <div class="modal-ct">
+    <div class="head">
+      <h>我是标题1</h>
+      <a class="close" href="#">X</a> 
+    </div>
+    <div class="content">
+    	<p>我是内容一</p>
+    	<p>我是内容一</p>
+    </div>
+      <div class="footer">
+       <a class="cancel" href="#">取消</a>
+       <a class="dec" href="#">确定</a>  
+      </div>
+    </div>
+  </div>
+  <script>
+    var btn1 = document.querySelector('.btn1');
+    var bct = document.querySelector('.big-ct');
+    btn1.addEventListener('click',function(e){
+      showModal();
+    });
+    bct.addEventListener('click',function(e){
+      if(e.target.className === 'close' || e.target.className === 'cancel' || e.target.className==='cover'){
+        hideModal();
+      }else{
+        return ;
+      }
+    })
+    // bct.addEventListener('click',function(e){
+    //   if(hasClass(e.target,'close')){
+    //     hideModal()
+    //   }
+    // })
+    //工具函数
+    function showModal(){
+      bct.style.display='block';
+    }
+    function hideModal(){
+      bct.style.display='none';
+    }
+   // function hasClass (ele, cls){
+   //        var a = !!ele.className.match(new RegExp('\\b'+cls+'\\b'));//双感叹号强行转换为布尔型！！
+   //        return a; 
+   //  }
+    function hasClass(el,cls){
+       var className = el.className;
+       var reg = /\b'+cls+'\b/g;//new RegExp('\\b'+cls+'\\b','g')///
+       return reg.test(className);
+}
+  </script>
+</body>
+</html>

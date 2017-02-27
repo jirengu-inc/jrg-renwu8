@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>懒加载 + 瀑布流</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		ul{
+			width: 1050px;
+			margin: 0 auto;
+			position: relative;
+		}
+		ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		li{
+			width: 290px;
+			padding: 13px;
+			margin: 15px 0;
+			margin-left: 30px;
+			float: left;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			position: absolute;
+			opacity: 100;
+		}
+		img{
+			width: 290px;
+		}
+		h4{
+			border-bottom: 1px solid #ccc;
+			padding: 10px 0;
+		}
+		p{
+			padding-top: 15px;
+			font-size: 10px;
+			color: #555;
+		}
+	</style>
+</head>
+<body>
+	<div id="ct-waterFalls">
+		<ul id="waterFalls">
+			<!-- <li>
+				<a href="#" target="_blank">
+					<img src="">
+				</a>
+				<h4></h4>
+				<p></p>
+			</li> -->
+		</ul>
+		<div id="load">123</div>
+	</div>
+
+	<script type="text/javascript">
+		var COUNT = 10,
+			APP_KEY = '1271687855',
+			currentPage = 1;
+
+		var winH = $(window).height();
+		var waterFallsHeight = [0,0,0];
+		var hasInit = false;
+		
+		var clock = 0;
+
+		var opts = {
+			"url": "http://platform.sina.com.cn/slide/album_tech",
+			"type": "GET",
+			"dataType": "jsonp",
+			"jsonp": "jsoncallback",
+			"cache": false,
+			"data": {
+						"app_key": APP_KEY,
+						"num": COUNT,
+						"page": currentPage
+					},
+			"success": function(data){
+				Exposure.render(data);
+				currentPage ++;
+			},
+			"error": function(){
+				console.log('出错');
+			}
+		};
+		
+		var Exposure = {
+			// init: function(){
+			// 	$(window).load(function(){
+			// 		if(hasInit === false){
+			// 			var colNum = Math.floor($('ul').width() / $('li').eq(0).outerWidth(true));
+			// 			for(var i = 0;i < colNum;i ++){
+			// 				waterFallsHeight.push(0);
+			// 			}
+			// 			hasInit = true;
+			// 		}
+			// 	});
+			// },
+			render: function(data){
+				var me = this;
+				$(data['data']).each(function(i,e){
+					var list = '';
+					list += '<li><a href="' + this['url'] + '" target="_blank">';
+					list += '<img src="' + this['img_url'] + '"></a>';
+					list += '<h4>' + this['short_name'] + '</h4>';
+					list += '<p>' + this['short_intro'] + '</p></li>';
+					$('ul').append(list);
+					$('li').each(function(){
+						if($(this).hasClass('placed')){
+							return ;
+						}else{
+							me.place($(this));
+						}
+					});
+				});
+			},
+			isShow: function(){
+				if($('#load').offset().top <= (winH + $(window).scrollTop())){
+					return true;
+				}else{
+					return false;
+				}
+			},
+			place: function($ele){
+				$ele.find('img').on('load',function(){
+					var heightMin = waterFallsHeight[0],
+					theCol = 0;
+					waterFallsHeight.forEach(function(e,i,arr){
+						if(e < heightMin){
+							heightMin = e;
+							theCol = i;
+						}
+					});
+					$ele.css({
+						"top": heightMin,
+						"left": ($('li').eq(0).outerWidth(true) * theCol) + 'px'
+					});
+					waterFallsHeight[theCol] += $ele.outerHeight(true);
+					$('ul').height(Math.max.apply(null,waterFallsHeight));
+				});
+
+				$ele.addClass('placed');
+				
+			}
+		};
+		$.ajax(opts);
+		
+		$(window).on('scroll',function(){
+			if(Exposure.isShow()){
+				if(clock){
+					clearTimeout(clock);
+				}
+				var clock = setTimeout(function(){
+					$.ajax(opts);
+				},500);
+			}
+		});
+	</script>
+		
+		
+	
+</body>
+</html>

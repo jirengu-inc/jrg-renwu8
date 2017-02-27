@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏轮播</title>
+    <style>
+        html,body,ul,li,div,p,h3{
+            margin: 0;
+            padding:0;
+            overflow: hidden;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        html,body,.carousel,.img-ct{
+            width:100%;
+            height:100%;
+        }
+        .carousel{
+            position: relative;
+        }
+        .img-ct{
+            position: absolute;
+        }
+        .img-ct:after{
+            content: "";
+            display: block;
+            clear:both;
+        }
+        .item{
+            position: relative;
+            height:100%;
+            float: left;
+        }
+        .cover{
+            position: absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            opacity: 0.8;
+        }
+        .main{
+            position: absolute;
+            width:600px;
+            left:50%;
+            top:50%;
+            z-index:1;
+            transform: translate(-50%,-50%);
+            color:green;
+            text-align: center;
+        }
+        .main h3{
+            font-size:32px;
+        }
+        .main p{
+            font-size: 16px;
+            line-height: 2;
+        }
+        .arrow{
+            position: absolute;
+            top:50%;
+            margin-top: -15px;
+            width:30px;
+            height:30px;
+            line-height: 30px;
+            text-align: center;
+            background: #4e443c;
+            color:#fff;
+            border-radius: 30px;
+            box-shadow: 0 0 2px #999;
+            opacity: 0.8;
+        }
+        .arrow:hover{
+            opacity: 1;
+        }
+        .pre{
+            left:10px;
+        }
+        .next{
+            right: 10px;
+        }
+        ul.bullet{
+            position: absolute;
+            bottom:10px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        ul.bullet li{
+            width:16px;
+            height:4px;
+            border-radius: 2px;
+            background: #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+        ul.bullet li.active{
+            background: green;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="img-ct">
+            <li class="item">
+                <div class="cover" data-bg-img="image/pic5.jpg"></div>
+                <div class="main">
+                    <h3>时光流逝</h3>
+                    <p>繁华从未褪去</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="image/pic6.jpg"></div>
+                <div class="main">
+                    <h3>一切都会好起来的</h3>
+                    <p>即便不是在今天</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="image/pic7.jpg"></div>
+                <div class="main">
+                    <h3>一寸光阴一寸金</h3>
+                    <p>寸金难买寸光阴</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="cover" data-bg-img="image/pic8.jpg"></div>
+                <div class="main">
+                    <h3>你在梦里</h3>
+                    <p>我不愿醒来</p>
+                </div>
+            </li>
+        </ul>
+        <a href="#" class="pre arrow"> < </a>
+        <a href="#" class="next arrow"> > </a>
+        <ul class="bullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        function Carousel($container) {
+            this.$ct=$container;
+            this.init();
+            this.bind();
+        }
+        Carousel.prototype={
+            init:function () {
+                this.$imgCt=this.$ct.find(".img-ct");
+                this.$items=this.$imgCt.children();
+                this.$pre=this.$ct.find(".pre");
+                this.$next=this.$ct.find(".next");
+                this.$bullet=this.$ct.find(".bullet");
+                this.imgWidth=$(window).width();
+                this.imgCount=this.$imgCt.children().length;
+                this.$imgCt.prepend(this.$items.last().clone());
+                this.$imgCt.append(this.$items.first().clone());
+                this.$imgCt.find(".item").css('width',this.imgWidth);
+                this.$imgCt.find(".cover").css('width',this.imgWidth);
+                this.imgRealCount=this.$imgCt.children().length;
+                this.$imgCt.css({
+                    left:0-this.imgWidth,
+                    width:this.imgRealCount*this.imgWidth
+                });
+                this.curIdx=0;
+                this.isAnimate=false;
+            },
+            bind:function () {
+                this.setBg(1);
+                this.autoPlay();
+                this.addEvent();
+            },
+            setBg:function (idx) {
+            var idx=idx||0,
+                $node=this.$imgCt.children().eq(idx),
+                $cover=$node.find(".cover"),
+                imgUrl=$cover.attr("data-bg-img");
+            if ($node.data("isBgSet")) return;
+            $cover.css("background-image","url("+imgUrl+")");
+            $node.data("isBgSet",true);
+            },
+            autoPlay:function () {
+                var _this=this;
+                clock=setInterval(function(){
+                    _this.playNext();
+                },2000);
+            },
+            playNext:function (idx) {
+                var idx=idx || 1,
+                    _this=this;
+                var imgCount=this.imgCount,
+                    imgRealCount=this.imgRealCount,
+                    imgWidth=this.imgWidth;
+                if(!this.isAnimate){
+                    this.isAnimate=true;
+                    debugger;
+                    this.setBg((this.curIdx+idx+1)%imgRealCount);
+                    this.$imgCt.animate({left:"-="+(idx*imgWidth)},function () {
+                        _this.curIdx=(_this.curIdx+idx)%imgCount;
+                        if(_this.curIdx==0){
+                            _this.$imgCt.css("left",0-imgWidth);
+                        }
+                        _this.isAnimate=false;
+                        _this.setBullet();
+                    })
+                }
+            },
+            playPre:function (idx) {
+                var idx=idx || 1,
+                    _this=this;
+                var imgCount=this.imgCount,
+                    imgWidth=this.imgWidth;
+                if (!this.isAnimate){
+                    this.isAnimate=true;
+                    this.setBg(this.curIdx-idx+1);
+                    this.$imgCt.animate({left:"+="+(idx*imgWidth)},function () {
+                        _this.curIdx=(_this.curIdx-idx+imgCount)%imgCount;
+                        if(_this.curIdx==(imgCount-1)){
+                            _this.$imgCt.css("left",0-imgCount*imgWidth);
+                        }
+                        _this.isAnimate=false;
+                        _this.setBullet();
+                    })
+                }
+            },
+            setBullet:function () {
+                this.$bullet.find("li").removeClass("active").eq(this.curIdx).addClass("active");
+            },
+            addEvent:function () {
+                var _this=this;
+                this.$next.on("click",function () {
+                    _this.playNext();
+                });
+                this.$pre.on("click",function () {
+                    _this.playPre();
+                });
+                _this.$bullet.find("li").on("click",function () {
+                    var idx=$(this).index();
+                    if(idx>_this.curIdx){
+                        _this.playNext(idx-_this.curIdx);
+                    }else if(idx<_this.curIdx){
+                        _this.playPre(_this.curIdx-idx);
+                    }
+                })
+            }
+        };
+        new Carousel($(".carousel"));
+
+
+
+        /*var $ct=$(".img-ct"),
+         $items=$ct.children(),
+         $pre=$(".pre"),
+         $next=$(".next"),
+         $bullet=$(".bullet"),
+         imgWidth=$(window).width();
+         imgCount=$items.length;
+         $ct.prepend($items.last().clone());
+         $ct.append($items.first().clone());
+         $ct.find(".item").css('width',imgWidth);
+         $ct.find(".cover").css('width',imgWidth);
+         imgRealCount=$ct.children().length;
+         $ct.css({
+         left:0-imgWidth,
+         width:imgRealCount*imgWidth
+         })
+         var curIdx=0,
+         isAnimate=false;
+         setBg(1);
+         autoPlay();
+         $next.on("click",function () {
+         playNext();
+         })
+         $pre.on("click",function () {
+         playPre();
+         })
+         $bullet.find("li").on("click",function () {
+         var idx=$(this).index();
+         if(idx>curIdx){
+         playNext(idx-curIdx);
+         }else if(idx<curIdx){
+         playPre(curIdx-idx);
+         }
+         })
+         function playNext(idx) {
+         var idx=idx || 1;
+         if(!isAnimate){
+         isAnimate=true;
+         setBg((curIdx+idx+1)%imgRealCount);
+         $ct.animate({left:"-="+(idx*imgWidth)},function () {
+         curIdx=(curIdx+idx)%imgCount;
+         if(curIdx==0){
+         $ct.css("left",0-imgWidth);
+         }
+         isAnimate=false;
+         setBullet();
+         })
+         }
+         }
+         function playPre(idx) {
+         var idx=idx || 1;
+         if (!isAnimate){
+         isAnimate=true;
+         setBg(curIdx-idx+1);
+         $ct.animate({left:"+="+(idx*imgWidth)},function () {
+         curIdx=(curIdx-idx+imgCount)%imgCount;
+         if(curIdx==(imgCount-1)){
+         $ct.css("left",0-imgCount*imgWidth);
+         }
+         isAnimate=false;
+         setBullet();
+         })
+         }
+         }
+         function setBg(idx) {
+         var idx=idx||0,
+         $node=$ct.children().eq(idx),
+         $cover=$node.find(".cover"),
+         imgUrl=$cover.attr("data-bg-img");
+         if ($node.data("isBgSet")) return;
+         $cover.css("background-image","url("+imgUrl+")");
+         $node.data("isBgSet",true);
+         }
+         function setBullet() {
+         $bullet.find("li").removeClass("active").eq(curIdx).addClass("active");
+         }
+         function autoPlay(){
+         clock=setInterval(function(){
+         playNext();
+         },2000);
+         }
+         function stopAuto() {
+         clearInterval(clock);
+         }*/
+    </script>
+
+
+</body>
+</html>

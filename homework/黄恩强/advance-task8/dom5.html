@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div id="oldDiv">
+    	I's oldDiv
+    </div>
+    <script>
+    // 获取body元素
+    var elem = document.body;
+    //创建元素节点
+    var newDiv = document.createElement("div");
+
+    //创建文本节点
+    var newCont = document.createTextNode("I's newDiv");
+    //newDiv插入文本节点
+    newDiv.appendChild(newCont);rara
+    //设置newDiv属性
+    newDiv.setAttribute("id",newDiv);
+    //页面添加newDiv元素
+    elem.appendChild(newDiv);
+
+    //创建元素节点
+    var oldSpan = document.createElement("span");
+    //创建文本节点
+    var oldCont = document.createTextNode("I's oldSpan");
+    //oldSpan插入文本节点
+    oldSpan.appendChild(oldCont);
+
+    //获取oldDiv并插入oldSpan子元素
+    var oldDiv = document.getElementById("oldDiv");
+    oldDiv.appendChild(oldSpan);
+
+    //删除oldDiv子元素节点和newDiv元素
+    oldDiv.removeChild(oldSpan);
+    elem.removeChild(newDiv);
+    </script>
+    </body>
+</html>

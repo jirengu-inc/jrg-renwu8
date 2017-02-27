@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task2</title>
+</head>
+<body>
+	<div><span>console.log(1+1)的结果是 </span><span class="result"></span> //数字类型相加</div>
+	<div><span>console.log("2"+"4")的结果是</span><span class="result"></span> //字符串拼接</div>
+	<div><span>console.log(2+"4")的结果是 </span><span class="result"></span> //一个字符串的情况下拼接</div>
+	<div><span>console.log(+new Date();)的结果是 </span><span class="result"></span> //对象使用valueOf方法转换为数字</div>
+	<div><span>console.log(+"4")的结果是 </span><span class="result"></span> //+转换为正数</div>
+	<script>
+		document.getElementsByClassName('result')[0].innerHTML = 1 + 1;
+		document.getElementsByClassName('result')[1].innerHTML = "2" + "4";
+		document.getElementsByClassName('result')[2].innerHTML = 2 + "4";
+		document.getElementsByClassName('result')[3].innerHTML = +new Date();
+		document.getElementsByClassName('result')[4].innerHTML = +"4";
+	</script>
+</body>
+</html>

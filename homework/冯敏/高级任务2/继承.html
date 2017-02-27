@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承</title>
+</head>
+<body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+<script type="text/javascript">
+   /* function Person(name){
+        this.name = name;
+    }
+    Person.prototype.sayName = function(){
+        console.log('My name is :' + this.name);
+    }
+    var p = new Person("若愚")
+    p.sayName();*/
+
+    /*String.prototype.getMostOften=function () {
+        var strArr=[],
+            maxTimes=0,
+            times=0,
+            maxChar="",
+            _this=this;
+        for(var i=0;i<this.length;i++){
+            if($.inArray(this[i],strArr)<0){
+                strArr.push(this[i]);
+            }
+        }
+        strArr.forEach(function (e,i,array) {
+            var reg=new RegExp(array[i],"g");
+            times=_this.match(reg).length;
+            if(times>maxTimes){
+                maxTimes=times;
+                maxChar=array[i];
+            }
+        })
+        return maxChar;
+    }
+    var str = 'ahbbccdeddddfg';
+    var ch = str.getMostOften();
+    console.log(ch); //d , 因为d 出现了5次*/
+
+    /*function isinstanceof(obj,func){
+        var oldObj=obj.__proto__;
+        do{
+            if(oldObj === func.prototype){
+                return true;
+            }else{
+                oldObj=oldObj.__proto__;
+            }
+        }
+        while(oldObj);
+        return false;
+    }*/
+
+    /* function Person(name, sex){
+       this.name = name;
+       this.sex = sex;
+   }
+   Person.prototype.printName = function(){
+       console.log(this.name);
+   };
+   function Male(age){
+       this.age = age;
+   }
+   Male.prototype=Object.create(Person.prototype);
+   Male.prototype.printAge = function(){
+       console.log(this.age);
+   };*/
+
+   function Person(name, sex){
+       this.name=name;
+       this.sex=sex;
+   }
+   Person.prototype.printName = function(){
+       console.log(this.name);
+   };
+
+   function Male(name, sex, age){
+       Person.call(this,name,sex);
+       this.age=age;
+   }
+   function inherit(superType,subType) {
+       subType.prototype=Object.create(superType.prototype);
+       subType.prototype.constructor=subType;
+   }
+   inherit(Person,Male);
+   Male.prototype.printAge = function(){
+       console.log(this.age);
+   };
+
+   var ruoyu = new Male('若愚', '男', 27);
+   ruoyu.printName();
+</script>
+</body>
+</html>

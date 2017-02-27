@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 26-3</title>
+    <style>
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            height:25px;
+            line-height: 25px;
+            margin:8px;
+        }
+        li:hover{
+            background-color: green;
+            color:white;
+        }
+        #loadMore{
+            text-decoration: none;
+            color:black;
+            display: block;
+            padding: 8px;
+            width:64px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height:25px;
+            line-height: 25px;
+            border:1px solid orangered;
+            border-radius: 2px;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <ul id="ct">
+        <li>内容1</li>
+        <li>内容2</li>
+    </ul>
+    <a id="loadMore" href="#">加载更多</a>
+    <script>
+        var len=4,
+            ready=true,
+            $ct=$("#ct");
+        $("#loadMore").on("click",function(event){
+            if(!ready){
+                return;
+            }
+            event.preventDefault();
+            ready=false;
+            var start=$ct.children().length;
+            var $me=$(this);
+            $me.text("正在加载");
+            $.ajax({
+                url: "getMore.php",
+                method: "GET",
+                data: {
+                    start: start+1,
+                    length: len
+                },
+                dataType: 'json',
+                success: function (resp) {
+                    if (resp && resp.status == 1) {
+                        var items = resp.data;
+                        for (var i = 0; i < items.length; i++) {
+                            $ct.append("<li>" + items[i] + "</li>");
+                        }
+                    } else {
+                        alert("error !");
+                    }
+                },
+                error: function () {
+                    alert("error !");
+                },
+                complete:function () {
+                    $me.text("加载更多");
+                    ready=true;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

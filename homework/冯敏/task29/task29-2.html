@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片懒加载</title>
+    <style>
+        .container{
+            width:930px;
+            margin: 0 auto;
+        }
+        li{
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        img{
+            width:300px;
+            height:250px;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <ul class="container">
+<li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic1.jpg"></a></li>
+<li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic1.jpg"></a></li>
+<li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic1.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic2.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic2.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic2.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic3.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic3.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic3.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic4.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic4.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic4.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic5.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic5.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic5.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic6.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic6.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic6.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic7.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic7.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic7.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic8.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic8.jpg"></a></li>
+        <li><a href="#"><img src="image/blank.jpg" alt="pic" data-src="image/pic8.jpg"></a></li>
+    </ul>
+    <script type="text/javascript">
+        var clock;
+        $(window).on("scroll",function () {
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock=setTimeout(function () {
+                checkShow();
+            },200)
+        });
+        checkShow();
+        function checkShow() {
+            $(".container img").each(function () {
+                var $cur=$(this);
+                if($cur.attr("isLoaded")){
+                    return;
+                }
+                if(isShow($cur)){
+                    showImg($cur);
+                }
+            })
+        }
+        function isShow($elem) {
+            var srollHeight=$(window).scrollTop(),
+                windowHeight=$(window).height(),
+                elemTop=$elem.offset().top;
+            if(srollHeight+windowHeight>elemTop){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function showImg($elem) {
+            $elem.attr("src",$elem.attr("data-src"));
+            $elem.attr("isLoaded",true);
+        }
+    </script>
+</body>
+</html>

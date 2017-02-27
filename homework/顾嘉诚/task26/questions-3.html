@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 26 questions 3</title>
+    <script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		.btn{
+			display: block;
+			padding: 10px;
+			border: 1px solid rgb(216,91,95);
+			text-decoration: none;
+			width: 80px;
+			margin: 10px auto;
+			text-align: center;
+			color: rgb(216,91,95);
+			border-radius: 5px;
+		}
+		li{
+			list-style: none;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px 0;
+			border-radius: 5px;
+		}
+		li:hover{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>内容1</li>
+		<li>内容2</li>
+		<li>内容3</li>
+	</ul>
+	<a href="javascript:void(0)" class="btn">加载更多</a>
+
+	<script type="text/javascript">
+		var val = 4;
+		$('.btn').on('click',function(){
+			var opts = {
+				"url": "loadmore.php",
+				"type": "GET",
+				"dataType": "JSON",
+				"data": {
+					"start": val,
+					"len": 6
+				},
+				"cache": "true",
+				"success": function(para){dealWith(para)},
+				"error": function(){Errors()},
+				"complete": function(){Complete()} 
+			};
+			$.ajax(opts);
+
+			function dealWith(para){
+				if(para.status === 1){
+					for(var i = 0;i < para.data.length;i ++){
+						$('ul').append($('<li>'+para.data[i]+'</li>'));
+					}
+					val +=  6;
+				}
+			}
+			function Errors(){
+				console.log("error...");
+			}
+			function Complete(){
+				console.log("complete...");
+			}
+		});
+	</script>
+</body>
+</html>

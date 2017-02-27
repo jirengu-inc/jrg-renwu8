@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task30-2-瀑布流封装</title>
+    <style>
+        .item {
+            width: 200px;
+            position: absolute;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            transition: all 1s;
+        }
+        .set1 {
+            height: 140px;
+            background: red;
+        }
+        .set2 {
+            height: 220px;
+            background: blueviolet;
+        }
+        .set3 {
+            height: 340px;
+            background: palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div class="item set1">1</div>
+    <div class="item set2">2</div>
+    <div class="item set3">3</div>
+    <div class="item set1">4</div>
+    <div class="item set2">5</div>
+    <div class="item set2">6</div>
+    <div class="item set1">7</div>
+    <div class="item set3">8</div>
+    <div class="item set3">9</div>
+    <div class="item set2">10</div>
+    <div class="item set1">11</div>
+    <div class="item set1">12</div>
+    <div class="item set3">13</div>
+    <div class="item set2">14</div>
+    <div class="item set2">15</div>
+    <div class="item set1">16</div>
+    <div class="item set3">17</div>
+</body>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    function waterFall() {
+        function init() {
+            var browserWidth = $(window).width();
+            var itemWidth = $('.item').outerWidth(true);
+            var itemCol = Math.floor(browserWidth / itemWidth);
+
+            var heightArray = [];
+            for (var i = 0; i < itemCol; i++) {
+                heightArray.push(0);
+            }
+
+            $('.item').each(function () {
+                var $current = $(this);
+                var idx = 0;
+                var minHeight = heightArray[0];
+
+                for (var i = 0; i < heightArray.length; i++) {
+                    if (minHeight > heightArray[i]) {
+                        idx = i;
+                        minHeight = heightArray[i];
+                    }
+                }
+
+                $current.css({
+                    top: minHeight,
+                    left: idx * itemWidth
+                });
+
+                heightArray[idx] = heightArray[idx] + $current.outerHeight(true);
+            });
+        }
+
+        return {
+            init: init
+        }
+    }
+
+    waterFall().init();
+    $(window).on('resize', function () {
+        waterFall().init();
+    })
+</script>
+</html>

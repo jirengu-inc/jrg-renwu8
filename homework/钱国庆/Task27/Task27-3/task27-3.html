@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task27-3-无缝连播</title>
+    <style>
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .container {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .img-list {
+            position: absolute;
+        }
+        .img-list li {
+            float: left;
+        }
+        .img-list li a img {
+            width: 300px;
+            height: 200px;
+        }
+        .container .previous a,
+        .container .next a {
+            color: black;
+        }
+        .container .previous,
+        .container .next {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #666;
+            opacity: 0.7;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+        }
+        .container .previous {
+            top: 50%;
+            margin-top: -15px;
+            margin-left: 5px;
+        }
+        .container .next {
+            top: 50%;
+            margin-top: -15px;
+            left: 100%;
+            margin-left: -35px;
+        }
+        .container .previous:hover,
+        .container .next:hover {
+            opacity: 1;
+        }
+        .bottom-list li{
+            width: 15px;
+            height: 5px;
+            background: #666;
+            opacity: 0.7;
+            display: inline-block;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        .bottom-list {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100%;
+            margin-top: -25px;
+        }
+        .bottom-list li.active {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="img-list clear">
+        <li>
+            <a href="#"><img src="1.jpeg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="2.png" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="3.jpg" alt=""></a>
+        </li>
+        <li>
+            <a href="#"><img src="9.jpg" alt=""></a>
+        </li>
+    </ul>
+    <div class="previous">
+        <a href="#"> < </a>
+    </div>
+    <div class="next">
+        <a href="#"> > </a>
+    </div>
+    <ul class="bottom-list">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+    var $imgList = $('.img-list');
+    var $items = $imgList.children();
+    var $previous = $('.previous');
+    var $next = $('.next');
+    var $bottomList = $('.bottom-list');
+    var imgCount = $items.length;
+    var imgWidth = $items.width();
+
+    var isAnimate = false;
+    var index = 0;
+
+    $imgList.append($items.first().clone());
+    $imgList.prepend($items.last().clone());
+    var realImgCount = $imgList.children().size();
+
+    $imgList.css({
+        width: imgWidth * realImgCount
+    });
+
+
+    $imgList.css({
+        left: -imgWidth
+    });
+
+    function playNext(idx) {
+        idx = idx || 1;
+        if (!isAnimate) {
+            isAnimate = true;
+            $imgList.animate({
+                left: '-=' + idx * imgWidth
+            }, function () {
+                index++;
+                if (index === realImgCount - 2) {
+                    $imgList.css({left: -imgWidth});
+                    index = 0;
+                }
+                isAnimate = false;
+                setBottomList();
+            });
+        }
+    }
+
+    function playPrevious(idx) {
+        idx = idx || 1;
+        if (!isAnimate) {
+            isAnimate = true;
+            $imgList.animate({
+                left: '+=' + idx * imgWidth
+            }, function () {
+                index = (index + imgCount - idx) % imgCount;
+                if (index === realImgCount - 3) {
+                    $imgList.css({
+                        left: - imgCount * imgWidth
+                    });
+                }
+                isAnimate = false;
+                setBottomList();
+            });
+        }
+    }
+
+    function setBottomList() {
+        $bottomList.children().siblings().removeClass('active').eq(index).addClass('active');
+    }
+
+    function autoPlay() {
+        setInterval(function () {
+            playNext();
+        }, 2000);
+    }
+
+    $next.on('click', function () {
+        playNext();
+    });
+
+    $previous.on('click', function () {
+        playPrevious();
+    });
+
+    $('.bottom-list li').on('click', function () {
+        var idx = $(this).index();
+        if (idx > index) {
+            playNext(idx - index);
+        } else if (idx < index){
+            playPrevious(index - idx);
+        }
+    });
+
+    autoPlay();
+
+</script>
+</body>
+</html>

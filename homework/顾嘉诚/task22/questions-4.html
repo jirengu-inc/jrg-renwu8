@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>question 4</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			padding: 50px;
+		}
+		li{
+			list-style: none;
+		}
+		li{
+			float: left;
+			border: 1px solid #000;
+			padding: 10px 100px;
+			margin-right: -1px;
+		}
+		ul:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		div{
+			width: 710px;
+			border: 1px solid #000;
+			height: 400px;
+			margin-top: -1px;
+		}
+		.pannel{
+			display: none;
+		}
+		.active{
+			background-color: #eee;
+		}
+		.appear{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		实现如下图Tab切换的功能
+	-->
+	<ul>
+		<li class=' active'>tab1</li>
+		<li>tab2</li>
+		<li>tab3</li>
+	</ul>
+	<div class='pannel appear'>content1</div>
+	<div class='pannel'>content2</div>
+	<div class='pannel'>content3</div>
+
+	<script type="text/javascript">
+		function $$(name){
+			var length = name.length - 1;
+			if(name[0] === '0'){
+				return document.getElementsByClassName(name.substr(1,length));
+			}
+			else if(name[0] === '#'){
+				return document.getElementById(nam.substr(1,length));
+			}else{
+				return document.getElementsByTagName(name);
+			}
+		}
+
+		function indexOfNum(target){
+			var li = $$('ul')[0].children;
+			var num;
+			for(var i = 0; i < li.length;i ++){
+				removeClass(li[i],'active');
+				if(li[i] === target){
+					num = i;
+				}
+			}
+			addClass(li[num],'active');
+			return num;
+		}
+
+		function addClass(ele,clas){
+			return ele.className += ' '+clas;
+		}
+
+		function removeClass(ele,clas){
+			var clasName = ' ' + clas; 
+			return ele.className = ele.className.replace(clasName,'');
+		}
+
+		function appearBlock(num){
+			var appear = $$('div');
+			for(var i = 0;i < appear.length;i ++){
+				removeClass(appear[i],'appear');
+			}
+			addClass(appear[num],'appear');
+		}
+
+		$$('ul')[0].addEventListener('click',function(e){
+			var num = indexOfNum(e.target);
+			appearBlock(num); 
+		});
+	</script>
+</body>
+</html>

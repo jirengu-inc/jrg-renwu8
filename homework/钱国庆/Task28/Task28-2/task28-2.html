@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task28-2-stickup</title>
+    <style>
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .header {
+            height: 80px;
+            background: red;
+        }
+        .content {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .nav {
+            border: 1px solid black;
+            background: yellow;
+            height: 40px;
+        }
+        .clear:after {
+            width: 0;
+            height: 0;
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .aside {
+            height: 500px;
+            background: pink;
+            float: left;
+            width: 200px;
+        }
+        .main {
+            height: 500px;
+            background: blue;
+        }
+        #footer {
+            background: black;
+            color: white;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        header
+    </div>
+    <div class="content">
+        <div class="nav"> nav1 </div>
+        <div class="main-content clear">
+            <div class="aside"> aside1 </div>
+            <div class="main"> main1 </div>
+        </div>
+    </div>
+    <div class="header">
+        header
+    </div>
+    <div class="content">
+        <div class="nav"> nav2 </div>
+        <div class="main-content clear">
+            <div class="aside"> aside1 </div>
+            <div class="main"> main1 </div>
+        </div>
+    </div>
+    <div class="header">
+        header
+    </div>
+    <div class="content">
+        <div class="nav"> nav3 </div>
+        <div class="main-content clear">
+            <div class="aside"> aside1 </div>
+            <div class="main"> main1 </div>
+        </div>
+    </div>
+    <div class="header">
+        header
+    </div>
+    <div class="content">
+        <div class="nav"> nav4 </div>
+        <div class="main-content clear">
+            <div class="aside"> aside1 </div>
+            <div class="main"> main1 </div>
+        </div>
+    </div>
+    <div id="footer">
+        footer
+    </div>
+</div>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $.fn.stick = function () {
+        var $current = this;
+        var currentWidth = $current.width();
+        var offsetTop = $current.offset().top;
+        var offsetLeft = $current.offset().left;
+
+        var $cloneForFixed = $current.clone().css({opacity: 0})
+                .insertBefore($current).hide();
+
+        var isFixed = false;
+
+        $(window).on('scroll', function () {
+            var currentOffsetTop = $(this).scrollTop();
+            if (currentOffsetTop > offsetTop) {
+                if (!isFixed) {
+                    setFixed();
+                    isFixed = true;
+                }
+            } else {
+                if (isFixed) {
+                    unFixed();
+                    isFixed = false;
+                }
+            }
+        });
+
+        function setFixed() {
+            $cloneForFixed.css({
+                opacity: 1,
+                position: 'fixed',
+                left: offsetLeft,
+                width: currentWidth,
+                top: 0
+            });
+            $cloneForFixed.show();
+        }
+
+        function unFixed() {
+            $cloneForFixed.removeAttr('style');
+            $cloneForFixed.hide();
+        }
+    }
+
+    $('.nav').each(function () {
+        $(this).stick();
+    });
+</script>
+</body>
+</html>

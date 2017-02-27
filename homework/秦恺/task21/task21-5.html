@@ -1,0 +1,14 @@
+<script>
+// 输出[”“hunger” , hello “world”"]
+// 正则表达式/".*"/g ，全局匹配，由"开始，. 查找单个字符，除了换行和行结束符。 *匹配任何包含零个或多个 n 的字符串。最后一个字符是"，所以输出结果符合条件。
+// 改写代码，让其输出hunger, world.
+//方法一
+var str = 'hello  "hunger" , hello "world"';
+var pat =  /".*?"/g;
+str.match(pat);
+
+//方法二
+var str = 'hello  "hunger" , hello "world"';
+var pat =  /"[^"]+"/g;
+str.match(pat);
+</script>

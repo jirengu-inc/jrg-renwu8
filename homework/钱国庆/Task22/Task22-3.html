@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22-3</title>
+</head>
+<body>
+<ul class="ct">
+    <li data-img="1.jpg">鼠标放置查看图片1</li>
+    <li data-img="2.jpg">鼠标放置查看图片2</li>
+    <li data-img="3.jpg">鼠标放置查看图片3</li>
+</ul>
+<div class="img-preview"></div>
+<script>
+    // 获取已知所需节点
+    var imgPreview = document.querySelector(".img-preview");
+    var liList = document.getElementsByClassName("ct")[0].getElementsByTagName("li");
+
+    // 创建img节点用来放置图片
+    var imgNode = document.createElement("img");
+    imgPreview.appendChild(imgNode);
+
+    /**
+     * 方法一: 在每个li上绑定一个事件
+     * */
+//    for (var i = 0; i < liList.length; i++) {
+//        liList[i].addEventListener("mouseover", function () {
+//            imgNode.src = this.getAttribute("data-img");
+//        }, false);
+//    }
+
+    /**
+     * 方法二: 在父元素上绑定事件
+     * */
+    var ulCt = document.getElementsByClassName("ct")[0];
+    ulCt.addEventListener("mouseover", function (event) {
+        imgNode.src = event.target.getAttribute("data-img");
+    }, false);
+</script>
+</body>
+</html>

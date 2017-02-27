@@ -1,0 +1,71 @@
+@mixin clearFloat {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    height: 40px;
+    width: 80px;
+    line-height: 40px;
+    border: 1px solid #E27272;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #E27272;
+    img {
+        width: 40px;
+        height: 40px;
+    }
+    visibility: hidden;
+}
+
+.list {
+    .item {
+        &:hover {
+            color: white;
+            background-color: green;
+        }
+        a {
+            &:after {
+                @include clearFloat;
+            }
+            display: block;
+            margin-top:10px;
+            padding:10px;
+            color:black;
+            border: 1px solid #ccc;
+            cursor:pointer;
+            img {
+                width: 50px;
+                height: 50px;
+                float: left;
+            }
+            h3 {
+                margin-left: 60px;
+                font-size: 14px;
+            }
+            p {
+                margin-left: 60px;
+                font-size: 14px;
+                margin-top: 10px;
+                color: #ccc;
+            }
+        }
+    }
+}

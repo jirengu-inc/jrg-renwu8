@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>task 40 question 3</title>
+	<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		.img-ct>li{
+			float: left;
+		}
+		img{
+			width: 310px;
+		}
+		.carousel{
+			overflow: hidden;
+			width: 310px;
+			position: relative;
+		}
+		.img-ct:after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.img-ct{
+			margin-left: -310px;
+		}
+		.arrow>li{
+			border-radius: 50%;
+			background-color: #ccc;
+			padding: 5px 8px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		.arrow>li:hover{
+			background-color: #999;
+		}
+		.arrow>li>a{
+			color: #fff;
+		}
+		.next{
+			
+			right: 0;
+		}
+		.pre{
+			position: absolute;
+			left: 0;
+		}
+		.order{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.order>li{
+			display: inline-block;
+		}
+		.order a{
+			color: #fff;
+			font-size: 40px;
+		}
+		a.selected{
+			color: #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li><a href="javascript:void(0)"><img src="./pic/1.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/2.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/3.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/4.jpg"></a></li>
+		</ul>
+		<ul class="arrow">
+			<li class="next"><a href="javascript:void(0)">></a></li>
+			<li class="pre"><a href="javascript:void(0)"><</a></li>
+		</ul>
+		<ul class="order">
+			<li><a href="javascript:void(0)" class="selected">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+		</ul>
+	</div>
+	<div class="carousel">
+		<ul class="img-ct">
+			<li><a href="javascript:void(0)"><img src="./pic/1.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/2.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/3.jpg"></a></li>
+			<li><a href="javascript:void(0)"><img src="./pic/4.jpg"></a></li>
+		</ul>
+		<ul class="arrow">
+			<li class="next"><a href="javascript:void(0)">></a></li>
+			<li class="pre"><a href="javascript:void(0)"><</a></li>
+		</ul>
+		<ul class="order">
+			<li><a href="javascript:void(0)" class="selected">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+			<li><a href="javascript:void(0)">-</a></li>
+		</ul>
+	</div>
+
+
+	<script type="text/javascript">
+//方法一
+		// function Carousel($nodes){
+		// 	this.$ct = $nodes.find('.img-ct');
+		// 	var $ele = $nodes.find('.img-ct li');
+		// 	this.imgW = $('img').width();
+		// 	this.$next = $nodes.find('.next');
+		// 	this.$pre = $nodes.find('.pre');
+		// 	this.$order = $nodes.find('.order li');
+		// 	this.$select = $nodes.find('.order a');
+		// 	this.curNum = 1;
+		// 	this.lock = false;
+		// 	this.$ct.prepend($ele.last().clone());
+		// 	this.$ct.append($ele.first().clone());
+		// 	this.$ct.css({
+		// 		'width': this.imgW * this.$ct.find('li').length
+		// 	});
+		// 	this.bindEvent();
+		// }	
+		// Carousel.prototype = {
+		// 	bindEvent: function(){
+		// 				var me = this;
+		// 				me.$next.on('click',function(){
+		// 					me.playNext();
+		// 				});
+		// 				me.$pre.on('click',function(){
+		// 					me.playPre();
+		// 				});
+		// 				me.$order.on('click',function(){
+		// 					var index = $(this).index() + 1;
+		// 					if(index > me.curNum){
+		// 						me.playNext(index);
+		// 					}else if(index < me.curNum){
+		// 						me.playPre(index);
+		// 					}
+		// 				});
+		// 			},
+		// 	playNext: function playNext(index){
+		// 				var that = this;
+		// 				if(this.lock){
+		// 					return ;
+		// 				}
+		// 				this.lock = true;
+		// 				if(index){
+		// 					this.curNum = index;
+		// 				}else{
+		// 					this.curNum += 1;
+		// 				}
+		// 				this.$ct.animate({
+		// 					'margin-left': - this.imgW * this.curNum
+		// 				},500,function(){
+		// 					if(that.curNum === 5){
+		// 						that.curNum = 1;
+		// 						that.$ct.css('margin-left', - that.imgW * that.curNum);
+		// 					}
+		// 					that.lock = false;
+		// 					that.addSty(that.curNum - 1);
+		// 				});
+		// 			},
+		// 	playPre: function(index){
+		// 				var that = this;
+		// 				if(this.lock){
+		// 					return ;
+		// 				}
+		// 				this.lock = true;
+		// 				if(index){
+		// 					this.curNum = index;
+		// 				}else{
+		// 					this.curNum -= 1;
+		// 				}
+		// 				this.$ct.animate({
+		// 					'margin-left': - this.imgW * this.curNum
+		// 				},500,function(){
+		// 					if(that.curNum === 0){
+		// 						that.curNum = 4;
+		// 						that.$ct.css('margin-left', - that.imgW * that.curNum);
+		// 					}
+		// 					that.lock = false;
+		// 					that.addSty(that.curNum - 1);
+		// 				});
+		// 			},
+		// 	addSty: function(index){
+		// 				this.$select.removeClass('selected');
+		// 				this.$select.eq(index).addClass('selected');
+		// 			}
+		// };
+		// var c1 = new Carousel($('#nodes1'));
+		// var c1 = new Carousel($('#nodes2'));
+
+
+//方法二
+		$.fn.carousel = function(){
+			var $nodes = this;
+			var $ct = $nodes.find('.img-ct'),
+			   	$ele = $nodes.find('.img-ct li'),
+				imgW = $('img').width(),
+				$next = $nodes.find('.next'),
+				$pre = $nodes.find('.pre'),
+				$order = $nodes.find('.order li'),
+				$select = $nodes.find('.order a');
+
+			var curNum = 1,
+				lock = false;
+
+				$ct.prepend($ele.last().clone());
+				$ct.append($ele.first().clone());
+				$ct.css({
+				'width': imgW * $ct.find('li').length
+				});
+
+
+			function bindEvent(){
+				$next.on('click',function(){
+					playNext();
+				});
+				$pre.on('click',function(){
+					playPre();
+				});
+				$order.on('click',function(){
+					var index = $(this).index() + 1;
+					if(index > curNum){
+						playNext(index);
+					}else if(index < curNum){
+						playPre(index);
+					}
+				});
+			}
+			function playNext(index){
+				if(lock){
+					return ;
+				}
+				lock = true;
+				if(index){
+					curNum = index;
+				}else{
+					curNum += 1;
+				}
+				$ct.animate({
+					'margin-left': - imgW * curNum
+				},500,function(){
+					if(curNum === 5){
+						curNum = 1;
+						$ct.css('margin-left', - imgW * curNum);
+					}
+					lock = false;
+					addSty(curNum - 1);
+				});
+			}
+			function playPre(index){
+				if(lock){
+					return ;
+				}
+				lock = true;
+				if(index){
+					curNum = index;
+				}else{
+					curNum -= 1;
+				}
+				$ct.animate({
+					'margin-left': - imgW * curNum
+				},500,function(){
+					if(curNum === 0){
+						curNum = 4;
+						$ct.css('margin-left', - imgW * curNum);
+					}
+					lock = false;
+					addSty(curNum - 1);
+				});
+			}
+			function addSty(index){
+				$select.removeClass('selected');
+				$select.eq(index).addClass('selected');
+			}
+			bindEvent();
+		};
+		$('.carousel').each(function(){
+			$(this).carousel();
+		});
+	</script>
+</body>
+</html>

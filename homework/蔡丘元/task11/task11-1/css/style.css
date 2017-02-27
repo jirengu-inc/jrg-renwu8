@@ -1,0 +1,49 @@
+/*公共样式*/
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#nav a {
+    color: #000;
+}
+
+/*第一级菜单样式*/
+#nav {
+    width: 100%;
+    background: #ccc;
+}
+
+#nav .layer-1 > li {
+    float: left;
+    position: relative;
+}
+
+#nav .layer-1 li > a {
+    padding: 0 10px;
+}
+
+/*第一层级鼠标滑动样式*/
+#nav .layer-1 > li:hover {
+    background: #eee;
+}
+
+#nav .layer-1 > li:hover .layer-2 {
+    display: block;
+}
+
+/*第二级菜单*/
+
+#nav .layer-2 {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: none;
+    border: 1px solid #ccc;
+}
+
+/*第二层级鼠标滑动样式*/
+#nav .layer-2 li:hover {
+    background: #eee;
+}

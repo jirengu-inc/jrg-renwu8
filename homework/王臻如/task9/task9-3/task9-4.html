@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task9-4</title>
+	<style>
+	    div{
+	    	width: 0px;
+			height: 0px;
+			border-style: solid;
+			border-width: 30px;
+	    }
+		.box{
+			border-top-color: blue;
+			border-right-color: yellow;
+			border-bottom-color: green;
+			border-left-color: red;
+		}
+		.top{
+            border-color: blue transparent transparent transparent;
+		}
+		.right{
+			border-color: transparent yellow transparent transparent;
+		}
+		.bottom{
+			border-color: transparent transparent green transparent;
+		}
+		.left{
+			border-color: transparent transparent transparent red;
+		}
+		.red{
+			border-color: transparent transparent transparent red;
+            transform: rotate(135deg);
+		}
+		.green{
+			border-color: transparent transparent green transparent;
+			transform: rotate(135deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="top"></div>
+	<div class="right"></div>
+	<div class="bottom"></div>
+	<div class="left"></div>
+	<div class="red"></div>
+	<div class="green"></div>
+</body>
+</html>

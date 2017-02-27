@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>图片懒加载</title>
+	<script src='http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js'></script>
+	<style>
+		ul,li{
+			list-style: none;
+		}
+		.container{
+			width: 800px;
+			margin: 0 auto;
+		}
+		.container>li{
+			float: left;	
+			margin: 10px 10px;
+		}
+		.container>li img{
+			width: 220px;
+			height:400px; 
+			border: none;
+		}
+		#to-top{
+			display: none;
+			padding: 8px 12px;
+			border: 1px solid #F62D0C;
+			color: #666;
+			cursor: pointer;
+			position: fixed;
+			right: 150px;
+			bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+	<ul class="container">
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+		<li><a href="JavaScript:;"><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg" data-img="girl.jpg" alt=""></a></li>
+
+	</ul>
+	<script>
+
+		checkShow();
+		var clock;
+		$(window).on('scroll',function(){
+
+			if (clock) {
+				clearTimeout(clock);
+			}
+			clock = setTimeout(function(){
+				checkShow();
+				console.log(1);
+			},300)
+	
+		})
+		function checkShow(){
+			$('.container img[isLoaded!="true"]').each(function(){
+				var cur = $(this);
+				if (isShow(cur)) {
+					 setTimeout(function(){
+					 	showImg(cur);
+					 },300)
+				}
+			})
+		}
+		function isShow(el){
+			winH = $(window).height(),
+			scrollT = $(window).scrollTop(),
+			nodeH = el.offset().top;
+			if ((winH+scrollT) > nodeH) {
+				return true;
+			}else{
+				return false; 
+			}
+
+		}
+		function showImg(el){
+			var imgSrc=el.attr('data-img');
+				el.attr('src',imgSrc);
+				el.data('isLoaded',true);
+		}
+
+		var GoTop={
+			init:function(){
+				if ($('#to-top').length>0) { return }
+				var $goTop=$('<div id="to-top">TOP</div>');
+			
+				$('body').append($goTop);
+				this.$goTop=$goTop;
+				this.bind();
+			},
+			bind:function(){
+				var me=this;
+				$(window).on('scroll',function(){
+					var  $scrollTop=$('body').scrollTop();
+					if ($scrollTop>100) {
+						me.$goTop.show();
+					}else{
+						me.$goTop.hide();
+					}
+				})
+				this.$goTop.on('click',function(){
+					$(window).scrollTop(0);
+				})
+			}
+		}
+		GoTop.init();
+	</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+@mixin clearFloat {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.root {
+    margin: 0 auto;
+    width: 900px;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        float: left;
+        list-style: none;
+    }
+    .title{
+        margin-bottom: 0;
+        margin-top:30px;
+    }
+    .btn{
+        margin-top:20px;
+        border-radius: 3px;
+                border: 1px solid red;
+                padding: 10px 15px;
+                background-color: white;
+    }
+    .panel {
+        &:after {
+            @include clearFloat;
+        }
+        width: 700px;
+        display: block;
+        li {
+            position: relative;
+            float: left;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 30px 30px 0 0;
+            width: 160px;
+            height: 160px;
+            text-align: center;
+            img {
+                width: 150px;
+                height: 100px;
+            }
+            p {
+                font-size: 12px;
+                text-align: left;
+                margin: 5px 0;
+            }
+            p.price {
+                color: red;
+            }
+            button {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 3px;
+                border: 1px solid red;
+                padding: 10px 15px;
+                background-color: white;
+            }
+            &:hover {
+                background-color: rgba(200, 200, 200, 0.9);
+                button {
+                    display: block;
+                }
+            }
+        }
+    }
+}

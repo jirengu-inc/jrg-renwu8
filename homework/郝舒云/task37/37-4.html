@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var paper = function() {
+        this.name = "1";
+
+    }
+    paper.prototype.func1 = function() {
+        console.log("I can read and write");
+    }
+    var newspaper = function() {
+       
+        this.price = "price";
+         this.pee=function(){};
+    }
+
+    newspaper.prototype = Object.create(paper.prototype);
+    newspaper.prototype.func2 = function() {
+        console.log("I can report news");
+    }
+    var p1 = new newspaper('纽约日报', '18');
+    p1.name //纽约日报
+    p1.func1() //I can read and write
+    p1.hasOwnProperty("name")
+    </script>
+</body>
+
+</html>

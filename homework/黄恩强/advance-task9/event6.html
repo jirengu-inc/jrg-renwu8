@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <ul class="ct">
+	    <li>这里是</li>
+	    <li>饥人谷</li>
+	    <li>任务班</li>
+	</ul>
+	<input class="ipt-add-content" placeholder="添加内容"/>
+	<button id="btn-add-start">开头添加</button>
+	<button id="btn-add-end">结尾添加</button>
+	<script>
+	//你的代码
+		var ct = $('.ct');
+		var cont = $('.ipt-add-content');
+		var addStart = $('#btn-add-start');
+		var addEnd = $('#btn-add-end');
+
+		//监听事件添加元素
+		addStart.addEventListener('click',addContent);
+		addEnd.addEventListener('click',addContent);
+		function addContent(e){
+			//字符串长度小于等于0，return
+			if(cont.value.length <= 0 ) return;
+
+			var li = document.createElement('li');
+			li.innerText = cont.value;
+			
+			if(this.id === "btn-add-start"){
+				var firstNode = ct.firstElementChild;
+				ct.insertBefore(li,firstNode);
+			}
+			if(this.id === "btn-add-end"){
+				ct.appendChild(li);
+			}
+		}
+
+		//点击元素显示文本内容。事件代理
+		ct.addEventListener('click',function(e) {
+			console.log(e.target.innerText)
+		})
+
+		function $ (obj){
+			return	document.querySelector(obj);
+		}
+		function $$ (array){
+			return	document.querySelectorAll(array);
+		}
+	</script>
+    </body>
+</html>

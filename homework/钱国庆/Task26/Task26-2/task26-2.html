@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task26-2</title>
+    <style>
+        body {
+            margin-bottom: 10000px;
+        }
+        a {
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+            display: block;
+        }
+        .div1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .container {
+            border: 1px solid red;
+            position: fixed;
+            width: 100px;
+            height: 100px;
+        }
+        .distance {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="button" id="btn">
+<div class="div1"></div>
+<input type="text" id="text1">
+<br>
+<select>
+    <option value="北京">北京</option>
+    <option value="上海">上海</option>
+    <option value="苏州">苏州</option>
+</select>
+<input type="button" id="getVal" value="获取selected">
+<br> <br> <br>
+<div class="container">
+    <div>垂直滚动距离: </div>
+    <div class="distance"></div>
+</div>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        // 1. 当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+        $("#btn").on('click', function () {
+            $(this).css({
+                background: "red"``
+            });
+            setTimeout(function () {
+                $("#btn").css({
+                    background: "blue"
+                });
+            }, 500);
+        });
+
+        // 2. 当窗口滚动时，获取垂直滚动距离
+        $(window).on('scroll', function () {
+            $(".distance").text($(document).scrollTop() + "px");
+//            console.log('distance: ' + $(document).scrollTop());
+        });
+
+        // 3. 当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+        $(".div1").on('mouseover', function () {
+            $(this).css('background', 'red');
+        }).on('mouseout', function () {
+            $(this).css('background', 'white');
+        });
+
+        // 4. 当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+        $("#text1").on('focus', function () {
+            $(this).css("border", "2px solid blue");
+        }).keyup(function () {
+            $(this).val($(this).val().toUpperCase());
+        }).on('blur', function () {
+            $(this).css('border', '2px solid grey');
+            console.log($(this).val());
+        });
+
+        // 5. 当选择 select 后，获取用户选择的内容
+        $("#getVal").on('click', function () {
+            alert($("select option:selected").val())
+        });
+    });
+</script>
+</body>
+</html>

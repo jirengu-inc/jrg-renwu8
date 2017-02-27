@@ -1,0 +1,22 @@
+.btn-more {
+    display: block;
+    height: 40px;
+    width: 80px;
+    margin: 10px auto;
+    text-align: center;
+    border: 1px solid #E27272;
+    border-radius: 3px;
+    color: #E27272;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.list .item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.list .item:hover {
+    background-color: red;
+}

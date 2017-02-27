@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo2</title>
+    <style>
+        div {
+            padding: 20px;
+        }
+        .show-div {
+            color: red;
+            font-weight: bold;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div class="show-div">内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+    <div>内容</div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<script>
+    $.fn.elementShow = function () {
+
+        var $current = this;
+        var flag = true;
+
+        function isVisible($node) {
+            var windowH = $(window).height();
+            var currentOffsetTop = $(window).scrollTop();
+            var nodeOffsetTop = $node.offset().top;
+
+            if (currentOffsetTop + windowH > nodeOffsetTop) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        $(window).on('scroll', function () {
+            if (isVisible($current) && flag) {
+                console.log('true');
+                flag = false;
+            }
+        });
+    }
+
+    $('.show-div').elementShow();
+</script>
+</html>

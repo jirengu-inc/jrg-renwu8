@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        	hmtl,body,div,p,ul,li{margin:0;padding:0;}
+        	#table{
+        		width:600px;
+        		height:300px;
+        		border: 1px solid #000;
+        		position: relative;
+        	}
+
+        	#table>li{
+        		border-bottom:1px solid #000;
+        		border-left:1px solid #000;
+        		list-style:none;
+        		float: left;
+        		width:200px;
+        		height:30px;
+        		text-align: center;
+        		line-height: 30px;
+        	}
+        	#table li:first-child{border-left:none;margin-left:-2px;}
+        	.defeult{
+				width:600px;
+				height:270px;
+				/*background:rgba(0,255,255,0.5);*/
+				position: absolute;
+				top:30px;
+				left:0;
+				text-align: left;
+				display:none;
+        	}
+        	.activate{
+        		display:block;
+        	}
+        	.hover{
+        		background:#ccc;
+        	}
+        </style>
+    </head>
+    <body>
+
+    	<ul id="table">
+    		<li>tab1
+	    		<div class="defeult">内容1</div>
+    		</li>
+    		<li>tab2
+				<div class="defeult">内容2</div>
+    		</li>
+    		<li>tab3
+				<div class="defeult">内容3</div>
+    		</li>
+    	</ul>
+
+	<script>
+		 var table = $('#table');
+
+		 table.addEventListener('mouseover',over)
+		 table.addEventListener('mouseout',out)
+		 function over(e){
+		 	//鼠标悬浮选中
+		 	if(e.target.tagName.toLowerCase() === 'li'){
+		 		e.target.classList.add('hover');
+		 		var elem = $('#table li.hover .defeult');
+		 		elem.classList.add('activate');
+		 	}
+		 }
+
+		 function out(e){
+		 	// 清除hover的class
+		 	if(e.target.tagName.toLowerCase() === 'li'){
+			 	[].forEach.call(table.children,function(node){
+			 		node.classList.remove('hover');
+			 		[].forEach.call(e.target.children,function(node){
+			 			node.classList.remove('activate');
+			 		})
+			 	})
+		 	}
+		 }
+
+
+		 function $ (id){
+		 	return document.querySelector(id);
+		 }
+		 function $$ (cls){
+		 	return document.querySelector(cls);
+		 }
+	</script>
+
+    </body>
+</html>

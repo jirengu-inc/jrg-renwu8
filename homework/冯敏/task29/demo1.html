@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        .first{
+            height: 1200px;
+            background-color: aquamarine;
+            margin-bottom: 10px;
+        }
+        .second{
+            width:100px;
+            height:100px;
+            background-color: coral;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="first">first</div>
+    <div class="second">second</div>
+    <script type="text/javascript">
+        var clock;
+        var $second=$(".second");
+        $(window).on("scroll",function () {
+            if(clock){
+                clearTimeout(clock);
+            }
+            clock=setTimeout(function () {
+               checkShow($second);
+            },200)
+        });
+        function checkShow($elem) {
+            if($elem.attr("isLoaded")){
+                return;
+            }
+            if(isShow($elem)){
+                $elem.attr("isLoaded",true);
+                alert(true);
+            }
+        }
+        function isShow($elem) {
+            var srollHeight=$(window).scrollTop(),
+                windowHeight=$(window).height(),
+                elemTop=$elem.offset().top;
+            if(srollHeight+windowHeight>elemTop){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    /*var clock;
+    $(window).on("scroll",function () {
+        if(clock){
+            clearTimeout(clock);
+        }
+        clock=setTimeout(function () {
+            if(isVisible($(".second"))){
+                alert(true);
+            }
+        },200)
+    })
+    function isVisible($elem) {
+        var srollHeight=$(window).scrollTop(),
+            windowHeight=$(window).height(),
+            elemTop=$elem.offset().top;
+        if(srollHeight+windowHeight>elemTop){
+            return true;
+        }else{
+            return false;
+        }
+    }*/
+    </script>
+</body>
+</html>
