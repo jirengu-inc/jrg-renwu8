@@ -6,6 +6,7 @@
 	<style>
 		.wrap{
 			width: 1300px;
+			height: 4200px;
 			margin: 0 auto;
 		}
 		.img{
@@ -27,7 +28,7 @@
 		<img data-src="http://attachments.gfan.com/forum/201503/12/221810f6deicbfcnx7i2us.jpg" alt="" class="img">
 		<img data-src="http://file.mumayi.com/forum/201401/16/193238lbf9rcv2p9ff2fzl.jpg" alt="" class="img">
 		<img data-src="http://file.mumayi.com/forum/201401/17/052730ic2hinkov251izvh.jpg" alt="" class="img">
-		<img data-src="http://file.mumayi.com/forum/201401/17/045108a4hyy7yxp1gzcgyp.jpg" alt="" class="img">
+		<img data-src="http://file.mumayi.com/forum/201401/17/052730ic2hinkov251izvh.jpg" alt="" class="img">
 	</div>
 	<script>
 		function lazyLoad(p){
@@ -35,32 +36,29 @@
 			this.init();
 			this.check();
 		}
-
 		lazyLoad.prototype = {
 			init:function(){
-
+				this.p.querySelectorAll('img').forEach(function(img){
+					img.setAttribute('show', 'N');
+				})
 			},
-
-
 			check:function(){
 				var _this = this;
 				window.onscroll=function(){
 					_this.showPic();
 				}
 			},
-
-
 			showPic:function(){
-				this.p.querySelectorAll('img').forEach(function(img, index, arr){
-
-					if( img.offsetTop <= window.scrollY ){
-						console.log(img.getAttribute('data-src'))
+				var _this = this;
+				this.p.querySelectorAll('img').forEach(function(img, index){
+					if( (img.offsetTop - window.innerHeight ) <= window.scrollY && img.getAttribute('data-src')!= null && img.getAttribute('show') == 'N'){
+						console.log(img.getAttribute('show'));
 						img.src = img.getAttribute('data-src');
+						img.setAttribute('show', 'Y');
 					}
 				})
 			},
 		}
-
 		new lazyLoad(document.querySelectorAll('.wrap')[0]);
 	</script>
 </body>
