@@ -1,0 +1,670 @@
+
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2017-02-21 14:56:39
+ * @version $Id$
+ */
+*
+{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    text-decoration: none;
+}
+.clearfix:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+header .slider
+{
+    position: relative;
+    top: -30px;
+}
+header .slider .warp
+{
+    position: relative;
+
+    overflow: hidden;
+    /*            width: 1349px;
+            height: 661px;*/
+}
+header .slider .warp .Sliderimg-ct
+{
+    /*            width:10792px;
+            height: 100%;*/
+    position: absolute;
+}
+header .slider .Sliderimg-ct > li
+{
+    float: left;
+
+    cursor: pointer;
+    /*            width: 1349px;
+            height: 100%;*/
+}
+header .slider .warp .Sliderimg-ct > li > img
+{
+    /*            width: 1349px;
+            height: 100%;*/
+}
+header .slider .btn-ct
+{
+    position: absolute;
+    top: 50%;
+
+    width: 100%;
+}
+header .slider .btn-ct .btn
+{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+
+    width: 50px;
+    height: 50px;
+    margin: 0 20px;
+
+    cursor: pointer;
+    -webkit-transition: all .4s;
+            transition: all .4s;
+    text-align: center;
+
+    color: #fff;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.5);
+}
+header .slider .btn-ct .btn:hover
+{
+    background-color: rgba(0,0,0,1);
+}
+header .slider .btn-ct .pre-btn
+{
+    float: left;
+}
+header .slider .btn-ct .next-btn
+{
+    float: right;
+}
+header .slider .smallimg-ct
+{
+    position: absolute;
+    top: 83%;
+    left: 22%;
+}
+header .slider .smallimg-ct > li
+{
+    display: inline-block;
+
+    width: 100px;
+    height: 100px;
+    margin: 0 10px;
+
+    cursor: pointer;
+    -webkit-transition: all .4s;
+            transition: all .4s;
+
+    opacity: .6;
+}
+header .slider .smallimg-ct > li:hover
+{
+    opacity: 1;
+}
+header .slider .smallimg-ct .border-ct
+{
+    position: absolute;
+    z-index: 90;
+    left: 0;
+
+    width: 94px;
+    height: 94px;
+    margin: 0 10px;
+
+    border: 5px solid #00b38a;
+    border-radius: 5px;
+}
+header .slider .smallimg-ct .active
+{
+    opacity: 1;
+}
+header .slider .smallimg-ct > li > img
+{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+}
+nav
+{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background-color: rgba(0,0,0,.6);
+}
+nav ul .avatar
+{
+    float: left;
+
+    width: 50px;
+    height: 50px;
+    margin-top: 4px;
+    margin-left: 100px;
+
+    cursor: pointer;
+    -webkit-transition: all .4s;
+            transition: all .4s;
+
+    opacity: .8;
+    border-radius: 10px;
+    background-image: url('../kobeHtml/img/kobe头像.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+nav ul .avatar:hover
+{
+    opacity: 1;
+}
+nav ul > li
+{
+    font-family: 'YouYuan',sans-serif;
+    font-size: 20px;
+    line-height: 50px;
+
+    float: right;
+
+    margin: 0 60px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+
+    color: rgba(255,255,255,.8);
+}
+nav ul > li:hover
+{
+    color: rgba(255,255,255,1) ;
+}
+main .honor-ct
+{
+    margin: 50px 0;
+}
+
+main .honor-ct > h1
+{
+    font-family: 'YouYuan',sans-serif;
+
+    margin: 10px 0;
+
+    text-align: center;
+}
+
+main .honor-ct .honor
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+main .honor-ct .honor > li
+{
+    width: 300px;
+    margin: 20px;
+
+    -webkit-transition: all .4s;
+            transition: all .4s;
+
+    box-shadow: 8px 9px 20px #043a32;
+}
+main .honor-ct .honor > li:hover
+{
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+}
+main .honor-ct .honor > li > img
+{
+    width: 300px;
+    height: 200px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+
+    border-radius: 5px;
+}
+main .honor-ct .honor > li > h3
+{
+    font-family: 'YouYuan',sans-serif;
+
+    margin: 10px 0;
+
+    text-align: center;
+}
+main .honor-ct .honor > li > p
+{
+    font-family: '微软雅黑',sans-serif;
+    font-weight: 500;
+
+    margin: 10px 0;
+
+    text-align: center;
+}
+main .highlight .word-warp
+{
+    text-align: center;
+}
+main .highlight .word-warp > h1,
+.word-warp > p
+{
+    font-family: 'YouYuan',sans-serif;
+
+    margin: 10px 0 ;
+}
+main .highlight .content-warp
+{
+    position: relative;
+
+    width: 1230px;
+    margin: auto;
+
+    box-shadow: 15px 10px 42px #043a32;
+}
+main .highlight .content-warp > li
+{
+    position: absolute;
+
+    width: 400px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+    -webkit-transition: all .4s;
+            transition: all .4s;
+
+    border-radius: 5px;
+}
+main .highlight .content-warp > li > img
+{
+    width: 100%;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+
+    opacity: .8;
+    border-radius: 5px;
+}
+main .highlight .content-warp > li > img:hover
+{
+    opacity: 1;
+}
+main .highlight .content-warp > li > h4
+{
+    font-family: 'YouYuan',sans-serif;
+
+    text-align: center;
+}
+main .highlight .load-more
+{
+    font-family: 'YouYuan',sans-serif;
+    line-height: 50px;
+
+    position: relative;
+    left: 50%;
+
+    display: inline-block;
+
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: -50px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+    text-align: center;
+
+    border-radius: 5px;
+    background-color: #3879d9;
+}
+main .highlight .load-more:hover
+{
+    background-color: #b4c3d4;
+}
+main .history
+{
+    position: relative;
+
+    margin-top: 150px;
+
+    background-color: aliceblue;
+}
+main .history .history-text > h2
+{
+    font-family: 'YouYuan',sans-serif;
+
+    margin: 10px;
+
+    text-align: center;
+}
+main .history .history-text > p
+{
+    font-family: 'YouYuan',sans-serif;
+    font-size: 18px;
+
+    text-align: center;
+}
+main .history .timeline
+{
+    width: 900px;
+    margin: auto;
+}
+main .history .timeline:before
+{
+    position: absolute;
+    z-index: 1;
+    top: 120px;
+    left: 50%;
+
+    display: block;
+
+    width: 2px;
+    height: 1450px;
+
+    content: '';
+
+    background-color: #dfe2de;
+}
+main .history .timeline > li > .timeline-img
+{
+    position: relative;
+    z-index: 2;
+
+    box-sizing: border-box;
+    width: 170px;
+    height: 170px;
+    margin: 30px auto;
+
+    -webkit-transition: all .3s;
+            transition: all .3s;
+
+    border: 10px solid #dfe2de;
+    border-radius: 100% ;
+}
+main .history .timeline > li > .timeline-img:hover
+{
+    box-shadow: 6px -3px 11px;
+}
+main .history .timeline > li > .timeline-img > img
+{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 100%;
+}
+main .history .timeline > li > .timeline-text
+{
+    position: relative;
+    top: 30px;
+
+    width: 350px;
+
+    -webkit-transition: all .3s;
+            transition: all .3s;
+    text-align: center;
+}
+main .history .timeline > li > .timeline-text:hover
+{
+    box-shadow: 6px -3px 11px;
+}
+main .history .timeline > li > .timeline-text > h3
+{
+    font-family: '微软雅黑';
+}
+main .history .timeline > li > .timeline-text > p
+{
+    font-family: '微软雅黑';
+}
+main .history .timeline > li:nth-of-type(2n) > .timeline-text
+{
+    float: right;
+}
+main .history .timeline > li:nth-of-type(2n+1) > .timeline-text
+{
+    float: left;
+}
+main .teammate
+{
+    margin-top: 200px;
+
+    text-align: center;
+
+    background-color: ivory;
+}
+main .teammate > h1
+{
+    font-family: 'YouYuan',sans-serif;
+
+    margin: 20px;
+    padding: 20px;
+}
+main .teammate > p
+{
+    font-family: 'YouYuan',sans-serif;
+    font-weight: 600;
+}
+main .teammate > li .text > h3
+{
+    font-family: 'YouYuan',sans-serif;
+
+    margin: 20px;
+    margin: 10px;
+}
+main .teammate > li .text > p
+{
+    font-family: 'YouYuan',sans-serif;
+    font-weight: 600;
+
+    margin: 10px;
+}
+main .teammate > li
+{
+    display: inline-block;
+
+    width: 250px;
+    margin: 50px 80px;
+
+    -webkit-transition: all .3s;
+            transition: all .3s;
+}
+main .teammate > li:hover
+{
+    box-shadow: 6px -3px 11px;
+}
+main .teammate > li > img
+{
+    width: 250px;
+    height: 250px;
+
+    border-radius: 100%;
+}
+main .teammate > li .icon > i
+{
+    font-size: 30px;
+
+    margin: 20px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+
+    color: grey;
+}
+main .teammate > li .icon > i:hover
+{
+    color: aqua;
+}
+main .sponsor
+{
+    display: inline-block;
+
+    text-align: center;
+}
+main .sponsor > img
+{
+    width: 24%;
+    height: 200px;
+
+    cursor: pointer;
+}
+.link
+{
+    width: 100%;
+    height: 550px;
+
+    text-align: center;
+
+    background-image: url('../kobeHtml/img/kobeB.jpg');
+    background-repeat: no-repeat ;
+    background-size: 100% 100%;
+}
+.link > h1
+{
+    font-family: 'YouYuan',sans-serif;
+
+    padding: 30px;
+
+    color: #fff;
+}
+.link > p
+{
+    font-family: 'YouYuan',sans-serif;
+    font-size: 20px;
+
+    margin-bottom: 50px;
+
+    color: #fff;
+}
+.link .message
+{
+    position: relative;
+
+    width: 1200px;
+    margin: auto;
+}
+.link .message .small
+{
+    font-size: 20px;
+
+    display: block;
+
+    width: 550px;
+    height: 20px;
+    padding: 10px;
+
+    border-radius: 5px;
+}
+.link .message .small:nth-of-type(2)
+{
+    margin: 60px 0 ;
+}
+.link .message .big
+{
+    font-size: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 550px;
+    height: 230px;
+    padding: 15px;
+
+    border-radius: 5px;
+}
+.link .btn
+{
+    line-height: 30px;
+
+    display: inline-block;
+
+    width: 100px;
+    height: 30px;
+    margin-top: 50px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+
+    border-radius: 5px;
+    background-color: cadetblue;
+}
+.link .btn:hover
+{
+    background-color: darkorange;
+}
+footer
+{
+    text-align: center;
+}
+footer > p
+{
+    float: left;
+
+    margin: 30px;
+}
+footer .icon
+{
+    display: inline-block;
+
+    margin: 30px;
+
+    text-align: center;
+}
+footer .icon > i
+{
+    font-size: 30px;
+
+    margin: 0 30px;
+
+    cursor: pointer;
+    -webkit-transition: all .3s;
+            transition: all .3s;
+}
+footer .icon > i:hover
+{
+    color: aqua;
+}
+footer > a
+{
+    float: right;
+
+    margin: 30px;
+}
+.goTop
+{
+    font-size: 50px;
+    font-weight: bold;
+
+    position: fixed;
+    top: 80%;
+    right: .5%;
+
+    display: none;
+
+    cursor: pointer;
+
+    color: darkorange;
+}
