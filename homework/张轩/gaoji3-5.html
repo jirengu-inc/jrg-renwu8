@@ -182,15 +182,15 @@ var Dialog = (function(){
 })();
 
 $('#open1').on('click',function(){
-	Dialog.open('hello,这里是互联网的世界')
+	Dialog.open('12345')
 });
 $('#open2').on('click',function(){
-	Dialog.open('<a href="//home.jscode.me/c/tasks">饥人谷</a>');
+	Dialog.open('<a href="//home.jscode.me/c/tasks">上山打老虎</a>');
 });
 $('#open3').on('click',function(){
 	Dialog.open({
-		title:'欢迎来到互联网的世界',
-		message:'welcome to the world of IT!',
+		title:'老虎没打着',
+		message:'the tiger is miss the attack',
 		isShowCloseBtn:true,
 		isShowConfirmBtn:true,
 		onClose:function(){
@@ -205,7 +205,7 @@ $('#open3').on('click',function(){
 var tpl = '<ul><li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li></ul>';
 $('#open4').on('click',function(){
 	Dialog.open({
-		title:'欢迎来到互联网的世界',
+		title:'打了一只小松鼠',
 		message:tpl,
 		isShowCloseBtn:true,
 		isShowConfirmBtn:true,
@@ -219,8 +219,8 @@ $('#open4').on('click',function(){
 });
 $('#open5').on('click',function(){
 	Dialog.open({
-		title:'欢迎来到饥人谷',
-		message:'hello',
+		title:'再见！',
+		message:'bye！',
 		isShowCloseBtn:false,
 		isShowConfirmBtn:false,
 		onClose:function(){
