@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input demo</title>
+    <style type="text/css">
+        body{
+            background-color: peachpuff;
+            width:1000px;
+            margin: 0 auto;
+        }
+        .ct{
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            }
+        .circle-border,.circle,.semicircle{
+            width:160px;
+            height:160px;
+            background-color: #009926;
+        }
+        .circle-border{
+            border-radius: 20px;
+        }
+        .circle{
+            border-radius: 80px;
+        }
+        .semicircle{
+            width: 160px;
+            height: 80px;
+            border-radius: 80px 80px 0 0 ;
+            align-self: center;
+        }
+        .shadow1,.shadow2,.shadow3,.shadow4{
+            width:160px;
+            height:160px;
+            background-color: #009926;
+        }
+        .shadow1{
+            box-shadow: 2px 0px 14px 3px #276131;
+        }
+        .shadow2{
+            box-shadow: inset 3px -2px 10px 6px peachpuff;
+        }
+        .shadow3{
+            box-shadow: -2px 3px 26px 8px #676823;;
+        }
+        .big,.small,.translate,.rotate{
+            width:160px;
+            height:160px;
+            background: green;
+            transition: all 1s;
+        }
+        .big:hover{
+            transform: scale(1.2);
+        }
+        .small:hover{
+            transform: scale(0.8);
+        }
+        .translate:hover{
+            transform: translate(20px,20px);
+        }
+        .rotate:hover{
+            transform: rotate(30deg);
+        }
+        .wrapper{
+            width:160px;
+            height:160px;
+            border:2px dashed ;
+        }
+        .x-axis{
+            width:160px;
+            height:160px;
+            background: green;
+            transform:perspective(600px) rotateX(60deg);
+        }
+        .y-axis{
+            width:160px;
+            height:160px;
+            background: green;
+            transform:perspective(600px) rotateY(60deg);
+        }
+        .z-axis{
+            width:160px;
+            height:160px;
+            background: green;
+            transform:perspective(600px) rotateZ(60deg);
+        }
+        .rainbow{
+           width:100%;
+            flex-grow: 1;
+           height:160px;
+            background: linear-gradient(to right, #FF0000 14.28%, #FFA500 14.28%, #FFA500 28.57%, #FFFF00 28.57%, #FFFF00 42.85%, #008000 42.85%, #008000 57.14%, #0000FF 57.14%, #0000FF 71.42%, #4B0082 71.42%, #4B0082 85.71%, #800880 85.71%, #800880 100%);
+        }
+        .linear-gradient{
+            width:100%;
+            height:200px;
+            background: repeating-linear-gradient( 45deg, white, white 20px, red 20px, red 40px);
+        }
+        .radial-gradient{
+            width:100%;
+            height:200px;
+            background: radial-gradient(circle closest-side at 30% 50%, yellow, green);
+        }
+        .transition{
+            width:160px;
+            height:160px;
+            background: green;
+            transition: all 1s ease;
+        }
+        .transition:hover{
+            border-radius: 20px;
+            background: cornflowerblue;
+        }
+        @keyframes strech{
+            0% {
+                transform: scale(.3);
+                background-color: red;
+                border-radius: 100%;
+            }
+            50% {
+                background-color: orange;
+            }
+            100% {
+                transform: scale(1.5);
+                background-color: green;
+            }
+        }
+        .animation{
+            width:200px;
+            height:200px;
+            background: red;
+            animation: strech 1.5s ease-out 0s infinite alternate ;
+        }
+    </style>
+</head>
+<body>
+    <h2>圆角，圆形，半圆</h2>
+    <div class="ct">
+        <div class="circle-border"></div>
+        <div class="circle"></div>
+        <div class="semicircle"></div>
+    </div>
+    <h2>div 阴影</h2>
+    <div class="ct">
+            <div class="shadow1"></div>
+            <div class="shadow2"></div>
+            <div class="shadow3"></div>
+        </div>
+    <h2>2D 转换：放大、缩小、偏移、旋转(鼠标放上去查看效果)</h2>
+    <div class="ct">
+        <div class="big"></div>
+        <div class="small"></div>
+        <div class="translate"></div>
+        <div class="rotate"></div>
+    </div>
+    <h2>3D 转换：移动、旋转</h2>
+    <div class="ct">
+        <div class="wrapper">
+            <div class="x-axis"></div>
+        </div>
+        <div class="wrapper">
+            <div class="y-axis"></div>
+        </div>
+        <div class="wrapper">
+            <div class="z-axis"></div>
+        </div>
+    </div>
+    <h2>背景色渐变</h2>
+    <div class="ct">
+        <div class="rainbow"></div>
+    </div>
+    <div class="ct">
+        <div class="linear-gradient"></div>
+    </div>
+    <div class="ct">
+        <div class="radial-gradient"></div>
+    </div>
+    </div>
+    <h2>过渡效果(鼠标放上去查看效果)</h2>
+    <div class="ct">
+        <div class="transition">
+        </div>
+    </div>
+    <h2>动画</h2>
+    <div class="ct">
+        <div class="animation">
+
+        </div>
+    </div>
+</body>
+</html>

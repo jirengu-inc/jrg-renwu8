@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body,html{
+            height:100%;
+            margin: 0;
+            padding: 0;
+        }
+        .ct{
+            height:100%;
+            background: url(http://i1.piimg.com/567571/d3d93cde57b81dda.jpg) center no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .ct:before{
+            display: block;
+            content: "";
+            width: 50%;
+            height:100%;
+            position: absolute;
+            left:0;
+            background: linear-gradient(to right ,rgba(255,0,0,0.1),rgba(255,0,0,0.4));
+        }
+        .ct:after{
+            display: block;
+            content:"";
+            width: 50%;
+            height:100%;
+            position: absolute;
+            right:0;
+            background: linear-gradient(to right ,rgba(0,255,0,0.1),rgba(0,255,0,0.4));
+        }
+    </style>
+</head>
+<body>
+    <div class="ct"></div>
+</body>
+</html>
