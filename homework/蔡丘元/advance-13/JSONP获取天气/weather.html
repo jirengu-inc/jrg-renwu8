@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>获取天气</title>
+</head>
+
+<body>
+    <div class="ct">
+        <p id="show_panel"></p>
+        <button id="btn">获取当前城市</button>
+    </div>
+    <script>
+    $('#btn').addEventListener('click', function() {
+        var script = document.createElement('script');
+        script.src = 'http://api.jirengu.com/weather.php?callback=getCity';
+        document.head.appendChild(script);
+        document.head.removeChild(script);
+    })
+
+    function getCity(city) {
+        console.log(city.results[0]['weather_data']);
+        $('#show_panel').innerHTML = '您所在的城市 ' + city.results[0].currentCity + ' 今天的天气是 ' + city.results[0]['weather_data'][0].weather;
+    }
+
+    function $(id) {
+        return document.querySelector(id);
+    }
+    </script>
+</body>
+
+</html>

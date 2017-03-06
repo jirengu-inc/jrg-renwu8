@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用降域方法</title>
+	<style>
+		.ct:after{
+			content:"";
+			display:block;
+			clear:both;
+		}
+		.main{
+			float:left;
+			width:450px;
+			height:600px;
+			border:1px dotted #ccc;
+		}
+		iframe{
+			width:450px;
+			height:600px;
+			border:1px dotted #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="ct">
+		<h1>使用降域方法</h1>
+		<div class="main">
+			<input type="text" placeholder="http://a.jrg.com:8080/a.html">
+		</div>
+		<iframe src="http://b.jrg.com:8080/b.html" frameborder="0"></iframe>
+	</div>
+	<script>
+		document.querySelector('input').addEventListener('input',function(){
+			window.frames[0].document.querySelector('input').value = this.value;
+		})
+		document.domain = 'jrg.com';
+	</script>
+</body>
+</html>

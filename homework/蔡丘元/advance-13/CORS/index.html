@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>server-mock使用说明</title>
+    <style>
+    .container {
+        width: 900px;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="news">
+            <li>媒体：为什么这家企业能连续走出三位中央委员苹果再出安全事故</li>
+            <li>iPhone 6 Plus充电时爆炸</li>
+            <li>日美成功研制新型拦截导弹：围着中国建隔离墙</li>
+        </ul>
+        <button class="change">换一组</button>
+    </div>
+    <script>
+    $('.change').addEventListener('click', function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://b.jrg.com:8080/getNews', true);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                appendHtml(JSON.parse(xhr.responseText));
+            }
+        }
+
+
+
+    })
+    function appendHtml(news) {
+        var html = '';
+        for (var i = 0; i < news.length; i++) {
+            html += '<li>' + news[i] + '</li>';
+        }
+        $('.news').innerHTML = html;
+    }
+
+    function $(id) {
+        return document.querySelector(id);
+    }
+    </script>
+</body>
+
+</html>

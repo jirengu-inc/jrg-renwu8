@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>面向对象懒加载</title>
+	<style>
+		.wrap{
+			width: 1600px;
+			height: 1000px;
+			margin: 0 auto;
+		}
+		.img{
+			width: 700px;
+			margin:5px 5px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" data= 'aev' id='wrap'>
+		<img src="http://img2.niutuku.com/desk/1207/1407/bizhi-1407-94880.jpg" alt="" class="img">
+		<img src="http://file.mumayi.com/forum/201401/17/052015x9egj9vuo5eggt7u.jpg" alt="" class="img">
+		<img src="http://e.hiphotos.baidu.com/zhidao/pic/item/1b4c510fd9f9d72adcefb7e9d52a2834359bbbbf.jpg" alt="" class="img">
+		<img src="http://file.mumayi.com/forum/201401/16/191521jcjippzirac2aacr.jpg" alt="" class="img">
+		<img src="http://bbs.static.coloros.com/data/attachment/forum/201412/12/231850omj5osricsopcs55.jpg" alt="" class="img">
+		<img src="http://file.mumayi.com/forum/201401/16/172014d2mw3wet9ih2ietr.jpg" alt="" class="img">
+		<img data-src="http://image.tianjimedia.com/uploadImages/2011/293/88RNV8D9DG0P.jpg" alt="" class="img">
+		<img data-src="http://img.article.pchome.net/00/43/89/51/pic_lib/wm/kuanping076.jpg" alt="" class="img">
+		<img data-src="http://attachments.gfan.com/forum/201503/12/221810f6deicbfcnx7i2us.jpg" alt="" class="img">
+		<img data-src="http://file.mumayi.com/forum/201401/16/193238lbf9rcv2p9ff2fzl.jpg" alt="" class="img">
+		<img data-src="http://file.mumayi.com/forum/201401/17/052730ic2hinkov251izvh.jpg" alt="" class="img">
+		<img data-src="http://file.mumayi.com/forum/201401/17/052730ic2hinkov251izvh.jpg" alt="" class="img">
+	</div>
+	<script>
+		function lazyLoad(p){
+			this.p = p;
+			this.init();
+			this.check();
+		}
+		lazyLoad.prototype = {
+			init:function(){
+				this.p.querySelectorAll('img').forEach(function(img){
+					img.setAttribute('show', 'N');
+				})
+			},
+			check:function(){
+				var _this = this;
+				window.onscroll=function(){
+					_this.showPic();
+				}
+			},
+			showPic:function(){
+				var _this = this;
+				this.p.querySelectorAll('img').forEach(function(img, index){
+					if( (img.offsetTop - window.innerHeight ) <= window.scrollY && img.getAttribute('data-src')!= null && img.getAttribute('show') == 'N'){
+						img.src = img.getAttribute('data-src');
+						img.setAttribute('show', 'Y');
+					}
+				})
+			},
+		}
+		new lazyLoad(document.querySelectorAll('.wrap')[0]);
+	</script>
+</body>
+</html>
