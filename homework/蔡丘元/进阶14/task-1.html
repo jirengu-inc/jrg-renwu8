@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task-1</title>
+    <style>
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .list_bar span:first-of-type {
+        float: left;
+    }
+    
+    .list_bar span:last-of-type {
+        float: right;
+    }
+    
+    .list_bar {
+        position: relative;
+        width: 200px;
+        padding: 10px;
+        background: #c7171e;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .list_bar .second_list {
+        position: absolute;
+        display: none;
+        top: 0px;
+        width: 202px;
+        right: -202px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        color: #000;
+    }
+    
+    .list_bar .second_list li {
+        float: left;
+        width: 100px;
+        padding: 10px 0;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .list_bar .second_list.active {
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="nav-bar">
+        <ul>
+            <li class="list_bar clearfix">
+                <span>珠宝玉器</span>
+                <span>></span>
+                <ul class="second_list clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>宝石</li>
+                    <li>水晶</li>
+                    <li>玛瑙</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+            <li class="list_bar clearfix">
+                <span>珠宝玉器</span>
+                <span>></span>
+                <ul class="second_list clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>宝石</li>
+                    <li>水晶</li>
+                </ul>
+            </li>
+            <li class="list_bar clearfix">
+                <span>珠宝玉器</span>
+                <span>></span>
+                <ul class="second_list clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>宝石</li>
+                    <li>水晶</li>
+                    <li>玛瑙</li>
+                </ul>
+            </li>
+            <li class="list_bar clearfix">
+                <span>珠宝玉器</span>
+                <span>></span>
+                <ul class="second_list clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>宝石</li>
+                    <li>水晶</li>
+                </ul>
+            </li>
+            <li class="list_bar clearfix">
+                <span>珠宝玉器</span>
+                <span>></span>
+                <ul class="second_list clearfix">
+                    <li>翡翠</li>
+                    <li>玉石</li>
+                    <li>宝石</li>
+                    <li>水晶</li>
+                    <li>玛瑙</li>
+                    <li>珍珠</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $('.list_bar').on('mouseover', function() {
+            $(this).find('.second_list').addClass('active');
+            $(this).siblings().find('.second_list').removeClass('active');
+            $(this).find('.second_list li').on('click', function() {
+                $(this).parent('.second_list').removeClass('active');
+            })
+        })
+
+    })
+    </script>
+</body>
+
+</html>
