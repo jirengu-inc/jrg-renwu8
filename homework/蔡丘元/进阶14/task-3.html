@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task-3</title>
+    <style>
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .tab_card {
+        width: 600px;
+        margin: 0 auto;
+    }
+    
+    .tab_list ul {
+        margin-left: -30px;
+    }
+    
+    .tab_list li {
+        position: relative;
+        float: left;
+        width: 180px;
+        text-align: center;
+        margin-left: 30px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    
+    .tab_list .cover {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .3);
+    }
+    
+    a.btn {
+        display: block;
+        border: 1px solid #fe0000;
+        width: 80px;
+        line-height: 40px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        margin-top: -21px;
+        margin-left: -40px;
+        color: #fe0000;
+        background: #fff;
+        border-radius: 5px;
+    }
+    
+    .list_1.active .cover {
+        display: block;
+    }
+    
+    a.btn_1 {
+        display: block;
+        border: 1px solid #fe0000;
+        width: 80px;
+        line-height: 40px;
+        color: #fe0000;
+        background: #fff;
+        border-radius: 5px;
+        text-align: center;
+    }
+    
+    .tab_list li p {
+        text-align: left;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="tab_card">
+        <div class="tab_btn">
+            <h1>珠宝首饰</h1>
+        </div>
+        <div class="tab_list">
+            <ul class="list clearfix">
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/02.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/01.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+                <li class="list_1">
+                    <div class="cover">
+                        <a href="javascript:;" class="btn">立即购买</a>
+                    </div>
+                    <img src="img/02.jpg" alt="">
+                    <p>藏美千足金和田玉金镶玉路路通吊坠</p>
+                    <p>&#65509;1699.00</p>
+                </li>
+            </ul>
+            <a href="javascript:;" class="btn_1">添加</a>
+        </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(function() {
+        var products = [{
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手 猴哥款',
+            price: '￥405.00'
+        }, {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金转运珠 猴哥款',
+            price: '￥100.00'
+        }, {
+            img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+            name: '珂兰 黄金手链 3D猴哥款',
+            price: '￥45.00'
+        }];
+
+        function appendHTML(obj) {
+            var html = '';
+            html += '<li class="list_1">';
+            html += '<div class="cover"><a href="javascript:;" class="btn">立即购买</a></div>';
+            html += '<img src="' + obj.img + '">';
+            html += '<p>' + obj.name + '</p>';
+            html += '<p>' + obj.price + '</p>';
+            html += '</li>';
+            return html;
+        }
+        $('.btn_1').on('click', function() {
+            $.each(products, function(idx, obj) {
+                var html = appendHTML(obj);
+                $('.list').append(html);
+            })
+        })
+        $('.list').on('mouseenter', '.list_1', function(e) {
+            $(this).addClass('active');
+        })
+        $('.list').on('mouseleave', '.list_1', function(e) {
+            $(this).removeClass('active');
+        })
+    })
+    </script>
+</body>
+
+</html>
