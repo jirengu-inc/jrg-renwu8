@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div class="wrap">
+        <ul class="nav clearfix">
+            <li>选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+        </ul>
+    </div>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+     $('.nav').children().each(function(idx, node){
+        
+        let $node = $(node)
+        //$.data(node, 'data-1' ,$node.text() + '底层方法') //data存储数据
+        $.data(node, 'data-1', {
+            name: 'jrg',
+            other: '底层方法'
+        })
+        //$.data(node)
+        console.log($.data(node,'data-1').other) //获取数据
+
+        //$node.data('data-2', $node.text() + 'jquery对象方法'); //data储存数据
+        $node.data({
+            'data-2': $node.text() + 'jquery对象方法'
+        })
+        //$node.data()
+        console.log($node.data()['data-2']) //获取数据
+     })
+      
+  </script>
+ 
+</body>
+</html>
+    
