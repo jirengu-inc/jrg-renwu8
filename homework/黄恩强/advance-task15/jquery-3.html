@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ 
+</head>
+<body>
+
+
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        var userA = {
+            name: 'hqqq'
+        }
+        var userB = {
+            sex: 'woman',
+            age: 20,
+            other: 'web',
+            obj: {
+                workA: 100,
+                workB: 200
+            }
+        }
+        function getSet(obj) {
+            let defalut = {
+                name: 'user',
+                sex: 'man',
+                age: 18
+            }
+            let user =  $.extend(true, {}, defalut, obj)
+            return user;
+        }
+        var A = getSet(userA)
+        var B = getSet(userB)
+        console.log(A,B)
+
+
+
+
+        var fnObj = {
+            fnObj: function(){
+               return $(document.body).html()
+            }
+        }
+        $.fn.extend(fnObj)
+        console.log($.fn.fnObj())
+    </script>
+</body>
+</html>
+    
