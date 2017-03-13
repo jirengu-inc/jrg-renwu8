@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-mock-data</title>
+    <style>
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .ajax-module {
+            text-align: center;
+        }
+        
+        .ajax-module li {
+            border: 1px solid #fe0000;
+            padding: 20px 5px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        .ajax-module li:hover {
+            background: green;
+            cursor: pointer;
+        }
+        
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ajax-module">
+        <ul>
+            <li>内容1</li>
+            <li>内容2</li>
+        </ul>
+        <button class="btn">加载更多</button>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var currentIndex = $('.ajax-module li').length;
+        console.log(currentIndex);
+        $('.btn').on('click', function () {
+            currentIndex = $('.ajax-module li').length;
+            $.get('/getInfo', {
+                currentIndex: currentIndex
+            }).done(function (ret) {
+                if (ret.status === 0) {
+                    appendHTML(ret.data);
+                } else {
+                    alert('没有加载到数据')
+                }
+            }).fail(function () {
+                alert('加载错误');
+            })
+        })
+
+        function appendHTML(ret) {
+            var html = '';
+            $.each(ret, function () {
+                html += '<li>' + this + '</li>';
+            })
+            $('.ajax-module ul').append(html);
+        }
+    </script>
+</body>
+
+</html>

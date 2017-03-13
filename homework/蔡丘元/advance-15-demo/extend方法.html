@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>$.extend()方法demo</title>
+</head>
+<body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    var obj_1 = {
+        name: '若愚',
+        age: 18,
+        friends: {
+            name: '方方',
+            age: 20,
+            sex: 'female'
+        }
+    }
+    var obj_2 = {
+        name: '方方',
+        age: 20,
+        friends: {
+            name: '若愚',
+            sex: 'male'
+        }
+    }
+
+    //浅拷贝
+    var obj_3 = $.extend({}, obj_1);
+    console.log(obj_3);
+    obj_3 = $.extend({}, obj_1, obj_2);
+    console.log(obj_3);
+    //迭代拷贝
+    obj_3 = $.extend(true, {}, obj_1, obj_2);
+    console.log(obj_3);
+
+</script>
+</body>
+</html>

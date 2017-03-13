@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>data()函数的用法</title>
+    <style>
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap_list">
+    <ul>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+        <li class="list-item"></li>
+    </ul>
+    <ul id="data-item">
+        我是饥人谷的
+        <span></span>
+        今年芳龄
+        <span></span>
+    </ul>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    var $listItem = $('.list-item');
+    $listItem.data('name', '若愚');
+    $listItem.each(function (idx, obj) {
+        $(this).html($listItem.data('name'));
+    })
+    $('#data-item').data('info', {
+        name: '方方',
+        age: 20
+    })
+    $('#data-item span:first').text($('#data-item').data('info').name);
+    $('#data-item span:last').text($('#data-item').data('info').age);
+</script>
+</body>
+</html>

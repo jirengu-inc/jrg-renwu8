@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 1200px;
+        }
+        
+        #btn {
+            display: block;
+            width: 200px;
+            background: #fff;
+            line-height: 200px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+        
+        #H-cal-line {
+            position: fixed;
+            top: 50px;
+            right: 200px;
+        }
+        
+        #box-1 {
+            width: 200px;
+            height: 100px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        #box-2 {
+            margin-bottom: 10px;
+        }
+        
+        .active {
+            border: 1px solid #122dcc;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">变色</button>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $("#btn").on('click', function () {
+            $(this).css({ 'backgroundColor': 'red' });
+            setTimeout(function () { $('#btn').css({ 'backgroundColor': 'blue' }) }, 500);
+        })
+    </script>
+
+    <p id="H-cal-line">滚动条的垂直高度是: <span id="H-cal"></span></p>
+    <script>
+        $(window).scroll(function () {
+            $('#H-cal').text($(window).scrollTop() + 'px');
+        })
+    </script>
+
+    <div id="box-1">鼠标移入红色，移出白色</div>
+    <script>
+        $('#box-1').on('mouseenter', function () {
+            $(this).css('background', 'red');
+        })
+        $('#box-1').on('mouseleave', function () {
+            $(this).css('background', 'white');
+        })
+    </script>
+
+    <div id="box-2"><input type="text" id="text-input" placeholder="输入的英文字母变大写"></div>
+    <script>
+        $('#box-2').focusin(function () {
+            var $input = $(this).find('input');
+            $input.addClass('active');
+        })
+
+        $('#box-2').focusout(function () {
+            var $input = $(this).find('input');
+            $input.removeClass('active');
+        })
+
+        $('#box-2 input').keyup(function () {
+            var upperText = $(this).val().toUpperCase();
+            $(this).val(upperText);
+            console.log(upperText);
+        })
+    </script>
+
+    <div id="box-3">
+        <select name="" id="fruit-list">
+        <option value="apple">苹果</option>
+        <option value="banana">香蕉</option>
+        <option value="orange">桔子</option>
+        <option value="potato">土豆</option>
+        <option value="watermelon">西瓜</option>
+        <option value="lemon">柠檬</option>
+    </select>
+        <p id="choose-preview"></p>
+    </div>
+    <script>
+        $('#box-3 select').on('change', function () {
+            $('#choose-preview').html('你喜欢的水果是' + '<b>' + $(this).find('option:selected').text() + '</b>')
+        })
+    </script>
+</body>
+
+</html>
