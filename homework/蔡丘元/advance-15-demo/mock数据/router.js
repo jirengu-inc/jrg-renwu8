@@ -15,9 +15,7 @@ app.get('/getInfo', function (req, res) {
 		arr.push('内容' + i);
 	}
 	res.send({
-		status : 0,
-		data : arr
+		status: 0,
+		data: arr
 	});
 });
-
-

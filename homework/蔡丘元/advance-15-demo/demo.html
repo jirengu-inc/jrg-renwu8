@@ -49,10 +49,20 @@
     <button id="btn">变色</button>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+        
         $("#btn").on('click', function () {
-            $(this).css({ 'backgroundColor': 'red' });
-            setTimeout(function () { $('#btn').css({ 'backgroundColor': 'blue' }) }, 500);
+            $(this).css({
+                'backgroundColor': 'red'
+            });
+            setTimeout(function () {
+                $('#btn').css({
+                    'backgroundColor': 'blue'
+                })
+            }, 500);
+
+
         })
+       
     </script>
 
     <p id="H-cal-line">滚动条的垂直高度是: <span id="H-cal"></span></p>
