@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>fade_carousel</title>
+    <style>
+        html,
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        #carousel {
+            position: relative;
+            width: 480px;
+            height: 360px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .img-wrapper li {
+            position: absolute;
+            display: none;
+        }
+        
+        .btn {
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 25px;
+            background: rgba(0, 0, 0, .2);
+            color: #eee;
+            transform: translateY(-50%);
+            top: 50%;
+        }
+        
+        .btn.pre-btn {
+            left: 10px;
+        }
+        
+        .btn.next-btn {
+            right: 10px;
+        }
+        
+        .dot-ct {
+            position: absolute;
+            left: 0;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0;
+        }
+        
+        .dot-ct li {
+            display: inline-block;
+            width: 40px;
+            height: 10px;
+            background: rgba(0, 0, 0, .3);
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .dot-ct li.on {
+            background: rgba(238, 238, 238, .5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel">
+        <ul class="img-wrapper clearfix">
+            <li data-index=0><img src="img/1.jpg" alt="1.jpg"></li>
+            <li data-index=1><img src="img/2.jpg" alt="2.jpg"></li>
+            <li data-index=2><img src="img/3.jpg" alt="3.jpg"></li>
+            <li data-index=3><img src="img/4.jpg" alt="4.jpg"></li>
+        </ul>
+        <a href="javascript:;" class="btn pre-btn">&lt;</a>
+        <a href="javascript:;" class="btn next-btn">&gt;</a>
+        <div class="dot-ct">
+            <ul class="c-dot">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script>
+        // $(function () {
+        var $imgCt = $('.img-wrapper'),
+            $pre_btn = $('.pre-btn'),
+            $next_btn = $('.next-btn'),
+            $dot_ct = $('.dot-ct');
+        var imgLength = $imgCt.find('img').length;
+        var currentIndex = 0;
+        //设定动画锁
+        var isAnimated = false;
+        //设置自动播放
+        var autoplay;
+
+
+
+        playTo(0);
+        auto();
+
+        $pre_btn.on('click', function () {
+            playTo((currentIndex + imgLength - 1) % imgLength);
+        });
+        $next_btn.on('click', function () {
+            playTo((currentIndex + 1) % imgLength);
+        });
+        $dot_ct.find('li').each(function () {
+            $(this).on('click', function () {
+                currentIndex = $(this).index();
+                $imgCt.find('li').eq(currentIndex).fadeIn().siblings().fadeOut();
+                dotOn(currentIndex);
+            })
+        })
+        $('#carousel').hover(function () {
+            clearInterval(autoplay);
+        }, function () {
+            auto();
+        })
+
+        //自动播放
+        function auto() {
+            autoplay = setInterval(function () {
+                playTo((currentIndex + 1) % imgLength);
+            }, 2000)
+        }
+
+
+        function playTo(idx) {
+            if (isAnimated) return;
+            isAnimated = true;
+            $imgCt.find('li').eq(currentIndex).fadeOut(500);
+            $imgCt.find('li').eq(idx).fadeIn(500, function () {
+                isAnimated = false;
+            })
+            currentIndex = idx;
+            dotOn(idx);
+        }
+
+        //小图标滚动
+        function dotOn(n) {
+            $dot_ct.find('li').removeClass('on').eq(n).addClass('on');
+        }
+        // })
+    </script>
+
+</body>
+
+</html>
