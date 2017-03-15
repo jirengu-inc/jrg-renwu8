@@ -67,9 +67,10 @@
                 data = res.data,
                 length = res.data.length,
                 htmls = ''
-
-                if(status !== 200 && length !== 0){
-                    return
+                if(status !== 200 | length == 0){
+                    console.log('函数终生')
+                    return;
+                    
                 }
                 
                 $.each(data, function(idx, val){
