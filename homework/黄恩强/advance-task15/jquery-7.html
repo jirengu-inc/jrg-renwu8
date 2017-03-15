@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .btn {
+            width: 80px;
+            height: 30px;
+            border: 1px solid black;
+        }
+        .flixed{
+            position: fixed;
+            width:50px;
+            height: 50px;
+            border: 1px solid red;
+            top: 70px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flixed"></div>
+    <div class="btn"></div>
+    <input type="text" class="ipt">
+    <select name="select">
+        <option value="value1">Value 1</option> 
+        <option value="value2" selected>Value 2</option>
+        <option value="value3">Value 3</option>
+    </select>
+    <span></span>
+    <div style='height: 2000px'></div>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script>
+        // 当点击btn时，让btn 的背景色变为红色再变为蓝色
+        $('.btn').on('click', function () {
+            let $this = $(this)
+            $this.css('background', 'red')
+            setTimeout(function () {
+                $this.css('background', 'blue')
+            }, 500)
+        })
+        // 当窗口滚动时，获取垂直滚动距离
+        // setInterval(function () {
+        //     console.log($('.flixed').text($(window).scrollTop()))
+        // }, 0)
+ 
+        $(function(){
+            setInterval(function(){
+                console.log(
+                    $('.flixed').text($(window).scrollTop())
+                )
+            },0)
+            
+        })
+
+        // 当鼠标放置到div上，把div 背景色改为红色，移出鼠标背景色变为白色
+        $('.btn').hover(function () {
+            $(this).css('background', 'red')
+        }, function () {
+            $(this).css('background', '')
+        })
+
+        /* 
+        当鼠标激活 input 输入框时让输入框边框变为蓝色，
+        当输入框内容改变时把输入框里的文字小写变为大写，
+        当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+        */
+        $('.ipt').on('focusin', function () {
+            let $this = $(this)
+            $this.css('borderColor', 'blue')
+        })
+
+        $('.ipt').on('keydown', function () {
+            let $this = $(this)
+            setTimeout(function () {
+                let $upStr = $this.val().toUpperCase()
+                $this.val($upStr)
+            }, 500)
+        })
+        $('.ipt').on('focusout', function () {
+            let $this = $(this)
+            let $val = $this.val()
+            $this.css('borderColor', '')
+            if ($val !== '') {
+                console.log($val)
+            }
+
+        })
+        // 当选择 select 后，获取用户选择的内容
+        $('select').change(function () {
+            $('span').text($(this).val())
+        })
+    </script>
+
+</body>
+
+</html>

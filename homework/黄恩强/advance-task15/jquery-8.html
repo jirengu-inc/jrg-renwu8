@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,body,ul,li,div{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none
+        }
+        .ct{
+            text-align: center;
+        }
+        .list{
+            margin-bottom: 20px;
+        }
+        .list > li{
+            text-align: left;
+            font-size: 18px;
+            font-family: '微软雅黑';
+            border: 1px solid  gainsboro;
+            padding: 10px 6px;
+            margin: 8px;
+        }
+        .list > li:hover{
+            background-color: green;
+            color: white;
+        }
+        .loadBtn{
+            color: orangered;
+            border: 1px solid orangered;
+            border-radius: 5px;
+            text-decoration: none;
+            padding: 8px 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <ul class="list">
+            <li>内容1</li>
+            <li>内容2</li>
+        </ul>
+        <a href="#" class='loadBtn'>加载更多</a>
+    </div>
+    
+    <div class="result"></div>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script>
+        $('.loadBtn').on('click', function(e){
+            e.preventDefault();
+            $.ajax({
+                url: 'http://rap.taobao.org/mockjsdata/15115/task15.getData?',
+                method: 'get',
+            }).done(function (res) {
+                console.log(res)
+                appendHtml(res)
+            }).fail(function(){
+                alert('获取失败')
+            })
+        })
+        function appendHtml(res){
+            let status = res.status,
+                data = res.data,
+                length = res.data.length,
+                htmls = ''
+
+                if(status !== 200 && length !== 0){
+                    return
+                }
+                
+                $.each(data, function(idx, val){
+                    console.log(idx + ' ' + val)
+                    htmls += '<li>' + val + '</li>'
+                })
+                
+                $('.list').append(htmls);
+                
+        }
+    </script>
+
+</body>
+
+</html>

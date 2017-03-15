@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .ct {
+            /*height: 100px*/
+        }
+
+        .active {
+            background: yellowgreen;
+        }
+        .ct .nav{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            padding: 10px;
+            margin: 10px
+        }
+        button{
+            margin: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ct">
+        <ul class="nav">
+            <li class="item">select1</li>
+            <li class="item">select2</li>
+            <li class="panel">select3</li>
+        </ul>
+    </div>
+
+    <button class="addClass">添加Class</button>
+    <button class="removeClass">删除class</button>
+    <button class="hide">隐藏元素</button>
+    <button class="show">显示元素</button>
+    <button class="setAttr">设置id、src、title</button>
+    <button class="getAttr">获取id、src、title</button>
+    <button class="setDataAttr">设置自定义属性</button>
+    <button class="getDataAttr">获取自定义属性</button>
+    <button class="prepend">开头插入元素$node</button>
+    <button class="append">末尾插入元素$node</button>
+    <button class="removeNode">删除元素节点</button>
+    <button class="emptyCt">清空Ct内容</button>
+    <button class="setHtml">设置HTML内容</button>
+    <button class="setWH-1">设置不包含内边距宽高</button>
+    <button class="setWH-2">设置包含内边距宽高</button>
+    <button class="setWH-3">设置包含边框宽高</button>
+    <button class="getWH">获取宽高</button>
+    <button class="getLoca">获取元素相对根节点距离</button>
+    <button class="setStyle">设置元素样式</button>
+    <button class="eachNode">遍历节点</button>
+    <button class="findNode">查找.item子元素</button>
+    <button class="childrenNode">查找所有子元素</button>
+    <button class="parentNode">查找元素父亲节点</button>
+    <button class="nodelength">元素长度</button>
+
+    <div  style='height: 2000px'></div>
+    <div class="log"></div>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+        var $node = $('.nav')
+        // - 给元素 $node 添加 class active，给元素 $noed 删除 class active
+        $('.addClass').on('click', function () {
+            //$($node).attr('class', 'active') 
+            $node.addClass('active')
+        })
+        $('.removeClass').on('click', function () {
+            // $node.attr('class', '')
+            $node.removeClass('active')
+        })
+
+        // - 展示元素$node, 隐藏元素$node
+        $('.hide').on('click', function () {
+            // $node.css('display', 'none')
+            $node.hide()
+        })
+        $('.show').on('click', function () {
+            // $node.css('display', '')
+            $node.show()
+        })
+        // - 获取元素$node 的 属性: id、src、title， 修改以上属性
+        $('.getAttr').on('click', function () {
+            console.log(
+                $node.attr('id'),
+                $node.attr('src'),
+                $node.attr('title')
+            )
+        })
+        $('.setAttr').on('click', function () {
+            $node.attr({
+                id: 'nodeId',
+                src: 'www.baidu.com',
+                title: 'nodeTitle'
+            })
+        })
+        // - 给$node 添加自定义属性data-src
+        $('.setDataAttr').on('click', function () {
+            $node.attr('datasrc-a', 'www.google.com.cn')
+            $node.data('datasrc-b', 'http://wwww.google.com.cn')
+        })
+        $('.getDataAttr').on('click', function () {
+            console.log(
+                $node.attr('datasrc-a'),
+                $node.data()
+            )
+        })
+        // - 在$ct 内部最开头添加元素$node
+        $('.prepend').on('click', function () {
+            let $tmp = $node.clone()
+            $tmp.find('li').text('select0')
+            $('.ct').prepend($tmp)
+        })
+        // - 在$ct 内部最末尾添加元素$node
+        $('.append').on('click', function(){
+            let $tmp = $node.clone()
+            $tmp.find('li').text('select3')
+            $('.ct').append($tmp)
+        })
+        // - 删除$node
+        $('.removeNode').on('click', function(){
+            $node.remove()
+        })
+        // - 把$ct里内容清空
+        $('.emptyCt').on('click', function(){
+            $('.ct').empty()
+        })
+        // - 在$ct 里设置 html <div class="btn"></div>
+        $('.setHtml').on('click', function(){
+            $('.ct').html("<div class='btn'></div>")
+        })
+        // - 获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)
+        $('.getWH').on('click', function(){
+            console.log(
+                '不包括内边距 ' + $node.width() + ' ' + $node.height(), 
+                '包括内边距 ' + $node.innerWidth() + ' ' + $node.innerHeight(),
+                '包括边框 ' + $node.outerWidth() + ' ' + $node.outerHeight(),
+                '包括外边距 ' + $node.outerWidth(true) + ' ' + $node.outerHeight(true) 
+            )
+        })
+        //设置不包含内边距
+        $('.setWH-1').on('click', function(){
+            $node.width(200)
+            $node.height(200)
+        })
+        //设置包含内边距
+        $('.setWH-2').on('click', function(){
+            $node.innerWidth(200)
+            $node.innerHeight(200)
+        })
+        //设置包含边框
+        $('.setWH-3').on('click', function(){
+            $node.outerWidth(200)
+            $node.outerHeight(200)
+        })
+        // - 获取窗口滚动条垂直滚动距离
+        $(window).scroll(function(){
+            console.log(this.scrollY, $(window).scrollTop())
+        })
+        // - 获取$node 到根节点水平、垂直偏移距离
+        $('.getLoca').on('click', function(){
+            console.log(
+                $node.offset().top,
+                $node.offset().left
+            )
+        })
+        // - 修改$node 的样式，字体颜色设置红色，字体大小设置14px
+        $('.setStyle').on('click', function(){
+            $node.css({
+                'color': 'red',
+                'font-size': '14px'
+            })
+        })
+        // - 遍历节点，把每个节点里面的文本内容重复一遍
+        $('.eachNode').on('click', function(){
+            $node.children().each(function(){
+                let $this = $(this)
+                let $text = $this.text()
+                $this.text($text + $text)
+            })
+        })
+        // - 从$ct 里查找 class 为 .item的子元素
+        $('.findNode').on('click', function(){
+            console.log(
+                $('.ct').find('.item'),
+                $('.ct').children().children('.item')
+            )
+        })
+        // - 获取$ct 里面的所有孩子
+        $('.childrenNode').on('click', function(){
+            console.log(
+                $('.ct').children()
+            )
+        })
+        // - 对于$node，向上找到 class 为'.ct'的父亲，在从该父亲找到'.panel'的孩子
+        $('.parentNode').on('click', function(){
+            console.log(
+                $node.parent().find('.panel')
+            )
+        })
+        //   - 获取选择元素的数量
+        $('.nodelength').on('click', function(){
+            console.log(
+                $node.children().length,
+            )
+        })
+        // - 获取当前元素在兄弟中的排行
+        $node.on('click', 'li', function(){
+            console.log(
+                $(this).index()
+            )
+        })     
+
+    </script>
+
+</body>
+
+</html>
