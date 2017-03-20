@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        #container {
+            position: relative;
+        }
+        
+        .item {
+            position: absolute;
+            width: 200px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 1s;
+        }
+        
+        .h1 {
+            height: 200px;
+            background: #fe0000;
+        }
+        
+        .h2 {
+            height: 300px;
+            background: blue;
+        }
+        
+        .h3 {
+            height: 400px;
+            background: green;
+        }
+        
+        .h4 {
+            height: 500px;
+            background: slategray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="item h1">1</div>
+        <div class="item h2">2</div>
+        <div class="item h1">3</div>
+        <div class="item h4">4</div>
+        <div class="item h3">5</div>
+        <div class="item h2">6</div>
+        <div class="item h4">7</div>
+        <div class="item h1">8</div>
+        <div class="item h3">9</div>
+        <div class="item h2">10</div>
+        <div class="item h4">11</div>
+        <div class="item h1">12</div>
+        <div class="item h3">13</div>
+        <div class="item h2">14</div>
+        <div class="item h1">15</div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        var waterFall = (function () {
+            function init() {
+                waterFall();
+                $(window).resize(waterFall)
+            }
+
+            function waterFall() {
+                //  计算当前窗口排列列数
+                var $ctWidth = $('#container').width(),
+                    $listWidth = $('.item').width(),
+                    $colLength = Math.floor($ctWidth / $listWidth);
+                // 初始化数组
+                var itemArr = [];
+                for (var i = 0; i < $colLength; i++) {
+                    itemArr.push(0);
+                }
+                $('.item').each(function () {
+                    //找数组中高度的最小值
+                    var minValue = Math.min.apply(null, itemArr),
+                        minIndex = itemArr.indexOf(minValue); //找到最小值的索引
+
+                    $(this).css({
+                        left: $(this).outerWidth(true) * minIndex,
+                        top: itemArr[minIndex]
+                    })
+                    itemArr[minIndex] += $(this).outerHeight(true);
+                })
+            }
+            return {
+                wf: init
+            };
+        })();
+        waterFall.wf();
+    </script>
+</body>
+
+</html>
