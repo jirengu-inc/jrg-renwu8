@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car对象</title>
+</head>
+
+<body>
+    <script>
+        function Car(name, color, status) {
+            this.name = name;
+            this.color = color;
+            this.status = status;
+        }
+        Car.prototype.run = function () {
+            if (this.status === 1) {
+                console.log(this.name + ' ' + this.color + ' is running');
+            }
+
+        }
+        Car.prototype.stop = function () {
+            if (this.status === 0) {
+                console.log(this.name + ' ' + this.color + 'is stop')
+            }
+        }
+        Car.prototype.getStatus = function () {
+            console.log(this.status);
+        }
+        var benz = new Car('benz', 'red', 1);
+        benz.getStatus();
+        benz.run();
+
+        var audi = new Car('audi','blue',0);
+        audi.getStatus();
+        audi.stop();
+        
+    </script>
+</body>
+
+</html>

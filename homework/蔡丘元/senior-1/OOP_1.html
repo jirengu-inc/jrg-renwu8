@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 2000px;
+            background: seagreen;
+        }
+        
+        .ct {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid #fe0000;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            color: #fff;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+        /*
+         * 1. `ct`属性，GoTop 对应的 DOM 元素的容器 
+         * 2. `target`属性， GoTop 对应的 DOM 元素 
+         * 3. `bindEvent` 方法， 用于绑定事件 
+         * 4. `createNode` 方法， 用于在容器内创建节点
+         */
+
+        /*
+         * 两个参数, 1个是DOM容器，1个是对象的DOM元素
+         */
+
+        function GoTop($ct, $target) {
+            this.ct = $ct;
+            this.target = $target;
+
+        }
+        GoTop.prototype.bindEvent = function () {
+            this.target.on('click', function () {
+                $('html,body').animate({
+                    'scrollTop': 0
+                })
+            })
+        }
+        GoTop.prototype.createNode = function () {
+            var ct = this.ct,
+                $div = this.target,
+                scrollHeight = 600;
+            $div.text('回到顶部');
+            ct.append($div);
+            $('body').append(ct);
+            $(window).on('scroll', function () {
+                if ($(this).scrollTop() > scrollHeight) {
+                    ct.show();
+                } else {
+                    ct.hide();
+                }
+            })
+
+        }
+        var $ct = $('<div class="ct"></div>')
+        var $target = $('<div></div>')
+        var gotop = new GoTop($ct, $target);
+        gotop.createNode();
+        gotop.bindEvent();
+    </script>
+</body>
+
+</html>
