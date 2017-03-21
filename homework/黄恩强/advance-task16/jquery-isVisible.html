@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        div,
+        p {
+            margin: 0;
+            padding: 0
+        }
+        
+        div {
+            border: 1px solid darkred;
+            height: 300px;
+            margin: 50px
+        }
+        
+        p {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: black;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <p>当前窗口元素div:</p>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+
+    <script src='./js/jquery-3.1.1.min.js'></script>
+    <script>
+        checkNode()
+
+        function isVisible($node) {
+            /*
+                获取窗口高度
+                获取滚动距离
+                获取元素距离窗口顶部距离
+                获取元素高度
+            */
+            let $windowHeight = $(window).outerHeight()
+            let $scrollTop = $(window).scrollTop()
+            let $offsetNode = $node.offset().top
+            let $nodeHeight = $node.outerHeight()
+
+            let log = $.trim(`判断元素出现窗口范围: ${$windowHeight + $scrollTop} > ${$offsetNode}\n判断元素脱离窗口范围: ${$scrollTop} < ${$offsetNode + $nodeHeight}`)
+            //判断元素是否出现在窗口范围
+            if ($windowHeight + $scrollTop > $offsetNode && $scrollTop < $offsetNode + $nodeHeight) {
+                //  console.log(`${log}\ntrue`)
+                return true
+            } else {
+                //  console.log(`${log}\nfalse`)
+                return false
+            }
+        }
+
+        function markNode(node) {
+
+        }
+
+        //判断当前窗口显示的元素
+        function checkNode() {
+            var $p = $('p')
+            $('div').not('.active').each((idx, node) => {
+                let $node = $(node)
+                let check = isVisible($node)
+                if (check) {
+                    $node.addClass('active')
+                    console.log(`${$node.html()}: 窗口范围内`)
+                    $p.append(`<sapn> ${$node.text()}</span`)
+                }
+
+            })
+
+            $('div').filter('.active').each((idx, node) => {
+                let $node = $(node)
+                let check = isVisible($node)
+                if (!check) {
+                    $node.removeClass('active')
+                    console.log(`${$node.html()}: 窗口范围外`)
+                    console.log($p.children().eq(0).remove())
+
+                }
+            })
+            var $scrollBefore = $(window).scrollTop()
+            setTimeout(() => {
+                var $scrollAfter = $(window).scrollTop()
+                if ($scrollBefore < $scrollAfter) {
+                    console.log($p.children().first().remove())
+                } else {
+                    console.log($p.children().last().remove())
+                }
+            }, 500)
+
+        }
+
+        $(window).on('scroll', checkNode)
+    </script>
+</body>
+
+</html>

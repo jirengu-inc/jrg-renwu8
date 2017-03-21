@@ -48,6 +48,7 @@
 
     <script src='./js/jquery-3.1.1.min.js'></script>
     <script>
+        //初始化
         checkNode()
 
         function isVisible($node) {
@@ -74,9 +75,11 @@
         }
 
 
-
+        // 当窗口滚动时，判断一个元素是不是出现在窗口可视范围。每次出现都在控制台打印 true
         //判断当前窗口显示的元素
         function checkNode() {
+
+            
             $('div').not('.active').each((idx, node) => {
                 let $node = $(node)
                 let check = isVisible($node)
