@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Carousel</title>
+    <style>
+        html,
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .carousel {
+            position: relative;
+            width: 480px;
+            height: 360px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+
+        .img-wrapper {
+            position: absolute;
+            width: 1920px;
+        }
+
+        .img-wrapper li {
+            float: left;
+            font-size: 0;
+        }
+
+        .btn {
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 25px;
+            background: rgba(0, 0, 0, .2);
+            color: #eee;
+            transform: translateY(-50%);
+            top: 50%;
+        }
+
+        .btn.pre-btn {
+            left: 10px;
+        }
+
+        .btn.next-btn {
+            right: 10px;
+        }
+
+        .dot-ct {
+            position: absolute;
+            left: 0;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .dot-ct li {
+            display: inline-block;
+            width: 40px;
+            height: 10px;
+            background: rgba(0, 0, 0, .3);
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .dot-ct li.on {
+            background: rgba(238, 238, 238, .5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <ul class="img-wrapper clearfix">
+            <li data-index=0><img src="img/1.jpg" alt="1.jpg"></li>
+            <li data-index=1><img src="img/2.jpg" alt="2.jpg"></li>
+            <li data-index=2><img src="img/3.jpg" alt="3.jpg"></li>
+            <li data-index=3><img src="img/4.jpg" alt="4.jpg"></li>
+        </ul>
+        <a href="javascript:;" class="btn pre-btn">&lt;</a>
+        <a href="javascript:;" class="btn next-btn">&gt;</a>
+        <div class="dot-ct">
+            <ul class="c-dot">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="carousel">
+        <ul class="img-wrapper clearfix">
+            <li data-index=0><img src="img/1.jpg" alt="1.jpg"></li>
+            <li data-index=1><img src="img/2.jpg" alt="2.jpg"></li>
+            <li data-index=2><img src="img/3.jpg" alt="3.jpg"></li>
+            <li data-index=3><img src="img/4.jpg" alt="4.jpg"></li>
+        </ul>
+        <a href="javascript:;" class="btn pre-btn">&lt;</a>
+        <a href="javascript:;" class="btn next-btn">&gt;</a>
+        <div class="dot-ct">
+            <ul class="c-dot">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script>
+        var Slide = (function () {
+            function Carousel($ct,num) {
+                this.$ct = $ct;
+                this.$imgCt = $ct.find('.img-wrapper');
+                this.$pre_btn = $ct.find('.pre-btn');
+                this.$next_btn = $ct.find('.next-btn');
+                this.dot_ct = $ct.find('.dot-ct');
+                this.firstClone = this.$imgCt.children().last().clone(),
+                this.lastClone = this.$imgCt.children().first().clone();
+                this.imgWidth = this.$imgCt.find('img').width();
+                this.imgLength = this.$imgCt.find('img').length;
+                this.currentIndex = 0;
+                this.isAnimated = false;
+                this.autoplayId = 0 || num;
+                this.autoplayTimeId;
+                this.$imgCt.prepend(this.firstClone);
+                this.$imgCt.append(this.lastClone);
+                this.$imgCt.css('left', '-480px');
+                this.$imgCt.width(this.imgWidth * this.$imgCt.find('li').length);
+                this.bind();
+            }
+            Carousel.prototype.autoplay = function () {
+                var _this = this;
+                if(this.autoplayId === 1){
+                    this.autoplayTimeId = setInterval(function(){_this.playNext()}, 3000);
+                }else{
+                    clearInterval(this.autoplayTimeId);
+                }
+               
+            }
+            Carousel.prototype.playNext = function () {
+                var _this = this;
+                if (this.isAnimated) return;
+                this.isAnimated = true;                
+                this.$imgCt.animate({
+                    left: '-=' + _this.imgWidth + 'px'
+                }, function () {
+                    _this.currentIndex++;
+                    if (_this.currentIndex == _this.imgLength) {
+                        _this.$imgCt.css('left', '-' + _this.imgWidth + 'px');
+                        _this.currentIndex = 0;
+                    }
+                    _this.isAnimated = false;
+                    _this.dotOn(_this.currentIndex);
+                })
+            }
+            Carousel.prototype.playPrev = function () {
+                var _this = this;
+                if (this.isAnimated) return;
+                this.isAnimated = true;
+                this.$imgCt.animate({
+                    left: '+=' + _this.imgWidth + 'px'
+                }, function () {
+                    _this.currentIndex--;
+                    if (_this.currentIndex < 0) {
+                        _this.$imgCt.css('left', '-' + _this.imgWidth * _this.imgLength + 'px');
+                        _this.currentIndex = _this.imgLength - 1;
+                    }
+                    _this.isAnimated = false;
+                    _this.dotOn(_this.currentIndex);
+                })
+            }
+            Carousel.prototype.dotOn = function (n) {
+                this.dot_ct.find('li').removeClass('on').eq(n).addClass('on');
+            }
+
+
+            Carousel.prototype.bind = function () {
+                var _this = this;
+                this.autoplay();
+                this.$pre_btn.on('click', function () {
+                    _this.playPrev()
+                });
+                this.$next_btn.on('click', function () {
+                    _this.playNext()
+                });
+                this.$ct.hover(function () {
+                    clearInterval(_this.autoplayTimeId);
+                }, function () {
+                    _this.autoplayTimeId = setInterval(function(){_this.playNext()}, 3000);
+                })
+            }
+
+
+            return {                
+                init: function ($node,num) {
+                    var _num = num;
+                    $node.each(function (idx, node) {
+                        new Carousel($(node),_num);
+                    })
+
+                }
+            }
+        })()
+
+        Slide.init($('.carousel'),0)
+
+        
+    </script>
+
+</body>
+
+</html>

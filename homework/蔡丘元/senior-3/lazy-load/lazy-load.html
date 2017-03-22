@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>lazyImg-load</title>
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .lazy-load-img {
+            width: 990px;
+            margin: 0 auto;
+        }
+
+        .img-wrapper {
+            margin-left: -30px;
+        }
+
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .img-wrapper li {
+            float: left;
+            width: 300px;
+            height: 510px;
+            margin: 0 30px 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lazy-load-img">
+        <ul class="img-wrapper clearfix">
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/1.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/2.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/3.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/4.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/5.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/6.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/7.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/8.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/9.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/10.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/11.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/12.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/13.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/14.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/15.jpg' alt=""></li>
+            <li><img src="http://kejian.jirengu.com/data/fe/%E8%AF%BE%E4%BB%B6/32-%E6%87%92%E5%8A%A0%E8%BD%BD/code/blank.jpg"
+                    data-src='img/15.jpg' alt=""></li>
+
+        </ul>
+        <p id="hello">hello</p>
+    </div>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script>
+        var lazyload = (function () {
+            function Lazy($target, callback) {
+                this.$target = $target;
+                this.callback = callback;
+                this.bind();
+            }
+
+            Lazy.prototype.check = function () {
+                var _this = this;
+                if (this.isVisible()) {
+                    _this.callback(_this.$target);
+                }
+            }
+
+            Lazy.prototype.bind = function () {
+                var _this = this;
+                this.check();
+                $(window).scroll(function () {
+                    _this.check();
+                })
+            }
+
+            Lazy.prototype.isVisible = function () {
+                var windowHeight = $(window).height(),
+                    scrollTop = $(window).scrollTop(),
+                    offsetTop = this.$target.offset().top,
+                    nodeHeight = this.$target.outerHeight(true),
+                    _this = this;
+                if (windowHeight + scrollTop > offsetTop && scrollTop < offsetTop + nodeHeight) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+
+            return {
+                init: function ($target, callback) {
+                    $target.each(function (idx, target) {
+                        new Lazy($(target), callback);
+                    })
+                }
+            }
+        })();
+
+        lazyload.init($('#hello'), function ($node) {
+            $node.text('无法加载更多');
+        })
+        lazyload.init($('.img-wrapper img'), function ($node) {
+            showImg($node);
+        })
+
+        function showImg($node) {
+            var src = $node.attr('data-src');
+            $node.attr('src', src);
+        }
+    </script>
+</body>
+
+</html>
