@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+    <style>
+        #container{
+            width:300px;
+            height:1000px;
+            border:1px solid black;
+            background:green;
+        }
+        .gotop{
+            position:fixed;
+            width:90px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            bordor:1px solid red;
+            background:red;
+            color:white;
+            display: none;
+            bottom:30px;
+            right:30px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+</div>
+</body>
+<script>
+    function GoTop($ct){
+        this.$ct = $ct; //容器
+        this.target = $('<button class="gotop">回到顶部</button>') //DOM元素
+    }
+    GoTop.prototype.createNode = function(){ //绑定滚动顶部事件
+        var $this = this; //防止改变this 目前的this仍然指代GoTop()
+        this.$ct.append(this.target); //添加元素
+        $(window).on('scroll',function(){
+            if($(window).scrollTop()>50){
+                $this.target.show();
+            }else{
+                $this.target.hide();
+            }
+        })
+    }
+    GoTop.prototype.bindEvent = function(){ //回到顶部
+        this.target.on('click',function () {
+            $(window).scrollTop(0);
+        })
+    }
+    var goTop = new GoTop($('#container')); //构造函数
+    goTop.createNode();
+    goTop.bindEvent();
+</script>
+
+</html>
