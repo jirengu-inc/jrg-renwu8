@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        div,
+        p,
+        ul,
+        ol {
+            margin: 0;
+            padding: 0
+        }
+        
+        li {
+            list-style: none
+        }
+        
+        .imgList {
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+        
+        .imgList>li {
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="imgList">
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">1</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">2</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">3</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">4</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">5</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">6</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">7</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">8</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">9</img>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="" alt="imgage">10</img>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src='./js/jquery-3.1.1.min.js'></script>
+    <script>
+        let url = 'http://rap.taobao.org/mockjsdata/15115/jquer5.do'
+        $.get(url, function (response) {
+            if (response.status === 200 && response.data.length) {
+                $.each(response.data, (index, img) => {
+                    $('.imgList > li > a > img').not('.dataSrc').each((index, node) => {
+                        $(node).attr('data-src', img.src).addClass('dataSrc')
+                    })
+                })
+            }
+        })
+
+        checkNode()
+        xxx()
+        var clock
+        $(window).on('scroll', () => {
+            if (clock) {
+                clearTimeout(clock)
+            }
+            clock = setTimeout(() => {
+                checkNode()
+                xxx()
+            }, 300)
+        })
+
+
+
+
+        //判断元素是否出现窗口
+        function isVisible($node) {
+            //获取窗口高度、 获取滚动距离、获取元素距离窗口顶部距离、获取元素高度
+            let $windowHeight = $(window).outerHeight(),
+                $scrollTop = $(window).scrollTop(),
+                $offsetNode = $node.offset().top,
+                $nodeHeight = $node.outerHeight()
+            //判断元素是否出现在窗口范围
+            if ($windowHeight + $scrollTop > $offsetNode && $scrollTop < $offsetNode + $nodeHeight) {
+                return true
+            } else {
+                return false
+            }
+        }
+        //判断元素是否加载过
+        function isLoaded($img) {
+            return $img.attr('src') === $img.attr('data-src')
+        }
+
+        //加载图像
+        function loadImg($img) {
+            $img.attr('src', $img.attr('data-src'))
+        }
+        //
+        function xxx() {
+            $('.imgList > li').each((index, node) => {
+                let $node = $(node),
+                $img = $node.find('img')
+                console.log($node)
+                if ($node.hasClass('active') && !isLoaded($img)) {
+                    loadImg($img)
+                }
+            })
+        }
+
+
+
+        //判断当前窗口显示的元素
+        function checkNode() {
+            $('li').not('.active').each((idx, node) => {
+                let $node = $(node)
+                if (isVisible($node)) {
+                    $node.addClass('active')
+                }
+
+            })
+            $('li').filter('.active').each((idx, node) => {
+                let $node = $(node)
+                if (!isVisible($node)) {
+                    $node.removeClass('active')
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>
