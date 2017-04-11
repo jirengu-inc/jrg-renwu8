@@ -22,26 +22,28 @@
         h6 {
             margin: 0;
             padding: 0;
-            text-align: center;
+            font-size: 14px;
+            font-family: '微软雅黑';
+            color: gray;
         }
         
         li {
             list-style: none;
         }
-        
+        .clearfix:after { 
+            content: '';
+            display: block;
+            clear: both;
+        }
         .newsList .link {
             text-decoration: none;
             display: block;
+            margin: 10px auto;
         }
         
         .newsList {
             margin: 0 auto;
-            width: 800px;
-        }
-        
-        .newsList>li {
-            margin: 20px 20px;
-            overflow: hidden;
+            /*width: 600px;*/
         }
         
         .newsList .image {
@@ -50,15 +52,11 @@
         
         .newsList .title {
             font-size: 18px;
-            font-family: '微软雅黑';
             color: black;
-            margin: 12px 0;
+            margin-left: 120px
         }
-        
-        .newsList .describe {
-            font-size: 14px;
-            font-family: '微软雅黑';
-            color: gray
+        .newsList .describe{
+            margin-left: 120px
         }
     </style>
 </head>
@@ -103,7 +101,7 @@
         }
 
         //初始化获取数据
-        getNews(options)
+         getNews(options)
 
         //监听滚动事件
         var clock
@@ -130,17 +128,19 @@
             isDataOver = false
             let {url, newsOption } = options
 
-            var $xhr = $.get(url, response => {
-                    console.log(response.data.length)
-                    if (response.status === 200 && response.data.length) {
-                        let tagString = createTag(response.data, newsOption)
-                        $newsList.append(tagString)
-
-                    }
-                }).done(() => {
-                    //数据请求完毕解锁
-                    isDataOver = true
-                })
+            $.get(url, response => {
+                console.log(response.data.length)
+                if (response.status === 200 && response.data.length) {
+                    let tagString = createTag(response.data, newsOption)
+                    $newsList.append(tagString)
+                }
+            }).done(() => {
+                //数据请求完毕解锁
+                isDataOver = true
+                setTimeout(() =>{ 
+                    checkLoader($loader)
+                },800)
+            })
         }
 
 
@@ -152,7 +152,7 @@
             $.each(newsData, (index, object) => {
                 tagString += `
                 <li>
-                <a class='link' href=${object[link]}>
+                <a class='link clearfix' href=${object[link]}>
                 <div class='image'>
                 <img src=${object[image]} alt=${object[title]}>
                 </div>
