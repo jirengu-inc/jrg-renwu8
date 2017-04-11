@@ -81,7 +81,7 @@
         <span></span>
     </div>
 
-    <script src='./js/jQuery-3.1.1.min.js'></script>
+    <script src='./js/jquery-3.1.1.min.js'></script>
     <script>
         var $newsList = $('.newsList'),
             $loader = $('.loader'),
@@ -103,10 +103,7 @@
         }
 
         //初始化获取数据
-        setTimeout(() => {
-            getNews(options)
-
-        }, 300)
+        getNews(options)
 
         //监听滚动事件
         var clock
