@@ -62,128 +62,6 @@
         }
     </style>
 </head>
-<<<<<<< HEAD
-
-<body>
-    <div class="container">
-        <ul class="newsList">
-            <!--<li>
-                <a href="">
-                    <img src="" alt="">
-                    <h2></h2>
-                    <p></p>
-                </a>
-            </li>-->
-        </ul>
-    </div>
-    <div class="loader">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-    <script src='./js/jquery-3.1.1.min.js'></script>
-    <script>
-        var $newsList = $('.newsList'),
-            $loader = $('.loader'),
-            $window = $(window),
-            isDataOver = true,
-            loadCount = 0
-
-
-
-        //设置选项
-        let options = {
-            url: 'http://rap.taobao.org/mockjsdata/15115/jquer6.do',
-            newsOption: {
-                image: 'image',
-                title: 'title',
-                describe: 'describe',
-                link: 'link'
-            }
-        }
-
-        //初始化获取数据
-        getNews(options)
-
-        //监听滚动事件
-        var clock
-        $window.on('scroll', () => {
-            if (clock) {
-                clearTimeout()
-            }
-            clock = setTimeout(() => {
-                checkLoader($loader)
-            }, 300)
-        })
-
-        //检查loader元素，是否已经到最底部
-        function checkLoader($node) {
-            if (isVisible($node) && isDataOver) {
-                loadCount++
-                getNews(options)
-            }
-
-        }
-        //请求数据
-        function getNews(options) {
-            //请求数据加锁
-            isDataOver = false
-            let {url, newsOption } = options
-
-            var $xhr = $.get(url, response => {
-                console.log(response.data.length)
-                if (response.status === 200 && response.data.length) {
-                    let tagString = createTag(response.data, newsOption)
-                    $newsList.append(tagString)
-
-                }
-            }).done(() => {
-                //数据请求完毕解锁
-                isDataOver = true
-            })
-        }
-
-
-        //创建标签
-        function createTag(newsData, newsOption) {
-            let tagString = '',
-                {image, title, describe, link} = newsOption
-
-            $.each(newsData, (index, object) => {
-                tagString += `
-                <li>
-                <a class='link' href=${object[link]}>
-                <div class='image'>
-                <img src=${object[image]} alt=${object[title]}>
-                </div>
-                <h2 class='title'>${object[title]}</h2>
-                <p class='describe'>${object[describe]}</p>
-                </a>
-                </li>
-                `
-            })
-
-            return tagString
-
-        }
-        //判断元素是否窗口内
-        function isVisible($node) {
-            //获取窗口高度、 获取滚动距离、获取元素距离窗口顶部距离、获取元素高度
-            let $windowHeight = $(window).outerHeight(),
-                $scrollTop = $(window).scrollTop(),
-                $offsetNode = $node.offset().top,
-                $nodeHeight = $node.outerHeight()
-            //判断元素是否出现在窗口范围
-            if ($windowHeight + $scrollTop > $offsetNode && $scrollTop < $offsetNode + $nodeHeight) {
-                return true
-            } else {
-                return false
-            }
-        }
-    </script>
-
-=======
 
 <body>
     <div class="container">
@@ -304,7 +182,6 @@
         }
     </script>
 
->>>>>>> 0e9852fbc713f9964cb27f9a063cea307c22f691
 </body>
 
 </html>
