@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <style>
+        div,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both
+        }
+        
+        .container {
+            width: 500px;
+            height: 300px;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+        
+        .container .imageContainer {
+            /*width: 2000px;*/
+        }
+        
+        .imageContainer>li {
+            float: left;
+        }
+        .imageContainer > li img{
+            width: 500px;
+            height: 300px;
+        }
+        .button {
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;;
+            background-color: grey;
+            color: white;
+            border-radius: 50%;
+        }
+        
+        .buttonLeft {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%)
+        }
+        
+        .buttonRight {
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%)
+        }
+    </style>
+</head>
+
+<body>
+    <script src='./js/jquery-3.1.1.min.js'></script>
+    <script>
+        $(function () {
+            let $imageContainer = $('.imageContainer'),
+                $buttonLeft = $('.buttonLeft'),
+                $buttonRight = $('.buttonRight'),
+                $pointContainer = $('.pointContainer')
+
+            function carousel() {
+
+                return {
+                    init: () => {
+                        let $firstNode = $imageContainer.find('li').first().clone(),
+                            $lastNode = $imageContainer.find('li').last().clone()
+
+                            $imageContainer.prepend($lastNode);
+                            $imageContainer.append($firstNode);
+
+                            $imageContainer.width($firstNode.width() * $imageContainer.children().length)
+                            
+                            return this
+
+                    },
+                    ButtonPrevious: () => {
+
+
+
+                    },
+                    ButtonNext: () =>{
+
+                    }
+
+                }
+            }
+            let start = new carousel()
+            start.init()
+        })
+    </script>
+    <div class='container'>
+        <ul class="imageContainer clearfix">
+            <li data-index=0>
+                <a href="#"><img src="https://unsplash.it/500/300/?random=0" alt="image"></a>
+            </li>
+            <li  data-index=1>
+                <a href="#"><img src="https://unsplash.it/500/300/?random=1" alt="image"></a>
+            </li>
+            <li  data-index=2>
+                <a href="#"><img src="https://unsplash.it/500/300/?random=2" alt="image"></a>
+            </li>
+            <li  data-index=3>
+                <a href="#"><img src="https://unsplash.it/500/300/?random=3" alt="image"></a>
+            </li>
+        </ul>
+        <a href="#" class="button buttonLeft">&lt;</a>
+        <a href="#" class="button buttonRight">&gt;</a>
+        <div class="pointContainer">
+
+        </div>
+    </div>
+</body>
+
+</html>
