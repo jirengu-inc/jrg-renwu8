@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="login">
+		<form action="/getinfo" method="get">
+		</div>
+		<div class="username">
+		  <label>账号：</label>
+		  <input id="username" type="username" name="username" placeholder="输入账号">
+		</div>
+		<div class="password">
+		  <label>密码：</label>
+		  <input id="password" type="password" name="password" placeholder="输入密码">
+		<div class="sex">
+		  <label>性别：</label>
+		  <input type="radio" name="sex" value="male">男
+		  <input type="radio" name="sex" value="female">女
+		</div>
+		<div class="orientation">
+			<label>取向：</label>
+			<input type="radio" name="orientation" value="male">男
+			<input type="radio" name="orientation" value="female">女
+			<input type="radio" name="orientation" value="bisexual">双性
+		</div>
+		<div class="hobby">
+			<label>爱好：</label>
+			<input type="checkbox" name="hobby" value="DOTA">DOTA
+			<input type="checkbox" name="hobby" value="tourism">旅游
+			<input type="checkbox" name="bobby" value="pet">宠物
+        </div>
+        <div class="comment">
+        	<label for="comment">评论：</label>
+        	<textarea id="comment" name="comment" cols="50" rows="10" placeholder="写下感言，与他人分享"></textarea>
+        </div>
+        <div class="select">
+          <label>我的车：</label>
+           <select name="car">
+            <option value="benz">奔驰</option>
+            <option value="bmw">宝马</option>
+            <option value="byd">比亚迪</option>
+            <input type="submit" value="提交">    	
+        </div>
+		</form>
+    </body>
+</html>
