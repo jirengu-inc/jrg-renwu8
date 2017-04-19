@@ -1,0 +1,17 @@
+
+html {
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+*{margin: 0; padding: 0;}
+*{box-sizing: border-box;}
+*::before{box-sizing: border-box;}
+*::after{box-sizing: border-box;}
+.resumeEditor blockquote{
+  white-space: pre-wrap;
+}
