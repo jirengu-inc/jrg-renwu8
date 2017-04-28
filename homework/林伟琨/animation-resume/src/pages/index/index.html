@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会动的简历</title>
+</head>
+<style>
+  #resume {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+<body>
+    <div>
+        <div id="resume">
+            <pre ref='stylePart' class="styleEditor" v-html='viewCode' ></pre>
+            <div style='display:none;' v-html='hideStyleCode'></div>
+            <pre class="resumeEditor" v-html='introduction'></pre>
+        </div>
+    </div>
+</body>
+</html>
