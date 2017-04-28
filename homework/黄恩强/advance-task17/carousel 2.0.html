@@ -33,7 +33,7 @@
             width: 500px;
             height: 300px;
             position: relative;
-            overflow: hidden;
+            /*overflow: hidden;*/
         }
         
         .container .imageContainer {
@@ -131,106 +131,70 @@
     <script src='./js/jquery-3.1.1.min.js'></script>
     <script>
         // $(() => {
-
-
-        let $container = $('.container'),
-            $imageContainer = $('.imageContainer'),
-            $point = $('.point'),
-            $imageOldLength = $imageContainer.children().length,
-            $imageNewLength,
-            $imageNodeWidth,
-            markIndex = 0,
-            isLock = false
+        var $container = $('.container')
+        var $pointContainer = $('.pointContainer')
+        var isCarousel = new carousel()
+        isCarousel.init()
 
 
         $container.on('click', 'a', e => {
             let $click = $(e.currentTarget)
             if ($click.hasClass('buttonLeft')) {
-                buttonPrevious(1)
+                isCarousel.play(1)
             } else if ($click.hasClass('buttonRight')) {
-                buttonNext(1)
+                isCarousel.buttonNext(1)
             }
 
         })
-        $point.on('click', 'li', e => {
-            let cursorIndex = $(e.currentTarget).index()
-            buttonPoint(cursorIndex)
+        $pointContainer.on('click', 'li', e => {
+            console.log(this)
         })
 
 
 
+        function carousel() {
+            let $imageContainer = $('.imageContainer'),
+                $pointContainer = $('.pointContainer'),
+                $imageOldLength = $imageContainer.children().length,
+                $imageNewLength,
+                $imageWidth,
+                markIndex = 0,
+                isLock = false
 
 
-        function init() {
-            let $firstNode = $imageContainer.find('li').first().clone(),
-                $lastNode = $imageContainer.find('li').last().clone()
+            function init() {
+                let $firstNode = $imageContainer.find('li').first().clone(),
+                    $lastNode = $imageContainer.find('li').last().clone()
 
-            $imageContainer.prepend($lastNode)
-            $imageContainer.append($firstNode)
+                $imageContainer.prepend($lastNode)
+                $imageContainer.append($firstNode)
 
-            $imageNodeWidth = $firstNode.width()
-            $imageNewLength = $imageContainer.children().length
-            $imageContainer.width($imageNodeWidth * $imageNewLength)
-            $imageContainer.css('left', -$imageNodeWidth)
-            return this
-        }
-        function resetMarkIndex() {
-            if (markIndex < 0) {
-                $imageContainer.css('left', -($imageNodeWidth * $imageOldLength))
-                markIndex = $imageOldLength
-            } else if (markIndex > $imageOldLength - 1) {
+                $imageNodeWidth = $firstNode.width()
+                $imageNewLength = $imageContainer.children().length
+                $imageContainer.width($imageWidth * $imageNewLength)
                 $imageContainer.css('left', -$imageNodeWidth)
-                markIndex = 0
+                return this
             }
-            // setPoint()
-            isLock = false
+            function play(index) {
+                //index 1 mark 0
+                if (index === markIndex) return
+                if (isLock) return
+                isLock = ture
+                if (index > markIndex) {
+                    $imageContainer.animate({
+                        'left': '-=' + $imageWidth * index
+                    })
+                }
+            }
+            function autoPlay() {
 
+            }
+            return {
+                init: init,
+                paly: play,
+                autoPlay: autoPlay,
+            }
         }
-        function buttonPoint(cursorIndex) {
-
-            if (cursorIndex === markIndex) return
-            console.log(cursorIndex)
-            //cur 4 mark 0
-            //cur 0 mark 4
-            // if (cursorIndex > markIndex) {
-            //     buttonNext(cursorIndex - markIndex)
-            // } else if (cursorIndex < markIndex) {
-            //     buttonPrevious(markIndex - cursorIndex)
-            // }
-        }
-        function buttonNext(cursorIndex) {
-            if (isLock) return
-            isLock = true
-            $imageContainer.animate({
-                left: '-=' + $imageNodeWidth * cursorIndex
-            }, () => {
-                markIndex++;
-                resetMarkIndex()
-                setPoint( )
-
-            })
-
-        }
-        function buttonPrevious(cursorIndex) {
-            if (isLock) return
-            isLock = true
-            $imageContainer.animate({
-                left: '+=' + $imageNodeWidth * cursorIndex
-            }, () => {
-                markIndex--;
-                resetMarkIndex()
-                setPoint()
-            })
-
-        }
-        function setPoint() {
-            $point.children()
-                .removeClass('active')
-                .eq(markIndex)
-                .addClass('active');
-        }
-
-        init()
 
 
         // })

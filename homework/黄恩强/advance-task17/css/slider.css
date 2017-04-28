@@ -1,0 +1,68 @@
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.sliderContainer{
+    width:500px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;   
+    margin: 0 auto;
+}
+.imageContainer{
+    position: absolute;
+    /*width:2000px;*/
+}
+.imageContainer > li {
+    float: left;
+}
+.imageContainer > li img{
+   min-width: 500px;
+   min-height: 300px;
+}
+.dotContainer{
+    position: absolute;
+    width: 100%;
+    top:85%;
+    text-align: center;
+}
+.dot > li{
+    display: inline-block;
+    margin: 0 3px;
+    width: 20px;
+    height: 6px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 30%;
+}
+.dot > li.active{
+   background-color: rgba(0,0,0,0.8);
+}
+.button{
+    color: rgba(255, 255,255, 0.8);
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size:18px;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+}
+.buttonLeft{
+    left:6px;
+}
+.buttonRight{
+    right:6px;
+}
+.button.active{
+    color: rgba(255,255,255,0.3);
+    background-color:rgba(0,0,0,0.3);
+     border:1px solid rgba(0,0,0,0.3);
+}
+
+.switch{
+    text-align: center
+}
