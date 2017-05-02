@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab切换(基于Jquery)</title>
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .tab-container{
+            padding:0;
+            margin-top:10px;
+        }
+        .tab-container>li{
+            display: none;
+            list-style-type: none;
+        }
+        .tab-container>.tab-show{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="myTab">
+        <ul class="nav nav-tabs tab-header" id="tab-1-nav">
+            <li role="presentation" class="active"><a href="javascript:;">选项一</a></li>
+            <li role="presentation"><a href="javascript:;">选项二</a></li>
+            <li role="presentation"><a href="javascript:;">选项三</a></li>
+        </ul>
+        <ul class="tab-container">
+            <li class="tab-show">夜空中最亮的星</li>
+            <li>能否听清</li>
+            <li>那遥望的人</li>
+        </ul>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+<script>
+    var tab = (function () {
+        function Tab_modular($ct) {
+            this.$ct = $ct;
+            this.init('.tab-header>li', '.tab-container>li');
+            this.switch();
+        }
+        // 找DOM
+        Tab_modular.prototype.init = function ($tablisName, $tabconName) {
+            this.$tablis = this.$ct.find($tablisName);
+            this.$tabCon = this.$ct.find($tabconName);
+        }
+        //切换
+        Tab_modular.prototype.switch = function () {
+            var $tabCon = this.$tabCon;
+            $.each(this.$tablis, function (idx) {
+                $(this).on('click', function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    $tabCon.eq(idx).addClass('tab-show').siblings().removeClass('tab-show');
+                })
+            })
+        }
+        return {
+            render: function ($node) {
+                $node.each(function (idx, node) {
+                    new Tab_modular($(node));
+                })
+            }
+        }
+    })();
+    tab.render($('#myTab'))
+</script>
+
+</html>

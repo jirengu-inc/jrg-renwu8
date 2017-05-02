@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carousel</title>
+    <style>
+        html,
+        body,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-ct {
+            position: relative;
+            width: 500%;
+            height: 300px;
+        }
+
+        .img-ct:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .item {
+            width: 20%;
+            float: left;
+            height: 300px;
+            text-align: center;
+            list-style: none;
+        }
+
+        .item:before {
+            height: 100%;
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .item p {
+            color: white;
+            font-size: 30px;
+            display: inline-block;
+        }
+
+        .item-1 {
+            background-color: yellow;
+        }
+
+        .item-2 {
+            background-color: blue;
+        }
+
+        .item-3 {
+            background-color: red;
+        }
+
+        .bottom-nav {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .bottom-nav:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .bottom-nav li {
+            display: block;
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .bottom-nav .active {
+            background-color: aqua;
+        }
+
+        .bottom-nav li:last-of-type {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner-wrap">
+        <div class="carousel">
+            <!--图片盒子-->
+            <ul class="img-ct">
+                <li class="item item-1">
+                    <p>1</p>
+                </li>
+                <li class="item item-2">
+                    <p>2</p>
+                </li>
+                <li class="item item-3">
+                    <p>3</p>
+                </li>
+            </ul>
+            <!--左右-->
+            <button class="a-left"><</button>
+            <button class="a-right">></button>
+            <!--底部按钮-->
+            <ul class="bottom-nav">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+     <div class="banner-wrap">
+        <div class="carousel">
+            <!--图片盒子-->
+            <ul class="img-ct">
+                <li class="item item-1">
+                    <p>1</p>
+                </li>
+                <li class="item item-2">
+                    <p>2</p>
+                </li>
+                <li class="item item-3">
+                    <p>3</p>
+                </li>
+            </ul>
+            <!--左右-->
+            <button class="a-left"><</button>
+            <button class="a-right">></button>
+            <!--底部按钮-->
+            <ul class="bottom-nav">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    var banner = (function () {
+        function Carousel($ct) {
+            this.$ct = $ct;
+            this.init(); // 初始化
+            this.bind(); //绑定事件
+        }
+        Carousel.prototype = {
+            init: function () {
+                var $imgCt = this.$imgCt = this.$ct.find('.img-ct'), // 图片盒子
+                    $left = this.$left = this.$ct.find('.a-left'), // 左按钮
+                    $right = this.$right = this.$ct.find('.a-right'), // 右按钮
+                    $items = $imgCt.children(), // 每张图片
+                    $bottomNav = this.$bottomNav = this.$ct.find('.bottom-nav') // 底部按钮盒子
+
+
+                this.curPageIndex = 0;
+                this.imgWidth = $items.width();
+                this.imgCount = $items.length;
+                this.isAnimate = false;
+
+                //克隆左右
+                $imgCt.prepend($items.last().clone());
+                $imgCt.append($items.first().clone());
+
+                var newImgWidth = this.imgWidth * $imgCt.children().length;
+                $imgCt.css({
+                    width: newImgWidth,
+                    left: 0 - this.imgWidth
+                })
+
+                this.curIdx = 0;
+                this.isAnimate = false;
+            },
+            bind: function () {
+                var _this = this;
+                //左
+                this.$left.on('click', function (e) {
+                    e.preventDefault();
+                    _this.playPre();
+                })
+                //右
+                this.$right.on('click', function (e) {
+                    e.preventDefault();
+                    _this.playNext();
+                })
+                //底部按钮
+                this.$bottomNav.find('li').on('click', function () {
+                    var idx = $(this).index();
+                    console.log(idx);
+                    if (idx > _this.curIdx) {
+                        _this.playNext(idx - _this.curIdx);
+                    } else if (idx < _this.curIdx) {
+                        _this.playPre(_this.curIdx - idx);
+                    }
+                })
+            },
+            playPre: function (idx) {
+                var _this = this;
+                var idx = idx || 1; // 轮播几张，默认一张
+                console.log('idx:' + idx);
+                if (!this.isAnimate) {
+                    _this.isAnimate = true;
+                    _this.$imgCt.animate({
+                        left: '+=' + (this.imgWidth * idx)
+                    }, function () {
+                        console.log(this);
+                        console.log(_this);
+                        _this.curIdx = (_this.curIdx + _this.imgCount - idx) % _this.imgCount
+                        if (_this.curIdx === _this.imgCount - 1) {
+                            _this.$imgCt.css({
+                                left: 0 - _this.imgWidth * _this.imgCount
+                            })
+                        }
+                        _this.isAnimate = false;
+                        _this.setBottomBtn();
+                    })
+                }
+            },
+            playNext: function (idx) {
+                var _this = this;
+                var idx = idx || 1;
+                console.log('idx:' + idx);
+                if (!this.isAnimate) {
+                    _this.isAnimate = true;
+                    _this.$imgCt.animate({
+                        left: '-=' + (this.imgWidth * idx)
+                    }, function () {
+                        _this.curIdx = (_this.curIdx + idx) % _this.imgCount;
+                        if (_this.curIdx === 0) {
+                            _this.$imgCt.css({
+                                left: 0 - _this.imgWidth
+                            })
+                            _this.curIdx = 0;
+                        }
+                        _this.isAnimate = false;
+                        _this.setBottomBtn();
+                    })
+
+                }
+            },
+
+            setBottomBtn:function(){
+            this.$bottomNav.find('li').removeClass('active').eq(this.curIdx).addClass('active')
+            }
+        }
+
+        return {
+            init: function ($targets) {
+                $targets.each(function (index, node) {
+                    new Carousel($(node));
+                })
+            }
+        }
+    })();
+    banner.init($('.banner-wrap'))
+</script>
+
+</html>
