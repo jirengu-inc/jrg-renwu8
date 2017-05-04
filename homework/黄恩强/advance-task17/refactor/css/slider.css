@@ -1,0 +1,128 @@
+html{
+    height: 100%;
+    background-color: #eee;
+}
+.container{
+    position: relative;
+}
+.container > div {
+   position: relative;
+    overflow: hidden;   
+    margin: 80px auto;
+    top:50;
+    transform: translateY(50%)
+    
+}
+
+
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.sliderParent{
+    position: relative;
+    overflow: hidden;   
+    margin: 0 auto;
+    top:50;
+    transform: translateY(50%)
+}
+.imageParent{
+    position: absolute;
+}
+.imageParent > li {
+    float: left;
+}
+
+/*底部公共样式*/
+.bulletParent{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size:0;
+}
+.bulletParent > a{
+    display: inline-block;
+    margin: 0 0.6%;
+    cursor: pointer;    
+}
+/*底部缩略图样式*/
+.thumbnail{
+    bottom:1px;    
+}
+.bulletParent.thumbnail > a.active{
+    /*border: 1.5px solid gainsboro;*/
+    /*box-shadow: 0 0 0 1px white;*/
+    outline: 1px solid white
+}
+/*底部圆形按钮样式*/
+.dot{
+    top:85%;
+}
+.bulletParent.dot > a{
+    width: 26px;
+    height: 8px;
+    border-radius: 30%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.bulletParent.dot > a.active{
+    transition:  all .3s ease-in .1s;
+   background-color: rgba(0,0,0,0.5);
+}
+
+
+/*公用样式*/
+.buttonParent{
+    text-align: center;
+    /*transition: all 1s ease-in 1s;*/
+}
+.button{
+    position: absolute;
+}
+
+/*圆形按钮样式*/
+.buttonParent.round > .button{
+    top:50%;
+    transform: translateY(-50%);
+    width: 30px;
+    font-size:18px;
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    line-height: 30px;
+    color: rgba(255, 255,255, 0.8);
+    background-color: rgba(255,255,255,0.3);
+}
+.buttonParent.round .buttonLeft{
+    left:2%;
+}
+.buttonParent.round .buttonRight{
+    right:2%
+}
+.buttonParent.round .button.active{
+    background-color:rgba(0,0,0,0.3);
+}
+
+/*方形按钮样式*/
+.buttonParent.square > .button{
+    bottom: 0;
+    width: 12%;
+    font-size:30px;
+    color: white;
+}
+.buttonParent.square > .button > span{
+    position: absolute;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.buttonParent.square .buttonLeft{
+    background: linear-gradient(to right,rgba(0,0,0,0.4), rgba(255,255,253,0.3));
+    left: 0;
+}
+.buttonParent.square .buttonRight{
+     background: linear-gradient(to left,rgba(0,0,0,0.4), rgba(255,255,253,0.3));
+     right: 0;
+}
+.buttonParent.square .button.active{
+    background-color:rgba(0,0,0,0.3);
+}
