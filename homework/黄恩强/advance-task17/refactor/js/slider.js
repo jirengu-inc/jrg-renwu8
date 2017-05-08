@@ -2,40 +2,51 @@ $(function () {
     function xxx(options) {
         //选项
         let xxx = this
-        this.initOptions(options)
+        xxx.initOptions(options)
 
         //html载入
-        this.createImageHtml()
-        this.createButtonHtml()
+        xxx.createImageHtml()
+        xxx.createButtonHtml()
 
         //初始状态
-        this.initImage()
-        this.sliderParent.initPage ? this.initPage() : null
+        xxx.initImage()
+        !xxx.width && !xxx.height ? (
+            xxx.getWidthHeight(),
+            console.log(xxx, 'getWidthHeight')
+        ) : (
+                xxx.initImageState(),
+                console.log(xxx, 'initImageState')
+            );
 
-        //按钮类型
-        this.buttonParent.type == 'round' ? (
-            this.createRoundButton()
-        ) : this.buttonParent.type == 'square' ? (
-            this.createSquareButton()
-        ) : null;
-        //底部按钮类型
-        this.bulletParent.type == 'dot' ? (
-            this.createDotBullet()
-        ) : this.bulletParent.type == 'thumbnail' ? (
-            this.createThumbnailBullet()
-        ) : null;
 
-        this.initBulletState()
+        xxx.a = setTimeout(function () {
+            //初始页码
+            xxx.sliderParent.initPage ? xxx.initPage() : null
 
-        //选项载入
-        this.sliderParent.autoPlay ? this.autoPlay() : null;
-        this.buttonParent.autoDisplay ? this.buttonAutoDisplay() : null;
-        this.bulletParent.autoDisplay ? this.bulletAutoDisplay() : null;
+            //按钮类型
+            xxx.buttonParent.type == 'round' ? (
+                xxx.createRoundButton()
+            ) : xxx.buttonParent.type == 'square' ? (
+                xxx.createSquareButton()
+            ) : null;
+            //底部按钮类型
+            xxx.bulletParent.type == 'dot' ? (
+                xxx.createDotBullet()
+            ) : xxx.bulletParent.type == 'thumbnail' ? (
+                xxx.createThumbnailBullet()
+            ) : null;
+            //初始底部按钮状态
+            xxx.initBulletState()
+            //选项载入
+            xxx.sliderParent.autoPlay ? xxx.autoPlay() : null;
+            xxx.buttonParent.autoDisplay ? xxx.buttonAutoDisplay() : null;
+            xxx.bulletParent.autoDisplay ? xxx.bulletAutoDisplay() : null;
+            ///綁定事件
+            xxx.bulletBindClick()
+            xxx.buttonBindClick()
+            xxx.buttonBindState()
+        }, 500)
 
-        ///綁定事件
-        this.bulletBindClick()
-        this.buttonBindClick()
-        this.buttonBindState()
     }
     xxx.prototype.initOptions = function (options) {
         let xxx = this
@@ -57,6 +68,16 @@ $(function () {
         xxx.isPageIndex = initPage
         initPage > 0 ? initPage : 1
         $imageParent.css('left', -xxx.width * (initPage + 1))
+    }
+    xxx.prototype.getWidthHeight = function () {
+        let xxx = this,
+            $imageParent = xxx.imageParent.node
+        $imageParent.find('img').last().on('load', function (e) {
+            xxx.width = $(this).width()
+            xxx.height = $(this).height()
+            xxx.initImageState()
+        })
+
     }
     xxx.prototype.getData = function () {
         let xxx = this,
@@ -87,7 +108,6 @@ $(function () {
         buttonHtml += `<a data-id='left'href='#' class='button buttonLeft'><span>&lt;</span></a>`
         buttonHtml += `<a data-id='right'href='#' class='button buttonRight'><span>&gt;</span></a>`
         $buttonParent.append(buttonHtml)
-
     }
     xxx.prototype.createRoundButton = function () {
         let xxx = this,
@@ -123,26 +143,31 @@ $(function () {
         })
         $bulletParent.addClass(type)
         xxx.bulletParent.node.append(bulletHtml)
-        xxx.bulletParent.node.find('img').css('width', xxx.width * 0.13).css('height', xxx.height * 0.18)
+        console.log(xxx.width)
+        // xxx.bulletParent.node.find('img').css('width', xxx.width * 0.13).css('height', xxx.height * 0.18)
     }
     xxx.prototype.initImage = function () {
         let xxx = this,
             $imageParent = xxx.imageParent.node,
             $firstNode,
             $lastNode
+        //获取原始长度
         xxx.length = $imageParent.children().length
-        xxx.width = $imageParent.find('img').first().width()
-        xxx.height = $imageParent.find('li').height()
+        //首尾克隆
         $firstNode = $imageParent.find('li').first().clone()
         $lastNode = $imageParent.find('li').last().clone()
-
         $imageParent.prepend($lastNode)
         $imageParent.append($firstNode)
-
+        //获取克隆后长度
         xxx.newLength = $imageParent.children().length
-
-        xxx.sliderParent.node.width(xxx.width)
-        xxx.sliderParent.node.height(xxx.height)
+    }
+    xxx.prototype.initImageState = function () {
+        let xxx = this,
+            $sliderParent = xxx.sliderParent.node,
+            $imageParent = xxx.imageParent.node
+            console.log(xxx.width)
+        $sliderParent.width(xxx.width)
+        $sliderParent.height(xxx.height)
         $imageParent.width(xxx.newLength * xxx.width)
         $imageParent.css('left', -xxx.width)
     }
@@ -306,30 +331,51 @@ $(function () {
 
     var food = [{
         author: '#1',
-        post_url: 'http://lorempixel.com/800/600/food/'
+        post_url: 'http://lorempixel.com/790/340/food/'
     },
     {
         author: '#2',
-        post_url: 'http://lorempixel.com/800/600/food/'
+        post_url: 'http://lorempixel.com/790/340/food/'
     },
     {
         author: '#3',
-        post_url: 'http://lorempixel.com/800/600/food/'
+        post_url: 'http://lorempixel.com/790/340/food/'
     },
     {
         author: '#4',
-        post_url: 'http://lorempixel.com/800/600/food/'
+        post_url: 'http://lorempixel.com/790/340/food/'
     },
     {
         author: '#5',
-        post_url: 'http://lorempixel.com/800/600/food/'
+        post_url: 'http://lorempixel.com/790/340/food/'
     }]
+    var random = [{
+        author: '#1',
+        post_url: 'https://unsplash.it/1280/720/?random=100'
+    },
+    {
+        author: '#2',
+        post_url: 'https://unsplash.it/1280/720/?random=200'
+    },
+    {
+        author: '#3',
+        post_url: 'https://unsplash.it/1280/720/?random=300'
+    },
+    {
+        author: '#4',
+        post_url: 'https://unsplash.it/1280/720/?random=400'
+    },
+    {
+        author: '#5',
+        post_url: 'https://unsplash.it/1280/720/?random=500'
+    }]
+
     new xxx({
         sliderParent: {
             //需要载入元素API
             node: $('.sliderParent'),
             //是否自动播放API
-            autoPlay: false,
+            autoPlay: true,
             // 初始化页码API
             initPage: null
         },
@@ -337,13 +383,13 @@ $(function () {
             // 轮播类型 功能暂未完成
             type: 'roll', //fade
             // 图像数据
-            data: data
+            data: random
         },
         buttonParent: {
             // 两边按钮类型API
             type: 'square', //square round
             // 是否自动显示API
-            autoDisplay: false
+            autoDisplay: true
         },
         bulletParent: {
             // 选择底部显示类型API

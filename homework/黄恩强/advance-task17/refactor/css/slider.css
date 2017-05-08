@@ -1,9 +1,11 @@
 html{
-    height: 100%;
     background-color: #eee;
 }
 .container{
     position: relative;
+}
+.container > div:first-child{
+    transform: translateY(0)
 }
 .container > div {
    position: relative;
@@ -11,9 +13,7 @@ html{
     margin: 80px auto;
     top:50;
     transform: translateY(50%)
-    
 }
-
 
 .clearfix:after{
     content: '';
@@ -42,13 +42,17 @@ html{
     font-size:0;
 }
 .bulletParent > a{
-    display: inline-block;
+    display: inline;
     margin: 0 0.6%;
     cursor: pointer;    
 }
 /*底部缩略图样式*/
 .thumbnail{
     bottom:1px;    
+}
+.bulletParent.thumbnail> a >img{
+    width: 10%;
+    height: 10%
 }
 .bulletParent.thumbnail > a.active{
     /*border: 1.5px solid gainsboro;*/
@@ -105,6 +109,7 @@ html{
 
 /*方形按钮样式*/
 .buttonParent.square > .button{
+    top:0;
     bottom: 0;
     width: 12%;
     font-size:30px;
