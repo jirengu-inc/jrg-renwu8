@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bowiefull</title>
+    <style>
+        html,
+        body,
+        div,
+        img {
+            padding: 0;
+            margin: 0;
+            font-size: 0;
+        }
+        
+        .rowContainer::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .container {
+            margin: 0 auto;
+            width: 1280px;
+        }
+        
+        .rowContainer {
+            outline: 1px solid red;
+            margin-bottom: 8px;
+        }
+        
+        .imgContainer {
+            float: left
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container clearfix">
+
+    </div>
+    <script src='./js/jquery-3.1.1.min.js'></script>
+    <script>
+        function bowiefull($nodeParent) {
+            this.$nodeParent = $nodeParent
+            this.rowArr = []
+            this.loadImage()
+        }
+
+        bowiefull.prototype = {
+            loadImage: function () {
+                let bowiefull = this,
+                    imageUrls = this.getImageUrl(40)
+                $.each(imageUrls, function (index, value) {
+                    let imgNode = new Image()
+                    imgNode.src = value
+                    imgNode.onload = function () {
+                        let imgInfo = {
+                            target: imgNode,
+                            width: 200 * (imgNode.width / imgNode.height),
+                            height: 200
+                        }
+                        bowiefull.render(imgInfo)
+                    }
+                })
+            },
+
+
+            render: function (imgInfo) {
+                let bowiefull = this,
+                    parentWidth = bowiefull.$nodeParent.width(),
+                    rowWidth = 0,
+                    newRowHeight = 0,
+                    lastImgInfo = imgInfo
+
+                bowiefull.rowArr.push(imgInfo)
+                $.each(bowiefull.rowArr, function (index, value) {
+                    rowWidth += value.width
+                })
+                if (rowWidth > parentWidth) {
+                    bowiefull.rowArr.pop()
+                    console.log(parentWidth, lastImgInfo.width, rowWidth)
+                    rowWidth -= lastImgInfo.width
+                    newRowHeight = parentWidth * 200 / rowWidth
+                    bowiefull.createHtml(newRowHeight)
+                    bowiefull.rowArr.length = 0
+                    bowiefull.rowArr.push(lastImgInfo)
+                }
+            },
+
+
+            createHtml: function (newRowHeight) {
+                let bowiefull = this,
+                    $rowContainer = $('<div class="rowContainer"></div>')
+                $.each(bowiefull.rowArr, function (index, value) {
+                    let $imgContainer = $('<div class="imgContainer"></div>'),
+                        $imgNode = $(value.target)
+                    $imgNode.height(newRowHeight)
+                    $imgContainer.append($imgNode)
+                    $rowContainer.append($imgContainer)
+                })
+                bowiefull.$nodeParent.append($rowContainer)
+            },
+
+
+            getImageUrl: function (request) {
+                // http://placehold.it/77x77/1ae5d2/fff
+                const ulrString = 'http://placehold.it/'
+                let color, width, height, urls = []
+                for (let i = 0; i < request; i++) {
+                    color = Math.random().toString(16).substring(2, 8)
+                    width = Math.floor(Math.random() * 200 + 50)
+                    height = Math.floor(Math.random() * 50 + 50)
+                    urls.push(ulrString + width + 'x' + height + '/' + color + '/fff')
+                }
+                return urls;
+            }
+        }
+        new bowiefull($('.container'))
+    </script>
+</body>
+
+</html>

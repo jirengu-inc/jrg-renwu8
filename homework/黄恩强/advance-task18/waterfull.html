@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>waterfull</title>
+    <style>
+        html,
+        body,
+        div {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            position: relative;
+        }
+        
+        .item {
+            position: absolute;
+            width: 190px;
+            margin: 10px 10px 0 0;
+            transition: all 1s;
+        }
+        
+        .h1 {
+            height: 300px;
+            background-color: rosybrown;
+        }
+        
+        .h2 {
+            height: 400px;
+            background-color: aqua;
+        }
+        
+        .h3 {
+            height: 500px;
+            background-color: chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item h1">1</div>
+        <div class="item h3">2</div>
+        <div class="item h2">3</div>
+        <div class="item h2">4</div>
+        <div class="item h1">5</div>
+        <div class="item h2">6</div>
+        <div class="item h3">7</div>
+        <div class="item h1">8</div>
+        <div class="item h1">9</div>
+        <div class="item h3">10</div>
+        <div class="item h3">11</div>
+        <div class="item h2">12</div>
+        <div class="item h1">13</div>
+        <div class="item h2">14</div>
+        <div class="item h3">15</div>
+        <div class="item h3">16</div>
+        <div class="item h1">17</div>
+    </div>
+    <script src='./js/jquery-3.1.1.min.js'></script>
+    <script>
+        waterfull()
+        $(window).resize(function(){
+            waterfull()
+        })
+
+        function waterfull() {
+            //获取一行长度
+            var lineLenght = parseInt($('.container').width() / $('.item').outerWidth(true)),
+                itemArr = []
+            //初始化
+            for (let i = 0; i < lineLenght; i++) {
+                itemArr[i] = 0
+            }
+
+            //
+            $('.item').each(function () {
+                //获取最小数值
+                let minValue = Math.min.apply(null, itemArr),
+                    minIndex = itemArr.indexOf(minValue)
+                $(this).css({
+                    top: itemArr[minIndex],
+                    left: $(this).outerWidth(true) * minIndex
+                })
+
+                itemArr[minIndex] += $(this).outerHeight(true)
+            })
+        }
+    </script>
+</body>
+
+</html>
