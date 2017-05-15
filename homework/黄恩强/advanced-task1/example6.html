@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+        
+        .item {
+            height: 100px;
+            border: 1px solid darkred;
+            margin-bottom: 20px;
+        }
+        
+        .goTop {
+            display: block;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.3)
+        }
+        
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <!--<div class="goTop"></div>-->
+    <script>
+        /* 
+        创建一个 GoTop 对象，当 new 一个 GotTop 对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部
+        1. `ct`属性，GoTop 对应的 DOM 元素的容器 
+        2. `target`属性， GoTop 对应的 DOM 元素 
+        3. `bindEvent` 方法， 用于绑定事件 
+        4 `createNode` 方法， 用于在容器内创建节点
+        */
+
+        var GoTop = function (ct, target) {
+            if (!ct) return
+            this.ct = ct || $('body')
+            this.createNode()
+            this.bindEvent()
+        }
+        GoTop.prototype = {
+            bindEvent: function () {
+                let GoTop = this
+                this.target.addEventListener('click', function (e) {
+                    window.scrollTo(0, 0)
+                })
+                window.addEventListener('scroll', function (e) {
+                    GoTop.target.classList.toggle('hide', window.scrollY < 100)
+                })
+            },
+            createNode: function () {
+                this.target = document.createElement('div')
+                this.target.classList.add('goTop')
+                this.ct.appendChild(this.target)
+            }
+        }
+        var goTop = new GoTop($('.container'))
+
+        function $(ele) {
+            return document.querySelector(ele)
+        }
+    </script>
+</body>
+
+</html>
