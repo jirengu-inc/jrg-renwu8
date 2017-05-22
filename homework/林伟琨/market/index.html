@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>market</title>
+  <link rel=stylesheet href=//at.alicdn.com/t/font_5hnqr4h9y54b1emi.css>
+  <script src=//code.jquery.com/jquery-1.11.1.min.js></script>
+  <style>
+    .placed {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, - 50%);
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      background-color: #fff;
+      margin: 50px;
+      border: 20px solid #525c68;
+      border-left-color: #0dcecb;
+      animation: move 1s infinite linear;
+    }
+
+    @keyframes move {
+      0% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+  </style>
+  <link href=/static/css/app.b25a5bcfec9cb6162c58b66ffe8ff67c.css rel=stylesheet>
+</head>
+
+<body>
+  <div id=app>
+    <div class=placed></div>
+  </div>
+  <script type=text/javascript src=/static/js/manifest.8bdcd95d08a9065f5e96.js></script>
+  <script type=text/javascript src=/static/js/vendor.b05ab34009147e6cc4d0.js></script>
+  <script type=text/javascript src=/static/js/app.154d7c4129bb5b01f4ec.js></script>
+</body>
+
+</html>
