@@ -1,0 +1,28 @@
+.container > div{
+    height: 100px;
+    border: 1px solid red;
+}
+.container{
+    width:800px;
+    margin: 0 auto;    
+    text-align: center;
+}
+
+.bottonLoad{
+    padding: 10px 20px;
+    line-height: 50px;
+    border: 1px solid palevioletred;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear:both;
+}
+.newsList > li{
+    float: left;
+    margin-top: 10px;
+    margin-left: 200px;
+}
+.newsList{
+    margin-top: 5px;
+}

@@ -1,0 +1,63 @@
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.container{
+    margin: 0 auto;
+    width: 80%;
+}
+.sliderModule{
+    overflow: hidden;
+    position: relative;
+    width:480px;
+    height: 320px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.sliderModule .imageContainer {
+    position: absolute;
+}
+.sliderModule .imageContainer > li{
+    font-size: 0;
+    float: left;
+}
+
+.sliderModule .buttonContainer{
+}
+.sliderModule .buttonContainer .button{
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: lightgray;
+    color: hotpink;
+    transform: translateY(-50%);
+}
+.sliderModule .buttonContainer .buttonLeft{
+    left: 2%;
+}
+.sliderModule .buttonContainer .buttonRight{
+    right: 2%;
+}
+.sliderModule .bulletContainer {
+    position: absolute;
+    text-align: center;
+    width:100%;
+    top:85%;
+}
+.sliderModule .bulletContainer > span{
+    display: inline-block;
+    width: 16px;
+    height: 8px;
+    background-color: lightgray;
+    border-radius: 30%;
+    margin: 0 3px;
+}
+.sliderModule .bulletContainer > span.active{
+     background-color: hotpink;
+}
+
