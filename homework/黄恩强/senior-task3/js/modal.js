@@ -47,13 +47,17 @@ var Dialog = (function () {
             this.footer = footer
         },
         createThemeHtml: function () {
-            let $html = $('<div class="dialogModule"></div>'),
+            let $html = $('<div class="dialog"> </div>'),
+                $cover = $('<div class="cover"></div>'),
+                $box = $('<div class="dialogBox"></div>'),
                 $header = this.createHeaderHtml(),
                 $bodyder = this.createBodyerHtml(),
                 $footer = this.createFooterHtml()
-            $html.append($header)
-            $html.append($bodyder)
-            $html.append($footer)
+            $html.append($cover)
+            $box.append($header)
+            $box.append($bodyder)
+            $box.append($footer)
+            $html.append($box)
             $('body').append($html)
 
             this.$doneHtml = $html
@@ -126,7 +130,6 @@ var Dialog = (function () {
     return {
         open: function (options) {
             new Modal(options)
-            $('body').css('display', 'none')
         }
     }
 })();
@@ -160,10 +163,10 @@ let btn4 = {
         content: ulHtml
     },
     footer: {
-        sureButton: function(){
+        sureButton: function () {
             alert('OK!')
         },
-        cancelButton: function(){
+        cancelButton: function () {
             alert('NO!')
         }
     }

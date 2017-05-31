@@ -1,25 +1,34 @@
-.dialogModule{
+.dialogBox{
     position: absolute;
     top: 50%;
     left:50%;
     transform: translate(-50%,-50%);
     background-color: lightgray;
     min-width: 350px;
-    /*min-height: 150px;*/
     border-radius: 8px;
-    box-shadow: 0 0 0 80rem rgba(0,0,0,0.8);
+     z-index: 500;
+    /*box-shadow: 0 0 0 80rem rgba(0,0,0,0.8);*/
 }
-.dialogModule .header{
+.dialog .cover{
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: 300;
+}
+.dialogBox .header{
     position: relative;
 }
-.dialogModule .header .title{
+.dialogBox .header .title{
     color: white;
     background-color: gray;
     padding: 5%;
     border-radius: 8px 8px 0 0 ;
     font-size: 16px;
 }
-.dialogModule .header .close{
+.dialogBox .header .close{
     text-align: center;
     position: absolute;
     top: 50%;
@@ -33,10 +42,10 @@
     font-weight: bold;
     color:white;
 }
-.dialogModule .bodyer .content{
+.dialogBox .bodyer .content{
     margin: 5%;
 }
-.dialogModule .footer{
+.dialogBox .footer{
     text-align: center;
     margin:5%;
 }
