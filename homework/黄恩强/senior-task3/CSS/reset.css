@@ -1,7 +1,14 @@
-html,body,div,p,ul,ol,li,a,img{
+html,body,h1,h2,h3,h4,h5,h6,div,p,ul,ol,li,a,img,button{
     padding:0;
     margin:0;
     
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+button{
+    border-style: none;
+    background-color: rgba(0,0,0,0) 
 }
 li{
     list-style: none;
