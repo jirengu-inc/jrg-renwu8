@@ -3,9 +3,9 @@
     top: 50%;
     left:50%;
     transform: translate(-50%,-50%);
-    background-color: lightgray;
     min-width: 350px;
     border-radius: 8px;
+    background-color: lightgray;
      z-index: 500;
     /*box-shadow: 0 0 0 80rem rgba(0,0,0,0.8);*/
 }

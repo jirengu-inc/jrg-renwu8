@@ -4,6 +4,7 @@ var Dialog = (function () {
         this.init()
         this.createThemeHtml()
         this.bindEvent()
+        this.showNode()
     }
     Modal.prototype = {
         defaultOptions: {
@@ -47,7 +48,7 @@ var Dialog = (function () {
             this.footer = footer
         },
         createThemeHtml: function () {
-            let $html = $('<div class="dialog"> </div>'),
+            let $html = $('<div class="dialog" style="display:none"></div>'),
                 $cover = $('<div class="cover"></div>'),
                 $box = $('<div class="dialogBox"></div>'),
                 $header = this.createHeaderHtml(),
@@ -118,8 +119,15 @@ var Dialog = (function () {
                 Modal.close()
             })
         },
+        showNode: function () {
+            this.$doneHtml.fadeIn()
+        },
         close: function () {
-            this.$doneHtml.remove()
+            let Modal = this
+            this.$doneHtml.fadeOut(function () {
+                Modal.$doneHtml.remove()
+            })
+
         },
         buttonCallBack: function (button) {
             let footer = this.footer
@@ -130,7 +138,6 @@ var Dialog = (function () {
     return {
         open: function (options) {
             new Modal(options)
-            
         }
     }
 })();
