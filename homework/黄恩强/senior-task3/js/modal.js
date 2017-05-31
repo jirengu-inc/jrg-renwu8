@@ -130,6 +130,7 @@ var Dialog = (function () {
     return {
         open: function (options) {
             new Modal(options)
+            
         }
     }
 })();
