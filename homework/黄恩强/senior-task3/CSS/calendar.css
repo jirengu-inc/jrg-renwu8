@@ -1,0 +1,56 @@
+.calendarBox {
+    width: 240px;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+.calendarBox .header{
+    position: relative;
+    background-color: red;
+    text-align: center;
+    color: white;
+    padding: 3px 0;
+}
+.calendarBox .header .headerData{
+    font-style: normal;
+    font-size: 14px;
+    padding: 4px 0;
+}
+.calendarBox .header .button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width:0;
+    height: 0;
+    border-width: 8px 8px;;
+    border-style: solid;
+    font-size: 0;
+    cursor: pointer;
+}
+.calendarBox .header .previousButton{
+    left: 2%;
+    border-color: red white red red;
+}
+.calendarBox .header .NextButton{
+    right: 2%;
+    border-color: red red red white;
+}
+.calendarBox .page > thead  th{
+    font-size: 14px;
+    box-sizing: border-box;
+    line-height: 2;
+    width: 34px;
+}
+.calendarBox .page > tbody  td{
+    font-size: 13px;
+    text-align: center;
+    box-sizing: border-box;
+    padding:2px;
+    cursor: pointer;
+}
+.calendarBox .page > tbody  td:hover{
+    color: white;
+    background-color: lightgray;
+}
+.calendarBox .page > tbody .pre,.next{
+    color: lightgray;
+}
