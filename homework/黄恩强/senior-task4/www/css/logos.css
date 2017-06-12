@@ -1,0 +1,6 @@
+/*logos*/
+#logos ul > li{
+	float: left;
+	width: 200px;  /*(1000 -(200 * 4) / 4 = 50 / 2 = 25 */
+	margin: 85px 25px;
+}

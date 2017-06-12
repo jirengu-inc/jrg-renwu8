@@ -1,0 +1,62 @@
+
+.slider-module{
+	height: 100%;
+	position: relative;
+    overflow: hidden;
+}
+.slider-module .image-container{
+	position: absolute;
+	top:0;	
+	bottom:0;
+}
+.slider-module .image-container > li{
+    float: left;
+}
+#header .slider-module img{
+	background-size: contain;
+}
+.button-container > .button{
+	position: absolute;
+    top:0;
+    bottom: 0;
+    width: 8%;
+    font-size:30px;
+    color: white;
+}
+.button-container > .button > span{
+    position: absolute;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+.button-container .button-left{
+    background: linear-gradient(to right,rgba(0,0,0,0.4), rgba(255,255,253,0.3));
+    left: 0;
+}
+.button-container .button-right{
+     background: linear-gradient(to left,rgba(0,0,0,0.4), rgba(255,255,253,0.3));
+     right: 0;
+}
+.button-container .button.active{
+    background-color:rgba(0,0,0,0.3);
+}
+
+
+.slider-module .bullet-container {
+    position: absolute;
+    text-align: center;
+    width:100%;
+    top: 95%;
+}
+.bullet-container > span{
+    display: inline-block;
+    width: 26px;
+    height: 8px;
+    border-radius: 30%;
+	margin: 0 3px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.bullet-container > span.active{
+    transition:  all .3s ease-in .1s;
+   	background-color: rgba(255,255,255,1);
+}

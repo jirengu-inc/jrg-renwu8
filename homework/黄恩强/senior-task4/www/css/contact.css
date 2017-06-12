@@ -1,0 +1,38 @@
+/*contact*/
+#contact{
+	background: url(../img/map-image.png) #222 50% 20px no-repeat; 
+	background-color: #222;
+	background-size: contain;
+}
+
+/*contact*/
+#contact .title h1{
+	color: white;
+}
+.form-wrap{
+	overflow: hidden;
+}
+#contact .ff{
+	float: left;
+	width:500px;
+}
+#contact .ff-rs{
+	border-style: none;
+	border-radius: 3px;
+	width: 480px;
+	height: 50px;
+	background-color: white;
+	margin-bottom: 20px;
+	padding-left: 10px;
+	font-family: "Arial";
+	font-size: 16px;
+}
+#contact textarea.ff-rs{
+	margin-left: 20px;
+	padding-top: 10px;
+	height: 180px;
+}
+.ff-btn{
+	margin-top: 240px;
+	margin-bottom: 180px;
+}

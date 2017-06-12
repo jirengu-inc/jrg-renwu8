@@ -1,0 +1,11 @@
+/*footer*/
+#footer ul > li{
+	line-height: 100px;
+	float: left;
+	text-align: center;
+	width: 300px;
+	margin: 0 16px;
+}
+#footer ul >li:last-child{
+	color: rgba(254,209,54,1);
+}
