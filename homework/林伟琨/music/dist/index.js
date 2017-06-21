@@ -81,6 +81,7 @@ __webpack_require__(0)
 function $(el) {
     return document.querySelector(el)
 }
+
 function removeClass(obj, cls) {
     if (hasClass(obj, cls)) {
         var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
@@ -145,7 +146,6 @@ function ajax(opts) {
         xhr.send(arr.join("&"));
     }
 }
-
 function Music() {
     this.music = new Audio();
     this.musicBox = $('.music-box');
@@ -155,9 +155,10 @@ function Music() {
     this.next = $('.next')
     this.play = $('.play')
     this.pause = $('.pause');
+    this.rate =$('.rate')
     this.hadPlay = [];
-    this.volumeRate = 0.5;
-    this.volumeTotalWidth = 176;
+    this.volumeRate = 0.2;
+    this.volumeTotalWidth = $('.volume-control').offsetWidth;
     this.channel = null;
     this.flag = true; //控制channel显示
     this.init();
@@ -170,7 +171,9 @@ Music.prototype = {
         this.getMusic();
         $('.volume-control-child').style.width = this.volumeRate * this.volumeTotalWidth + 'px';
         this.music.volume = this.volumeRate;
+        //console.log(this.volumeRate)
     },
+    //音乐play/pause的控制
     playFn: function () {
         this.music.play();
         this.play.style.display = 'none';
@@ -183,13 +186,15 @@ Music.prototype = {
     },
     bindEvent: function () {
         var self = this;
+        //进度条动画
         this.music.addEventListener('canplay', function () {
             setInterval(function () {
                 var r = self.music.currentTime / self.music.duration
                 $('.rate-child').style.width = self.musicWidth * r + 'px'
             }, 100)
         })
-        $('.rate').addEventListener('click', function (e) {
+        //进度条点击事件
+        this.rate.addEventListener('click', function (e) {
             var newRate = e.offsetX / self.musicWidth;
             self.music.currentTime = self.music.duration * newRate
         })
@@ -205,6 +210,7 @@ Music.prototype = {
         this.next.addEventListener('click', function () {
             self.getMusic();
         })
+        //上一首音乐的控制
         this.pre.addEventListener('click', function () {
             console.log(self.hadPlay.length)
             if (self.hadPlay.length - 1 <= 0) {
@@ -217,26 +223,25 @@ Music.prototype = {
         //频道的控制
         $('.icon-git45').addEventListener('click', function () {
             if (self.flag) {
-                $('.channel-total').style.display='block';
+                $('.channel-total').style.display = 'block';
                 self.flag = false;
             } else {
-                $('.channel-total').style.display='none';
+                $('.channel-total').style.display = 'none';
                 self.flag = true;
             }
         })
-        $('.channel-total').addEventListener('click',function(e){
+        //音乐类型的控制
+        $('.channel-total').addEventListener('click', function (e) {
             var channelId = e.target.getAttribute('channelId')
-            if(channelId){
-                self.channel=channelId;
+            if (channelId) {
+                self.channel = channelId;
                 self.getMusic();
-                $('.channel-total').style.display='none';
+                $('.channel-total').style.display = 'none';
                 self.flag = true;
             }
-        },true)
+        }, true)
         //音量使用 事件代理
-        $('.volume').addEventListener('click', function () {
-            self.music.volume = self.volumeRate;
-        })
+ 
         $('.volume-on').addEventListener('click', function () {
             self.volumeRate = 1;
             $('.volume-control-child').style.width = self.volumeTotalWidth + 'px'
@@ -246,7 +251,7 @@ Music.prototype = {
             $('.volume-control-child').style.width = 0;
         })
         $('.volume-control').addEventListener('click', function (e) {
-            self.volumeRate = e.offsetX / self.volumeTotalWidth
+            self.volumeRate = e.offsetX / self.volumeTotalWidth;
             $('.volume-control-child').style.width = e.offsetX + 'px'
         })
     },
@@ -261,8 +266,7 @@ Music.prototype = {
     //获取歌曲信息
     getMusic: function () {
         var self = this;
-        var data = this.channel? 'channel='+this.channel :'channel=public_shiguang_90hou';
-        console.log(this.channel,data)
+        var data = this.channel ? 'channel=' + this.channel : 'channel=public_shiguang_90hou';
         ajax({
             url: 'http://api.jirengu.com/fm/getSong.php',
             type: 'get',
