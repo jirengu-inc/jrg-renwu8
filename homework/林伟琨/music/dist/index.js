@@ -174,6 +174,7 @@ Music.prototype = {
         this.getMusic();
         this.volumeControlChild.style.width = this.volumeRate * this.volumeTotalWidth + 'px';
         this.music.volume = this.volumeRate;
+        console.log(this.music.volume===this.volumeRate)
     },
     //音乐play/pause的控制
     playFn: function () {
@@ -197,7 +198,6 @@ Music.prototype = {
         })
         //进度条点击事件
         this.rate.addEventListener('click', function (e) {
-            console.log(e.offsetX)
             var newRate = e.offsetX / self.musicWidth;
             self.music.currentTime = self.music.duration * newRate
         })
@@ -248,6 +248,7 @@ Music.prototype = {
             self.music.volume = self.volumeRate;
         })
         $('.volume-on').addEventListener('click', function () {
+            console.log(self.music.volume)
             self.volumeRate = 1;
             self.volumeControlChild.style.width = self.volumeTotalWidth + 'px'
         })
