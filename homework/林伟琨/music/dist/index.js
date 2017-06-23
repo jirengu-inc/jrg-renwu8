@@ -156,9 +156,12 @@ function Music() {
     this.play = $('.play')
     this.pause = $('.pause');
     this.rate =$('.rate')
+    this.volumeControlChild=$('.volume-control-child')
     this.hadPlay = [];
     this.volumeRate = 0.2;
     this.volumeTotalWidth = $('.volume-control').offsetWidth;
+    this.rateChild=$('.rate-child');
+    this.channelTotal=$('.channel-total');
     this.channel = null;
     this.flag = true; //控制channel显示
     this.init();
@@ -169,9 +172,8 @@ Music.prototype = {
     init: function () {
         this.getChannel();
         this.getMusic();
-        $('.volume-control-child').style.width = this.volumeRate * this.volumeTotalWidth + 'px';
+        this.volumeControlChild.style.width = this.volumeRate * this.volumeTotalWidth + 'px';
         this.music.volume = this.volumeRate;
-        //console.log(this.volumeRate)
     },
     //音乐play/pause的控制
     playFn: function () {
@@ -190,11 +192,12 @@ Music.prototype = {
         this.music.addEventListener('canplay', function () {
             setInterval(function () {
                 var r = self.music.currentTime / self.music.duration
-                $('.rate-child').style.width = self.musicWidth * r + 'px'
+                self.rateChild.style.width = self.musicWidth * r + 'px'
             }, 100)
         })
         //进度条点击事件
         this.rate.addEventListener('click', function (e) {
+            console.log(e.offsetX)
             var newRate = e.offsetX / self.musicWidth;
             self.music.currentTime = self.music.duration * newRate
         })
@@ -223,36 +226,38 @@ Music.prototype = {
         //频道的控制
         $('.icon-git45').addEventListener('click', function () {
             if (self.flag) {
-                $('.channel-total').style.display = 'block';
+                self.channelTotal.style.display = 'block';
                 self.flag = false;
             } else {
-                $('.channel-total').style.display = 'none';
+                self.channelTotal.style.display = 'none';
                 self.flag = true;
             }
         })
         //音乐类型的控制
-        $('.channel-total').addEventListener('click', function (e) {
+        this.channelTotal.addEventListener('click', function (e) {
             var channelId = e.target.getAttribute('channelId')
             if (channelId) {
                 self.channel = channelId;
                 self.getMusic();
-                $('.channel-total').style.display = 'none';
+                self.channelTotal.style.display = 'none';
                 self.flag = true;
             }
         }, true)
         //音量使用 事件代理
- 
+        $('.volume').addEventListener('click', function () {
+            self.music.volume = self.volumeRate;
+        })
         $('.volume-on').addEventListener('click', function () {
             self.volumeRate = 1;
-            $('.volume-control-child').style.width = self.volumeTotalWidth + 'px'
+            self.volumeControlChild.style.width = self.volumeTotalWidth + 'px'
         })
         $('.volume-off').addEventListener('click', function () {
             self.volumeRate = 0;
-            $('.volume-control-child').style.width = 0;
+            self.volumeControlChild.style.width = 0;
         })
         $('.volume-control').addEventListener('click', function (e) {
             self.volumeRate = e.offsetX / self.volumeTotalWidth;
-            $('.volume-control-child').style.width = e.offsetX + 'px'
+            self.volumeControlChild.style.width = e.offsetX + 'px'
         })
     },
     //当数据来到之后，改变src,title,artist,icon的状态，bg的改变。 
