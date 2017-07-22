@@ -1,0 +1,13 @@
+/*services  */
+#services .servicesAbout{
+	margin-left: -30px;
+	margin-bottom: 100px;
+}
+#services .servicesAbout>li{
+	float: left; 
+	width: 312px; /*( 1000 - 60 ) / 3 = 312.333*/
+	margin-left: 31px;
+}
+#services .servicesAbout > li > ul > li{
+	margin-bottom: 20px;
+}

@@ -1,0 +1,22 @@
+.gotop{
+    background-color: #222;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    width:80px;
+    height: 45px;
+    border: 1px solid rgba(0,0,0,0.1);
+    position: fixed;
+    right: 2%;
+    bottom:2%;
+    z-index:50;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+.gotop span{
+    font-family: "Arial";
+	font-size: 20px;
+    line-height: 45px;
+    color: white;
+}
+

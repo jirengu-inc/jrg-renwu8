@@ -1,0 +1,31 @@
+/*team*/
+#team .teamList{
+	margin-left: -30px;
+}
+#team .teamList > li {
+	float: left;
+	width: 312px; /*( 1000 - 60 ) / 3 = 312.333*/
+	margin-left: 30px;
+}
+#team .team-img{
+	margin: 0 auto;
+	width: 160px;
+	height: 160px;
+	padding: 4px;
+	background-color: white;
+	border-radius: 50%;
+	text-align: center;
+	margin-bottom: 16px;
+}
+#team .team-img img {
+	width: 160px;
+	border-radius: 50%
+}
+#team .wrap > p{
+	padding: 0 210px;
+	padding-bottom: 120px;
+	padding-top: 50px;
+}
+#team .m-icons{
+	margin-top: 8px;
+}
