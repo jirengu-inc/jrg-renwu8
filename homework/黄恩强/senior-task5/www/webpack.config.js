@@ -18,7 +18,7 @@ const config = {
     output: {
         //导出目录
         path: buildPath,
-        publicPath: '/dist/',
+        publicPath: '/jirengu-inc/jrg-renwu8/homework/黄恩强/senior-task5/www/dist/',
         // 包规范格式
         libraryTarget: 'umd',
         library: 'myLibrary',
