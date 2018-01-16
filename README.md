@@ -1,7 +1,4 @@
-﻿
-add task 9-2
-=======
-# 使用步骤
+﻿# 使用步骤
 
 1. 获取本 repo 读写权限
 2. `git clone git@github.com:jirengu-inc/jrg-renwu8.git`
